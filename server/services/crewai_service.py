@@ -3,12 +3,10 @@ CrewAI service for handling agent-based conversations.
 """
 
 import os
-from dotenv import load_dotenv
 from crewai import Agent, LLM
 from typing import Dict, Any, List, Union
+from phoenix.client import Client
 
-# Load environment variables
-load_dotenv()
 
 # Configure Ollama Mistral 7B LLM
 llm = LLM(

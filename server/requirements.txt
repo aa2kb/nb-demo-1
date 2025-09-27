@@ -6,3 +6,4 @@ pydantic==2.11.9
 requests==2.32.3
 openinference-instrumentation-litellm==0.1.25
 arize-phoenix-otel==0.13.1
+arize-phoenix-client==1.20.0

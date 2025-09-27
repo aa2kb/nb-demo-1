@@ -18,6 +18,8 @@ echo "Installing dependencies..."
 pip install -r requirements.txt
 
 # Set environment variables for Phoenix
+export OPENAI_API_BASE_URL="http://localhost:11434/v1"
+export OPENAI_API_KEY="local-api"
 export PHOENIX_HOST="0.0.0.0"
 export PHOENIX_PORT="6006"
 
