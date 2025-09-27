@@ -3,10 +3,6 @@ FastAPI application setup and configuration.
 """
 
 from fastapi import FastAPI, HTTPException
-from models.requests import (
-    ChatRequest, ChatResponse, ResearchRequest, ResearchResponse, AgentInfoResponse
-)
-from services.crewai_service import CrewAIService
 from api import routes, health
 
 # Initialize FastAPI app
@@ -19,9 +15,6 @@ app = FastAPI(
 # Include API routers
 app.include_router(routes.router)
 app.include_router(health.router)
-
-# Initialize CrewAI service
-crewai_service = CrewAIService()
 
 
 @app.get("/")
@@ -51,39 +44,3 @@ async def root():
 async def health_check():
     """Health check endpoint"""
     return {"status": "healthy", "service": "crewai-agent-api"}
-
-
-@app.get("/agent-info", response_model=AgentInfoResponse)
-async def get_agent_info():
-    """Get information about the chat agent"""
-    try:
-        agent_info = crewai_service.get_agent_info()
-        return AgentInfoResponse(**agent_info)
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error getting agent info: {str(e)}")
-
-
-@app.post("/chat", response_model=ResearchResponse)
-async def chat_with_agent(request: ResearchRequest):
-    """Chat with the CrewAI service"""
-    try:
-        if not request.topic or len(request.topic.strip()) == 0:
-            raise HTTPException(status_code=400, detail="Message cannot be empty")
-        
-        result = crewai_service.chat(request.topic)
-        
-        if result["status"] == "error":
-            return ResearchResponse(
-                status="error",
-                topic=request.topic,
-                error=result["error"]
-            )
-        
-        return ResearchResponse(
-            status="success",
-            topic=request.topic,
-            result=result["response"]
-        )
-        
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error processing chat request: {str(e)}")
