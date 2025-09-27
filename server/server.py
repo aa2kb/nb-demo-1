@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import Dict, Any
 from crewai_agent import CrewAIService
+from openai_routes import openai_router
 
 # Pydantic models for request/response
 class ResearchRequest(BaseModel):
@@ -21,10 +22,13 @@ class AgentInfoResponse(BaseModel):
 
 # Initialize FastAPI app
 app = FastAPI(
-    title="CrewAI Agent API",
-    description="A simple API to interact with CrewAI research agent",
-    version="1.0.0"
+    title="CrewAI Agent API with OpenAI Compatibility",
+    description="A hybrid API that provides both CrewAI research agent functionality and OpenAI-compatible endpoints for Ollama models",
+    version="2.0.0"
 )
+
+# Include OpenAI-compatible routes
+app.include_router(openai_router)
 
 # Initialize CrewAI service
 crew_service = CrewAIService()
@@ -33,13 +37,22 @@ crew_service = CrewAIService()
 async def root():
     """Root endpoint with basic information"""
     return {
-        "message": "CrewAI Agent API",
-        "version": "1.0.0",
-        "endpoints": [
-            "/research - POST: Research a topic",
-            "/agent-info - GET: Get agent information",
-            "/health - GET: Health check"
-        ]
+        "message": "CrewAI Agent API with OpenAI Compatibility",
+        "version": "2.0.0",
+        "endpoints": {
+            "crewai": [
+                "/research - POST: Research a topic using CrewAI",
+                "/agent-info - GET: Get CrewAI agent information",
+                "/health - GET: Health check for CrewAI service"
+            ],
+            "openai_compatible": [
+                "/v1/models - GET: List available Ollama models as agents",
+                "/v1/chat/completions - POST: Create chat completions using Ollama",
+                "/v1/models/{model_id} - GET: Get specific model information",
+                "/v1/health - GET: Health check for OpenAI-compatible API"
+            ]
+        },
+        "documentation": "/docs"
     }
 
 @app.get("/health")
