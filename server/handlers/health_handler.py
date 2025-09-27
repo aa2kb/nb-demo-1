@@ -4,26 +4,25 @@ Bridge between FastAPI and business logic controllers.
 """
 
 from fastapi import HTTPException
-from controllers.agent_controller import AgentController
+from services.crewai_service import CrewAIService
 
 
 class HealthHandler:
     def __init__(self):
-        self.agent_controller = AgentController()
+        self.crewai_service = CrewAIService()
     
     async def openai_health_check(self):
         """Handle OpenAI-compatible API health check."""
         try:
             # Check if CrewAI service is available
-            result = self.agent_controller.get_agent_info()
+            agent_info = self.crewai_service.get_agent_info()
             
-            if result["success"]:
-                agent_data = result["data"]
+            if agent_info:
                 return {
                     "status": "healthy",
                     "service": "openai-compatible-api",
                     "crewai_status": "connected",
-                    "agent_role": agent_data.get("role", "unknown")
+                    "agent_role": agent_info.get("role", "unknown")
                 }
             else:
                 raise HTTPException(
