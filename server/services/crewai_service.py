@@ -1,3 +1,7 @@
+"""
+CrewAI service for handling agent-based conversations.
+"""
+
 import os
 from dotenv import load_dotenv
 from crewai import Agent, Task, Crew, LLM
@@ -12,7 +16,8 @@ llm = LLM(
     base_url="http://localhost:11434"
 )
 
-class AgentCrew:
+
+class CrewAIService:
     def __init__(self):
         # Define a simple chat agent
         self.chat_agent = Agent(

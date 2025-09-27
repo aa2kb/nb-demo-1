@@ -1,31 +1,30 @@
 """
-OpenAI-compatible API routes for the server.
+API routes for OpenAI-compatible endpoints.
 These routes implement the OpenAI API specification for compatibility with OpenAI clients.
 """
 
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import StreamingResponse
-from typing import Union
 import logging
 import asyncio
 import json
-import time
 from pprint import pprint
 
-from openai_models import (
-    ChatCompletionRequest, ChatCompletionResponse, ModelsResponse, ErrorResponse,
-    Model, Usage, ChatCompletionChoice, ChatMessage, generate_completion_id, get_current_timestamp,
+from models.chat import (
+    ChatCompletionRequest, ChatCompletionResponse, ChatCompletionChoice,
+    ChatMessage, Usage, generate_completion_id, get_current_timestamp,
     ChatCompletionStreamResponse, ChatCompletionStreamChoice
 )
-from crewai_agent import AgentCrew
+from models.requests import ModelsResponse, Model
+from services.crewai_service import CrewAIService
 
 logger = logging.getLogger(__name__)
 
 # Create router for OpenAI-compatible endpoints
-openai_router = APIRouter(prefix="/v1", tags=["OpenAI Compatible"])
+router = APIRouter(prefix="/v1", tags=["OpenAI Compatible"])
 
-# Initialize AgentCrew
-agent_crew = AgentCrew()
+# Initialize CrewAI service
+crewai_service = CrewAIService()
 
 
 async def simulate_streaming_response(content: str, model: str, completion_id: str, chunk_delay: float = 0.05):
@@ -118,7 +117,7 @@ async def simulate_streaming_response(content: str, model: str, completion_id: s
     yield "data: [DONE]\n\n"
 
 
-@openai_router.get("/models", response_model=ModelsResponse)
+@router.get("/models", response_model=ModelsResponse)
 async def list_models():
     """
     List all available models (agents) in OpenAI format.
@@ -150,7 +149,7 @@ async def list_models():
         )
 
 
-@openai_router.post("/chat/completions", response_model=None)
+@router.post("/chat/completions", response_model=None)
 async def create_chat_completion(
     request: ChatCompletionRequest,
     http_request: Request
@@ -230,18 +229,18 @@ async def create_chat_completion(
                 }
             )
         
-        # Use AgentCrew to chat and get the full response first
-        print('sending message to agentcrew:')
-        chat_result = agent_crew.chat(user_message)
+        # Use CrewAI service to chat and get the full response first
+        print('sending message to crewai service:')
+        chat_result = crewai_service.chat(user_message)
         
         if chat_result["status"] == "error":
             raise HTTPException(
                 status_code=500,
                 detail={
                     "error": {
-                        "message": f"AgentCrew error: {chat_result['error']}",
+                        "message": f"CrewAI service error: {chat_result['error']}",
                         "type": "internal_error",
-                        "code": "agentcrew_error"
+                        "code": "crewai_error"
                     }
                 }
             )
@@ -315,7 +314,7 @@ async def create_chat_completion(
         )
 
 
-@openai_router.get("/models/{model_id}")
+@router.get("/models/{model_id}")
 async def retrieve_model(model_id: str):
     """
     Retrieve information about a specific model.
@@ -351,45 +350,5 @@ async def retrieve_model(model_id: str):
                     "type": "internal_error", 
                     "code": "server_error"
                 }
-            }
-        )
-
-
-# Health check endpoint for OpenAI API
-@openai_router.get("/health")
-async def openai_health_check():
-    """
-    Health check for the OpenAI-compatible API.
-    """
-    try:
-        # Check if AgentCrew is available
-        agent_info = agent_crew.get_agent_info()
-        
-        if agent_info:
-            return {
-                "status": "healthy",
-                "service": "openai-compatible-api",
-                "agentcrew_status": "connected",
-                "agent_role": agent_info.get("role", "unknown")
-            }
-        else:
-            raise HTTPException(
-                status_code=503,
-                detail={
-                    "status": "unhealthy", 
-                    "service": "openai-compatible-api",
-                    "agentcrew_status": "disconnected",
-                    "error": "Cannot access AgentCrew service"
-                }
-            )
-            
-    except Exception as e:
-        logger.error(f"Health check failed: {e}")
-        raise HTTPException(
-            status_code=503,
-            detail={
-                "status": "unhealthy",
-                "service": "openai-compatible-api", 
-                "error": str(e)
             }
         )

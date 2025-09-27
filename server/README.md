@@ -5,16 +5,29 @@ A simple project that combines CrewAI agents with FastAPI to create a research a
 ## Project Structure
 
 ```
-nb-2/
-├── main.py              # Application entry point (runs uvicorn server)
-├── server.py            # FastAPI application and routes
-├── crewai_agent.py      # CrewAI agent implementation (using Ollama)
-├── test_ollama.py       # Test script for Ollama connectivity
-├── pyproject.toml       # Project configuration and dependencies
-├── requirements.txt     # Python dependencies (alternative)
-├── .env.example         # Environment variables template
-├── .gitignore          # Git ignore file
-└── README.md           # This file
+server/
+├── main.py                      # Application entry point (runs uvicorn server)
+├── app.py                       # FastAPI application setup
+├── requirements.txt             # Python dependencies
+├── .env.example                 # Environment variables template
+├── api/                         # API routes and endpoints
+│   ├── __init__.py
+│   ├── routes.py                # OpenAI-compatible API routes
+│   └── health.py                # Health check endpoints
+├── models/                      # Pydantic data models
+│   ├── __init__.py
+│   ├── chat.py                  # Chat completion models
+│   └── requests.py              # Request/response models
+├── services/                    # Business logic and integrations
+│   ├── __init__.py
+│   ├── crewai_service.py        # CrewAI agent service
+│   └── ollama_service.py        # Ollama client service
+├── tests/                       # Test files
+│   ├── __init__.py
+│   ├── test_ollama.py           # Ollama connectivity tests
+│   └── test_api.py              # API endpoint tests
+├── config/                      # Configuration files
+└── README.md                    # This file
 ```
 
 ## Features
@@ -123,9 +136,9 @@ FastAPI automatically generates interactive documentation:
 - **GET** `/agent-info`
 - Returns information about the research agent
 
-### 4. Research Topic
-- **POST** `/research`
-- Researches a given topic using the CrewAI agent
+### 4. Chat with Agent
+- **POST** `/chat`
+- Chat with the CrewAI agent on any topic
 
 **Request Body:**
 ```json
@@ -143,6 +156,15 @@ FastAPI automatically generates interactive documentation:
 }
 ```
 
+### 5. OpenAI-Compatible Endpoints
+
+This server also provides OpenAI-compatible endpoints:
+
+- **GET** `/v1/models` - List available models
+- **POST** `/v1/chat/completions` - Chat completions (streaming & non-streaming)
+- **GET** `/v1/models/{model_id}` - Get model information
+- **GET** `/v1/health` - Health check for OpenAI API
+
 ## Usage Examples
 
 ### Using curl
@@ -154,10 +176,19 @@ curl http://localhost:8000/health
 # Get agent info
 curl http://localhost:8000/agent-info
 
-# Research a topic
-curl -X POST http://localhost:8000/research \
+# Chat with agent
+curl -X POST http://localhost:8000/chat \
   -H "Content-Type: application/json" \
   -d '{"topic": "artificial intelligence"}'
+
+# OpenAI-compatible chat completion
+curl -X POST http://localhost:8000/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "abu-dhabi-gov",
+    "messages": [{"role": "user", "content": "Hello!"}],
+    "stream": false
+  }'
 ```
 
 ### Using Python requests
@@ -165,10 +196,20 @@ curl -X POST http://localhost:8000/research \
 ```python
 import requests
 
-# Research a topic
+# Chat with agent
 response = requests.post(
-    "http://localhost:8000/research",
+    "http://localhost:8000/chat",
     json={"topic": "crewai"}
+)
+print(response.json())
+
+# OpenAI-compatible request
+response = requests.post(
+    "http://localhost:8000/v1/chat/completions",
+    json={
+        "model": "abu-dhabi-gov",
+        "messages": [{"role": "user", "content": "What is CrewAI?"}]
+    }
 )
 print(response.json())
 ```
@@ -197,17 +238,27 @@ Install development dependencies with: `pip install -e ".[dev]"`
 
 To add more capabilities to the agent:
 
-1. Create new tools in `crewai_agent.py`
+1. Create new tools in `services/crewai_service.py`
 2. Add them to the agent's tools list
-3. Create new endpoints in `main.py`
+3. Create new endpoints in `app.py` or in the `api/` modules
 
 ### Adding More Agents
 
 To add additional agents:
 
-1. Define new agents in `crewai_agent.py`
+1. Define new agents in `services/crewai_service.py`
 2. Create tasks for collaboration
-3. Add corresponding API endpoints
+3. Add corresponding API endpoints in the `api/` folder
+
+### Code Organization
+
+The codebase is organized for maintainability:
+
+- **`api/`**: All HTTP routes and endpoint logic
+- **`models/`**: Pydantic models for data validation
+- **`services/`**: Business logic and external service integrations
+- **`tests/`**: Test files for different components
+- **`config/`**: Configuration files (reserved for future use)
 
 ## Troubleshooting
 

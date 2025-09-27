@@ -7,6 +7,7 @@ Run this script to ensure everything is working before starting the main applica
 import requests
 import json
 
+
 def test_ollama_connection():
     """Test if Ollama is running and accessible."""
     try:
@@ -37,6 +38,7 @@ def test_ollama_connection():
         print(f"❌ Error testing Ollama: {e}")
         return False
 
+
 def test_mistral_generation():
     """Test Mistral model generation."""
     try:
@@ -65,6 +67,7 @@ def test_mistral_generation():
         print(f"❌ Error testing generation: {e}")
         return False
 
+
 def main():
     """Run all tests."""
     print("🧪 Testing Ollama Setup for CrewAI")
@@ -82,6 +85,7 @@ def main():
     else:
         print()
         print("⚠️  Please fix Ollama setup before running the application.")
+
 
 if __name__ == "__main__":
     main()

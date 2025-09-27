@@ -1,23 +1,24 @@
 """
-Ollama client wrapper for OpenAI-compatible API.
-Handles communication with the local Ollama instance.
+Ollama service for communicating with the local Ollama instance.
+Handles OpenAI-compatible API requests to Ollama models.
 """
 
 import requests
 import json
 import logging
 from typing import List, Dict, Any, Optional, Generator
-from openai_models import (
+from models.chat import (
     ChatMessage, ChatCompletionRequest, ChatCompletionResponse,
     ChatCompletionStreamResponse, ChatCompletionChoice, ChatCompletionStreamChoice,
-    Usage, Model, ModelsResponse, generate_completion_id, get_current_timestamp
+    Usage, generate_completion_id, get_current_timestamp
 )
+from models.requests import Model, ModelsResponse
 
 logger = logging.getLogger(__name__)
 
 
-class OllamaClient:
-    """Client for communicating with Ollama API."""
+class OllamaService:
+    """Service for communicating with Ollama API."""
     
     def __init__(self, base_url: str = "http://localhost:11434"):
         self.base_url = base_url.rstrip("/")

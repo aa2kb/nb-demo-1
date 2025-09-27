@@ -10,7 +10,7 @@ The server will start on http://0.0.0.0:8000 with auto-reload enabled.
 """
 
 import uvicorn
-from server import app
+from app import app
 
 def main():
     """Start the FastAPI server with uvicorn."""
@@ -21,7 +21,7 @@ def main():
     print("-" * 50)
     
     uvicorn.run(
-        "server:app",
+        "app:app",
         host="0.0.0.0",
         port=8000,
         reload=True,

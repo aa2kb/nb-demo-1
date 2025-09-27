@@ -1,34 +1,13 @@
+"""
+FastAPI application setup and configuration.
+"""
+
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-from typing import Dict, Any
-from crewai_agent import AgentCrew
-from openai_routes import openai_router
-
-# Pydantic models for request/response
-class ChatRequest(BaseModel):
-    message: str
-
-class ChatResponse(BaseModel):
-    status: str
-    message: str
-    result: str = None
-    error: str = None
-
-# Keep ResearchRequest/Response for backward compatibility
-class ResearchRequest(BaseModel):
-    topic: str
-
-class ResearchResponse(BaseModel):
-    status: str
-    topic: str
-    result: str = None
-    error: str = None
-
-class AgentInfoResponse(BaseModel):
-    role: str
-    goal: str
-    backstory: str
-    tools: list
+from models.requests import (
+    ChatRequest, ChatResponse, ResearchRequest, ResearchResponse, AgentInfoResponse
+)
+from services.crewai_service import CrewAIService
+from api import routes, health
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -37,11 +16,13 @@ app = FastAPI(
     version="2.0.0"
 )
 
-# Include OpenAI-compatible routes
-app.include_router(openai_router)
+# Include API routers
+app.include_router(routes.router)
+app.include_router(health.router)
 
-# Initialize AgentCrew
-agent_crew = AgentCrew()
+# Initialize CrewAI service
+crewai_service = CrewAIService()
+
 
 @app.get("/")
 async def root():
@@ -65,28 +46,31 @@ async def root():
         "documentation": "/docs"
     }
 
+
 @app.get("/health")
 async def health_check():
     """Health check endpoint"""
     return {"status": "healthy", "service": "crewai-agent-api"}
 
+
 @app.get("/agent-info", response_model=AgentInfoResponse)
 async def get_agent_info():
     """Get information about the chat agent"""
     try:
-        agent_info = agent_crew.get_agent_info()
+        agent_info = crewai_service.get_agent_info()
         return AgentInfoResponse(**agent_info)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error getting agent info: {str(e)}")
 
+
 @app.post("/chat", response_model=ResearchResponse)
 async def chat_with_agent(request: ResearchRequest):
-    """Chat with the AgentCrew"""
+    """Chat with the CrewAI service"""
     try:
         if not request.topic or len(request.topic.strip()) == 0:
             raise HTTPException(status_code=400, detail="Message cannot be empty")
         
-        result = agent_crew.chat(request.topic)
+        result = crewai_service.chat(request.topic)
         
         if result["status"] == "error":
             return ResearchResponse(

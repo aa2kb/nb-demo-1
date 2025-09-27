@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Test script for OpenAI-compatible API endpoints.
-Tests the newly created OpenAI-compatible API with Ollama integration.
+Tests the newly created OpenAI-compatible API with CrewAI integration.
 """
 
 import requests
@@ -10,7 +10,7 @@ import time
 from typing import Dict, Any
 
 
-class OpenAICompatibleAPITester:
+class APITester:
     """Test client for the OpenAI-compatible API."""
     
     def __init__(self, base_url: str = "http://localhost:8000"):
@@ -159,10 +159,10 @@ class OpenAICompatibleAPITester:
 
 def main():
     """Run all tests for the OpenAI-compatible API."""
-    print("🧪 Testing OpenAI-Compatible API with Ollama Integration")
+    print("🧪 Testing OpenAI-Compatible API with CrewAI Integration")
     print("=" * 60)
     
-    tester = OpenAICompatibleAPITester()
+    tester = APITester()
     
     # Test 1: Health Check
     print("\n1. Testing Health Check...")

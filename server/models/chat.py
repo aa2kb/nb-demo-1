@@ -1,11 +1,10 @@
 """
-OpenAI-compatible API data models for the server.
+Chat-related data models for OpenAI-compatible API.
 These models match the OpenAI API specification to ensure compatibility.
 """
 
 from pydantic import BaseModel, Field
 from typing import List, Optional, Dict, Any, Union, Literal
-from datetime import datetime
 import time
 
 
@@ -64,25 +63,6 @@ class ChatCompletionStreamResponse(BaseModel):
     created: int
     model: str
     choices: List[ChatCompletionStreamChoice]
-
-
-class Model(BaseModel):
-    """Model information."""
-    id: str
-    object: Literal["model"] = "model"
-    created: int
-    owned_by: str = "ollama"
-
-
-class ModelsResponse(BaseModel):
-    """Response model for models endpoint."""
-    object: Literal["list"] = "list"
-    data: List[Model]
-
-
-class ErrorResponse(BaseModel):
-    """Error response model."""
-    error: Dict[str, Any]
 
 
 def generate_completion_id() -> str:
