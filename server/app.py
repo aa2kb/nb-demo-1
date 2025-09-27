@@ -1,9 +1,14 @@
 """
 FastAPI application setup and configuration.
 """
-
+from phoenix.otel import register
 from fastapi import FastAPI
 from routes import chat_routes, models_routes, health_routes
+
+tracer_provider = register(
+  project_name="my-llm-app", # Default is 'default'
+  auto_instrument=True # Auto-instrument your app based on installed OI dependencies
+)
 
 # Initialize FastAPI app
 app = FastAPI(

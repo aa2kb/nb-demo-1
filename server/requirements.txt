@@ -4,3 +4,5 @@ crewai==0.201.1
 python-dotenv==1.1.1
 pydantic==2.11.9
 requests==2.32.3
+openinference-instrumentation-litellm==0.1.25
+arize-phoenix-otel==0.13.1
