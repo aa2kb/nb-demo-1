@@ -19,7 +19,6 @@ llm = LLM(
 
 class CrewAIService:
     def __init__(self):
-        # Define a simple chat agent using the new approach
         self.chat_agent = Agent(
             role="AI Assistant",
             goal="Provide helpful and informative responses to user queries",
@@ -30,9 +29,8 @@ class CrewAIService:
         )
     
     def chat(self, messages: Union[str, List[Dict[str, str]]]) -> Dict[str, Any]:
-        """Chat method that uses agent.kickoff() directly with messages or string"""
+        """Chat with Agent using messages array or single string"""
         try:
-            # Use agent's kickoff() method directly instead of creating a crew
             result = self.chat_agent.kickoff(messages)
     
             return {
