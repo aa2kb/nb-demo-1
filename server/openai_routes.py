@@ -65,6 +65,7 @@ async def create_chat_completion(
     Currently supports non-streaming responses only.
     """
     try:
+        print('received chat completion request:', request)
         # Validate that the model is abu-dhabi-gov
         if request.model != "abu-dhabi-gov":
             raise HTTPException(
