@@ -32,7 +32,8 @@ class ChatCompletionController:
         Returns a standardized response format.
         """
         try:
-            chat_result = self.crewai_service.chat(user_message)
+            # Pass the full messages array to CrewAI service for context-aware responses
+            chat_result = self.crewai_service.chat(messages=messages)
             
             if chat_result["status"] == "error":
                 return {

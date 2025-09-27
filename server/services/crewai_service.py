@@ -4,8 +4,8 @@ CrewAI service for handling agent-based conversations.
 
 import os
 from dotenv import load_dotenv
-from crewai import Agent, Task, Crew, LLM
-from typing import Dict, Any
+from crewai import Agent, LLM
+from typing import Dict, Any, List, Union
 
 # Load environment variables
 load_dotenv()
@@ -19,47 +19,41 @@ llm = LLM(
 
 class CrewAIService:
     def __init__(self):
-        # Define a simple chat agent
+        # Define a simple chat agent using the new approach
         self.chat_agent = Agent(
-            role='AI Assistant',
-            goal='Provide helpful and informative responses to user queries',
-            backstory='You are a knowledgeable AI assistant that helps users with various questions and tasks.',
-            verbose=False,
+            role="AI Assistant",
+            goal="Provide helpful and informative responses to user queries",
+            backstory="You are a knowledgeable AI assistant that helps users with various questions and tasks.",
+            verbose=True,
             allow_delegation=False,
             llm=llm
         )
-        
-        # Create a task with placeholder for user message input
-        self.chat_task = Task(
-            description="Respond to the user's message: {user_message}",
-            agent=self.chat_agent,
-            expected_output="A helpful and informative response to the user's query"
-        )
-        
-        # Create a crew with the agent and task
-        self.crew = Crew(
-            agents=[self.chat_agent],
-            tasks=[self.chat_task],
-            verbose=True
-        )
     
-    def chat(self, message: str) -> Dict[str, Any]:
-        """Chat method that uses CrewAI crew.kickoff() with inputs"""
+    def chat(self, messages: Union[str, List[Dict[str, str]]]) -> Dict[str, Any]:
+        """Chat method that uses agent.kickoff() directly with messages or string"""
         try:
-            # Execute the crew with inputs and get the result
-            result = self.crew.kickoff(inputs={"user_message": message})
-            
+            # Use agent's kickoff() method directly instead of creating a crew
+            result = self.chat_agent.kickoff(messages)
+    
             return {
                 "status": "success",
-                "message": message,
+                "messages": messages,
                 "response": str(result)
             }
         except Exception as e:
             return {
                 "status": "error",
-                "message": message,
+                "messages": messages,
                 "error": str(e)
             }
+    
+    def get_agent_info(self) -> Dict[str, str]:
+        """Get information about the agent"""
+        return {
+            "role": self.chat_agent.role,
+            "goal": self.chat_agent.goal,
+            "backstory": self.chat_agent.backstory
+        }
     
     def get_agent_info(self) -> Dict[str, str]:
         """Get information about the agent"""
