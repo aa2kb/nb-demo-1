@@ -2,8 +2,8 @@
 FastAPI application setup and configuration.
 """
 
-from fastapi import FastAPI, HTTPException
-from api import routes, health
+from fastapi import FastAPI
+from routes import chat_routes, models_routes, agent_routes, health_routes
 
 # Initialize FastAPI app
 app = FastAPI(
@@ -12,9 +12,11 @@ app = FastAPI(
     version="2.0.0"
 )
 
-# Include API routers
-app.include_router(routes.router)
-app.include_router(health.router)
+# Include routers
+app.include_router(chat_routes.router)
+app.include_router(models_routes.router)
+app.include_router(agent_routes.router)
+app.include_router(health_routes.router)
 
 
 @app.get("/")
@@ -40,7 +42,3 @@ async def root():
     }
 
 
-@app.get("/health")
-async def health_check():
-    """Health check endpoint"""
-    return {"status": "healthy", "service": "crewai-agent-api"}
