@@ -6,7 +6,7 @@ from fastapi import FastAPI
 from routes import chat_routes, models_routes, health_routes
 
 tracer_provider = register(
-  project_name="my-llm-app", # Default is 'default'
+  project_name="abu-dhabi-gov", # Default is 'default'
   auto_instrument=True # Auto-instrument your app based on installed OI dependencies
 )
 
