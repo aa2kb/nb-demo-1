@@ -3,3 +3,4 @@ uvicorn==0.37.0
 crewai==0.201.1
 python-dotenv==1.1.1
 pydantic==2.11.9
+requests==2.32.3

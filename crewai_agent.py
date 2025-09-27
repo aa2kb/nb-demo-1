@@ -1,11 +1,17 @@
 import os
 from dotenv import load_dotenv
-from crewai import Agent, Task, Crew
+from crewai import Agent, Task, Crew, LLM
 from crewai.tools import BaseTool
 from typing import Dict, Any
 
 # Load environment variables
 load_dotenv()
+
+# Configure Ollama Mistral 7B LLM
+llm = LLM(
+    model="ollama/mistral:7b",
+    base_url="http://localhost:11434"
+)
 
 class SimpleResearchTool(BaseTool):
     name: str = "Simple Research Tool"
@@ -32,7 +38,8 @@ class CrewAIService:
             backstory='You are an experienced research analyst with expertise in various fields.',
             tools=[self.research_tool],
             verbose=True,
-            allow_delegation=False
+            allow_delegation=False,
+            llm=llm
         )
     
     def research_topic(self, topic: str) -> Dict[str, Any]:
@@ -46,7 +53,8 @@ class CrewAIService:
         crew = Crew(
             agents=[self.research_agent],
             tasks=[task],
-            verbose=False
+            verbose=True,
+            planning_llm=llm
         )
         
         try:

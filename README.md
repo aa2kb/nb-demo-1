@@ -8,7 +8,8 @@ A simple project that combines CrewAI agents with FastAPI to create a research a
 nb-2/
 ├── main.py              # Application entry point (runs uvicorn server)
 ├── server.py            # FastAPI application and routes
-├── crewai_agent.py      # CrewAI agent implementation
+├── crewai_agent.py      # CrewAI agent implementation (using Ollama)
+├── test_ollama.py       # Test script for Ollama connectivity
 ├── pyproject.toml       # Project configuration and dependencies
 ├── requirements.txt     # Python dependencies (alternative)
 ├── .env.example         # Environment variables template
@@ -68,12 +69,24 @@ pip install -e ".[dev]"
 cp .env.example .env
 ```
 
-2. Edit `.env` and add your OpenAI API key:
-```
-OPENAI_API_KEY=your_actual_openai_api_key_here
+2. **Install and Setup Ollama** (if not already done):
+```bash
+# Install Ollama (macOS)
+curl -fsSL https://ollama.com/install.sh | sh
+
+# Pull Mistral 7B model
+ollama pull mistral:7b
+
+# Start Ollama service (if not running)
+ollama serve
 ```
 
-**Note**: You need an OpenAI API key for CrewAI to work. Get one from [OpenAI Platform](https://platform.openai.com/api-keys).
+3. **Verify Ollama is running**:
+```bash
+curl http://localhost:11434/api/tags
+```
+
+**Note**: This project uses Ollama with Mistral 7B model running locally. No external API keys required!
 
 ## Running the Application
 
@@ -169,6 +182,7 @@ print(response.json())
 - **Uvicorn**: ASGI server for FastAPI
 - **Pydantic**: Data validation and serialization
 - **python-dotenv**: Environment variable management
+- **Ollama**: Local LLM inference server (external dependency)
 
 ### Development Tools (Optional)
 
@@ -200,8 +214,26 @@ To add additional agents:
 ### Common Issues
 
 1. **Import Errors**: Make sure virtual environment is activated and dependencies are installed
-2. **OpenAI API Key**: Ensure your API key is valid and has sufficient credits
-3. **Port Conflicts**: Change the port in `main.py` if 8000 is already in use
+2. **Ollama Connection**: Ensure Ollama is running on `http://localhost:11434`
+3. **Model Not Found**: Make sure `mistral:7b` is pulled with `ollama pull mistral:7b`
+4. **Port Conflicts**: Change the port in `main.py` if 8000 is already in use
+
+### Ollama Specific Troubleshooting
+
+```bash
+# Check if Ollama is running
+curl http://localhost:11434/api/tags
+
+# Check available models
+ollama list
+
+# Test Mistral model directly
+curl http://localhost:11434/api/generate -d '{
+  "model": "mistral:7b",
+  "prompt": "Hello, how are you?",
+  "stream": false
+}'
+```
 
 ### Logs
 
