@@ -11,6 +11,8 @@ phoenix_client = Client()
 agent_role_prompt = phoenix_client.prompts.get(prompt_identifier="agent_role")
 agent_role_goal = phoenix_client.prompts.get(prompt_identifier="agent_goal")
 agent_role_backstory = phoenix_client.prompts.get(prompt_identifier="agent_backstory")
+# TODO: RAG using PGSearchTool
+# from crewai_tools import PGSearchTool
 
 # Configure Ollama Mistral 7B LLM
 llm = LLM(
