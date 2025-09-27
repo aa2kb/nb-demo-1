@@ -10,6 +10,7 @@ import logging
 import asyncio
 import json
 import time
+from pprint import pprint
 
 from openai_models import (
     ChatCompletionRequest, ChatCompletionResponse, ModelsResponse, ErrorResponse,
@@ -159,7 +160,31 @@ async def create_chat_completion(
     Supports both streaming and non-streaming responses.
     """
     try:
-        print('received chat completion request:', request)
+        # Pretty print the complete incoming request
+        print("\n" + "="*80)
+        print("📨 INCOMING CHAT COMPLETION REQUEST")
+        print("="*80)
+        
+        print(f"🤖 Model: {request.model}")
+        print(f"🔄 Stream: {request.stream}")
+        print(f"🌡️  Temperature: {request.temperature}")
+        print(f"📏 Max Tokens: {request.max_tokens}")
+        print(f"🎯 Top P: {request.top_p}")
+        print(f"🛑 Stop: {request.stop}")
+        
+        print("\n💬 MESSAGE THREAD:")
+        print("-" * 50)
+        for i, msg in enumerate(request.messages, 1):
+            role_emoji = {"system": "⚙️", "user": "👤", "assistant": "🤖"}.get(msg.role, "❓")
+            print(f"{i}. {role_emoji} {msg.role.upper()}:")
+            print(f"   Content: {msg.content}")
+            print()
+        
+        print("📋 FULL REQUEST OBJECT:")
+        print("-" * 50)
+        pprint(request.model_dump(), width=120, depth=3)
+        print("="*80 + "\n")
+        
         # Validate that the model is abu-dhabi-gov
         if request.model != "abu-dhabi-gov":
             raise HTTPException(
