@@ -1,0 +1,7 @@
+{
+    "OPENAI_API_BASE_URL": "http://localhost:8000/v1",
+    "OPENAI_API_KEY": "local-api",
+    "DEFAULT_MODELS": "abu-dhabi-gov",
+    "ENABLE_OLLAMA_API": false,
+    "ENABLE_OPENAI_API": true
+}
