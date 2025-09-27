@@ -12,15 +12,15 @@ from openai_models import (
     ChatCompletionRequest, ChatCompletionResponse, ModelsResponse, ErrorResponse,
     Model, Usage, ChatCompletionChoice, ChatMessage, generate_completion_id, get_current_timestamp
 )
-from crewai_agent import CrewAIService
+from crewai_agent import AgentCrew
 
 logger = logging.getLogger(__name__)
 
 # Create router for OpenAI-compatible endpoints
 openai_router = APIRouter(prefix="/v1", tags=["OpenAI Compatible"])
 
-# Initialize CrewAI service
-crewai_service = CrewAIService()
+# Initialize AgentCrew
+agent_crew = AgentCrew()
 
 
 @openai_router.get("/models", response_model=ModelsResponse)
@@ -123,17 +123,18 @@ async def create_chat_completion(
                 }
             )
         
-        # Use CrewAI to research the topic
-        crew_result = crewai_service.research_topic(user_message)
+        # Use AgentCrew to chat
+        print('sending message to agentcrew:')
+        chat_result = agent_crew.chat(user_message)
         
-        if crew_result["status"] == "error":
+        if chat_result["status"] == "error":
             raise HTTPException(
                 status_code=500,
                 detail={
                     "error": {
-                        "message": f"CrewAI error: {crew_result['error']}",
+                        "message": f"AgentCrew error: {chat_result['error']}",
                         "type": "internal_error",
-                        "code": "crewai_error"
+                        "code": "agentcrew_error"
                     }
                 }
             )
@@ -141,7 +142,7 @@ async def create_chat_completion(
         # Create OpenAI-compatible response
         assistant_message = ChatMessage(
             role="assistant",
-            content=crew_result["result"]
+            content=chat_result["response"]
         )
         
         choice = ChatCompletionChoice(
@@ -152,7 +153,7 @@ async def create_chat_completion(
         
         # Estimate token usage (simplified)
         prompt_tokens = sum(len(msg.content.split()) for msg in request.messages)
-        completion_tokens = len(crew_result["result"].split())
+        completion_tokens = len(chat_result["response"].split())
         
         usage = Usage(
             prompt_tokens=prompt_tokens,
@@ -234,14 +235,14 @@ async def openai_health_check():
     Health check for the OpenAI-compatible API.
     """
     try:
-        # Check if CrewAI service is available
-        agent_info = crewai_service.get_agent_info()
+        # Check if AgentCrew is available
+        agent_info = agent_crew.get_agent_info()
         
         if agent_info:
             return {
                 "status": "healthy",
                 "service": "openai-compatible-api",
-                "crewai_status": "connected",
+                "agentcrew_status": "connected",
                 "agent_role": agent_info.get("role", "unknown")
             }
         else:
@@ -250,8 +251,8 @@ async def openai_health_check():
                 detail={
                     "status": "unhealthy", 
                     "service": "openai-compatible-api",
-                    "crewai_status": "disconnected",
-                    "error": "Cannot access CrewAI service"
+                    "agentcrew_status": "disconnected",
+                    "error": "Cannot access AgentCrew service"
                 }
             )
             
