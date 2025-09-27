@@ -9,40 +9,38 @@ from typing import Union
 import logging
 
 from openai_models import (
-    ChatCompletionRequest, ChatCompletionResponse, ModelsResponse, ErrorResponse
+    ChatCompletionRequest, ChatCompletionResponse, ModelsResponse, ErrorResponse,
+    Model, Usage, ChatCompletionChoice, ChatMessage, generate_completion_id, get_current_timestamp
 )
-from ollama_client import OllamaClient
+from crewai_agent import CrewAIService
 
 logger = logging.getLogger(__name__)
 
 # Create router for OpenAI-compatible endpoints
 openai_router = APIRouter(prefix="/v1", tags=["OpenAI Compatible"])
 
-# Initialize Ollama client
-ollama_client = OllamaClient()
+# Initialize CrewAI service
+crewai_service = CrewAIService()
 
 
 @openai_router.get("/models", response_model=ModelsResponse)
 async def list_models():
     """
     List all available models (agents) in OpenAI format.
-    Maps Ollama models to OpenAI model format.
+    Returns the abu-dhabi-gov model powered by CrewAI.
     """
     try:
-        models_response = ollama_client.list_models()
-        return models_response
-        
-    except ConnectionError:
-        raise HTTPException(
-            status_code=503, 
-            detail={
-                "error": {
-                    "message": "Ollama service is not available. Please ensure Ollama is running.",
-                    "type": "service_unavailable",
-                    "code": "ollama_connection_error"
-                }
-            }
+        # Return the abu-dhabi-gov model
+        abu_dhabi_model = Model(
+            id="abu-dhabi-gov",
+            created=get_current_timestamp(),
+            owned_by="abu-dhabi-government"
         )
+        
+        return ModelsResponse(
+            data=[abu_dhabi_model]
+        )
+        
     except Exception as e:
         logger.error(f"Error listing models: {e}")
         raise HTTPException(
@@ -63,20 +61,17 @@ async def create_chat_completion(
     http_request: Request
 ):
     """
-    Create a chat completion using Ollama models.
-    Supports both streaming and non-streaming responses.
+    Create a chat completion using CrewAI agents.
+    Currently supports non-streaming responses only.
     """
     try:
-        # Validate that the model exists
-        models_response = ollama_client.list_models()
-        available_models = [model.id for model in models_response.data]
-        
-        if request.model not in available_models:
+        # Validate that the model is abu-dhabi-gov
+        if request.model != "abu-dhabi-gov":
             raise HTTPException(
                 status_code=404,
                 detail={
                     "error": {
-                        "message": f"Model '{request.model}' not found. Available models: {', '.join(available_models)}",
+                        "message": f"Model '{request.model}' not found. Available models: abu-dhabi-gov",
                         "type": "invalid_request_error",
                         "code": "model_not_found"
                     }
@@ -96,46 +91,88 @@ async def create_chat_completion(
                 }
             )
         
-        # Handle streaming response
+        # Handle streaming response (not yet implemented for CrewAI)
         if request.stream:
-            def generate_stream():
-                try:
-                    for chunk in ollama_client.chat_completion_stream(request):
-                        yield chunk
-                except Exception as e:
-                    logger.error(f"Error in streaming: {e}")
-                    error_chunk = f"data: {{'error': '{str(e)}'}}\n\n"
-                    yield error_chunk
-            
-            return StreamingResponse(
-                generate_stream(),
-                media_type="text/plain",
-                headers={
-                    "Cache-Control": "no-cache",
-                    "Connection": "keep-alive",
-                    "Content-Type": "text/event-stream",
+            raise HTTPException(
+                status_code=501,
+                detail={
+                    "error": {
+                        "message": "Streaming is not yet supported with CrewAI agents",
+                        "type": "not_implemented_error",
+                        "code": "streaming_not_supported"
+                    }
                 }
             )
         
-        # Handle non-streaming response
-        else:
-            completion_response = ollama_client.chat_completion(request)
-            return completion_response
+        # Extract the user's question from the last message
+        user_message = None
+        for msg in reversed(request.messages):
+            if msg.role == "user":
+                user_message = msg.content
+                break
+        
+        if not user_message:
+            raise HTTPException(
+                status_code=400,
+                detail={
+                    "error": {
+                        "message": "No user message found in conversation",
+                        "type": "invalid_request_error",
+                        "code": "no_user_message"
+                    }
+                }
+            )
+        
+        # Use CrewAI to research the topic
+        crew_result = crewai_service.research_topic(user_message)
+        
+        if crew_result["status"] == "error":
+            raise HTTPException(
+                status_code=500,
+                detail={
+                    "error": {
+                        "message": f"CrewAI error: {crew_result['error']}",
+                        "type": "internal_error",
+                        "code": "crewai_error"
+                    }
+                }
+            )
+        
+        # Create OpenAI-compatible response
+        assistant_message = ChatMessage(
+            role="assistant",
+            content=crew_result["result"]
+        )
+        
+        choice = ChatCompletionChoice(
+            index=0,
+            message=assistant_message,
+            finish_reason="stop"
+        )
+        
+        # Estimate token usage (simplified)
+        prompt_tokens = sum(len(msg.content.split()) for msg in request.messages)
+        completion_tokens = len(crew_result["result"].split())
+        
+        usage = Usage(
+            prompt_tokens=prompt_tokens,
+            completion_tokens=completion_tokens,
+            total_tokens=prompt_tokens + completion_tokens
+        )
+        
+        response = ChatCompletionResponse(
+            id=generate_completion_id(),
+            created=get_current_timestamp(),
+            model=request.model,
+            choices=[choice],
+            usage=usage
+        )
+        
+        return response
             
     except HTTPException:
         # Re-raise HTTP exceptions as-is
         raise
-    except ConnectionError:
-        raise HTTPException(
-            status_code=503,
-            detail={
-                "error": {
-                    "message": "Ollama service is not available. Please ensure Ollama is running.",
-                    "type": "service_unavailable", 
-                    "code": "ollama_connection_error"
-                }
-            }
-        )
     except Exception as e:
         logger.error(f"Error in chat completion: {e}")
         raise HTTPException(
@@ -156,11 +193,12 @@ async def retrieve_model(model_id: str):
     Retrieve information about a specific model.
     """
     try:
-        models_response = ollama_client.list_models()
-        
-        for model in models_response.data:
-            if model.id == model_id:
-                return model
+        if model_id == "abu-dhabi-gov":
+            return Model(
+                id="abu-dhabi-gov",
+                created=get_current_timestamp(),
+                owned_by="abu-dhabi-government"
+            )
         
         raise HTTPException(
             status_code=404,
@@ -196,13 +234,15 @@ async def openai_health_check():
     Health check for the OpenAI-compatible API.
     """
     try:
-        is_healthy = ollama_client.health_check()
+        # Check if CrewAI service is available
+        agent_info = crewai_service.get_agent_info()
         
-        if is_healthy:
+        if agent_info:
             return {
                 "status": "healthy",
                 "service": "openai-compatible-api",
-                "ollama_status": "connected"
+                "crewai_status": "connected",
+                "agent_role": agent_info.get("role", "unknown")
             }
         else:
             raise HTTPException(
@@ -210,8 +250,8 @@ async def openai_health_check():
                 detail={
                     "status": "unhealthy", 
                     "service": "openai-compatible-api",
-                    "ollama_status": "disconnected",
-                    "error": "Cannot connect to Ollama"
+                    "crewai_status": "disconnected",
+                    "error": "Cannot access CrewAI service"
                 }
             )
             
