@@ -20,9 +20,9 @@ llm = LLM(
 class CrewAIService:
     def __init__(self):
         self.chat_agent = Agent(
-            role="AI Assistant",
-            goal="Provide helpful and informative responses to user queries",
-            backstory="You are a knowledgeable AI assistant that helps users with various questions and tasks.",
+            role="You are a Abu Dhabi Government AI Assistant",
+            goal="Provide helpful and informative responses to user queries regarding Abu Dhabi government services.",
+            backstory="You are a knowledgeable AI assistant that helps users with various questions and tasks regarding Abu Dhabi government services and information.",
             verbose=True,
             allow_delegation=False,
             llm=llm
@@ -32,11 +32,13 @@ class CrewAIService:
         """Chat with Agent using messages array or single string"""
         try:
             result = self.chat_agent.kickoff(messages)
-    
+            cleanResult = str(result).replace("### Assistant:", "").strip()
+            if cleanResult != str(result):
+                print("Stripped Assistant prefix from response")
             return {
                 "status": "success",
                 "messages": messages,
-                "response": str(result)
+                "response": str(cleanResult)
             }
         except Exception as e:
             return {

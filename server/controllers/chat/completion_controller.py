@@ -47,7 +47,6 @@ class ChatCompletionController:
             # Calculate token usage (simplified)
             prompt_tokens = sum(len(msg.get("content", "").split()) for msg in messages)
             completion_tokens = len(chat_result["response"].split())
-            
             return {
                 "success": True,
                 "data": {
