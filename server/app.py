@@ -5,14 +5,8 @@ from dotenv import load_dotenv
 from phoenix.otel import register
 from fastapi import FastAPI
 from routes import chat_routes, models_routes, health_routes
-from phoenix.client import Client
 
 load_dotenv()
-
-phoenix_client = Client()
-prompt_name = "agent_role"
-prompt = phoenix_client.prompts.get(prompt_identifier=prompt_name)
-print(prompt.format())
 
 tracer_provider = register(
   project_name="abu-dhabi-gov", # Default is 'default'

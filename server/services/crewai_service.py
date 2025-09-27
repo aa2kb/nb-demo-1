@@ -7,6 +7,10 @@ from crewai import Agent, LLM
 from typing import Dict, Any, List, Union
 from phoenix.client import Client
 
+phoenix_client = Client()
+agent_role_prompt = phoenix_client.prompts.get(prompt_identifier="agent_role")
+agent_role_goal = phoenix_client.prompts.get(prompt_identifier="agent_goal")
+agent_role_backstory = phoenix_client.prompts.get(prompt_identifier="agent_backstory")
 
 # Configure Ollama Mistral 7B LLM
 llm = LLM(
@@ -18,9 +22,9 @@ llm = LLM(
 class CrewAIService:
     def __init__(self):
         self.chat_agent = Agent(
-            role="You are a Abu Dhabi Government AI Assistant",
-            goal="Provide helpful and informative responses to user queries regarding Abu Dhabi government services.",
-            backstory="You are a knowledgeable AI assistant that helps users with various questions and tasks regarding Abu Dhabi government services and information.",
+            role=agent_role_prompt.format().messages[0].get("content").strip(),
+            goal=agent_role_goal.format().messages[0].get("content").strip(),
+            backstory=agent_role_backstory.format().messages[0].get("content").strip(),
             verbose=True,
             allow_delegation=False,
             llm=llm
