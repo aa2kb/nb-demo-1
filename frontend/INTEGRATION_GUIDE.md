@@ -23,12 +23,6 @@ cd frontend
 ./start.sh
 ```
 
-Or manually:
-```bash
-cd frontend
-source .venv/bin/activate
-open-webui serve  # Will automatically load .env file
-```
 
 ## Method 3: Use the Configuration Script
 

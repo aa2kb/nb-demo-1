@@ -5,7 +5,7 @@ Bridge between FastAPI and business logic controllers.
 
 from fastapi import HTTPException
 from models.requests import ModelsResponse, Model
-from controllers.models_controller import ModelsController
+from controllers.models.models_controller import ModelsController
 
 
 class ModelsHandler:

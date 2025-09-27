@@ -14,7 +14,7 @@ from models.chat import (
     ChatMessage, Usage, ChatCompletionStreamResponse, ChatCompletionStreamChoice,
     get_current_timestamp
 )
-from controllers.chat_controller import ChatController
+from controllers.chat import ChatController
 
 
 class ChatHandler:
@@ -184,8 +184,8 @@ class ChatHandler:
     
     async def _simulate_streaming_response(self, content: str, model: str, completion_id: str, chunk_delay: float = 0.05):
         """Simulate streaming response."""
-        # Clean the content
-        content = self.controller.prepare_streaming_content(content)
+        # Clean the content using streaming controller
+        content = self.controller.streaming_controller.prepare_streaming_content(content)
         
         # Split content into words for chunk-by-chunk streaming
         words = content.split()
