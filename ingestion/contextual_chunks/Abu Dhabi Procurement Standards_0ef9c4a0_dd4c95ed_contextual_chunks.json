@@ -1,0 +1,1357 @@
+{
+  "source_chunk_file": "Abu Dhabi Procurement Standards_0ef9c4a0_dd4c95ed_chunks.json",
+  "source_markdown": "Abu Dhabi Procurement Standards_0ef9c4a0.md",
+  "total_chunks": 167,
+  "processing_metadata": {
+    "contextualization_method": "llamaindex_ollama_mistral_7b",
+    "context_window_size": 10,
+    "processing_status": "in_progress",
+    "last_processed_chunk": 78,
+    "processed_count": 79
+  },
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "content_contextualized": "The provided text focuses on Abu Dhabi's Procurement Standards, which outline the policies and guidelines for procurement operations within the government entity. This section introduces the Procurement Framework, defines its purpose, and sets key values, behaviors, and ethical principles for the Procurement. It also presents the Code of Business Ethics and specific articles related to objectives and general principles. This part is closely connected to other sections that detail enablement standards and the development of the procurement workforce. No Context (navigational text).",
+      "content": "<!-- image -->\n\n## Abu Dhabi Procurement Standards\n\n<!-- image -->\n\n| Document Title   | Abu Dhabi Procurement Standards   |\n|------------------|-----------------------------------|\n| Version          | V 1.0                             |\n| Date Published   | 18th April 2021                   |\n\n| Version   | Date            | Author                        | Approver                    |\n|-----------|-----------------|-------------------------------|-----------------------------|\n| V 1.0     | 24th March 2021 | Government Procurement Office | Abu Dhabi Executive Council |\n\n| Issued By   | H.E. Ali Rashed Al Ketbi Chairman, Department of Government Support - Abu Dhabi   |\n|-------------|-----------------------------------------------------------------------------------|\n\n<!-- image -->\n\n## Index\n\nIntroduction to the Procurement Framework  .............................................................................................. 3\n\nDefinition of the Procurement ..............................................",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 0,
+        "end_pos": 1024
+      }
+    },
+    {
+      "chunk_index": 1,
+      "content_contextualized": "The topic this part relates to is the Procurement Framework, which includes defining the procurement, core principles, code of ethics, establishment standards, and enablement standards. It connects to the overall document by expanding on the Abu Dhabi Procurement Standards introduced earlier, focusing specifically on the framework for conducting procurement operations. The relationship to other sections includes being a continuation of the discussions on key values, behaviors, ethical principles, and workforce development for the procurement process. No Context (navigational text) is not detected in this excerpt.",
+      "content": "he Procurement Framework  .............................................................................................. 3\n\nDefinition of the Procurement ...................................................................................................................... 4\n\nCore Principles  ................................................................................................................................................ 5\n\nCode of Ethics ................................................................................................................................................. 6\n\nProcurement Standards ............................................................................................................................... 10\n\nEstablishment Standards  .......................................................................................................................... 10\n\nEnablement Standards ............................................................................................",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 824,
+        "end_pos": 1848
+      }
+    },
+    {
+      "chunk_index": 2,
+      "content_contextualized": "The section discusses the Procurement Framework, which provides a set of guidelines and best practices for procurement operations in Abu Dhabi. It defines professional practices, key values, behaviors, approaches, and ethical principles for procurement while emphasizing accountability, integrity, and compliance with relevant legislations. This framework is interconnected with the Definition of Procurement, Code of Business Ethics, Enablement Standards, Execution Standards, and Glossary sections within the document.",
+      "content": ".................................................................................. 10\n\nEnablement Standards ............................................................................................................................. 13\n\nExecution Standards  ................................................................................................................................. 19\n\nGlossary  ......................................................................................................................................................... 57\n\n<!-- image -->\n\n## Introduction to the Procurement Framework\n\nThe Procurement Framework is a set of interrelated documents devised to help the Procurement Practitioners  in  their  work.  It  explains  the  recommended  approach  and  best  practices  for procurement operations.\n\nDefines the professional practice of the Procurement\n\nDefine key values, behaviours, and approaches for the Procurement\n\nDefines key ethical principles for the Procurement\n\nSet",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1648,
+        "end_pos": 2667
+      }
+    },
+    {
+      "chunk_index": 3,
+      "content_contextualized": "The discussed section focuses on defining the Procurement, a support function responsible for identifying, sourcing, and accessing optimal goods. This definition sets key values, behaviours, and approaches for the Procurement practice. It also lays out ethical principles to harmonize the way of working and defines performance expectations. The section connects to the overall document as it is part of the Abu Dhabi Procurement Standards, which provides a framework for procurement operations in a government entity. This definition sets foundational standards that will be elaborated further in subsequent sections. (\"No Context\" if this text only serves navigation purposes.)",
+      "content": "ocurement operations.\n\nDefines the professional practice of the Procurement\n\nDefine key values, behaviours, and approaches for the Procurement\n\nDefines key ethical principles for the Procurement\n\nSet  principles  that  harmonise  the  way  of  working  and define the performance expectations\n\n- A  formal  document  defining  the  roles  and  committees required for the procurement operations\n\nA formal document having all the financial and non-financial authorisers related to all procurement activities\n\nGuide the application of the Standards to ensure accurate and  effective  implementation  of  standardised  processes, operating model, organisation, and IT systems\n\nAllows the government entity to adopt the Standards to local settings\n\nGive working aids facilitating practical side of the implementation\n\nFigure 1: Procurement Framework\n\n<!-- image -->\n\n<!-- image -->\n\n## Definition of the Procurement\n\nThe Procurement is the support function that ensures identification, sourcing, and access to optimal goods,",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 2467,
+        "end_pos": 3487
+      }
+    },
+    {
+      "chunk_index": 4,
+      "content_contextualized": "Focuses on the definition and framework of procurement operations within the Abu Dhabi government, detailing its purpose, process, and value addition. This section connects with earlier discussions about procurement standards and enables standards while introducing key ethical principles for the procurement function. It also provides context for subsequent sections discussing the code of business ethics and compliance requirements. (No Context for navigational or non-content text)",
+      "content": "1: Procurement Framework\n\n<!-- image -->\n\n<!-- image -->\n\n## Definition of the Procurement\n\nThe Procurement is the support function that ensures identification, sourcing, and access to optimal goods, services and projects that the government entities and its End-users require to fulfil their objectives.\n\nThe Procurement exists to explore supply market opportunities and to ensure optimal implementation of the sourcing strategies that deliver the best possible supply outcomes for the government entity.\n\nThe Procurement adds value and helps the government entity accomplish its objectives by deploying a systematic, disciplined approach  to evaluate and  address its needs  collaboratively.  The Procurement  is  executed  through  a  series  of  activities  spanning  entire  supply  cycle  from  the understanding of requirements and evaluating the need for them, through identifying and analysing potential  supply  options,  up  to  contracting  with  Suppliers  and  fulfilment  of  contracts.  The Procurement runs",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 3287,
+        "end_pos": 4311
+      }
+    },
+    {
+      "chunk_index": 5,
+      "content_contextualized": "This part relates to the core principles that define key values and approaches for effective procurement operations within the government entity. It connects to the overall document by detailing how these principles should be followed by both Procurement Practitioners and suppliers engaged in these operations. The principles are established by the Procurement Framework and aim to develop a competent workforce, ensuring professionalism while offering attractive career options for procurement personnel. It follows the section discussing the definition of the Procurement and its continuous management processes. No Context (navigational text)",
+      "content": "equirements and evaluating the need for them, through identifying and analysing potential  supply  options,  up  to  contracting  with  Suppliers  and  fulfilment  of  contracts.  The Procurement runs continuously with ongoing management of relationships with the End-users, the Legal and the Finance, monitoring supply contracts and performance of Suppliers.\n\n<!-- image -->\n\n## Core Principles\n\nThe  Core  Principles  define  key  values  and  approaches  for  the  effectiveness  of  the  Procurement. The  Procurement  Practitioners  of  the  government  entity  and  every  supplier  engaged  by  it  in procurement  operations  must  adhere  to  the  Core  Principles  when  representing  the  government entity.\n\nThe Procurement Framework establishes the following ten integrated Core Principles:\n\n| A   | Ability        | Develop procurement workforce with right capacity, capabilities and knowledge ensuring professionalism while providing attractive, competitive career options",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 4111,
+        "end_pos": 5135
+      }
+    },
+    {
+      "chunk_index": 6,
+      "content_contextualized": "This part focuses on outlining procurement workforce development policies, emphasizing accountability, digital adoption, and cost-effectiveness. It aligns with the overall document by discussing key values, behaviors, and approaches for the Procurement as defined in earlier sections. The policies outlined here are interconnected with the Code of Business Ethics and other articles discussing integrity, compliance, and environmental responsibility within procurement operations. No Context (navigational text).",
+      "content": "| Develop procurement workforce with right capacity, capabilities and knowledge ensuring professionalism while providing attractive, competitive career options                                             |\n|-----|----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| B   | Accountability | Support accountability through the establishment or enhancement of authorities and ensure internal and external control mechanisms are coordinated and integrated into procurement operations             |\n| C   | Digital        | Promote digital technologies and facilitate their adoption and development by enabling access to innovations and emerging digital solutions                                                               |\n| D   | Effectiveness  | Drive cost-effectiveness and improvement in performance of the Procurement through economies of scale,",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 4935,
+        "end_pos": 5959
+      }
+    },
+    {
+      "chunk_index": 7,
+      "content_contextualized": "The section outlines core values and objectives for the Procurement function in Abu Dhabi, focusing on effectiveness, excellence, fairness, integration, integrity, and environmental responsibility. It connects to the overall document by expanding upon the Procurement Framework defined earlier, providing rules and principles for ethical procurement practices. These values are related to other sections discussing the definition of Procurement and the Code of Business Ethics. No Context (Navigational text).",
+      "content": "olutions                                                               |\n| D   | Effectiveness  | Drive cost-effectiveness and improvement in performance of the Procurement through economies of scale, specialisation, and continuous assessment                                                          |\n| E   | Excellence     | Deliver efficiency and achieve greater value for money and high level of control through the development of streamlined processes and tools                                                               |\n| F   | Fairness       | Facilitate access to procurement opportunities for potential Suppliers through establishing a fair regulatory framework and implementing transparency and open-door attitude                              |\n| G   | Integration    | Support integration of the Procurement with relevant organisational functions within the government entity, ensuring services delivered are comprehensive and a seamless flow of operations is maintained |\n| H   | Integrity      | Preserve",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 5759,
+        "end_pos": 6781
+      }
+    },
+    {
+      "chunk_index": 8,
+      "content_contextualized": "Focuses on guidelines for professional conduct in procurement operations, emphasizing integrity, sustainability, and transparency. This section connects to the overall document by defining the ethical principles and workforce development for the Abu Dhabi Procurement Standards. It also builds upon the earlier sections that defined the procurement process and the Code of Business Ethics objectives. No Context (navigational text).",
+      "content": "t with relevant organisational functions within the government entity, ensuring services delivered are comprehensive and a seamless flow of operations is maintained |\n| H   | Integrity      | Preserve high standards of integrity and neutrality in the Procurement through the implementation of standards, code of business ethics and internal controls                                             |\n| I   | Sustainability | Ensure continuity and stability of supply through the integration of risk management practices and the establishment of control mechanisms in procurement operations making them sustainable              |\n| J   | Transparency   | Ensure an adequate degree of transparency by allowing free access to procurement information, compliance with applicable legislations, and promoting fair treatment of Suppliers                          |\n\n<!-- image -->\n\n## Code of Business Ethics\n\n## Article (1): Objectives and Scope of the Code of Business Ethics\n\n1. The  Code  of  Business  Ethics  aims  to  establish",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 6581,
+        "end_pos": 7605
+      }
+    },
+    {
+      "chunk_index": 9,
+      "content_contextualized": "Focuses on the Code of Business Ethics for procurement practitioners within the government entity that abides by the Abu Dhabi Procurement Standards. This code sets principles and rules to regulate ethical behavior in the procurement profession and aims to prevent improper conduct during procurement operations. It is connected to Article (2) of the Procurement Standards, which outlines general principles applicable to all practitioners.",
+      "content": "rs                          |\n\n<!-- image -->\n\n## Code of Business Ethics\n\n## Article (1): Objectives and Scope of the Code of Business Ethics\n\n1. The  Code  of  Business  Ethics  aims  to  establish  principles  and  rules  that  serve  as  a  moral constitution that regulates the work of the Procurement Practitioners in accordance with the business ethics expected in the procurement profession.\n2. The Code of Business Ethics promotes ethical behaviour and emphasises accountability of the Procurement  Practitioners  for  protecting  the  reputation  of  the  government  entity  they represent.  It  prevents  the  impropriety  and  unfair  business  conduct  in  procurement operations.\n3. The provisions of the Code of Business Ethics shall apply to all Procurement Practitioners in the government entity that abides by the Standards.\n\n## Article (2): General Principles\n\n1. The execution of procurement on behalf of the government entity involves the expenditure of  funds.  The  Procurement  Practitioners  must",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 7405,
+        "end_pos": 8428
+      }
+    },
+    {
+      "chunk_index": 10,
+      "content_contextualized": "This part focuses on general principles for the Procurement Practitioners as outlined in the Code of Business Ethics, which is a component of Abu Dhabi's Procurement Standards. It specifies rules for conducting procurement activities with integrity and probity, reporting violations, and holding practitioners accountable for any ethical breaches. This section connects to the overall document by establishing guidelines for the professional practice of procurement, including key values, behaviors, and approaches (as discussed in a previous section). It also addresses topics like integrity, personal interests, confidential information, environmental responsibility, and professionalism, which are further elaborated upon in other sections. No Context (navigational text)",
+      "content": "es by the Standards.\n\n## Article (2): General Principles\n\n1. The execution of procurement on behalf of the government entity involves the expenditure of  funds.  The  Procurement  Practitioners  must  conduct  all  activities  to  achieve  sound commercial decisions with integrity and probity.\n2. The Procurement Practitioners must be fully aware and act in accordance with the Code of Business  Ethics.  Violation  of  the  Code  of  Business  Ethics  due  to  lack  of  awareness  of  its contents shall not be acceptable.\n3. The Procurement Practitioners must immediately report any contravention of the Code of Business Ethics to their direct manager or the head of the Procurement to verify and take the necessary action.\n4. The Procurement Practitioners found in contravention of the Code of Business Ethics shall be held accountable for their actions and will be liable for disciplinary or legal action based on the situation and applicable legislations.\n5. The  Code  of  Business  Ethics  establishes  the",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 8228,
+        "end_pos": 9244
+      }
+    },
+    {
+      "chunk_index": 11,
+      "content_contextualized": "This part focuses on ethical principles governing procurement practices, outlining eight key principles such as fiduciary responsibility, compliance with applicable legislations, professional integrity, avoiding conflicts of interest, protecting confidential information, maintaining fair relationships, environmental responsibility, and professionalism at work. It connects to the overall document by providing a code of business ethics for procurement practitioners within the government entity, ensuring accountability and adherence to high standards. The principles presented here are interconnected with other sections discussing procurement operations, procurement strategy, and professionalism expectations. (No Navigational Text)",
+      "content": "hall be held accountable for their actions and will be liable for disciplinary or legal action based on the situation and applicable legislations.\n5. The  Code  of  Business  Ethics  establishes  the  following  eight  principles  that  assure  ethical procurement:\n6.  Fiduciary Responsibility\n7.  Compliance with Applicable Legislations\n8.  Professional Integrity\n9.  Avoiding Conflicts of Interest\n10.  Protecting Confidential Information\n11.  Maintaining Fair Relationships\n12.  Environmental Responsibility\n13.  Professionalism at Work\n\n<!-- image -->\n\n## Article (3): Fiduciary Responsibility\n\n1. The Procurement Practitioners must act in the best interest of the government entity they represent and ensure required goods, services and projects are procured providing expected value to the government entity.\n2. The Procurement Practitioners must carry out the duties and responsibilities assigned to them in accordance with the Procurement Standards.\n\n## Article (4): Compliance with Applicable Legislations",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 9044,
+        "end_pos": 10068
+      }
+    },
+    {
+      "chunk_index": 12,
+      "content_contextualized": "Focuses on the responsibilities and ethical conduct expected from Procurement Practitioners in accordance with established procurement standards. This part emphasizes compliance with applicable legislations, professional integrity, and abiding by the Procurement Standards. It connects to the overall document as it further details the key values, behaviors, and approaches for the Procurement as discussed earlier. The rules in this section relate to Article (4) and Article (5), which cover compliance with applicable legislations and professional integrity respectively, and are closely connected to sections on the Code of Business Ethics and Procurement Strategy.\n\nNo Context (Navigational text): \"| Section 4: Procurement Clients and Partners |\"",
+      "content": "2. The Procurement Practitioners must carry out the duties and responsibilities assigned to them in accordance with the Procurement Standards.\n\n## Article (4): Compliance with Applicable Legislations\n\n1. The Procurement Practitioners must conduct all procurement activities in compliance with the local and federal legislations.\n2. The  Procurement  Practitioners  shall  ensure  that  engaged  Suppliers  adhere  to  local  and federal  legislations,  health,  safety  and  environment  regulations  when  dealing  with  the government entity.\n3. The  Procurement  Practitioners  shall  inform  the  relevant  administrative  authorities  of  any violation of the provisions of the applicable legislations by a Supplier.\n\n## Article (5): Professional Integrity\n\n1. The Procurement Practitioners shall conduct themselves with highest standards of integrity and  must  not  exhibit  the  intent  or  appearance  of  unethical  or  compromising  conduct  in relationships, actions or communications.\n2. The  Procurement",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 9868,
+        "end_pos": 10886
+      }
+    },
+    {
+      "chunk_index": 13,
+      "content_contextualized": "This part focuses on ethical guidelines for procurement practitioners, outlining principles such as impartiality, integrity, and managing conflicts of interest within the framework of the broader Procurement Standards. It directly connects to Article (1) and Article (2) of the Code of Business Ethics in establishing general principles for ethical conduct during procurement operations, and it indirectly relates to other sections that discuss professionalism and compliance with applicable legislations. No Context.",
+      "content": "es with highest standards of integrity and  must  not  exhibit  the  intent  or  appearance  of  unethical  or  compromising  conduct  in relationships, actions or communications.\n2. The  Procurement  Practitioners  shall  not  misuse  their  official  positions,  dispense  special favours or make private promises on behalf of the government entity they represent.\n3. The Procurement Practitioners must be impartial in carrying out procurement activities to ensure  that  all  stakeholders  have  confidence  in  the  results,  and  must  demonstrate  good procurement practices, accountability and stop purchases in case  of violation or suspicion of such.\n\n## Article (6): Conflicts of Interest\n\n1. The Procurement Practitioners must manage and avoid conflicts of interests proactively.\n2. The Procurement Practitioners shall immediately disclose personal interests and conflicting roles or roles with potential conflicts that may affect or might reasonably be seen by others to affect the integrity of decisions to",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 10686,
+        "end_pos": 11705
+      }
+    },
+    {
+      "chunk_index": 14,
+      "content_contextualized": "Focuses on ethical guidelines and standards for procurement practitioners, including requirements related to conflicts of interest, confidential information, and fair treatment of suppliers. This part connects with the overall document by outlining key elements of the Procurement Framework and Procurement Standards. It is closely related to Article (1) and (2), which establish the objectives and scope of the Code of Business Ethics, as well as Article (7) on confidential information. Other relevant sections include Section 4: Procurement Clients and Partners and Section 8: Procurement Strategy. No Context (navigational text) is detected in the provided text.",
+      "content": "ners shall immediately disclose personal interests and conflicting roles or roles with potential conflicts that may affect or might reasonably be seen by others to affect the integrity of decisions to their direct managers or the head of the Procurement.\n3. The  Procurement  Practitioners  are  prohibited  from  participating  in  any  decisions  or recommendations concerning individuals or institutions with which they have an existing or prospective Financial Interest.\n4. The  Procurement  Practitioners  must  not  grant  special  favours  or  treatment  and  avoid personal,  reciprocal  agreements  with  Suppliers.  The  Procurement  Practitioners  shall  not accept gifts or anything of material or moral value.\n\n<!-- image -->\n\n## Article (7): Confidential Information\n\n1. The Procurement Practitioners must not disclose confidential or proprietary information for the personal or professional benefit.\n2. Sensitive information related to spend, contracts, pricing, sourcing events, Supplier performance,",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 11505,
+        "end_pos": 12521
+      }
+    },
+    {
+      "chunk_index": 15,
+      "content_contextualized": "Focuses on ethical guidelines for procurement practitioners in maintaining fair relationships with suppliers, preserving confidential information, and ensuring environmental responsibility. This part connects to the overall document by reinforcing the Procurement Standards and Code of Business Ethics established earlier. It is related to other sections such as Article (2) General Principles, Article (14) Disclosure of Interests, and Article (16) Collusion with Suppliers that also address ethical conduct in procurement activities.\n\nNo Context: This text contains headings and article numbers but does not provide any content for analysis.",
+      "content": "ust not disclose confidential or proprietary information for the personal or professional benefit.\n2. Sensitive information related to spend, contracts, pricing, sourcing events, Supplier performance, commercial and strategic planning must be kept confidential and disclosed only to the authorised personnel, maintaining an electronic audit trail.\n3. The Procurement Practitioners shall be responsible for safeguarding financial, proprietary and other confidential information provided by Suppliers to the government entity.\n\n## Article (8): Fair Relationships\n\n1. The Procurement Practitioners shall promote positive Supplier relationships to maintain a competitive procurement environment by treating all Suppliers equally and fairly.\n2. The Procurement Practitioners shall not exert undue or coercive influence over Suppliers to supply  at  prices  below  the  cost  or  deliberately  establish  terms  resulting  in  a  loss  to  the Suppliers or exclusion of any of them.\n\n## Article (9): Environmental Responsibility",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 12321,
+        "end_pos": 13344
+      }
+    },
+    {
+      "chunk_index": 16,
+      "content_contextualized": "Focuses on ethical conduct and professionalism in procurement practices by outlining guidelines for Procurement Practitioners. This section connects to the overall document by emphasizing the importance of integrity, transparency, and accountability in procurement processes. It relates to other sections that discuss the Code of Business Ethics, Procurement Standards, and the Procurement Framework.\n\nNo Context (navigational text): Section 4: Procurement Clients and Partners; Section 8: Procurement Strategy; Section 9: Demand Management; Article (9): Environmental Responsibility; Article (10): Professionalism",
+      "content": "liers to supply  at  prices  below  the  cost  or  deliberately  establish  terms  resulting  in  a  loss  to  the Suppliers or exclusion of any of them.\n\n## Article (9): Environmental Responsibility\n\n1. The Procurement Practitioners shall consider the concept of sustainability to avoid adverse social and environmental impact of the goods, services and projects procured.\n2. The Procurement Practitioners shall strive to purchase goods, services and projects that meet environmental regulations and they shall challenge the demand to purchase and consume optimally by eradicating wasteful practices.\n3. Where applicable, the Procurement Practitioners shall offer assistance to Suppliers in raising their environmental awareness in accordance with applicable local and federal environmental legislations.\n\n## Article (10): Professionalism\n\n1. The  Procurement  Practitioners  must  conduct  themselves  professionally  and  apply  high professional  standards  while  performing  work,  thereby  contributing  to  the",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 13144,
+        "end_pos": 14163
+      }
+    },
+    {
+      "chunk_index": 17,
+      "content_contextualized": "The tenth section of the document emphasizes professionalism in procurement practices within the government entity. It requires practitioners to adhere to high standards, familiarize themselves with relevant frameworks and legislations, and maintain professional competence through ongoing development. This part connects to the overall document by outlining expectations for ethical and effective conduct in the execution of procurement operations as part of the Procurement Standards. It is closely related to sections discussing the Code of Business Ethics, Procurement Framework, and Procurement Manual.",
+      "content": "10): Professionalism\n\n1. The  Procurement  Practitioners  must  conduct  themselves  professionally  and  apply  high professional  standards  while  performing  work,  thereby  contributing  to  the  efficient  and professional execution of their responsibilities. The Procurement Practitioners must observe the following:\n2.  Be familiar with the Procurement Framework\n3.  Be familiar with applicable legislations which the government entity is subject to\n4.  Exercise necessary professional attention in the execution and supervision of procurement operations and the preparation of reports\n5.  Maintain professional competence through continuing professional development\n\n<!-- image -->\n\n## Procurement Standards Contents\n\n| Establishment Standards .............................................................................................................................10    |\n|-------------------------------------------------------------------------------------------------------------------------------------",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 13963,
+        "end_pos": 14987
+      }
+    },
+    {
+      "chunk_index": 18,
+      "content_contextualized": "Focuses on procurement standards and their application within a government entity, outlining principles for integrity, professionalism, and compliance with applicable legislations. It also establishes the purpose, intended use, and applicability of the Procurement Standards, governance mechanisms, and periodic updates to the Procurement Manual. This section connects with other sections related to procurement function, clients and partners, and procurement strategy. No Context (navigational text).",
+      "content": "..........................................................10    |\n|------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| Section 1: Purpose, Scope and Structure of the Procurement Standards......................................... 10                                           |\n| Section 2: Application of the Procurement Standards ....................................................................... 11                             |\n| Enablement Standards.................................................................................................................................13    |\n| Section 3: Procurement Function........................................................................................................ 13                 |\n| Section 4: Procurement Clients and Partners ..................................................................................... 15                       |\n|",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 14787,
+        "end_pos": 15808
+      }
+    },
+    {
+      "chunk_index": 19,
+      "content_contextualized": "Focuses on the Procurement Standards and their application within the government entity, outlining principles for ethical conduct, accountability, compliance with applicable legislations, and professionalism in procurement activities. It also discusses the procurement charter, price list agreements, contracts, orders, and the organization of the procurement function.\nThis section connects to other sections such as the Code of Business Ethics, Procurement Manual, Procurement Strategy, Procurement Clients and Partners, Procurement Governance and Communication, Procurement Function Performance, and Procurement Reporting, as it establishes the rules and standards that govern these areas.\nNo Context (Navigational text)",
+      "content": ".................. 13                 |\n| Section 4: Procurement Clients and Partners ..................................................................................... 15                       |\n| Section 5: Procurement Governance and Communication................................................................ 16                                     |\n| Section 6: Procurement Function Performance ................................................................................. 16                           |\n| Section 7: Procurement Reporting ...................................................................................................... 17                 |\n| Execution Standards.....................................................................................................................................19 |\n| Section 8: Procurement Strategy......................................................................................................... 19                |\n| Section 9: Demand and",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 15608,
+        "end_pos": 16625
+      }
+    },
+    {
+      "chunk_index": 20,
+      "content_contextualized": "This part relates to the application of procurement standards within a government entity. It outlines responsibilities for practitioners, ensuring compliance with applicable legislations, and the need for professionalism in everyday activities. It connects with other sections such as Procurement Charter, Procurement Manual, and the Code of Business Ethics. The Procurement Strategy, Category Management, Source to Contract, Contract Lifecycle Management, Supplier Relationship Management, and Requisition to Pay sections are also related. No Context (navigational text).",
+      "content": ".............19 |\n| Section 8: Procurement Strategy......................................................................................................... 19                |\n| Section 9: Demand and Category Management................................................................................. 20                              |\n| Section 10: Source to Contract ............................................................................................................ 25             |\n| Section 11: Contract Lifecycle Management ...................................................................................... 40                        |\n| Section 12: Supplier Relationship Management................................................................................. 47                           |\n| Section 13: Requisition to Pay.............................................................................................................. 50            |\n\n<!-- image -->\n\n## Procurement Standards\n\n##",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 16425,
+        "end_pos": 17442
+      }
+    },
+    {
+      "chunk_index": 21,
+      "content_contextualized": "Focuses on the Procurement Standards, which outline guidelines for conducting procurement operations professionally within a government entity. This section (1) sets the purpose, scope, and structure of these standards and emphasizes their role in ensuring consistency and promoting value for money. It connects to other sections by outlining principles that guide various aspects of procurement, such as ethics, strategy, organization, and requisition to pay. (No Context for Chunk 18, 19)",
+      "content": "ction 13: Requisition to Pay.............................................................................................................. 50            |\n\n<!-- image -->\n\n## Procurement Standards\n\n## Establishment Standards\n\nThe Establishment Standards explain the overall Procurement Framework defined to promote the practice of professional procurement. The Establishment Standards set the purpose and objectives of the Procurement Standards, their structure and management approach.\n\n## Section 1: Purpose, Scope and Structure of the Procurement Standards\n\n## 1.1. Purpose of the Procurement Standards\n\n- The  Procurement  Standards  set  out  principles  and  operating  rules  for  running  procurement operations. They offer information on the leading practices and professional requirements. A\n- They aim to ensure consistency and professionalism in everyday procurement activities. The Procurement Practitioners abiding by the Procurement Standards positively influence the value for money for the government entity",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 17242,
+        "end_pos": 18266
+      }
+    },
+    {
+      "chunk_index": 22,
+      "content_contextualized": "This part of the document focuses on the Procurement Standards that govern everyday activities within a government entity, emphasizing consistency, professionalism, and ethical practices. It connects with the overall document by outlining the structure and scope of these standards, which are integral to maintaining integrity in procurement processes. The Procurement Standards are categorized into Establishment, Enablement, and Execution sections, each serving a specific purpose for the framework's implementation.",
+      "content": "onsistency and professionalism in everyday procurement activities. The Procurement Practitioners abiding by the Procurement Standards positively influence the value for money for the government entity they represent. B\n\n## 1.2. Scope of the Procurement Standards\n\n- The  Procurement  Standards  apply  to  individual  Procurement  Practitioners  as  well  as  the Procurement as an organisational function within the government entity. A\n- The Procurement Standards apply to every purchase made by the government entity, for goods, services and projects regulated by price list agreements, contracts or orders. B\n\n## 1.3. Structure of the Procurement Standards\n\n- The  Procurement  Standards  comprise  of  three  main  types:  Establishment,  Enablement,  and Execution. A\n- A1. The Establishment Standards introduce the Procurement Framework and the Procurement Standards as its component and define the purpose, intended use and applicability. They assign responsibility and set the governance mechanism thereof.\n- A2.",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 18066,
+        "end_pos": 19087
+      }
+    },
+    {
+      "chunk_index": 23,
+      "content_contextualized": "Focuses on the application and applicability of the Procurement Standards across the government entity. It outlines who is responsible for ensuring compliance with these standards and how they are made available to all relevant stakeholders. This section also introduces the organization and roles within the procurement function, as well as the coordination required between procurement, finance, and end-users. It connects to other sections by setting up the governance mechanism for the Procurement Framework and its component standards. No Context (navigational text).",
+      "content": "Procurement Framework and the Procurement Standards as its component and define the purpose, intended use and applicability. They assign responsibility and set the governance mechanism thereof.\n- A2. The  Enablement  Standards  define  attributes  of  functions  and  individuals  practising procurement  and  describe  requirements  for  actors,  relations  and  setup  conditions  to procure efficiently. They introduce the Procurement as a function providing services to the requesting party or End-users.\n- A3. The  Execution  Standards  define  the  way  of  working  and  expected  performance  of  the Procurement with the criteria against which to measure it. They split procurement into strategic, tactical and operational processes.\n- The Procurement Standards as a document is organised into sections containing enumerated standards. B\n\n<!-- image -->\n\n## Section 2: Application of the Procurement Standards\n\n## 2.1. Applicability of the Procurement Standards\n\n- The  Procurement  Standards  shall  be",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 18887,
+        "end_pos": 19901
+      }
+    },
+    {
+      "chunk_index": 24,
+      "content_contextualized": "Focuses on the application and implementation of procurement standards within government entities, ensuring compliance by all relevant stakeholders. It outlines the responsibilities for enforcing these standards and their communication to various parties involved in the procurement process. This section is connected to other parts discussing the Procurement Framework, Procurement Charter, and roles of Procurement Practitioners. No Context (navigational text).",
+      "content": "ontaining enumerated standards. B\n\n<!-- image -->\n\n## Section 2: Application of the Procurement Standards\n\n## 2.1. Applicability of the Procurement Standards\n\n- The  Procurement  Standards  shall  be  implemented  in  their  entirety  and  within  the  flexibility defined therein. Partial implementation of the Procurement Standards is not allowed. A\n- The  Procurement  Standards  shall  be  applicable  to  the  government  entities  and  any  other organisation included through a resolution issued by the Executive Council or by any other body authorised by the Executive Council. B\n\n## 2.2. Compliance with the Procurement Standards\n\n- The Procurement Practitioners must have knowledge and understanding of the Procurement Standards. A\n- The head of the Procurement shall ensure that Procurement Standards are communicated and made available to all the relevant stakeholders across the government entity. B\n- The  head  of  the  Procurement  shall  be  responsible  for  ensuring  that  the  Procurement Practitioners",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 19701,
+        "end_pos": 20724
+      }
+    },
+    {
+      "chunk_index": 25,
+      "content_contextualized": "Focuses on the implementation and governance of procurement standards within a government entity, including the responsibility of heads of procurement and practitioners, the Procurement Manual, and periodic updates. This section connects with other sections by establishing the operational framework for procurement activities, which is further detailed in subsequent sections on procurement charter, roles and duties of practitioners, risk management, collaboration, coordination with finance, and compliance with legislations. No Context (navigational text)",
+      "content": "cated and made available to all the relevant stakeholders across the government entity. B\n- The  head  of  the  Procurement  shall  be  responsible  for  ensuring  that  the  Procurement Practitioners act in compliance with the Procurement Standards. C.\n- The  head  of  the  Procurement  and  the  Procurement  Practitioners  shall  sign  a  declaration undertaking the responsibility to ensure that the procurement function of the government entity operates in compliance with the Procurement Standards. D.\n\n## 2.3. Procurement Manual\n\n- The government entity must implement the Procurement Manual issued pursuant to the Abu Dhabi Procurement Standards. The Executive Council or the relevant body authorised by the Executive Council may exclude any government entity from the application of the Procurement Manual. A\n- The Procurement Manual shall be consistent with the Procurement Standards and shall include the methodology and procedures of the procurement. B\n- The Procurement Manual shall be updated periodically to",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 20524,
+        "end_pos": 21547
+      }
+    },
+    {
+      "chunk_index": 26,
+      "content_contextualized": "This part focuses on the implementation details and governance of procurement operations within a government entity. It outlines the Procurement Manual, quality assurance program, and responsibilities for ensuring consistency with the established Procurement Standards. The section is interconnected with other parts, such as the Procurement Framework, Procurement Charter, and Tendering Committees, which help to regulate procurement activities effectively. It also aligns with the overall document's objective of promoting transparency, fairness, and efficiency in government procurement practices.\n\nNo Context (navigational text)",
+      "content": "e Procurement Manual shall be consistent with the Procurement Standards and shall include the methodology and procedures of the procurement. B\n- The Procurement Manual shall be updated periodically to ensure that best practices are applied in procurement operations. C.\n- The head of the Procurement shall be responsible for ensuring that the Procurement implements the Procurement Manual.\n\n## 2.4. Quality Assurance\n\n- The head of the Procurement shall prepare and maintain a quality assurance and improvement program that covers all aspects of the procurement function. A\n\n<!-- image -->\n\n- The head of the Procurement shall obtain approval of the quality assurance and improvement program from the Procurement Committee. B\n- The quality assurance and improvement program shall assess compliance of the procurement function with the Procurement Standards, the Procurement Manual and the Code of Business Ethics.  This  program  shall  include  an  evaluation  of  the  effectiveness  and  efficiency  of  the procurement",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 21347,
+        "end_pos": 22369
+      }
+    },
+    {
+      "chunk_index": 27,
+      "content_contextualized": "This part focuses on the enablement standards that define attributes for functions and individuals involved in procurement operations. It outlines requirements for roles, relations, and setup conditions to execute procurement effectively. The section is related to the Procurement Charter discussed earlier and connects with other sections that discuss various components of the procurement framework, such as Procurement Standards, Procurement Manual, and Code of Business Ethics. No Context (navigational text)",
+      "content": "ion with the Procurement Standards, the Procurement Manual and the Code of Business Ethics.  This  program  shall  include  an  evaluation  of  the  effectiveness  and  efficiency  of  the procurement function and the identification of opportunities for improvement. C.\n\n## 2.5. Interpretation of the Procurement Standards\n\n- Dedicated procurement professionals authorised for maintaining the Procurement Standards shall be responsible for responding to queries regarding the Procurement Standards.\n\n<!-- image -->\n\n## Enablement Standards\n\nThe Enablement Standards define the attributes of functions and individuals involved in procurement operations.  They  describe  requirements  for  actors,  relations  and  setup  conditions  required  to perform the procurement effectively.\n\n## Section 3: Procurement Function\n\n## 3.1. Procurement Charter\n\n- The  Procurement  Charter  defines  the  obligatory  roles  in  the  procurement  function  and mechanism of its governance in line with the Procurement Framework. A\n- The",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 22169,
+        "end_pos": 23191
+      }
+    },
+    {
+      "chunk_index": 28,
+      "content_contextualized": "Focuses on procurement charter, types of procurement, and organization of the procurement function within a larger document discussing procurement standards, frameworks, and procedures. These sections establish the roles, committees, and main types of procurement, as well as how procurement operations are executed. It builds on previous discussions about the Procurement Standards and the Procurement Framework while connecting to subsequent sections on application and implementation of these standards.\n\nNo Context (navigational text): \"3.1\", \"3.2\", and \"3.3\"",
+      "content": "3.1. Procurement Charter\n\n- The  Procurement  Charter  defines  the  obligatory  roles  in  the  procurement  function  and mechanism of its governance in line with the Procurement Framework. A\n- The Procurement Charter defines the committees required for the procurement operations, in particular  the  roles  and  responsibilities  of  the  Procurement  Committee  and  the  Tendering Committee. B\n- The head of the Procurement shall ensure that procurement operations are in accordance with the Procurement Charter. C.\n\n## 3.2. Types of Procurement\n\n- The Procurement is divided into the following three main types: A\n- A1. Procurement of goods\n- A2. Procurement of services\n- A3. Procurement of projects including capital assets\n- The procurement of goods, services and projects is facilitated through execution of the following: B\n- B1. Price List Agreements\n- B2. Contracts\n- B3. Orders\n\n## 3.3. Organisation of the Procurement Function\n\n- The Procurement shall execute its operations through an organisational unit",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 22991,
+        "end_pos": 24013
+      }
+    },
+    {
+      "chunk_index": 29,
+      "content_contextualized": "This part focuses on the organization and management of the procurement function within a government entity. It discusses the establishment of an independent unit led by the head of the Procurement, staffed with qualified professionals, and outlines rules for organizing procurement activities such as Price List Agreements, Contracts, and Orders. It connects to other sections that detail the application of the Procurement Standards, the creation of roles and duties for Procurement Practitioners, and communication channels between the Procurement and other departments.",
+      "content": "e following: B\n- B1. Price List Agreements\n- B2. Contracts\n- B3. Orders\n\n## 3.3. Organisation of the Procurement Function\n\n- The Procurement shall execute its operations through an organisational unit led by the head of the Procurement. A\n- This unit may be established within or outside of the government entity and shall be independent of the other units of the government entity. It shall be empowered and capable of executing the duties and responsibilities entrusted to the Procurement. B\n- The role of the head of the Procurement shall be assigned to an executive level position or to a position  reporting  to  an  executive  level  that  enables  the  Procurement  to  fulfil  its  assigned responsibilities. C.\n\n<!-- image -->\n\n- The Procurement must conduct its activities through professional staff consisting of individuals, the  Procurement  Practitioners,  possessing  academic  qualifications,  professional  certificates, practical experience and skills needed to perform assigned responsibilities. D\n\n## 3.4",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 23813,
+        "end_pos": 24837
+      }
+    },
+    {
+      "chunk_index": 30,
+      "content_contextualized": "This part focuses on the Procurement Practitioners' roles, responsibilities, and the utilization of an information technology platform (the Procurement Gate) for effective procurement operations. The section outlines how these practitioners should adhere to the Procurement Standards and collaborate with other departments within the government entity. It connects with the overall document by providing details on how the Procurement Framework components, such as the Procurement Standards, are applied in practice. The section interrelates with Section 3.1 (Procurement Charter) and Section 3.4 (Information Technology Platform and Master Data), as they all discuss the necessary elements for a well-structured procurement function within the government entity. No Context (navigational text).",
+      "content": "individuals, the  Procurement  Practitioners,  possessing  academic  qualifications,  professional  certificates, practical experience and skills needed to perform assigned responsibilities. D\n\n## 3.4. Information Technology Platform and Master Data\n\n## The Procurement shall: A\n\n- A1. Utilise an information technology platform for the procurement operations, the Procurement Gate.\n- A2. Manage access of the Procurement Practitioners, other relevant employees and external parties to the Procurement Gate and granting required authorizations.\n- A3. Manage the Category Hierarchy for goods, services and projects, which shall serve as a primary structure for planning, execution and reporting.\n\n## 3.5. Roles of the Procurement Practitioners\n\n- The head of the Procurement of each government entity shall identify and document the roles and  duties  of  the  Procurement  Practitioners  ensuring  compliance  with  the  Procurement Standards. A\n- The roles must be created in alignment with the strategic, tactical and",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 24637,
+        "end_pos": 25656
+      }
+    },
+    {
+      "chunk_index": 31,
+      "content_contextualized": "Focuses on procurement internal controls for ensuring compliance with Procurement Standards, aligning with strategic, tactical, and operational processes defined by Execution Standards. It connects to overall document as it explains the necessary practices, rules, and controls for procurement operations. The text emphasizes segregation of duties at various levels to prevent frauds and errors in the requisition to payment cycle, also referring to coordination with other sections like Procurement Function Plan and Communication Channels. No Context (navigational text) if it is merely guiding readers through the document.",
+      "content": "document the roles and  duties  of  the  Procurement  Practitioners  ensuring  compliance  with  the  Procurement Standards. A\n- The roles must be created in alignment with the strategic, tactical and operational processes defined by the Execution Standards. B\n\n## 3.6. Procurement Internal Controls\n\n- The Procurement shall act in line with the internal controls implementing segregation of duties to prevent frauds and errors. No one individual shall control consecutive stages of the requisition to payment cycle. There shall be segregation of duties between the requisitioning, contracting and  ordering,  receiving  and  paying.  If  separation  at  the  level  of  roles  is  not  possible  then separation must be maintained at the individual level. The individual separation requires the approval of any performed activity by another individual. A\n- Segregation of duties requires separation of requestors or receivers and accounts personnel, as well as separation of requestors and approvers. B\n- The Procurement",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 25456,
+        "end_pos": 26477
+      }
+    },
+    {
+      "chunk_index": 32,
+      "content_contextualized": "This part focuses on the implementation of procedures for maintaining integrity in procurement activities, including segregation of duties, delegation of authority, and collaboration with clients and partners. It connects to the overall document by detailing specific measures that help ensure compliance with the Procurement Standards and Framework. These sections (3.6, 3.7, 4.1, and 4.2) relate to establishing rules and responsibilities for procurement operations and interactions with various stakeholders.",
+      "content": "activity by another individual. A\n- Segregation of duties requires separation of requestors or receivers and accounts personnel, as well as separation of requestors and approvers. B\n- The Procurement shall maintain an electronic audit trail documenting the segregation of duties for each sourcing event and each transaction. C.\n\n## 3.7. Procurement Delegation of Authority\n\n- The Procurement Delegation of Authority, the PDoA, shall describe division of authority and powers in the government entity related to procurement operations. A\n- The PDoA must contain all the financial and non-financial authorisers related to all procurement activities. B\n\n<!-- image -->\n\n## Section 4: Procurement Clients and Partners\n\n## 4.1. Coordination with the requesting party\n\n- The Procurement shall undertake actions to facilitate collaboration and coordination with the requesting party, from now on referred to as the End-users, to ensure the requirements are understood and fulfilled. A\n\n## 4.2. Coordination with the Finance and",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 26277,
+        "end_pos": 27298
+      }
+    },
+    {
+      "chunk_index": 33,
+      "content_contextualized": "This part focuses on the coordination and management aspects of procurement within a government entity. It outlines the responsibilities of the Procurement function in working with End-users, Finance, Legal, Suppliers, and other relevant parties. The section also emphasizes risk management in procurement activities. It is related to Section 2, which discusses the applicability of the Procurement Standards, and connects to Sections 3 (Organization of the Procurement Function) and 4.4 (Procurement Risks Management).\n\n(No Context for Chunk 24)",
+      "content": "ollaboration and coordination with the requesting party, from now on referred to as the End-users, to ensure the requirements are understood and fulfilled. A\n\n## 4.2. Coordination with the Finance and the Legal\n\n- The Procurement shall closely coordinate with the Finance and the Legal functions within the government entity. It shall manage the mutual relationship between the functions and shall take the necessary advice from these functions. A\n\n## 4.3. Coordination with Suppliers and Other Relevant Parties\n\n- The Procurement shall manage its relations with Suppliers and other relevant parties through specific procedures, in line with the Procurement Standards and the Procurement Manual. A\n\n## 4.4. Procurement Risks Management\n\n- The Procurement shall prepare a register to document the procurement risks according to the best  standards  and  methodologies  for  risk  management,  with  the  objective  of  identifying, evaluating and mitigating the risks. A\n- The  Procurement  shall  view  risk  management  as",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 27098,
+        "end_pos": 28122
+      }
+    },
+    {
+      "chunk_index": 34,
+      "content_contextualized": "Focuses on risk management strategies for procurement operations across the government entity, emphasizing the importance of complying with applicable legislations. Connects to the overall document by outlining procedures for executing procurement activities in accordance with the Procurement Standards. It is related to Section 4: Execution Standards and Section 5.4: Communication Channels, as it discusses the identification, evaluation, mitigation, monitoring, and communication of risks.",
+      "content": "to the best  standards  and  methodologies  for  risk  management,  with  the  objective  of  identifying, evaluating and mitigating the risks. A\n- The  Procurement  shall  view  risk  management  as  an  embedded  activity  throughout  all procurement  operations.  Procurement  risks  are  defined  as  all  potential  events  that  can negatively affect the operations of the procurement function. B\n- The Procurement shall apply common criteria and approach for risk management intended to identify,  evaluate,  mitigate,  monitor  and  communicate  risks  related  to  the  procurement operations across the government entity. C.\n- The Procurement shall take into consideration every-day and exceptional risks that may affect the procurement operations. D.\n\n## 4.5. Procedures for Compliance with Appicable Legislations\n\n- The Procurement Practitioners must be familiar and act in line with the legislations applicable for the Procurement. A\n- The  head  of  the  Procurement  in  coordination  with  the  Legal  shall",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 27922,
+        "end_pos": 28946
+      }
+    },
+    {
+      "chunk_index": 35,
+      "content_contextualized": "This part focuses on the governance and compliance aspects of procurement within a government entity. It details the establishment of committees, such as the Procurement Committee and Tendering Committees, to oversee and endorse procurement activities in line with the Procurement Doctrine for Action (PDoA). It also emphasizes the need for the Procurement Practitioners to adhere to relevant legislations, enforced by mechanisms set up by the head of the Procurement in collaboration with the Legal department.\n\nThis section is closely related to sections covering the Procurement Manual, Charter, and Strategy, as it reinforces the need for consistency with the Procurement Standards and other guidelines. It also connects to later sections discussing the execution standards and communication channels.\n\nNo Context (navigational text): [Title], [Subtitle]",
+      "content": "- The Procurement Practitioners must be familiar and act in line with the legislations applicable for the Procurement. A\n- The  head  of  the  Procurement  in  coordination  with  the  Legal  shall  establish  mechanisms  to ensure  the  Procurement  operates  in  compliance  with  the  Procurement  Standards,  the Procurement Manual and the applicable legislations.\n\n<!-- image -->\n\n## Section 5: Procurement Governance and Communication\n\n## 5.1. The Procurement Committee\n\n- A single Procurement Committee shall be established at each government entity to manage the scope of the Procurement and supervise its operations.\n- The  Chairman  of  the  government  entity  shall  appoint  the  members  of  the  Procurement Committee.\n- The  Procurement  Committee  shall  supervise  procurement  operations  and  endorse  relevant procurement activities as per the PDoA.\n\n## 5.2. The Tendering Committees\n\n- Tendering  Committees  shall  be  established  to  evaluate  the  results  of  relevant  tenders  and encourage",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 28746,
+        "end_pos": 29767
+      }
+    },
+    {
+      "chunk_index": 36,
+      "content_contextualized": "Focuses on establishing committees for tender evaluations, redressal of procurement grievances, and communication channels within the Procurement function. Connects with the overall document by providing guidelines for effective procurement operations and communication. Relates to other sections on the organizational structure (Section 3) and the procurement strategy (Section 8). No Context (navigational text).",
+      "content": "e  relevant procurement activities as per the PDoA.\n\n## 5.2. The Tendering Committees\n\n- Tendering  Committees  shall  be  established  to  evaluate  the  results  of  relevant  tenders  and encourage cross-functional collaboration. A\n- Separate Tendering Committees for technical and commercial evaluations may be formed, as required.\n- The  head  of  the  Procurement  shall  endorse  the  members  of  the  Tendering  Committees appointed by authorised parties as per the PDoA for each relevant tender.\n\n## 5.3. Redressal Authority for Procurement\n\n- The Procurement shall adhere to the internal reporting structure for the redressal of any internal grievances or complaints related to the operations of the Procurement. A\n- The Procurement shall escalate unresolved grievances or complaints raised by the Suppliers to the authorised committees or bodies established for this purpose. B\n\n## 5.4. Communication Channels\n\n- The Procurement shall establish suitable communication channels to facilitate communication and",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 29567,
+        "end_pos": 30587
+      }
+    },
+    {
+      "chunk_index": 37,
+      "content_contextualized": "Focuses on the organization's procurement function performance, setting guidelines for planning, executing, and assessing procurement activities. It connects with the overall document by outlining the required steps in the Procurement Charter, including the roles of Procurement Practitioners, communication channels, and the Procurement Function Plan. This section builds upon previous sections that define the necessary standards and strategy for procurement operations. It also relates to later sections discussing the tendering committees and performance evaluation metrics. No Context (navigational text).",
+      "content": "o the authorised committees or bodies established for this purpose. B\n\n## 5.4. Communication Channels\n\n- The Procurement shall establish suitable communication channels to facilitate communication and coordination between all parties involved in the execution of the procurement operations. A\n\n## Section 6: Procurement Function Performance\n\n## 6.1. Procurement Function Plan\n\n- A. The  head  of  the  Procurement  shall  prepare  on  an  annual  basis  an  internal  plan  of  the procurement function, the Procurement Function Plan, that shall at the minimum include:\n2. A1. The  outcomes  and  outputs  of  the  procurement  function  aligned  to  the  procurement strategy\n3. A2. The targets for outcomes and outputs with relevant performance measures\n\n<!-- image -->\n\n- A3. The annual internal budget of the procurement function\n- A4. The duties and activities assigned to the Procurement Practitioners to be executed during the year\n- B. The head of the Procurement shall present the Procurement Function Plan for",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 30387,
+        "end_pos": 31406
+      }
+    },
+    {
+      "chunk_index": 38,
+      "content_contextualized": "This part discusses the execution, planning, and continuous professional development of the procurement function within a government entity. It outlines the Procurement Function Plan, the need for continuing professional development, and the reporting requirements for performance evaluation. These topics are interconnected with other sections detailing the roles and duties of Procurement Practitioners, risk management, tendering committees, and strategic planning within the procurement process. No Context (navigational text)",
+      "content": "ement function\n- A4. The duties and activities assigned to the Procurement Practitioners to be executed during the year\n- B. The head of the Procurement shall present the Procurement Function Plan for approval to the Chairman of the government entity.\n- C. The head of the Procurement shall report the performance of the procurement function against the Procurement Function Plan to the Chairman of the government entity on a semi-annual basis at the minimum.\n\n## 6.2. Continuing Professional Development\n\n- A. The head of the Procurement shall ensure that all of the Procurement Practitioners have the necessary qualifications and competencies to discharge their responsibilities effectively.\n- B. The head of the Procurement and the Procurement Practitioners shall improve their knowledge, skills and competencies through continuing professional development, for which the head of the Procurement must ensure the allocation of a sufficient number of training hours per year, not less than minimum 40 hours per year.\n\n##",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 31206,
+        "end_pos": 32227
+      }
+    },
+    {
+      "chunk_index": 39,
+      "content_contextualized": "This part focuses on procurement reporting, outlining the Procurement Management Report that the head of the department must present biannually to the Chairman. The report includes various metrics such as spend value per category, supplier satisfaction, and status of strategic initiatives against plans. It is related to other sections discussing the organization, roles, and duties of procurement practitioners, tendering committees, and communication channels. The reporting section provides insights into the execution and performance of procurement activities. No Context (Navigational text)",
+      "content": "gh continuing professional development, for which the head of the Procurement must ensure the allocation of a sufficient number of training hours per year, not less than minimum 40 hours per year.\n\n## Section 7: Procurement Reporting\n\n## 7.1. Procurement Management Report\n\n- A The  head  of  the  Procurement  shall  present  the  Procurement  Management  Report  of  the procurement function biannualy to the Chairman of the government entity. The Procurement Management Report shall include at the minimum the following:\n- A1. Spend value per category\n- A2. Spend value per Supplier\n- A3. Contracted price for goods, services and projects\n- A4. Delivered savings against planned savings for each category validated by the Finance\n- A5. Signed Price List Agreements, Contracts against the plan and issued orders\n- A6. Status of the procurement of projects against the plan\n- A7. Ageing of due invoices\n- A8. Supplier and the End-users satisfaction to be reported yearly\n- A9. Status of strategic initiatives against the",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 32027,
+        "end_pos": 33048
+      }
+    },
+    {
+      "chunk_index": 40,
+      "content_contextualized": "Focuses on the status of procurement projects against the plan, including aging of due invoices, supplier and End-users satisfaction, strategic initiatives progress, compliance with approved buying channels and contracts for each category, details of Sole Source or Single Source tenders awarded, emergency purchases made, escalations or complaints received, important outstanding matters, and other relevant information. This part relates to the overall document by providing an update on procurement operations' status and ensuring adherence to approved standards. It connects with other sections such as Procurement Strategy, Execution Standards, and Rules for Risk Management in defining practices, rules, and controls for procurement activities.",
+      "content": "tatus of the procurement of projects against the plan\n- A7. Ageing of due invoices\n- A8. Supplier and the End-users satisfaction to be reported yearly\n- A9. Status of strategic initiatives against the plan\n- A10. Compliance with approved buying channels and Contracts for each category\n\n<!-- image -->\n\n- A11. Details of Sole Source or Single Source tenders awarded including value of award, supplier particulars and approved justification\n- A12. Emergency purchases made including value of purchase, supplier particulars and approved justification\n- A13. Details of escalations or complaints received from internal or external parties regarding procurement operations\n- A14. Any  important  outstanding  matters  for  the  management's  decision  and  other  relevant information\n\n<!-- image -->\n\n## Execution Standards\n\nThe  Execution  Standards  define  the  necessary  practices,  rules  and  controls  for  procurement operations.\n\n## Section 8: Procurement Strategy\n\n## 8.1. Introduction\n\n- The strategy of the",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 32848,
+        "end_pos": 33864
+      }
+    },
+    {
+      "chunk_index": 41,
+      "content_contextualized": "The part discusses the Procurement Strategy, which outlines necessary practices, rules, and controls for procurement operations as a means of achieving the overall strategy of the government entity. This section integrates with other parts by detailing vision, mission, objectives, demand management insights, supply options, rationalization potential, strategic actions, and stakeholder relationships in the Procurement context.\n\nNo Context (navigational text)",
+      "content": "ards\n\nThe  Execution  Standards  define  the  necessary  practices,  rules  and  controls  for  procurement operations.\n\n## Section 8: Procurement Strategy\n\n## 8.1. Introduction\n\n- The strategy of the Procurement is integral to achieving the overall strategy of the government entity.  To  that  end,  written  procurement  strategy,  which  may  be  part  of  the  broader organisational strategy of the government entity, shall be created by the Procurement. A\n- The procurement strategy shall include the following: B\n- B1. Vision, mission and strategic objectives for the Procurement\n- B2. Procurement categories with their high-level strategies\n- B3. Demand management insights, targets and actions\n- B4. Supply options with impact and risk assessment\n- B5. The potential for rationalisation, standardisation, and economies of scale\n- B6. Completed, ongoing and planned strategic actions\n- B7. Development and management of the relationship with key stakeholders\n- The  procurement  strategy  shall  be  prepared  by",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 33664,
+        "end_pos": 34686
+      }
+    },
+    {
+      "chunk_index": 42,
+      "content_contextualized": "Focuses on outlining the procurement strategy, including vision, mission, strategic goals, objectives, and key actions, all of which are aligned with the government entity's core principles. It builds upon earlier discussions about segregation of duties, collaboration, risk management, tendering committees, and communication channels within the procurement process. The strategy is subject to approval by a Procurement Committee and the Chairman of the government entity. No Context (navigational text).",
+      "content": "nomies of scale\n- B6. Completed, ongoing and planned strategic actions\n- B7. Development and management of the relationship with key stakeholders\n- The  procurement  strategy  shall  be  prepared  by  the  head  of  the  Procurement  and  shall  be submitted for approval of the Procurement Committee, which is followed by the approval of the Chairman of the government entity. C.\n\n## 8.2. Vision and Mission\n\n- The  vision  and  mission  of  the  Procurement  shall  extend  from  the  vision  and  mission  of  the government entity.  They  shall  be  in  line  with  the  Core  Principles  and  constitute  part  of  the procurement strategy. A\n\n## 8.3. Strategic Goals and Objectives\n\n- The Procurement shall set strategic goals and objectives based on the vision and mission. The goals describe what will happen and objectives describe what will be achieved. A\n- The Procurement shall cascade down the objectives and goals agreed collaboratively with the End-users and the Finance. The Procurement shall set key",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 34486,
+        "end_pos": 35502
+      }
+    },
+    {
+      "chunk_index": 43,
+      "content_contextualized": "Focuses on the strategic goals and objectives of procurement, including collaboration with End-users and Finance for setting key performance indicators, aligning with the overall document by addressing procurement strategy aspects such as capabilities, processes, organization, and planned delivery of services. Connects to other sections discussing risk management, tendering committees, communication channels, procurement function plan, and execution standards. No Context (navigational text).",
+      "content": "and objectives describe what will be achieved. A\n- The Procurement shall cascade down the objectives and goals agreed collaboratively with the End-users and the Finance. The Procurement shall set key performance indicators that will be used to report fulfilment of the procurement strategy. B\n- The  head  of  the  Procurement  shall  ensure  that  all  stakeholders  in  the  government  entity, including the Procurement Practitioners, are aware of the strategic goals and objectives. C.\n\n<!-- image -->\n\n- The  head  of  the  Procurement  shall  assign  performance  objectives  to  the  Procurement Practitioners in line with the strategic goals of the procurement function. These objectives shall be used to assess the performance of the Procurement Practitioners. D\n- The Strategic goals and objectives of procurement strategy shall relate, but are not limited to: E\n- E1. Capabilities, processes and organisation of the Procurement\n- E2. Planned delivery of the procurement services including ongoing and upcoming",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 35302,
+        "end_pos": 36323
+      }
+    },
+    {
+      "chunk_index": 44,
+      "content_contextualized": "Focuses on procurement strategies that relate to the organization's capabilities, ongoing projects, category management, sourcing management, contract management, supplier management, and requisition to pay operations. This part connects to the overall document by elaborating on specific aspects of the Procurement Strategy section. It builds upon sections discussing the Tendering Committees, Communication Channels, and Execution Standards, providing details about implementing the approved initiatives based on internal and external analysis. No Context (navigational text: \"The Procurement shall plan the implementation...\")",
+      "content": "ent strategy shall relate, but are not limited to: E\n- E1. Capabilities, processes and organisation of the Procurement\n- E2. Planned delivery of the procurement services including ongoing and upcoming projects and contracts in place as well as planned\n- E3. Category management with approach, structure, and content of the actual strategies\n- E4. Sourcing management as execution part of the category strategies and ad-hoc requests\n- E5. Contract management and Supplier management following the results of the sourcing\n- E6. Requisition to pay operations\n\n## 8.4. Implementation of the Procurement Strategy\n\n- The Procurement shall plan the implementation of the procurement strategy consisting of the initiatives approved by the Procurement Committee. A\n- The Procurement shall identify and prioritise potential initiatives based on internal and external analysis. The Procurement is encouraged to seek inputs from the End-users acting as subject matter experts. B\n- Appropriate  business  cases  shall  be  prepared  by",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 36123,
+        "end_pos": 37146
+      }
+    },
+    {
+      "chunk_index": 45,
+      "content_contextualized": "Focuses on procurement planning, demand management, and category management strategies to optimize government spending and ensure the right supply of goods, services, and projects. It connects with other sections discussing procurement regulations, tendering committees, and communication channels. The plan's execution is linked to the Procurement Function Plan mentioned earlier. Other relevant sections include those on strategic initiatives, supplier relationships, and demand forecasting. No Context (navigational text) is not detected in this case.",
+      "content": "es based on internal and external analysis. The Procurement is encouraged to seek inputs from the End-users acting as subject matter experts. B\n- Appropriate  business  cases  shall  be  prepared  by  the  Procurement  for  the  initiatives.  The execution of the initiatives shall be planned against an annual calendar. The business case must be created for initiatives related to the procurement of projects. C.\n- The Procurement shall continuously track the execution of procurement strategy and present it to the involved parties. D .\n\n## Section 9: Demand and Category Management\n\n## 9.1. Introduction\n\n- The  Procurement  shall  drive  the  demand  and  category  management  to  have  a  clear understanding of the demand and ensure the right supply of goods, services and projects so that the government entity achieves its objectives. A\n- Demand management involves developing forward-looking estimates of  the required goods, services and projects by having a clear understanding of specifications, quantities,",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 36946,
+        "end_pos": 37966
+      }
+    },
+    {
+      "chunk_index": 46,
+      "content_contextualized": "Focuses on procurement strategies for cost efficiency, category management, and demand management to deliver value for specific categories of spend, identify savings opportunities, and mitigate risks. This part relates to the overall document by detailing necessary practices for effective procurement operations as defined in the Execution Standards. It is connected to other sections that discuss tendering committees, communication channels, procurement function plan, procurement strategy preparation, and category analysis.",
+      "content": "chieves its objectives. A\n- Demand management involves developing forward-looking estimates of  the required goods, services and projects by having a clear understanding of specifications, quantities, timelines and importance. It drives cost efficiencies through challenging and consolidation of requirements of End-users to standardise purchases, eradicate wasteful practices and avoid unnecessary costs.\n\n<!-- image -->\n\n- Category management is a structured approach, which aims at developing plans and strategies to  deliver  value  for  a  specific  category  of  spend.  It  takes  into  account  internal  and  external environments for reducing procurement costs, driving innovation and mitigating risks.\n\n## 9.2. Category Analysis\n\n- The  Procurement  Practitioners  responsible  for  managing  categories  shall  perform  detailed analysis  of  categories  focusing  on  internal  and  external  factors  to  identify  opportunities  for driving savings and efficiencies. A\n- The  internal category profiles shall",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 37766,
+        "end_pos": 38789
+      }
+    },
+    {
+      "chunk_index": 47,
+      "content_contextualized": "Focuses on detailed analysis of procurement categories, identifying opportunities for savings and efficiencies by examining internal and external factors. This section builds upon previous discussions about Procurement Strategy (Section 8) and Procurement Planning (Section 9.9), as it provides the specifics for categorizing and evaluating the procurement activities. No Context.",
+      "content": "perform  detailed analysis  of  categories  focusing  on  internal  and  external  factors  to  identify  opportunities  for driving savings and efficiencies. A\n- The  internal category profiles shall at the minimum include the following elements:\n- B1. Description of the category with its scope and use\n- B2. Spend profile showing the distribution of spend, Suppliers, and contracts\n- B3. Demand profile outlining current and estimated business needs\n- B4. Stakeholders profiles relevant for the category\n- The  external  category  profiles  based  on  market  analysis  shall  at  the  minimum  include  the following elements:\n- C1. Industry Structure and its added value chain\n- C2. Market  structure  and  trends  including  size,  business  segments,  prices  and  commodity indices\n- C3. Analysis of Economic Factors which drive the demand\n- C4. Analysis of total cost and cost drivers of the category\n- C5. Supplier landscape including the number, composition and standing of the major Suppliers\n- C6. Analysis of",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 38589,
+        "end_pos": 39611
+      }
+    },
+    {
+      "chunk_index": 48,
+      "content_contextualized": "Focuses on procurement category analysis and strategy development, providing an overall direction for managing categories through initiatives. It connects to the document by outlining necessary practices, rules, and controls for procurement operations (as defined in Execution Standards). This section also relates to other sections that discuss procurement planning, strategic actions, demand management, and supplier relationships. No Context (navigational text) is not detected in this part.",
+      "content": "rs which drive the demand\n- C4. Analysis of total cost and cost drivers of the category\n- C5. Supplier landscape including the number, composition and standing of the major Suppliers\n- C6. Analysis of forces that determine the competitiveness of the industry\n\n## 9.3 Category Strategy\n\n- The Procurement Practitioners responsible for managing categories shall utilise the results of category analysis to develop strategies, which set an overall direction for the management of categories through initiatives.\n- The Procurement Practitioners may seek cross-functional inputs for developing the category strategy, if required.\n- The category strategy must identify value levers that reduce procurement costs, drive innovation and efficiency while mitigating risks associated with the category.\n- The Procurement shall prepare category segmentation as a part of the overall category strategy. The category segmentation shall consider at a minimum the following:\n- C1. Criticality of category for the government entity\n\n<!--",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 39411,
+        "end_pos": 40431
+      }
+    },
+    {
+      "chunk_index": 49,
+      "content_contextualized": "Focuses on category segmentation as a part of the overall procurement strategy for government entities, considering criticality of categories, ease of supply, and potential benefits. This topic connects with other sections discussing the procurement plan and execution standards. It also relates to intellectual property considerations within procurement processes.\n\nNo Context (navigational text): A1.",
+      "content": "are category segmentation as a part of the overall category strategy. The category segmentation shall consider at a minimum the following:\n- C1. Criticality of category for the government entity\n\n<!-- image -->\n\n- C2. Ease of supply of goods, services and projects including Supplier substitution\n- C3. Potential benefits to be realised\n\n## 9.4. Intellectual Property\n\n- The Procurement shall collaborate with the End-users to identify if the required goods, services or  projects  involve  Intellectual  Property,  including  Background  Intellectual  Property  and Foreground Intellectual Property. A\n- The Procurement shall ensure that the End-users justify any requests to transfer, license, retain or share the ownership of Intellectual Property not owned by the government entity, such a request may be supported by a business case developed by the End-users. B\n- The  Procurement  shall  consult  with  the  Legal  and  the  End-users  to  ensure  that  relevant provisions are included in the solicitation and",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 40231,
+        "end_pos": 41248
+      }
+    },
+    {
+      "chunk_index": 50,
+      "content_contextualized": "Focuses on procedures for soliciting bids and drafting contracts, ensuring compliance with intellectual property regulations and internal policies. Connects to other sections discussing procurement strategy development and annual demand planning. It builds upon earlier mentions of end-user involvement in the procurement process and preparation of business cases. No Context (navigational text) is not detected.",
+      "content": "d by a business case developed by the End-users. B\n- The  Procurement  shall  consult  with  the  Legal  and  the  End-users  to  ensure  that  relevant provisions are included in the solicitation and contract documents and communicated to the Suppliers, in case the Intellectual Property not owned by the government entity is required to be transferred, licensed, retained or shared. C.\n- The Procurement shall consult with the Legal and the End-users to ensure that the Intellectual Property  owned  by  the  government  entity  is  protected  through  relevant  provisions  in  the solicitation and contract documents. D.\n\n## 9.5. Consolidated Annual Demand\n\n- The Procurement shall initiate and drive the annual demand consolidation for the fiscal year to ensure that the government entity operates normally and continuously. The Procurement shall collect from the End-users the best estimates of annual requirements for goods, services and projects. The information collected must, at the minimum, include: A\n- A1.",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 41048,
+        "end_pos": 42067
+      }
+    },
+    {
+      "chunk_index": 51,
+      "content_contextualized": "Focuses on procurement demand planning, including gathering estimates for annual requirements of goods, services, and projects from end-users. It details parameters such as specifications, quantities, budgets, timelines, and potential suppliers for planned projects. This section is connected to the overall document as it discusses a part of the procurement strategy defined in Section 8, specifically addressing demand planning in relation to category segmentation (Section 49), procurement plan (Section 9.9), and source-to-contract cycle (Section 60).",
+      "content": "tinuously. The Procurement shall collect from the End-users the best estimates of annual requirements for goods, services and projects. The information collected must, at the minimum, include: A\n- A1. Identification of requirements against the Category Hierarchy and their specifications\n- A2. Estimated quantity and expected budget for the goods, services and projects planned\n- A3. Procurement timelines with expected delivery dates for goods and schedules for services and projects\n- A4. Specific demand for the procurement of projects indicating plan, the scope of work and potential Suppliers for each planned project\n- If  the  complete  demand  cannot  be  obtained,  then  the  Procurement  shall  estimate  the requirements. B\n- The Procurement shall seek advice from the End-users in estimating budgets for the demand based on the historical data, prices, and market insights. C.\n- The  schedule  for  demand  planning  shall  be  defined  through  the  budgeting  cycle,  and  the Procurement shall communicate to",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 41867,
+        "end_pos": 42891
+      }
+    },
+    {
+      "chunk_index": 52,
+      "content_contextualized": "This part focuses on demand planning and optimization within procurement processes, including consolidating demands, identifying wasteful practices, and verifying demand against historical trends. It connects to the overall document by outlining strategies for better managing procurement activities, as detailed in the Procurement Plan and Procurement Strategy sections earlier. The section also references techniques like order quantity optimization and leveraging subject matter experts from various domains, which are discussed in other parts of the document. (No Navigational Text)",
+      "content": "and based on the historical data, prices, and market insights. C.\n- The  schedule  for  demand  planning  shall  be  defined  through  the  budgeting  cycle,  and  the Procurement shall communicate to the End-users the consolidated annual demand. D .\n\n<!-- image -->\n\n- The head of the Procurement shall be responsible for the demand consolidation activity and its results. E\n\n## 9.6. Demand Optimisation\n\n- The Procurement shall validate the consolidated demand against historical demand trends to verify the submitted estimates. The Procurement shall investigate any abnormalities found in the estimated demand with the End-users and suggest revisions as necessary. A\n- The  Procurement  shall  verify  demand  raised  by  the  End-users  to  ensure  consumption  and purchasing  are  at  optimal  levels.  To  achieve  it  any  wasteful  practices  identified  shall  be eradicated by applying levers including, but not limited to: B\n- B1. Historical consumption trend comparison\n- B2. Order quantity optimisation\n- B3.",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 42691,
+        "end_pos": 43713
+      }
+    },
+    {
+      "chunk_index": 53,
+      "content_contextualized": "Focuses on measures to improve efficiency in procurement processes by eliminating wasteful practices, collaborating across government entities, and financial planning. This part connects with the overall document by outlining strategies for optimizing procurement, which is a key objective discussed earlier. It is related to sections discussing procurement planning (9.9), need identification and analysis (10.3), and feasibility study (9.7) as these all deal with various aspects of the procurement process. No Context (navigational text).",
+      "content": "it  any  wasteful  practices  identified  shall  be eradicated by applying levers including, but not limited to: B\n- B1. Historical consumption trend comparison\n- B2. Order quantity optimisation\n- B3. Appropriate substitutes introduction\n- B4. Requirements standardisation\n\n## 9.7. Fesibility Study\n\n- The  Procurement  shall  ensure  requestors  prepare  feasibility  study  for  purchases  of  goods, services  and  projects  requiring  justification  as  per  the  PDoA.  In  case  of  the  procurement  of projects,  the  feasibility  study  created  during  the  investment  planning  shall  be  verified  and appropriated. A\n- Where possible, the Procurement shall ensure that the feasibility study explore opportunities for cross-organisational collaboration within the government entity. B\n\n## 9.8. Procurement Financial Bridging\n\n- The  Procurement  shall  develop  consolidated  demand  requirements  plan  estimated  for  the categories. It shall represent mid-term spend plan used to feed financial budgeting",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 43513,
+        "end_pos": 44533
+      }
+    },
+    {
+      "chunk_index": 54,
+      "content_contextualized": "This part focuses on financial bridging within procurement planning, discussing the development of a consolidated demand requirements plan, budget allocation for operational and capital expenditures, handling budget shortfalls, and aligning procurement budgets with project investment plans. It is closely related to the overall document's discussion on procurement strategies and planning processes. It connects to other sections discussing sourcing strategy, need identification, and procurement plan preparation. No Context (navigational text)",
+      "content": "inancial Bridging\n\n- The  Procurement  shall  develop  consolidated  demand  requirements  plan  estimated  for  the categories. It shall represent mid-term spend plan used to feed financial budgeting activity. A\n- The Procurement shall verify and ensure the allocation of sufficient budgets for the procurement categories. B\n- The budgets shall include split between operational and capital expenditures. The Procurement shall include the budgets of planned projects separately. C.\n- During the execution, in case of a budget shortfall, the Procurement shall ensure that the Endusers either reduce the demand or work with the Finance to increase the allocated budget. The budgets  for  the  procurement  of  projects  shall  be  matched  against  investment  plans  of  the projects with any discrepancies raised to the respective End-user of the projects and the Finance. D.\n\n<!-- image -->\n\n## 9.9. Procurement Plan\n\n- Procurement planning determines how best to fulfil the requirements captured from within the",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 44333,
+        "end_pos": 45347
+      }
+    },
+    {
+      "chunk_index": 55,
+      "content_contextualized": "Focuses on procurement planning within the government entity, outlining strategies for fulfilling requirements and balancing supply and demand to achieve financial and service delivery objectives. This section connects to the overall document by detailing the steps involved in procuring goods, services, and projects based on need identification, analysis, budget approvals, sourcing methods, and procurement plan preparation. It is related to sections discussing need identification and analysis (10.3) and sourcing methods (10.5).\n\nNo Context (Navigational text):\n\n- Page 2 of 4\n- Section 9.9\n- Procurement Plan",
+      "content": "to the respective End-user of the projects and the Finance. D.\n\n<!-- image -->\n\n## 9.9. Procurement Plan\n\n- Procurement planning determines how best to fulfil the requirements captured from within the government entity. Its objective is to balance supply and demand so that the government entity achieves the financial and service delivery objectives. A\n- The  procurement  plan  focuses  on  the  examination  of  operating  contracts  and  selection  of sourcing methods to renew existing or creating new supply agreements. B\n- The procurement plan defines all requirements for goods, services and projects to be procured over  a  period  of  time.  It  establishes  the  high-level  timelines  for  the  sourcing  events.  The Procurement shall use the procurement plan to consolidate similar requirements under same contracts. C.\n- The Procurement shall at the minimum consider the following parameters while preparing the procurement plan: D .\n- D1. Needs and requirements\n- D2. Quantities and estimated costs\n- D3.",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 45147,
+        "end_pos": 46167
+      }
+    },
+    {
+      "chunk_index": 56,
+      "content_contextualized": "This part focuses on outlining the procurement plan, detailing parameters for preparing the plan, and assigning responsibilities for various tasks within the plan. It connects to the overall document by following the sequence of topics discussed in the Procurement section, including need identification, budget approvals, sourcing methods, and contract management. The procurement plan is further elaborated upon in relation to other sections like demand management and supplier relationship management.\n\nNo Context (navigational text): \"The Procurement Practitioners shall prepare the procurement plans for their owned categories.\"",
+      "content": "contracts. C.\n- The Procurement shall at the minimum consider the following parameters while preparing the procurement plan: D .\n- D1. Needs and requirements\n- D2. Quantities and estimated costs\n- D3. Budget requirements\n- D4. Opportunities for demand consolidation\n- D5. Appropriate procurement methods and processes\n- D6. Schedule of sourcing events\n- D7. Readiness and potential risk mitigation\n- The Procurement may include in the procurement plan initiatives other than sourcing events, related to demand  management,  supplier relationship management,  contract lifecycle management and other procurement responsibilities. E\n- The Procurement Practitioners shall include in the procurement plan the schedule of sourcing events for their owned categories, having at a minimum the timelines of planned activities and the involved parties. F\n- The Procurement Practitioners shall prepare the procurement plans for their owned categories. G\n- The head of the Procurement shall be responsible for approving the procurement",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 45967,
+        "end_pos": 46990
+      }
+    },
+    {
+      "chunk_index": 57,
+      "content_contextualized": "This part focuses on procurement planning and its associated policies within a government entity. It outlines the responsibilities of various parties involved in this process, from identifying stakeholders to monitoring and adjusting procurement plans as necessary. The section is closely connected to the overall document, which discusses strategies for driving savings and efficiencies across different categories. It links specifically with sections detailing category analysis, cost drivers, demand planning, sourcing methods, and stakeholder identification.\n\nNo Context (navigational text):\n[Chunk 56, Chunk 68]",
+      "content": "e involved parties. F\n- The Procurement Practitioners shall prepare the procurement plans for their owned categories. G\n- The head of the Procurement shall be responsible for approving the procurement plan. H\n\n## 9.10. Procurement Plan Monitoring\n\n- The Procurement shall monitor the execution of the procurement plan and if relevant adjust it to  accommodate  new  requirements  or  changes  communicated  by  and  agreed  with  the stakeholders. A\n- The head of the Procurement shall be responsible for approving the changes to the procurement plan. B\n\n<!-- image -->\n\n## 9.11. Stakeholder Collaboration\n\n- The  Procurement  shall  identify  key  stakeholders  involved  in  procurement  operations,  their interests  and  relative  importance.  Internal  and  external  stakeholders  can  include  partners, Suppliers, the End-users, management, the Finance, the Legal and subject matter experts. A\n- The  Procurement  shall  identify  stakeholders  required  for  successful  procurement  planning, along with their",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 46790,
+        "end_pos": 47809
+      }
+    },
+    {
+      "chunk_index": 58,
+      "content_contextualized": "Focuses on the tracking of benefits derived from procurement activities, connecting to the overall document as a means to ensure accountability and transparency in cost reduction, cost avoidance, service level, and quality. This section relates to other parts discussing procurement planning, budget approvals, sourcing methods, and stakeholder identification. No Context (navigational text) is not detected.",
+      "content": "s, the End-users, management, the Finance, the Legal and subject matter experts. A\n- The  Procurement  shall  identify  stakeholders  required  for  successful  procurement  planning, along with their expected contribution. The procurement planning, especially any exchange of information and correspondence with the stakeholders, shall be documented for traceability and probity. B\n\n## 9.12. Benefits Tracking\n\n- The  Procurement  shall  track  the  benefits  delivered  to  the  government  entity  through  cost reduction, cost avoidance, service level and quality. A\n- The  Procurement  shall  develop  appropriate  and  consistent  methodologies  to  calculate  the benefits delivered. B\n- The Procurement shall develop credible baselines to measure benefits considering at a minimum the following: C.\n- C1. Historical costs\n- C2. Previously contracted rates\n- C3. Budget estimates or allocation\n- C4. Projected cost increase resulting from macroeconomic factors or Supplier requests\n- The Procurement shall collaborate",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 47609,
+        "end_pos": 48633
+      }
+    },
+    {
+      "chunk_index": 59,
+      "content_contextualized": "This part focuses on cost aspects in procurement planning, including previously contracted rates, budget estimates, projected cost increases, collaboration with end-users, Finance, and subject matter experts for tracking benefits, and regular reporting of such benefits. It connects to the overall document by being a part of the 'Source to Contract' section which aims to identify the right suppliers efficiently and cost-effectively while managing the procurement cycle collaboratively. This section is related to sections discussing sourcing methods (10.5), need identification and analysis (10.3), and budget approvals (10.4). No Context (navigational text)",
+      "content": "costs\n- C2. Previously contracted rates\n- C3. Budget estimates or allocation\n- C4. Projected cost increase resulting from macroeconomic factors or Supplier requests\n- The Procurement shall collaborate with the End-users for inputs required to track the benefits and may engage the Finance and subject matter experts for validation. D.\n- The Procurement shall regularly report the benefits. E\n\n## Section 10: Source to Contract\n\n## 10.1. Introduction\n\n- The Procurement through the source to contract shall identify the right Suppliers to fulfil the government  entity's  requirements  for  goods,  services  and  projects  efficiently  and  costeffectively. The Procurement shall manage the source to contract cycle ensuring collaboration of the End-users, the Finance and the Legal, and engaging Suppliers when necessary. A\n- The course of the source to contract cycle includes gathering specifications and requirements, identification  of  appropriate  sourcing  methods,  preparation  of  solicitation  documents  and",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 48433,
+        "end_pos": 49453
+      }
+    },
+    {
+      "chunk_index": 60,
+      "content_contextualized": "Focuses on guidelines for the source-to-contract cycle in procurement activities, emphasizing compliance with standards, identifying existing contracts, and avoiding splitting requests to bypass approval authorities. Connects to overall document by outlining steps in the procurement process and referencing other sections related to sourcing methods, budget approvals, and need identification. This section is closely related to 10.1 (General Guidance for Procurement) and 10.3 (Need Identification and Analysis). No Context (navigational text).",
+      "content": "y. A\n- The course of the source to contract cycle includes gathering specifications and requirements, identification  of  appropriate  sourcing  methods,  preparation  of  solicitation  documents  and execution of solicitation. The Procurement shall ensure evaluation of offers received, conduct negotiations and award contracts to the most suitable Suppliers. B\n\n<!-- image -->\n\n## 10.2. General Guidance for Source to Contract\n\n- The Procurement shall adhere, at the minimum, to the following during source to contract: A\n- A1. Sourcing activity shall comply with the Procurement Standards, relevant regulations, and shall be performed within the confines of the Code of Business Ethics.\n- A2. Sourcing  requests  shall  be  verified  by  the  Procurement  against  existing  contracts  and inventories to identify if the requirement can be fulfilled without entering new obligations.\n- A3. Procurement requirement shall not be split to bypass approval authorities. If there is a genuine  need  to  split  the  procurement",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 49253,
+        "end_pos": 50277
+      }
+    },
+    {
+      "chunk_index": 61,
+      "content_contextualized": "Focuses on procurement guidelines and rules, emphasizing approval authorities, selection of sourcing methods, and tendering committees. This section connects to the overall document by providing details about the procurement planning, need identification, analysis, budgeting, sourcing methods, and contract execution processes. It aligns with Chunk 51-60 and Chunk 62-71 which discuss similar topics in more detail. No Context (navigational or non-content text is not present).",
+      "content": "requirement can be fulfilled without entering new obligations.\n- A3. Procurement requirement shall not be split to bypass approval authorities. If there is a genuine  need  to  split  the  procurement  requirement,  then  it  shall  be  documented  and approved by the head of the Procurement.\n- A4. Sourcing for projects shall be initiated after the underlying initiative has been approved and shall require approval from appropriate authorities as per the PDoA.\n- A5. Appropriate sourcing method and solicitation channel shall be selected by Procurement.\n- A6. Sourcing shall require approval from and shall be governed by the appropriate authority as per the PDoA.\n- A7. The Tendering Committee, if mandated by the PDoA, shall be set up for sourcing including the representatives of the requestor as well as subject matter experts relevant for the domain of the request.\n- A8. The Procurement Practitioners responsible for managing categories shall drive the source to contract activities for that category.\n- A9.",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 50077,
+        "end_pos": 51093
+      }
+    },
+    {
+      "chunk_index": 62,
+      "content_contextualized": "Focuses on procurement practices such as sourcing methods, solicitation channels, information management, and supplier interactions, ensuring a transparent, fair, and efficient process. Connects to the overall document by outlining specific steps in the procurement plan, including need identification, analysis, budget approvals, and contract initiation. It builds upon previous sections discussing procurement planning parameters, stakeholder identification, and requirements gathering, while also detailing post-procurement activities like confidentiality agreements, auditing, and supplier response times.",
+      "content": "ct matter experts relevant for the domain of the request.\n- A8. The Procurement Practitioners responsible for managing categories shall drive the source to contract activities for that category.\n- A9. Sourcing shall be executed electronically through the Procurement Gate.\n- A10. Confidentiality agreement shall be signed by all Suppliers, before sharing any confidential information.\n- A11. Suppliers shall be given the opportunity to raise questions and request clarifications during the sourcing activity.\n- A12. Information gathering and dissemination shall be done in an open, fair and transparent manner with all participants having equal access to information.\n- A13. Clear audit trail capturing document transmission between the Procurement and Suppliers shall be maintained electronically to facilitate tracking and auditing.\n- A14. Suppliers shall be given reasonable time to respond to tenders with an option to request for extensions.\n\n## 10.3. Need Identification and Analysis\n\n- The Procurement shall initiate",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 50893,
+        "end_pos": 51916
+      }
+    },
+    {
+      "chunk_index": 63,
+      "content_contextualized": "This part focuses on the process of identifying procurement needs, budget approvals, sourcing methods, and supplier screening within the overall document which details a comprehensive procurement policy. It is closely related to sections discussing procurement planning, requirements, and contract management. The topic of budget approvals connects with section 10.4, while need identification and analysis are associated with section 10.3.\n\nNo Context (navigational text): Chunk 54: \"Financial Bridging\"",
+      "content": "d auditing.\n- A14. Suppliers shall be given reasonable time to respond to tenders with an option to request for extensions.\n\n## 10.3. Need Identification and Analysis\n\n- The Procurement shall initiate source to contract  cycle  when a procurement need has been identified either by the End-users or through the procurement planning exercise. A\n\n<!-- image -->\n\n- The  Procurement  shall  create  the  sourcing  request  in  the  Procurement  Gate.  The  sourcing request shall be approved by the appropriate authority as per the PDoA. B\n- The  Procurement  shall  analyse  the  requirement  and  determine  whether  it  can  be  fulfilled through  an  existing  contract  or  if  there  is  a  need  for  a  new  contract.  If  the  Procurement determines that a scouring event is required to initiate a new contract, then it shall identify relevant stakeholders, determine critical business requirements and conduct internal analysis and market research to develop the sourcing strategy. C.\n\n## 10.4. Budget Approvals and",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 51716,
+        "end_pos": 52738
+      }
+    },
+    {
+      "chunk_index": 64,
+      "content_contextualized": "Focuses on procurement planning and budget approvals, outlining the identification of relevant stakeholders, critical business requirements, internal analysis, market research, and the development of a sourcing strategy. This section connects to the overall document by detailing the steps involved in preparing for and executing procurement activities, such as sourcing methods. It is related to sections discussing the preparation of procurement plans (Section 9.9) and the screening of suppliers (Section 10.9).\n\nNo Context (Navigational text): [\"<!-- image -->\"]",
+      "content": "it shall identify relevant stakeholders, determine critical business requirements and conduct internal analysis and market research to develop the sourcing strategy. C.\n\n## 10.4. Budget Approvals and Financing\n\n- The Procurement shall partner with the End-users to develop a reliable cost estimate of the request.  The  Procurement  is  encouraged  to  use  market  research,  historical  price  trends  or budgetary quotations to develop the cost estimate.\n- The Procurement shall determine if sufficient budget and approvals exist for the requirement. If the budget is not approved or is insufficient, then the Procurement shall ensure that the Endusers  have  the  required  budget  allocated  in  coordination  with  the  Finance  through  the appropriate process before sourcing.\n- The Procurement shall ensure that the End-users allocate additional budget in coordination with the Finance before contracting, in case of shortfall.\n\n## 10.5. Sourcing Methods\n\n- The Procurement, at the minimum, shall employ the",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 52538,
+        "end_pos": 53555
+      }
+    },
+    {
+      "chunk_index": 65,
+      "content_contextualized": "Focuses on the various sourcing methods employed for procuring goods, services, and projects, utilizing the Procurement Gate. The section outlines the Public Tender, Limited Tender, and Sole Source Tender, connecting to earlier sections that discuss procurement planning, need identification, and strategy development. This part is related to the overall document as it forms a crucial step in the source-to-contract cycle.",
+      "content": "that the End-users allocate additional budget in coordination with the Finance before contracting, in case of shortfall.\n\n## 10.5. Sourcing Methods\n\n- The Procurement, at the minimum, shall employ the following methods enabled through the Procurement Gate: A\n- A1. The Public Tender which shall be accessible through the Procurement Gate and shall be publicly  announced.  The  public  tender  shall  be  open  to  all  suppliers  allowing  them  to register in the Procurement Gate for placing the bids.\n- A2. The Limited Tender which shall be open to a predefined number of registered and qualified Suppliers, or the registered Suppliers recommended by the End-users and approved by the Procurement.  The  Procurement  may  include  additional  registered  Suppliers  that  are appropriate for the sourcing.\n- A3. The Sole Source Tender is a variation of the limited tender where there is only one qualified supplier capable of supplying the required goods, services and projects with whom the contract may be established.",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 53355,
+        "end_pos": 54379
+      }
+    },
+    {
+      "chunk_index": 66,
+      "content_contextualized": "Focuses on single source tendering procedures within procurement policies, outlining requirements for solicitation and approval processes when there's only one qualified supplier. This part connects with other sections discussing sourcing methods and the overall objective of successful procurement planning. It expands upon the concept of appropriate sourcing methods mentioned in section 10.5 and provides additional guidelines for tender types mentioned earlier in section 10.3 (Need Identification and Analysis). No Context (Navigational text)",
+      "content": "Source Tender is a variation of the limited tender where there is only one qualified supplier capable of supplying the required goods, services and projects with whom the contract may be established.\n- A4. The  Single  Source  Tender  is  a  variation  of  the  limited  tender  where  only  one  qualified supplier is invited from a pool of registered suppliers for solicitation. This type of tendering method may be adopted when there is a valid reason for using a particular supplier. The Procurement shall endeavour to suggest suitable alternatives whenever the Single Source tender is suggested by the End-users.\n\n<!-- image -->\n\n- A5. The decision to proceed with the Sole Source or Single Source tenders shall require approval from the head of the Procurement followed by approvals defined in the PDoA.\n- The  Procurement  shall  use  appropriate  sourcing  methods  to  initiate  new  or  update  existing contracts for requested goods, services and projects. B\n- The  Procurement  shall  refer  to  the  PDoA  for",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 54179,
+        "end_pos": 55203
+      }
+    },
+    {
+      "chunk_index": 67,
+      "content_contextualized": "Focuses on the rules for selecting and using appropriate sourcing methods in procurement processes, including Sole Source or Single Source tenders and deviations from prescribed sourcing methods. The section relates to the overall document by providing guidelines for need identification, analysis, budget approvals, sourcing methods, supplier screening, and contract initiation or update. This part is closely related to sections 10.3 (Need Identification and Analysis), 10.5 (Sourcing Methods), and 10.9 (Screening of Suppliers).\n\nNo Context (navigational text)",
+      "content": "ement  shall  use  appropriate  sourcing  methods  to  initiate  new  or  update  existing contracts for requested goods, services and projects. B\n- The  Procurement  shall  refer  to  the  PDoA  for  selection  and  use  of  the  appropriate  sourcing method obtaining relevant approvals. C.\n- The Procurement shall obtain approval for Sole Source or Single Source tenders or any deviations from the prescribed sourcing methods. The Procurement shall ensure that the justification for obtaining the approval considers, at a minimum the following: D.\n- D1. The  explanation  for  using  Sole  Source  or  Single  Source  or  deviations  from  prescribed sourcing method\n- D2. Business case justifying the Sole Source or Single Source tenders or benefits of deviating from prescribed sourcing method\n- D3. Relevant information about the requirement such as category, quantity, estimated value, source of production, approvals from concerned authorities, delivery date or schedule for goods, services and projects\n- The",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 55003,
+        "end_pos": 56020
+      }
+    },
+    {
+      "chunk_index": 68,
+      "content_contextualized": "Focuses on the selection of solicitation channels for executing procurement activities within the organization's Procurement Gate. It connects with the overall document by detailing one aspect of the source-to-contract cycle, building upon previous sections that discussed need identification, budget approvals, sourcing methods, and supplier screening. This section also sets up subsequent discussions on solicitation documents, such as RFIs and RFPs. No Navigational Text.",
+      "content": "ormation about the requirement such as category, quantity, estimated value, source of production, approvals from concerned authorities, delivery date or schedule for goods, services and projects\n- The Procurement shall communicate lead-time for each sourcing method, so that the End-users may factor the relevant processing time in their planning. E\n\n## 10.6. Solicitation Channels\n\n- The Procurement shall select the appropriate solicitation channel for execution of the sourcing activity.  The  following  solicitation  channels,  at  the  minimum,  shall  be  available in  the Procurement Gate: A\n- A1. The  Request  for  Information,  RFI  for  short,  shall  be  used  for  gathering  information  or budget estimates from a broad base of potential Suppliers. The RFI facilitates preparation of the RFP or the RFQ, developing strategy, shortlisting Suppliers or building a database.\n- A2. The Request for Proposal, RFP for short, shall be used for seeking proposals from Suppliers. The RFP is best suited for",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 55820,
+        "end_pos": 56834
+      }
+    },
+    {
+      "chunk_index": 69,
+      "content_contextualized": "Focuses on different sourcing methods for procuring goods, services, and projects, including Request for Proposal (RFP), Request for Quotation (RFQ), and Reverse Auction. The section describes their purposes and applications within the overall procurement process, connecting to sections discussing need identification, strategy development, and supplier evaluation. It further explains when each method can be used as an alternative to another, based on factors such as commoditization and supplier collaboration. No Context (navigational text).",
+      "content": "e RFQ, developing strategy, shortlisting Suppliers or building a database.\n- A2. The Request for Proposal, RFP for short, shall be used for seeking proposals from Suppliers. The RFP is best suited for situations where the End-users know what they want to achieve and  rely  on  Suppliers  to  propose  the  solution.  The  RFP  relies  on  the  experience  and creativity  of  Suppliers  to  define  the  best  solution  and  may  be  followed  by  the  RFQ  or negotiations.\n- A3. The Request for Quotation, RFQ for short, shall be used for seeking pricing information for a defined scope of work or supply of specified goods or services. The specifications, terms and expectations must be defined in the RFQ.\n- A4. The Reverse Auction may be used as an alternative to the RFQ for highly commoditised goods, services and projects or where specifications have already been fully acknowledged by participating Suppliers. The Reverse Auction shall be conducted between a number of\n\n<!-- image -->\n\npre-selected  Suppliers",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 56634,
+        "end_pos": 57654
+      }
+    },
+    {
+      "chunk_index": 70,
+      "content_contextualized": "Focuses on reverse auctions as a sourcing method for procuring goods, services, and projects, ensuring fairness and confidentiality while conducting them. This section connects with the overall document by detailing one of several sourcing methods mentioned in Section 10.5. It relates to other sections discussing procurement requirements, specification engineering, bid management, and supplier screening criteria.\n\n(No Context - Navigational text)",
+      "content": "d projects or where specifications have already been fully acknowledged by participating Suppliers. The Reverse Auction shall be conducted between a number of\n\n<!-- image -->\n\npre-selected  Suppliers  registered  for  the  category  to  help  achieve  the  savings.  The Procurement must ensure that fairness and confidentiality is maintained while conducting Reverse Auctions. Details of the participants and their offers shall not be publicly disclosed.\n\n## 10.7. Specification Engineering\n\n- The Procurement shall develop specifications in collaboration with End-users and subject matter experts if required. The Procurement shall consider the following aspects, at the minimum, while developing specifications: A\n- A1. Specifications shall define what the End-user has requested and consequently what the Supplier is expected to provide.\n- A2. Specifications  shall  ensure  all  essential  user  and  general  requirements  are  stated  in functional and performance terms.\n- A3. Specifications shall be precise yet",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 57454,
+        "end_pos": 58474
+      }
+    },
+    {
+      "chunk_index": 71,
+      "content_contextualized": "Focuses on developing a sourcing strategy for achieving the objectives set in the category strategy and procurement plan, which includes selecting appropriate solicitation methods based on the objectives of the sourcing activity. This section also emphasizes the importance of non-biased specifications to encourage competition among suppliers. It connects to other sections discussing the initiation of procurement activities, budget approvals, supplier screening, and bid management. No Context (navigational text)",
+      "content": "expected to provide.\n- A2. Specifications  shall  ensure  all  essential  user  and  general  requirements  are  stated  in functional and performance terms.\n- A3. Specifications shall be precise yet broad enough to encourage competition.\n- A4. Specifications shall not favour any Supplier.\n- The Procurement shall explore the opportunity to standardise the specifications where possible. B\n- The Procurement  shall formally document  the  specifications and  inform the involved stakeholders. C\n\n## 10.8. Sourcing Strategy\n\n- The  Procurement  shall  develop  a  sourcing  strategy  for  achieving  the  objectives  set  in  the category strategy and procurement plan. A\n- The  Procurement  shall  conduct  further  detailed  assessment  of  internal  trends,  market opportunities, risks and Supplier base, if not sufficiently covered in the category strategy. B\n- The  Procurement  shall  select  a  sourcing  method  and  determine  the  appropriate  solicitation channel based on the objectives of sourcing activity. C",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 58274,
+        "end_pos": 59298
+      }
+    },
+    {
+      "chunk_index": 72,
+      "content_contextualized": "Focuses on the development and execution of a sourcing strategy for procurement activities, including selecting appropriate methods, defining objectives, establishing supplier screening criteria, and promoting cross-functional collaboration. This section connects with other parts of the document by referencing procurement policies (PDoA) and outlining responsibilities of various stakeholders such as End-users, Tendering Committee, Procurement Committee, Finance, Legal, subject matter experts, and Suppliers. It follows sections discussing need identification and analysis, sourcing methods, and solicitation document preparation, while also leading to sections on bid management and supplier evaluation. No Context (navigational text not detected).",
+      "content": "ently covered in the category strategy. B\n- The  Procurement  shall  select  a  sourcing  method  and  determine  the  appropriate  solicitation channel based on the objectives of sourcing activity. C.\n- The sourcing strategy shall include the expected benefits and their measurement methods. D\n- The Procurement shall develop a detailed plan for each sourcing events identified in the sourcing strategy having milestones, timelines and responsibilities of involved stakeholders including the End-users,  the  Tendering  Committee,  the  Procurement  Committee,  the  Finance,  the  Legal, subject matter experts and Suppliers. E\n- The Procurement shall promote cross-functional collaboration by engaging Tendering Committee for providing inputs to the sourcing strategy when mandated by the PDoA. F\n- The Procurement shall obtain the approval of sourcing strategy as per the PDoA. G\n\n<!-- image -->\n\n## 10.9. Screening of Suppliers\n\n- The Procurement shall establish Supplier screening criteria and screen potential",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 59098,
+        "end_pos": 60114
+      }
+    },
+    {
+      "chunk_index": 73,
+      "content_contextualized": "Focuses on the screening criteria established by procurement for evaluating potential suppliers during sourcing activities, connecting to overall document as a part of the supplier selection process. It relates to sections discussing the sourcing methods (10.5) and bid management (10.15), with an emphasis on ensuring competent and high-performing suppliers meet quality standards in various aspects such as financial health, technical capabilities, and legal standing. No Context (navigational text).",
+      "content": "t shall obtain the approval of sourcing strategy as per the PDoA. G\n\n<!-- image -->\n\n## 10.9. Screening of Suppliers\n\n- The Procurement shall establish Supplier screening criteria and screen potential Suppliers to shortlist the most competent and high-performing Suppliers. The screening criteria established by the Procurement may be based on, but not limited to: A\n- A1. Financial health which includes sound financial position, audited statements of accounts, cash flow position and credit ratings\n- A2. Commercial standing which includes business relations with reputed organisations\n- A3. Legal standing which includes information regarding past litigations, suspension of business activities, bankruptcy and liquidation\n- A4. Technical capabilities which include the provision of technical staff with required knowhow, manufacturing or service equipment, distribution nertwork and certifications related to quality, health, safety and evironment\n- A5. Quality  of  the  goods,  services  and  projects  established  by",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 59914,
+        "end_pos": 60938
+      }
+    },
+    {
+      "chunk_index": 74,
+      "content_contextualized": "This part focuses on specific criteria for evaluating and selecting suppliers during procurement activities, such as manufacturing equipment, distribution networks, and certifications related to quality, health, safety, and environment. It connects to the overall document by providing guidelines for implementing the sourcing strategy discussed earlier in the text. The relationship to other sections includes connections to budget approvals, sourcing methods, solicitation documents, bid management, and evaluation criteria. No Context (navigational text).",
+      "content": "manufacturing or service equipment, distribution nertwork and certifications related to quality, health, safety and evironment\n- A5. Quality  of  the  goods,  services  and  projects  established  by  reviewing  the  successful competition of previous contracts and business performed successfully\n- A6. Historical Supplier performance assessed by evaluating the Supplier performance scores available in the Procurement Gate\n- The Procurement may seek to engage diverse and underrepresented Suppliers based on the strategic goals and objectives approved by the appropriate government authority. B\n- The  End-users  may  recommend  registered  Suppliers  for  sourcing.  The  Procurement  is encouraged to augment the list of recommended Suppliers based on the Supplier database, previous contracts and market research. C.\n- In case of the procurement of projects, the Procurement shall include any Suppliers proposed during  the  planning.  The  Supplier  screening  criteria  for  the  procurement  of  projects  may  be",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 60738,
+        "end_pos": 61760
+      }
+    },
+    {
+      "chunk_index": 75,
+      "content_contextualized": "This part focuses on solicitation documents required for procurement events, including details of issuing authority, response submission methods, evaluation criteria, contract terms, and other relevant provisions. It emphasizes collaboration between Procurement Practitioners and End-users to prepare these documents, connecting it to the overall document's discussion about sourcing methods and supplier screening. It also aligns with Section 10.5 (Sourcing Methods) by detailing how solicitation documents are determined based on the selected sourcing method. No Context (navigational text: \"The Procurement shall...\") in Chunk 73 and 78.",
+      "content": "- In case of the procurement of projects, the Procurement shall include any Suppliers proposed during  the  planning.  The  Supplier  screening  criteria  for  the  procurement  of  projects  may  be recommended by the End-user of the project. D.\n\n## 10.10. Solicitation Documents\n\n- The Procurement Practitioners responsible for managing categories shall work in collaboration with  the  End-users  to  ensure  that  solicitation  documents  prepared  for  the  sourcing  events include at the minimum: A\n- A1. The details of issuing authority assigned to administer the solicitation\n- A2. Method, required content, format and timeline for response submission\n- A3. Criteria for evaluation and awarding procedure\n- A4. Provisions for negotiations, if required\n- A5. Draft contract with terms and conditions and any other requirements provisioned for the delivery of goods, services and projects including sub-contracting\n\n<!-- image -->\n\n- A6. Non-disclosure  agreement  and  no-conflict  of  interest  undertaking",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 61560,
+        "end_pos": 62577
+      }
+    },
+    {
+      "chunk_index": 76,
+      "content_contextualized": "Focuses on additional requirements for suppliers delivering goods, services, and projects, such as non-disclosure agreements and financial instruments (e.g., bid bonds, performance bonds, advanced payment guarantees). This part connects to the overall document by detailing policies related to the procurement process, especially when it comes to managing bids and evaluating proposals. It is closely linked with Section 10.9 (Screening of Suppliers) and Section 10.15 (Bid Management). No Context (navigational text).",
+      "content": "other requirements provisioned for the delivery of goods, services and projects including sub-contracting\n\n<!-- image -->\n\n- A6. Non-disclosure  agreement  and  no-conflict  of  interest  undertaking  required  of  the government entity's Suppliers\n- The Procurement is encouraged to utilise the standard templates available in the Procurement Gate for solicitation. B\n\n## 10.11. Financial Instruments\n\n- The Procurement for each solicitation shall at a minimum identify: A\n- A1. Value and validity of bid bonds, performance bonds and advanced payment guarantees as per the PDoA\n- A2. Conditions  for  exemption  from  submission  of  a  bid,  performance  bonds  and  advanced payment guarantees along with relevant authority for seeking exemption as per the PDoA\n- A3. The mechanism for handling bid, performance bonds and advance payment guarantees, which shall include submission, part or complete liquidation and release\n- A4. Role  of  the  Procurement,  the  Finance  and  the  End-users  in  managing  the  bid  and",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 62377,
+        "end_pos": 63400
+      }
+    },
+    {
+      "chunk_index": 77,
+      "content_contextualized": "Focuses on policies for managing advanced payment guarantees, bid bonds, and performance bonds in procurement activities. Connects to overall document by detailing steps taken from solicitation document preparation to approval, issuance, and management of these guarantees. Relates to other sections regarding the functional review and approval of solicitation documents (Section 10.12), as well as the issuance of approved solicitation documents (Section 10.13).\n\nNo Context (navigational or non-content text)",
+      "content": "d advance payment guarantees, which shall include submission, part or complete liquidation and release\n- A4. Role  of  the  Procurement,  the  Finance  and  the  End-users  in  managing  the  bid  and performance bonds\n\n## 10.12. Functional Review of Solicitation Document\n\n- The Procurement shall ensure review of the prepared solicitation document before publishing. A\n- The Procurement shall ensure that the solicitation documents having the following are reviewed and  validated  by  the  Finance,  the  Legal  and  any  other  relevant  parties  determined  by  the Procurement: B\n- B1. Non-standard terms and conditions\n- B2. Complex pricing arrangements\n- B3. Advance payments safeguarded by a bank guarantee\n- B4. Embedded derivatives or leasing arrangements\n\n## 10.13. Approval of Solicitation Document and Issuance\n\n- The  Procurement  shall  obtain  approval  of  the  prepared  solicitation  documents  from  the appropriate authority as per the PDoA. A\n- The Procurement shall issue the approved solicitation",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 63200,
+        "end_pos": 64221
+      }
+    },
+    {
+      "chunk_index": 78,
+      "content_contextualized": "Focuses on solicitation execution procedures, ensuring collaboration between end-users, finance, and legal departments during public, limited, sole source, and single source tenders. Adhering to established principles such as probity, transparency, and appropriate publication methods based on the selected sourcing method. It is connected to other sections discussing solicitation documents, screening of suppliers, bid management, and evaluation criteria.",
+      "content": "nce\n\n- The  Procurement  shall  obtain  approval  of  the  prepared  solicitation  documents  from  the appropriate authority as per the PDoA. A\n- The Procurement shall issue the approved solicitation document using the Procurement Gate, and facilitate all administrative functions such as advertising, notifications, managing meetings and conferences, receiving queries and issuing clarifications. B\n\n<!-- image -->\n\n## 10.14. Solicitation Execution Considerations\n\n- The Procurement shall drive the execution of solicitation ensuring collaboration of the End-user, the  Finance  and  the  Legal.  The  Procurement  shall  administer  the  execution  of  solicitation through the Procurement Gate, adhering at the minimum, to the following principles: A\n- A1. Established procedures for Public, Limited, Sole Source and Single Source tenders shall be followed\n- A2. Solicitations  shall  be  appropriately  published  as  per  the  requirement  of  the  selected sourcing method\n- A3. Probity  and  transparency  shall  be",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 64021,
+        "end_pos": 65045
+      }
+    }
+  ]
+}
