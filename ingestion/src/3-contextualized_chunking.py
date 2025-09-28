@@ -23,23 +23,37 @@ except ImportError as e:
     sys.exit(1)
 
 # Context prompt template
-CONTEXT_PROMPT_TEMPLATE = """You are analyzing a document. Your task is to provide context for a specific chunk.
+CONTEXT_PROMPT_TEMPLATE = """
+You are analyzing a document. Your task is to provide concise context for a specific section.
 
-<chunk_context>
+<context>
 {context_chunks}
-</chunk_context>
+</context> 
 
-<chunk>
+<section>
 {current_chunk}
-</chunk>
+</section>
 
-Provide a brief context (1-2 sentences) explaining:
-1. Which section/topic this chunk relates to
-2. How it connects to the overall document
-3. Its relationship to other areas
-4. You don't need to say this chunk is this or that, just provide the context.
+Provide a brief context (1–2 sentences) that explains:
 
-Respond with only the context, nothing else."""
+The topic this part relates to
+
+How it connects to the overall document
+
+Its relationship to other sections
+
+Rules:
+
+Do not use phrases like “This text…”, “This section…”, or “This passage…”.
+
+Do not mention the word “section,” “chunk,” or “excerpt.”
+
+Begin directly with the context itself (e.g., “Focuses on procurement policies…” instead of “This text focuses on…”).
+
+Respond with only the context, nothing else.
+
+also try to detect if the text is just navigational or non-content text and if so, return: “No Context”
+"""
 
 def load_config():
     """Load configuration from .env file."""
