@@ -17,9 +17,9 @@ from llama_index.vector_stores.postgres import PGVectorStore
 from llama_index.core.vector_stores import VectorStoreQuery
 
 
+query = "What are the procurement procedures for government entities?"
 
 # Global query variable
-query = "What are the procurement procedures for government entities?"
 def main():
     """Semantic search using LlamaIndex PGVectorStore."""
     print("Semantic Search with LlamaIndex PGVectorStore")
