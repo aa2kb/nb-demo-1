@@ -11,66 +11,34 @@ from pathlib import Path
 from dotenv import load_dotenv
 from typing import List, Dict, Any, Tuple
 
-# Third-party imports that might not be available
-try:
-    import psycopg2
-except ImportError:
-    psycopg2 = None
-
-try:
-    from llama_index.embeddings.ollama import OllamaEmbedding
-except ImportError:
-    OllamaEmbedding = None
-
-try:
-    from llama_index.vector_stores.postgres import PGVectorStore
-    from llama_index.core import VectorStoreIndex, StorageContext
-    from llama_index.core.vector_stores import VectorStoreQuery
-except ImportError:
-    PGVectorStore = None
-    VectorStoreIndex = None
-    StorageContext = None
-    VectorStoreQuery = None
+# Required imports
+from llama_index.embeddings.ollama import OllamaEmbedding
+from llama_index.vector_stores.postgres import PGVectorStore
+from llama_index.core.vector_stores import VectorStoreQuery
 
 
 
 # Global query variable
 query = "What are the procurement procedures for government entities?"
 def main():
-    """Semantic search using ONLY LlamaIndex PGVectorStore."""
-    print("Semantic Search with LlamaIndex PGVectorStore ONLY")
+    """Semantic search using LlamaIndex PGVectorStore with exact same config as setup/insertion."""
+    print("Semantic Search with LlamaIndex PGVectorStore")
     print("=" * 60)
     
     # Load config
     config = load_config()
     
-    # Setup database connection (for stats only)
-    print("Connecting to database for stats...")
-    conn = connect_database(config)
-    cursor = conn.cursor()
-    
-    # Check pgvector support
-    check_pgvector_support(cursor)
-    
     # Setup embedding model
     print("Setting up embedding model...")
     embedding_model = setup_embedding_model(config)
     
-    # Setup LlamaIndex PGVectorStore
-    print("Setting up LlamaIndex PGVectorStore...")
-    vector_store = setup_pgvector_store(config)
+    # Setup LlamaIndex PGVectorStore with EXACT same configuration
+    print("Creating LlamaIndex PGVectorStore...")
+    vector_store = create_vector_store(config)
     
-    # Check database stats (from original tables)
-    try:
-        cursor.execute("SELECT COUNT(*) FROM documents_sources WHERE processing_status = 'completed';")
-        doc_count = cursor.fetchone()[0]
-        
-        cursor.execute("SELECT COUNT(*) FROM document_chunks;")
-        chunk_count = cursor.fetchone()[0]
-        
-        print(f"Original database: {doc_count} documents, {chunk_count} chunks")
-    except Exception:
-        print("Original database tables not accessible")
+    # Check database stats
+    vector_count = check_vector_count(config)
+    print(f"Vector database: {vector_count} vectors available")
     
     print(f"\nSearching for: '{query}'")
     
@@ -82,7 +50,7 @@ def main():
             print("Failed to generate query embedding")
             return
         
-        # Search using ONLY LlamaIndex PGVectorStore
+        # Search using LlamaIndex PGVectorStore
         print("Searching with LlamaIndex PGVectorStore...")
         results = search_similar_chunks_llamaindex(vector_store, query_embedding, top_k=25)
         
@@ -95,14 +63,12 @@ def main():
         else:
             print("❌ No results found")
             print("Note: LlamaIndex PGVectorStore table might be empty.")
-            print("You may need to insert data into the LlamaIndex table first.")
+            print("You may need to run the insertion script first.")
     
     except KeyboardInterrupt:
         print("\nSearch interrupted by user")
-    
-    finally:
-        cursor.close()
-        conn.close()
+    except Exception as e:
+        print(f"ERROR: Search failed - {e}")
     
     print("\nSearch completed!")
 
@@ -126,13 +92,56 @@ def load_config():
         'LOG_LEVEL': os.getenv('LOG_LEVEL', 'INFO')
     }
 
-def connect_database(config):
-    """Connect to PostgreSQL database."""
-    if psycopg2 is None:
-        print("ERROR: psycopg2 not installed. Run: pip install psycopg2-binary")
+def setup_embedding_model(config):
+    """Setup embedding model for query vectorization."""
+    try:
+        embedding_model = OllamaEmbedding(
+            model_name=config['EMBEDDING_MODEL'],
+            base_url=config['OLLAMA_HOST']
+        )
+        print(f"✅ Connected to Ollama embedding model: {config['EMBEDDING_MODEL']}")
+        return embedding_model
+    except Exception as e:
+        print(f"ERROR: Failed to setup embedding model - {e}")
+        sys.exit(1)
+
+def create_vector_store(config):
+    """Create LlamaIndex PGVectorStore using the EXACT same configuration as setup and insertion."""
+    try:
+        from llama_index.vector_stores.postgres import PGVectorStore
+    except ImportError:
+        print("ERROR: llama-index-vector-stores-postgres not installed")
+        print("Run: pip install llama-index-vector-stores-postgres")
         sys.exit(1)
     
     try:
+        # Use EXACT same configuration as 0-setup.py and 5-insertion.py
+        vector_store = PGVectorStore.from_params(
+            database=config['DB_NAME'],
+            host=config['DB_HOST'],
+            password=config['DB_PASSWORD'],
+            port=config['DB_PORT'],
+            user=config['DB_USER'],
+            table_name="vectors",  # This creates data_vectors table
+            embed_dim=768,
+            hybrid_search=False,
+            text_search_config="english"
+        )
+        
+        print("✅ Connected to LlamaIndex PGVectorStore")
+        print(f"   Database: {config['DB_NAME']}@{config['DB_HOST']}:{config['DB_PORT']}")
+        print(f"   Table: data_vectors")
+        return vector_store
+        
+    except Exception as e:
+        print(f"ERROR: Failed to create PGVectorStore - {e}")
+        sys.exit(1)
+
+def check_vector_count(config):
+    """Check how many vectors are in the database."""
+    try:
+        import psycopg2
+        
         conn = psycopg2.connect(
             host=config['DB_HOST'],
             port=config['DB_PORT'],
@@ -140,88 +149,32 @@ def connect_database(config):
             password=config['DB_PASSWORD'],
             database=config['DB_NAME']
         )
-        return conn
-    except Exception as e:
-        print(f"ERROR: Failed to connect to database - {e}")
-        sys.exit(1)
-
-def setup_embedding_model(config):
-    """Setup embedding model for query vectorization."""
-    if OllamaEmbedding is None:
-        print("ERROR: llama-index-embeddings-ollama not installed")
-        print("Run: pip install llama-index-embeddings-ollama")
-        sys.exit(1)
-    
-    try:
-        embedding_model = OllamaEmbedding(
-            model_name=config['EMBEDDING_MODEL'],
-            base_url=config['OLLAMA_HOST']
-        )
-        return embedding_model
-    except Exception as e:
-        print(f"ERROR: Failed to setup embedding model - {e}")
-        sys.exit(1)
-
-def setup_pgvector_store(config):
-    """Setup PGVectorStore using LlamaIndex with existing document_chunks table."""
-    if PGVectorStore is None:
-        print("ERROR: llama-index-vector-stores-postgres not installed")
-        print("Run: pip install llama-index-vector-stores-postgres")
-        sys.exit(1)
-    
-    try:
-        # Use the vectors table created by setup
-        vector_store = PGVectorStore.from_params(
-            database=config['DB_NAME'],
-            host=config['DB_HOST'],
-            password=config['DB_PASSWORD'],
-            port=config['DB_PORT'],
-            user=config['DB_USER'],
-            table_name="vectors",  # This will become data_vectors
-            embed_dim=768,
-            hybrid_search=False,
-            text_search_config="english"
-        )
+        cursor = conn.cursor()
         
-        print(f"✅ LlamaIndex PGVectorStore initialized with 'vectors' table")
-        return vector_store
+        # Check if table exists and get count
+        cursor.execute("""
+            SELECT COUNT(*) FROM information_schema.tables 
+            WHERE table_name = 'data_vectors'
+        """)
+        
+        if cursor.fetchone()[0] == 0:
+            cursor.close()
+            conn.close()
+            return 0
+        
+        cursor.execute("SELECT COUNT(*) FROM data_vectors")
+        count = cursor.fetchone()[0]
+        
+        cursor.close()
+        conn.close()
+        
+        return count
+        
     except Exception as e:
-        print(f"ERROR: Failed to setup PGVectorStore - {e}")
-        print(f"Error details: {str(e)}")
-        # Try without custom column mapping as fallback
-        try:
-            print("Trying with default column names...")
-            vector_store = PGVectorStore.from_params(
-                database=config['DB_NAME'],
-                host=config['DB_HOST'],
-                password=config['DB_PASSWORD'],
-                port=config['DB_PORT'],
-                user=config['DB_USER'],
-                table_name="document_chunks",
-                embed_dim=768,
-                hybrid_search=False,
-                text_search_config="english"
-            )
-            print(f"✅ LlamaIndex PGVectorStore initialized with default settings")
-            return vector_store
-        except Exception as e2:
-            print(f"ERROR: Both attempts failed - {e2}")
-            sys.exit(1)
+        print(f"Could not check vector count - {e}")
+        return 0
 
-def check_pgvector_support(cursor):
-    """Check if pgvector is available."""
-    try:
-        cursor.execute("SELECT extname, extversion FROM pg_extension WHERE extname = 'vector';")
-        result = cursor.fetchone()
-        if result:
-            print(f"Using pgvector v{result[1]} for similarity search")
-            return True
-        else:
-            print("pgvector not available, using JSON embeddings")
-            return False
-    except Exception as e:
-        print(f"ERROR: Failed to check pgvector - {e}")
-        return False
+
 
 def generate_query_embedding(embedding_model, query: str) -> List[float]:
     """Generate embedding for the query string."""
@@ -236,10 +189,6 @@ def generate_query_embedding(embedding_model, query: str) -> List[float]:
 
 def search_similar_chunks_llamaindex(vector_store, query_embedding: List[float], top_k: int = 25) -> List[Dict]:
     """Search for similar chunks using LlamaIndex PGVectorStore."""
-    if vector_store is None:
-        print("ERROR: Vector store not available")
-        sys.exit(1)
-    
     try:
         # Create a VectorStoreQuery
         query_obj = VectorStoreQuery(
@@ -249,14 +198,17 @@ def search_similar_chunks_llamaindex(vector_store, query_embedding: List[float],
         )
         
         # Execute the query
+        print(f"  Executing similarity search for top {top_k} results...")
         query_result = vector_store.query(query_obj)
         
         search_results = []
         
         # Handle case where no results are returned
         if not query_result.nodes:
-            print("No nodes returned from LlamaIndex PGVectorStore query")
+            print("  No nodes returned from vector store")
             return []
+        
+        print(f"  Found {len(query_result.nodes)} matching nodes")
         
         for i, node in enumerate(query_result.nodes):
             # Get similarity score if available
@@ -281,7 +233,7 @@ def search_similar_chunks_llamaindex(vector_store, query_embedding: List[float],
                 'chunk_index': parsed_metadata.get('chunk_index', i),
                 'content': node.text if hasattr(node, 'text') else str(node),
                 'content_contextualized': parsed_metadata.get('content_contextualized', ''),
-                'source_file': parsed_metadata.get('source_file_name', 'Unknown'),
+                'source_file': parsed_metadata.get('source_file', parsed_metadata.get('source_file_name', 'Unknown')),
                 'source_path': parsed_metadata.get('source_file_path', ''),
                 'similarity_score': float(similarity) if similarity is not None else 0.0,
                 'metadata': parsed_metadata
@@ -291,9 +243,7 @@ def search_similar_chunks_llamaindex(vector_store, query_embedding: List[float],
         
     except Exception as e:
         print(f"ERROR: Failed to search with LlamaIndex PGVectorStore - {e}")
-        import traceback
-        traceback.print_exc()
-        sys.exit(1)
+        return []
 
 
 
