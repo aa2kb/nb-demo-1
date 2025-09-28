@@ -1,9 +1,3 @@
-#!/usr/bin/env python3
-"""
-Generate embeddings for contextualized chunks using Ollama's embeddinggemma model.
-Combines original content with contextualized content to create rich vector representations.
-"""
-
 import os
 import sys
 import json

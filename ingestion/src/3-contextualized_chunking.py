@@ -1,9 +1,3 @@
-#!/usr/bin/env python3
-"""
-Create contextualized chunks using LLM analysis.
-Processes existing chunks to add contextual information using Mistral 7B.
-"""
-
 import os
 import sys
 import json

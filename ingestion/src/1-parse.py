@@ -1,9 +1,3 @@
-#!/usr/bin/env python3
-"""
-Parse PDFs from docs folder and convert them to markdown files.
-Creates markdown files in markdown/ folder, skipping already processed files.
-"""
-
 import os
 import sys
 import hashlib

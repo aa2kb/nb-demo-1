@@ -1,9 +1,3 @@
-#!/usr/bin/env python3
-"""
-Chunk markdown files using Docling Hybrid Chunker.
-Creates chunks from markdown files and saves them in chunks/ folder.
-"""
-
 import os
 import sys
 import json

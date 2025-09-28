@@ -1,9 +1,3 @@
-#!/usr/bin/env python3
-"""
-Setup verification for document ingestion system.
-Checks PostgreSQL, Ollama, and Docling are working.
-"""
-
 import os
 import sys
 from pathlib import Path

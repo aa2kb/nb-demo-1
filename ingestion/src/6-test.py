@@ -1,17 +1,9 @@
-#!/usr/bin/env python3
-"""
-Test semantic search functionality.
-Takes a query, generates embedding, and finds top 25 similar chunks from the database.
-"""
-
 import os
 import sys
 import json
 from pathlib import Path
 from dotenv import load_dotenv
 from typing import List, Dict, Any, Tuple
-
-# Required imports
 from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.vector_stores.postgres import PGVectorStore
 from llama_index.core.vector_stores import VectorStoreQuery

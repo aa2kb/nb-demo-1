@@ -1,9 +1,3 @@
-#!/usr/bin/env python3
-"""
-Insert vectors and document data into PostgreSQL database using LlamaIndex PGVectorStore.
-Processes vector JSON files and inserts them directly into LlamaIndex vector store.
-"""
-
 import os
 import sys
 import json
