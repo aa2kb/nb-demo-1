@@ -23,6 +23,7 @@ def load_config():
         'DB_USER': os.getenv('DB_USER', 'admin'),
         'DB_PASSWORD': os.getenv('DB_PASSWORD', 'admin'),
         'DB_NAME': os.getenv('DB_NAME', 'postgres'),
+        'VECTOR_TABLE_NAME': os.getenv('VECTOR_TABLE_NAME', 'vectors'),
         'LOG_LEVEL': os.getenv('LOG_LEVEL', 'INFO')
     }
 
@@ -36,7 +37,7 @@ def create_vector_store(config):
             password=config['DB_PASSWORD'],
             port=config['DB_PORT'],
             user=config['DB_USER'],
-            table_name="vectors",  # Creates data_vectors table
+            table_name=config['VECTOR_TABLE_NAME'],  # Creates data_vectors table
             embed_dim=768,
             hybrid_search=False,
             text_search_config="english"
