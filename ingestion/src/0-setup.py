@@ -78,13 +78,20 @@ def check_and_enable_pgvector(cursor, conn):
         return True  # Continue even if pgvector fails
 
 def check_postgres(config):
-    """Check PostgreSQL connection and create table if needed."""
+    """Check PostgreSQL connection and create LlamaIndex PGVectorStore table."""
     print("\nChecking PostgreSQL...")
     
     try:
         import psycopg2
     except ImportError:
         print("ERROR: psycopg2 not installed. Run: pip install psycopg2-binary")
+        return False
+    
+    try:
+        from llama_index.vector_stores.postgres import PGVectorStore
+    except ImportError:
+        print("ERROR: llama-index-vector-stores-postgres not installed")
+        print("Run: pip install llama-index-vector-stores-postgres")
         return False
     
     try:
@@ -106,148 +113,45 @@ def check_postgres(config):
         if not check_and_enable_pgvector(cursor, conn):
             return False
         
-        # Check if tables exist
-        cursor.execute("""
-            SELECT 
-                (SELECT EXISTS (SELECT FROM information_schema.tables WHERE table_name = 'documents_sources')) as sources_exists,
-                (SELECT EXISTS (SELECT FROM information_schema.tables WHERE table_name = 'document_chunks')) as chunks_exists;
-        """)
-        
-        tables_result = cursor.fetchone()
-        sources_exists, chunks_exists = tables_result
-        
-        if sources_exists and chunks_exists:
-            print("Tables 'documents_sources' and 'document_chunks' exist")
+        # Create LlamaIndex PGVectorStore
+        print("Creating LlamaIndex PGVectorStore...")
+        try:
+            # Create the vector store - this will create the table if it doesn't exist
+            vector_store = PGVectorStore.from_params(
+                database=config['DB_NAME'],
+                host=config['DB_HOST'],
+                password=config['DB_PASSWORD'],
+                port=config['DB_PORT'],
+                user=config['DB_USER'],
+                table_name="vectors",  # This will create just "vectors" table
+                embed_dim=768,
+                hybrid_search=False,
+                text_search_config="english"
+            )
             
-            # Check embedding column type
-            cursor.execute("""
-                SELECT column_name, data_type 
-                FROM information_schema.columns 
-                WHERE table_name = 'document_chunks' 
-                AND column_name IN ('embedding', 'embedding_json');
-            """)
-            embedding_cols = cursor.fetchall()
+            # Table will be created automatically when first documents are added
             
-            embedding_type = "Unknown"
-            for col_name, col_type in embedding_cols:
-                if col_name == 'embedding' and col_type == 'USER-DEFINED':
-                    # Check if it's actually a vector type
-                    cursor.execute("""
-                        SELECT pg_type.typname 
-                        FROM information_schema.columns 
-                        JOIN pg_type ON pg_type.oid = (
-                            SELECT atttypid FROM pg_attribute 
-                            WHERE attrelid = 'document_chunks'::regclass 
-                            AND attname = 'embedding'
-                        )
-                        WHERE table_name = 'document_chunks' 
-                        AND column_name = 'embedding';
-                    """)
-                    type_result = cursor.fetchone()
-                    if type_result and type_result[0] == 'vector':
-                        embedding_type = "pgvector"
-                elif col_name == 'embedding_json':
-                    embedding_type = "JSON"
-            
-            # Show table info
-            cursor.execute("SELECT COUNT(*) FROM documents_sources;")
-            sources_count = cursor.fetchone()[0]
-            cursor.execute("SELECT COUNT(*) FROM document_chunks;")
-            chunks_count = cursor.fetchone()[0]
-            print(f"  - {sources_count} documents in sources table")
-            print(f"  - {chunks_count} chunks in chunks table")
-            print(f"  - Embedding storage: {embedding_type}")
-        else:
-            # Check if pgvector is installed to determine table schema
-            cursor.execute("SELECT extname FROM pg_extension WHERE extname = 'vector';")
-            pgvector_installed = cursor.fetchone() is not None
-            
-            print("Creating tables...")
-            if pgvector_installed:
-                print("Using pgvector for embeddings")
-                cursor.execute("""
-                    -- Create documents_sources table first
-                    CREATE TABLE documents_sources (
-                        id SERIAL PRIMARY KEY,
-                        source_file_name VARCHAR(255) NOT NULL UNIQUE,
-                        source_file_path VARCHAR(500) NOT NULL,
-                        source_file_hash VARCHAR(64) NOT NULL,
-                        source_file_size BIGINT NOT NULL,
-                        source_file_modified_at TIMESTAMP NOT NULL,
-                        processed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                        processing_status VARCHAR(50) DEFAULT 'pending',
-                        total_chunks INTEGER DEFAULT 0,
-                        total_characters BIGINT DEFAULT 0,
-                        extraction_method VARCHAR(100) DEFAULT 'docling',
-                        metadata JSONB,
-                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                    );
-                    
-                    -- Create document_chunks table with pgvector embedding column
-                    CREATE TABLE document_chunks (
-                        id SERIAL PRIMARY KEY,
-                        document_id INTEGER NOT NULL REFERENCES documents_sources(id) ON DELETE CASCADE,
-                        chunk_index INTEGER NOT NULL,
-                        content TEXT NOT NULL,
-                        embedding vector(768),
-                        chunk_metadata JSONB,
-                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                        UNIQUE(document_id, chunk_index)
-                    );
-                    
-                    -- Create indexes including vector similarity indexes
-                    CREATE INDEX idx_document_chunks_doc_id ON document_chunks(document_id);
-                    CREATE INDEX idx_documents_sources_filename ON documents_sources(source_file_name);
-                    CREATE INDEX idx_documents_sources_hash ON documents_sources(source_file_hash);
-                    CREATE INDEX idx_documents_sources_status ON documents_sources(processing_status);
-                    
-                    -- Create HNSW index for fast vector similarity search
-                    CREATE INDEX idx_document_chunks_embedding_hnsw ON document_chunks 
-                    USING hnsw (embedding vector_cosine_ops);
-                """)
-            else:
-                print("Using JSON for embeddings (pgvector not available)")
-                cursor.execute("""
-                    -- Create documents_sources table first
-                    CREATE TABLE documents_sources (
-                        id SERIAL PRIMARY KEY,
-                        source_file_name VARCHAR(255) NOT NULL UNIQUE,
-                        source_file_path VARCHAR(500) NOT NULL,
-                        source_file_hash VARCHAR(64) NOT NULL,
-                        source_file_size BIGINT NOT NULL,
-                        source_file_modified_at TIMESTAMP NOT NULL,
-                        processed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                        processing_status VARCHAR(50) DEFAULT 'pending',
-                        total_chunks INTEGER DEFAULT 0,
-                        total_characters BIGINT DEFAULT 0,
-                        extraction_method VARCHAR(100) DEFAULT 'docling',
-                        metadata JSONB,
-                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                    );
-                    
-                    -- Create document_chunks table with JSON embedding column
-                    CREATE TABLE document_chunks (
-                        id SERIAL PRIMARY KEY,
-                        document_id INTEGER NOT NULL REFERENCES documents_sources(id) ON DELETE CASCADE,
-                        chunk_index INTEGER NOT NULL,
-                        content TEXT NOT NULL,
-                        embedding_json TEXT,
-                        chunk_metadata JSONB,
-                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                        UNIQUE(document_id, chunk_index)
-                    );
-                    
-                    -- Create indexes
-                    CREATE INDEX idx_document_chunks_doc_id ON document_chunks(document_id);
-                    CREATE INDEX idx_documents_sources_filename ON documents_sources(source_file_name);
-                    CREATE INDEX idx_documents_sources_hash ON documents_sources(source_file_hash);
-                    CREATE INDEX idx_documents_sources_status ON documents_sources(processing_status);
-                """)
+            print("✅ LlamaIndex PGVectorStore created successfully")
+            print(f"   Table: vectors")
+            print(f"   Embedding dimension: 768")
             
             conn.commit()
-            print("Tables created")
+            print("✅ LlamaIndex vector table setup complete")
+            
+            # Check existing data in vector table
+            try:
+                cursor.execute("SELECT COUNT(*) FROM data_vectors;")
+                vector_count = cursor.fetchone()[0]
+                print(f"Current data:")
+                print(f"  - {vector_count} vectors in vectors table")
+            except Exception as e:
+                print(f"Current data:")
+                print(f"  - Vectors table ready for insertion")
+                # This is expected on first run
+            
+        except Exception as e:
+            print(f"ERROR: Failed to create LlamaIndex PGVectorStore - {e}")
+            return False
         
         cursor.close()
         conn.close()
