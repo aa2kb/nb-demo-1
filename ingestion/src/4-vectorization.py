@@ -68,7 +68,7 @@ def create_embedding_text(chunk):
     
     # Combine content and context when available
     if context and context.strip() and context.strip().lower() != 'no context':
-        embedding_text = f"Content: {content}\n\nContext: {context}"
+        embedding_text = f"{content}\n\nContext: {context}"
     else:
         # Use content only when no context available
         embedding_text = f"Content: {content}"
