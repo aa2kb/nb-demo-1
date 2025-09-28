@@ -8,8 +8,8 @@
     "llm_model": "gemini-flash-latest",
     "context_window_size": 10,
     "processing_status": "in_progress",
-    "last_processed_chunk": 2248,
-    "processed_count": 2249
+    "last_processed_chunk": 2252,
+    "processed_count": 2253
   },
   "chunks": [
     {
@@ -38243,6 +38243,74 @@
         "chunk_overlap_config": 200,
         "start_pos": 1851267,
         "end_pos": 1852291
+      }
+    },
+    {
+      "chunk_index": 2249,
+      "content_contextualized": "Focuses on implementation guidance for change control, mandating that updates to operational software and program libraries are performed exclusively by trained administrators following appropriate management authorization. This detail supports the overarching security requirement for controlling software installation on operational systems.",
+      "content": "|\n| considered A. The                                 | to control changes: updating of the operational software, applications, and program libraries should only be performedbytrained administrators uponappropriatemanagementauthorization                                                                                                                                                                   | to control changes: updating of the operational software, applications, and program libraries should only be performedbytrained administrators uponappropriatemanagementauthorization",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1852091,
+        "end_pos": 1853115
+      }
+    },
+    {
+      "chunk_index": 2250,
+      "content_contextualized": "Focuses on the strict control of operational software changes, mandating that updates to applications and program libraries must be executed only by trained administrators following explicit management authorization. This guidance details the required procedures for managing changes, supporting the overall policy on controlling software installation.",
+      "content": "s uponappropriatemanagementauthorization                                                                                                                                                                   | to control changes: updating of the operational software, applications, and program libraries should only be performedbytrained administrators uponappropriatemanagementauthorization                                                                                                                                                                   | to control changes: updating of the operational software, applications, and program libraries should only be performedbytrained administrators uponappropriatemanagementauthorization                                                                                                                                                                   | to control changes: updating of the operational software, applications, and program libraries should only be performedbytrained",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1852915,
+        "end_pos": 1853939
+      }
+    },
+    {
+      "chunk_index": 2251,
+      "content_contextualized": "Provides implementation guidance detailing how entities should control changes to operational software, requiring management authorization for updates and ensuring production systems only hold approved executable code.",
+      "content": "| to control changes: updating of the operational software, applications, and program libraries should only be performedbytrained administrators uponappropriatemanagementauthorization                                                                                                                                                                   |\n| B.                                                | Operationalsystemsshouldonlyholdapprovedexecutablecode,andnotdevelopmentcodeor                                                                                                                                                                                                                                                                          | Operationalsystemsshouldonlyholdapprovedexecutablecode,andnotdevelopmentcodeor",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1853739,
+        "end_pos": 1854763
+      }
+    },
+    {
+      "chunk_index": 2252,
+      "content_contextualized": "Focuses on system integrity controls within the implementation guidance for change management, mandating that operational systems must only hold approved executable code and exclude development or source code.",
+      "content": "tionalsystemsshouldonlyholdapprovedexecutablecode,andnotdevelopmentcodeor                                                                                                                                                                                                                                                                          | Operationalsystemsshouldonlyholdapprovedexecutablecode,andnotdevelopmentcodeor                                                                                                                                                                                                                                                                          | Operationalsystemsshouldonlyholdapprovedexecutablecode,andnotdevelopmentcodeor",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1854563,
+        "end_pos": 1855587
       }
     }
   ]
