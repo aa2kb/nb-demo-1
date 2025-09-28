@@ -7,6 +7,8 @@ from typing import List, Dict, Any, Tuple
 from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.vector_stores.postgres import PGVectorStore
 from llama_index.core.vector_stores import VectorStoreQuery
+from llama_index.core.postprocessor.llm_rerank import LLMRerank
+from llama_index.llms.ollama import Ollama
 
 
 query = "what do know about notice period of an employee?"
@@ -42,20 +44,63 @@ def main():
             print("Failed to generate query embedding")
             return
         
-        # Search using LlamaIndex PGVectorStore
+        # Search using LlamaIndex PGVectorStore (get more results for reranking)
         print("Searching with LlamaIndex PGVectorStore...")
-        results = search_similar_chunks_llamaindex(vector_store, query_embedding, top_k=25)
+        original_results = search_similar_chunks_llamaindex(vector_store, query_embedding, top_k=10)
         
-        # Print results
-        print_search_results(results, query)
-        
-        if results:
-            print(f"\n✅ Found {len(results)} results using LlamaIndex PGVectorStore")
-            print(f"Best match: {results[0]['similarity_score']*100:.1f}% similarity")
-        else:
+        if not original_results:
             print("❌ No results found")
             print("Note: LlamaIndex PGVectorStore table might be empty.")
             print("You may need to run the insertion script first.")
+            return
+        
+        # Setup LLM for reranking  
+        print("\nSetting up LLM for reranking...")
+        llm = setup_llm(config)
+        
+        # Use custom reranking to preserve all results
+        print("Custom LLM scoring all results...")
+        print(f"Input to reranker: {len(original_results)} results")
+        reranked_results = rerank_results_custom(llm, original_results, query)
+        print(f"Output from reranker: {len(reranked_results)} results")
+        
+        # Print comparison table for all 10 positions
+        print_comparison_table(original_results, reranked_results, query)
+        
+        # Show LLM scores for all reranked results
+        print("\n🎯 ALL RERANKED RESULTS WITH LLM SCORES:")
+        for i, result in enumerate(reranked_results):
+            llm_score = result.get('llm_score', 0.0)
+            sim_score = result['similarity_score'] * 100
+            print(f"  [{i+1:2d}] LLM: {llm_score:.1f}/10 | Sim: {sim_score:.1f}% | {result['source_file'][:30]}")
+        
+        # Print full results summary
+        print(f"\n📊 FULL RESULTS SUMMARY:")
+        print(f"Original results: {len(original_results)}")
+        print(f"Reranked results: {len(reranked_results)}")
+        
+        # Show all position mappings in compact format
+        print("\n🔄 ALL POSITION CHANGES (Original → Reranked):")
+        position_changes = []
+        for new_pos, reranked_result in enumerate(reranked_results):
+            for orig_pos, orig_result in enumerate(original_results):
+                if orig_result['id'] == reranked_result['id']:
+                    position_changes.append(f"{orig_pos}→{new_pos}")
+                    break
+        
+        # Print all position changes (should be 10 items)
+        if len(position_changes) <= 10:
+            print(" ".join(f"{change:>6}" for change in position_changes))
+        else:
+            # If more than 10, show in rows of 10
+            for i in range(0, len(position_changes), 10):
+                chunk = position_changes[i:i+10]
+                print(" ".join(f"{change:>6}" for change in chunk))
+        
+        print(f"\n✅ Found {len(original_results)} original results, reranked all {len(reranked_results)}")
+        print(f"Original best match: {original_results[0]['similarity_score']*100:.1f}% similarity")
+        if reranked_results:
+            print(f"Reranked results: All {len(reranked_results)} results reordered by LLM scoring")
     
     except KeyboardInterrupt:
         print("\nSearch interrupted by user")
@@ -96,6 +141,19 @@ def setup_embedding_model(config):
         return embedding_model
     except Exception as e:
         print(f"ERROR: Failed to setup embedding model - {e}")
+        sys.exit(1)
+
+def setup_llm(config):
+    """Setup LLM for reranking."""
+    try:
+        llm = Ollama(
+            model="mistral:7b",
+            base_url=config['OLLAMA_HOST']
+        )
+        print(f"✅ Connected to Ollama LLM: mistral:7b")
+        return llm
+    except Exception as e:
+        print(f"ERROR: Failed to setup LLM - {e}")
         sys.exit(1)
 
 def create_vector_store(config):
@@ -221,6 +279,125 @@ def search_similar_chunks_llamaindex(vector_store, query_embedding: List[float],
 
 
 
+
+def rerank_results_custom(llm, results: List[Dict], query: str) -> List[Dict]:
+    """Custom reranking that preserves all results but reorders them."""
+    try:
+        from llama_index.core.schema import NodeWithScore, TextNode
+        
+        print(f"  Custom reranking {len(results)} results...")
+        
+        # For each result, get an LLM relevance score
+        scored_results = []
+        for i, result in enumerate(results):
+            # Create a simple relevance prompt for each result
+            relevance_prompt = f"""Query: {query}
+            
+Document: {result['content'][:500]}
+            
+Rate the relevance of this document to the query on a scale of 0-10, where 10 is highly relevant and 0 is not relevant. Respond with only a number."""
+            
+            try:
+                # Get LLM score (this is a simplified approach)
+                # In practice, you might want to batch these calls for efficiency
+                response = llm.complete(relevance_prompt)
+                score_text = response.text.strip()
+                
+                # Extract numeric score
+                import re
+                score_match = re.search(r'(\d+(?:\.\d+)?)', score_text)
+                llm_score = float(score_match.group(1)) if score_match else result['similarity_score'] * 10
+                
+            except Exception as e:
+                print(f"    Warning: Failed to get LLM score for result {i}, using similarity score")
+                llm_score = result['similarity_score'] * 10
+            
+            result_copy = result.copy()
+            result_copy['llm_score'] = llm_score
+            scored_results.append(result_copy)
+            
+            if (i + 1) % 5 == 0:
+                print(f"    Scored {i + 1}/{len(results)} results...")
+        
+        # Sort by LLM score (highest first)
+        reranked_results = sorted(scored_results, key=lambda x: x['llm_score'], reverse=True)
+        
+        print(f"  Custom reranking completed: {len(reranked_results)} results")
+        return reranked_results
+        
+    except Exception as e:
+        print(f"ERROR: Failed to custom rerank results - {e}")
+        return results  # Return original results as fallback
+
+def rerank_results(reranker, results: List[Dict], query: str) -> List[Dict]:
+    """Rerank search results using LLMRerank."""
+    try:
+        from llama_index.core.schema import NodeWithScore, TextNode
+        
+        # Convert results to NodeWithScore objects
+        nodes_with_scores = []
+        for result in results:
+            text_node = TextNode(
+                text=result['content'],
+                metadata=result['metadata'],
+                id_=result['id']
+            )
+            node_with_score = NodeWithScore(node=text_node, score=result['similarity_score'])
+            nodes_with_scores.append(node_with_score)
+        
+        print(f"  Converting {len(nodes_with_scores)} nodes for reranking...")
+        
+        # Rerank using LLMRerank
+        reranked_nodes = reranker.postprocess_nodes(nodes_with_scores, query_str=query)
+        print(f"  LLMRerank returned {len(reranked_nodes)} nodes")
+        
+        # Convert back to our format
+        reranked_results = []
+        for i, node_with_score in enumerate(reranked_nodes):
+            node = node_with_score.node
+            original_result = next((r for r in results if r['id'] == node.id_), {})
+            
+            reranked_results.append({
+                'id': node.id_,
+                'chunk_index': original_result.get('chunk_index', i),
+                'content': node.text,
+                'content_contextualized': original_result.get('content_contextualized', ''),
+                'source_file': original_result.get('source_file', 'Unknown'),
+                'source_path': original_result.get('source_path', ''),
+                'similarity_score': original_result.get('similarity_score', 0.0),
+                'rerank_score': node_with_score.score if node_with_score.score is not None else 0.0,
+                'metadata': node.metadata or {}
+            })
+        
+        return reranked_results
+        
+    except Exception as e:
+        print(f"ERROR: Failed to rerank results - {e}")
+        return results  # Return all original results as fallback
+
+def print_comparison_table(original_results: List[Dict], reranked_results: List[Dict], query: str):
+    """Print a simple position mapping table."""
+    print("\n" + "=" * 30)
+    print("POSITION MAPPING")
+    print("=" * 30)
+    print("Original - Reranked")
+    print("-" * 18)
+    
+    # Create mapping of reranked results to their original positions
+    for new_pos, reranked_result in enumerate(reranked_results):
+        # Find this result's original position
+        original_pos = None
+        for orig_pos, orig_result in enumerate(original_results):
+            if orig_result['id'] == reranked_result['id']:
+                original_pos = orig_pos
+                break
+        
+        if original_pos is not None:
+            print(f"{new_pos:<8} - {original_pos}")
+        else:
+            print(f"{new_pos:<8} - ?")
+    
+    print("=" * 30)
 
 def print_search_results(results: List[Dict], query: str):
     """Print search results in a readable format."""
