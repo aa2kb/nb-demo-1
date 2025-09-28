@@ -33,16 +33,16 @@ def load_config():
     }
 
 def create_vector_store(config):
-    """Create LlamaIndex PGVectorStore using the exact same configuration as setup."""
+    """Create LlamaIndex PGVectorStore for document insertion."""
     try:
-        # Use exact same configuration as 0-setup.py
+        # Create PGVectorStore with consistent configuration
         vector_store = PGVectorStore.from_params(
             database=config['DB_NAME'],
             host=config['DB_HOST'],
             password=config['DB_PASSWORD'],
             port=config['DB_PORT'],
             user=config['DB_USER'],
-            table_name="vectors",  # This creates data_vectors table
+            table_name="vectors",  # Creates data_vectors table
             embed_dim=768,
             hybrid_search=False,
             text_search_config="english"
@@ -144,12 +144,9 @@ def process_vectors_file(vectors_file_path, vector_store):
         return False
 
 def check_existing_data(vector_store):
-    """Check how many vectors are already in the store using PGVectorStore methods."""
+    """Check if vectors exist in the store."""
     try:
-        # Use PGVectorStore's internal connection to check data count
-        # This is a cleaner approach than using direct psycopg2
-        
-        # Create a dummy query to test if the store is accessible
+        # Create a test query to check if the store is accessible
         test_query = VectorStoreQuery(
             query_embedding=[0.0] * 768,  # Dummy embedding
             similarity_top_k=1,
@@ -159,18 +156,17 @@ def check_existing_data(vector_store):
         # Try to execute a minimal query to check if table exists and has data
         result = vector_store.query(test_query)
         
-        # If we get here, the table exists. Try to get a rough count by checking nodes
+        # Check if the query returned any results
         if hasattr(result, 'nodes') and result.nodes:
-            # We can't get exact count without direct SQL, but we can indicate data exists
             print("  Existing data found in vector store")
-            return 1  # Indicate data exists, exact count not available
+            return 1  # Data exists
         else:
             print("  No existing data in vector store")
             return 0
             
     except Exception as e:
-        # If query fails, likely no data or table doesn't exist yet
-        print(f"  Vector store appears empty or table not created yet")
+        # Query failed, store is empty or not initialized
+        print(f"  Vector store appears empty or not initialized")
         return 0
 
 def main():
@@ -180,7 +176,7 @@ def main():
     # Load config
     config = load_config()
     
-    # Create vector store with exact same configuration as setup
+    # Create vector store
     print("Creating LlamaIndex PGVectorStore...")
     vector_store = create_vector_store(config)
     

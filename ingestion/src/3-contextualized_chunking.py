@@ -11,16 +11,9 @@ import hashlib
 from pathlib import Path
 from dotenv import load_dotenv
 from typing import List, Dict, Any
-
-# LlamaIndex imports
-try:
-    from llama_index.core import Settings
-    from llama_index.llms.ollama import Ollama
-    from llama_index.llms.gemini import Gemini
-except ImportError as e:
-    print(f"ERROR: Required packages not installed - {e}")
-    print("Run: pip install llama-index llama-index-llms-ollama llama-index-llms-gemini")
-    sys.exit(1)
+from llama_index.core import Settings
+from llama_index.llms.ollama import Ollama
+from llama_index.llms.gemini import Gemini
 
 # Context prompt template
 CONTEXT_PROMPT_TEMPLATE = """

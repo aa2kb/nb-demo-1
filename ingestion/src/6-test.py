@@ -21,7 +21,7 @@ from llama_index.core.vector_stores import VectorStoreQuery
 # Global query variable
 query = "What are the procurement procedures for government entities?"
 def main():
-    """Semantic search using LlamaIndex PGVectorStore with exact same config as setup/insertion."""
+    """Semantic search using LlamaIndex PGVectorStore."""
     print("Semantic Search with LlamaIndex PGVectorStore")
     print("=" * 60)
     
@@ -32,13 +32,13 @@ def main():
     print("Setting up embedding model...")
     embedding_model = setup_embedding_model(config)
     
-    # Setup LlamaIndex PGVectorStore with EXACT same configuration
+    # Setup LlamaIndex PGVectorStore
     print("Creating LlamaIndex PGVectorStore...")
     vector_store = create_vector_store(config)
     
     # Check database stats
-    vector_count = check_vector_count(config)
-    print(f"Vector database: {vector_count} vectors available")
+    vector_status = check_vector_availability(vector_store)
+    print(f"Vector database: {vector_status}")
     
     print(f"\nSearching for: '{query}'")
     
@@ -106,16 +106,9 @@ def setup_embedding_model(config):
         sys.exit(1)
 
 def create_vector_store(config):
-    """Create LlamaIndex PGVectorStore using the EXACT same configuration as setup and insertion."""
+    """Create LlamaIndex PGVectorStore for searching."""
     try:
-        from llama_index.vector_stores.postgres import PGVectorStore
-    except ImportError:
-        print("ERROR: llama-index-vector-stores-postgres not installed")
-        print("Run: pip install llama-index-vector-stores-postgres")
-        sys.exit(1)
-    
-    try:
-        # Use EXACT same configuration as 0-setup.py and 5-insertion.py
+        # Create PGVectorStore with consistent configuration
         vector_store = PGVectorStore.from_params(
             database=config['DB_NAME'],
             host=config['DB_HOST'],
@@ -137,42 +130,27 @@ def create_vector_store(config):
         print(f"ERROR: Failed to create PGVectorStore - {e}")
         sys.exit(1)
 
-def check_vector_count(config):
-    """Check how many vectors are in the database."""
+def check_vector_availability(vector_store):
+    """Check if vectors are available in the store."""
     try:
-        import psycopg2
-        
-        conn = psycopg2.connect(
-            host=config['DB_HOST'],
-            port=config['DB_PORT'],
-            user=config['DB_USER'],
-            password=config['DB_PASSWORD'],
-            database=config['DB_NAME']
+        # Create a test query to check if the store has data
+        test_query = VectorStoreQuery(
+            query_embedding=[0.0] * 768,  # Dummy embedding
+            similarity_top_k=1,
+            mode="default"
         )
-        cursor = conn.cursor()
         
-        # Check if table exists and get count
-        cursor.execute("""
-            SELECT COUNT(*) FROM information_schema.tables 
-            WHERE table_name = 'data_vectors'
-        """)
+        # Try to execute a minimal query
+        result = vector_store.query(test_query)
         
-        if cursor.fetchone()[0] == 0:
-            cursor.close()
-            conn.close()
-            return 0
-        
-        cursor.execute("SELECT COUNT(*) FROM data_vectors")
-        count = cursor.fetchone()[0]
-        
-        cursor.close()
-        conn.close()
-        
-        return count
-        
+        # Check if the query returned any results
+        if hasattr(result, 'nodes') and result.nodes:
+            return "Available (contains data)"
+        else:
+            return "Empty (no data found)"
+            
     except Exception as e:
-        print(f"Could not check vector count - {e}")
-        return 0
+        return "Not accessible or not initialized"
 
 
 

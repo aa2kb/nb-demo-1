@@ -8,6 +8,9 @@ import os
 import sys
 from pathlib import Path
 from dotenv import load_dotenv
+import requests
+from llama_index.vector_stores.postgres import PGVectorStore
+from docling.document_converter import DocumentConverter
 
 def load_config():
     """Load configuration from .env file."""
@@ -36,141 +39,41 @@ def load_config():
     
     return config
 
-def check_and_enable_pgvector(cursor, conn):
-    """Check if pgvector extension is available and enable it."""
-    try:
-        # Check if pgvector is available
-        cursor.execute("SELECT name, default_version FROM pg_available_extensions WHERE name = 'vector';")
-        result = cursor.fetchone()
-        
-        if not result:
-            print("WARNING: pgvector extension not available in this PostgreSQL instance")
-            print("Falling back to JSON embedding storage")
-            return True  # Continue with JSON storage
-        
-        # Check if pgvector is already installed
-        cursor.execute("SELECT extname, extversion FROM pg_extension WHERE extname = 'vector';")
-        installed = cursor.fetchone()
-        
-        if installed:
-            print(f"pgvector extension already installed (v{installed[1]})")
-            return True
-        
-        # Install pgvector extension
-        print(f"Installing pgvector extension v{result[1]}...")
-        cursor.execute("CREATE EXTENSION vector;")
-        conn.commit()
-        print("pgvector extension installed successfully")
-        
-        # Verify installation
-        cursor.execute("SELECT extname, extversion FROM pg_extension WHERE extname = 'vector';")
-        verified = cursor.fetchone()
-        if verified:
-            print(f"pgvector verified: v{verified[1]}")
-            return True
-        else:
-            print("ERROR: pgvector installation verification failed")
-            return False
-            
-    except Exception as e:
-        print(f"ERROR: Failed to install pgvector - {e}")
-        print("Continuing with JSON embedding storage")
-        return True  # Continue even if pgvector fails
-
 def check_postgres(config):
-    """Check PostgreSQL connection and create LlamaIndex PGVectorStore table."""
+    """Check PostgreSQL connection and create LlamaIndex PGVectorStore."""
     print("\nChecking PostgreSQL...")
     
     try:
-        import psycopg2
-    except ImportError:
-        print("ERROR: psycopg2 not installed. Run: pip install psycopg2-binary")
-        return False
-    
-    try:
-        from llama_index.vector_stores.postgres import PGVectorStore
-    except ImportError:
-        print("ERROR: llama-index-vector-stores-postgres not installed")
-        print("Run: pip install llama-index-vector-stores-postgres")
-        return False
-    
-    try:
-        conn = psycopg2.connect(
-            host=config['DB_HOST'],
-            port=config['DB_PORT'],
-            user=config['DB_USER'],
-            password=config['DB_PASSWORD'],
-            database=config['DB_NAME']
-        )
-        cursor = conn.cursor()
-        
-        # Check version
-        cursor.execute("SELECT version();")
-        version = cursor.fetchone()[0].split(',')[0]
-        print(f"Connected to {version}")
-        
-        # Check and enable pgvector extension
-        if not check_and_enable_pgvector(cursor, conn):
-            return False
-        
         # Create LlamaIndex PGVectorStore
         print("Creating LlamaIndex PGVectorStore...")
-        try:
-            # Create the vector store - this will create the table if it doesn't exist
-            vector_store = PGVectorStore.from_params(
-                database=config['DB_NAME'],
-                host=config['DB_HOST'],
-                password=config['DB_PASSWORD'],
-                port=config['DB_PORT'],
-                user=config['DB_USER'],
-                table_name="vectors",  # This will create just "vectors" table
-                embed_dim=768,
-                hybrid_search=False,
-                text_search_config="english"
-            )
-            
-            # Table will be created automatically when first documents are added
-            
-            print("✅ LlamaIndex PGVectorStore created successfully")
-            print(f"   Table: vectors")
-            print(f"   Embedding dimension: 768")
-            
-            conn.commit()
-            print("✅ LlamaIndex vector table setup complete")
-            
-            # Check existing data in vector table
-            try:
-                cursor.execute("SELECT COUNT(*) FROM data_vectors;")
-                vector_count = cursor.fetchone()[0]
-                print(f"Current data:")
-                print(f"  - {vector_count} vectors in vectors table")
-            except Exception as e:
-                print(f"Current data:")
-                print(f"  - Vectors table ready for insertion")
-                # This is expected on first run
-            
-        except Exception as e:
-            print(f"ERROR: Failed to create LlamaIndex PGVectorStore - {e}")
-            return False
+        vector_store = PGVectorStore.from_params(
+            database=config['DB_NAME'],
+            host=config['DB_HOST'],
+            password=config['DB_PASSWORD'],
+            port=config['DB_PORT'],
+            user=config['DB_USER'],
+            table_name="vectors",  # Creates data_vectors table
+            embed_dim=768,
+            hybrid_search=False,
+            text_search_config="english"
+        )
         
-        cursor.close()
-        conn.close()
-        print("PostgreSQL OK")
+        print("✅ LlamaIndex PGVectorStore created successfully")
+        print(f"   Database: {config['DB_NAME']}@{config['DB_HOST']}:{config['DB_PORT']}")
+        print(f"   Table: data_vectors")
+        print(f"   Embedding dimension: 768")
+        print("✅ PostgreSQL connection and vector store setup complete")
+        
         return True
         
     except Exception as e:
         print(f"PostgreSQL ERROR: {e}")
+        print("Make sure PostgreSQL is running and pgvector extension is available")
         return False
 
 def check_ollama(config):
     """Check Ollama service and embedding model."""
     print("\nChecking Ollama...")
-    
-    try:
-        import requests
-    except ImportError:
-        print("ERROR: requests not installed. Run: pip install requests")
-        return False
     
     try:
         # Check if Ollama is running
@@ -230,12 +133,6 @@ def check_ollama(config):
 def check_docling():
     """Check Docling document processing."""
     print("\nChecking Docling...")
-    
-    try:
-        from docling.document_converter import DocumentConverter
-    except ImportError:
-        print("ERROR: Docling not installed. Run: pip install docling")
-        return False
     
     # Find test PDF
     test_pdf = Path("hello_world.pdf")

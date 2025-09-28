@@ -11,15 +11,9 @@ import time
 from pathlib import Path
 from dotenv import load_dotenv
 from typing import List, Dict, Any
+from llama_index.embeddings.ollama import OllamaEmbedding
+from llama_index.core import Settings
 
-# LlamaIndex imports for embeddings
-try:
-    from llama_index.embeddings.ollama import OllamaEmbedding
-    from llama_index.core import Settings
-except ImportError as e:
-    print(f"ERROR: Required packages not installed - {e}")
-    print("Run: pip install llama-index llama-index-embeddings-ollama")
-    sys.exit(1)
 
 def load_config():
     """Load configuration from .env file."""
@@ -44,7 +38,7 @@ def setup_embeddings(config):
             base_url=config['OLLAMA_HOST']
         )
         
-        # Set global LlamaIndex settings
+        # Configure embedding model
         Settings.embed_model = embedding_model
         
         return embedding_model
@@ -78,11 +72,11 @@ def create_embedding_text(chunk):
     content = chunk.get('content', '')
     context = chunk.get('content_contextualized', '')
     
-    # Combine content and context for rich embeddings
+    # Combine content and context when available
     if context and context.strip() and context.strip().lower() != 'no context':
         embedding_text = f"Content: {content}\n\nContext: {context}"
     else:
-        # If no context, use just the content
+        # Use content only when no context available
         embedding_text = f"Content: {content}"
     
     return embedding_text
@@ -90,7 +84,7 @@ def create_embedding_text(chunk):
 def generate_embedding(embedding_model, text):
     """Generate embedding for given text."""
     try:
-        # Generate embedding using LlamaIndex OllamaEmbedding
+        # Generate embedding for text
         embedding = embedding_model.get_text_embedding(text)
         return embedding
     except Exception as e:
@@ -109,11 +103,11 @@ def should_process_chunk(chunk_data, existing_vectors_data):
     
     for existing_chunk in existing_chunks:
         if existing_chunk.get('chunk_index') == chunk_id:
-            # Check if content matches and already has vector
+            # Skip if content matches and vector exists
             if (existing_chunk.get('content') == chunk_data.get('content') and 
                 'vector' in existing_chunk and 
                 existing_chunk['vector']):
-                return False  # Already processed
+                return False
     
     return True
 

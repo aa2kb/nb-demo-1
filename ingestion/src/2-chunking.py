@@ -10,6 +10,9 @@ import json
 import hashlib
 from pathlib import Path
 from dotenv import load_dotenv
+from docling_core.types.doc import DoclingDocument
+from docling.chunking import HybridChunker
+from docling.document_converter import DocumentConverter
 
 def load_config():
     """Load configuration from .env file."""
@@ -75,15 +78,6 @@ def extract_metadata_from_markdown(content):
 
 def chunk_markdown_with_docling(markdown_path, config):
     """Chunk markdown content using Docling Hybrid Chunker."""
-    try:
-        from docling_core.types.doc import DoclingDocument
-        from docling.chunking import HybridChunker
-        from docling.document_converter import DocumentConverter
-    except ImportError as e:
-        print(f"  ERROR: Docling chunking not available - {e}")
-        print("  Make sure you have the latest docling with chunking support")
-        return None
-    
     print(f"  Loading markdown content...")
     
     try:
