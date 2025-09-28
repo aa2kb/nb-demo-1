@@ -35,31 +35,51 @@ class DatabaseManager:
             engine = self.get_engine()
             
             with engine.connect() as conn:
-                # Enable pgvector extension
+                # Try to enable pgvector extension
+                pgvector_available = False
                 try:
                     conn.execute(text("CREATE EXTENSION IF NOT EXISTS vector;"))
                     conn.commit()
                     logger.info("pgvector extension enabled successfully")
+                    pgvector_available = True
                 except Exception as e:
                     logger.warning(f"Could not enable pgvector extension: {e}")
-                    # Continue anyway - it might already be enabled
+                    logger.warning("Will create table without vector column - you need to install pgvector extension")
+                    # Rollback the failed transaction
+                    conn.rollback()
                 
-                # Create the documents table if it doesn't exist
-                create_table_sql = """
-                CREATE TABLE IF NOT EXISTS document_chunks (
-                    id SERIAL PRIMARY KEY,
-                    document_id VARCHAR(255) NOT NULL,
-                    document_name VARCHAR(255) NOT NULL,
-                    chunk_index INTEGER NOT NULL,
-                    content TEXT NOT NULL,
-                    embedding VECTOR(384),
-                    metadata JSONB,
-                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-                );
-                
-                CREATE INDEX IF NOT EXISTS idx_document_chunks_doc_id ON document_chunks(document_id);
-                CREATE INDEX IF NOT EXISTS idx_document_chunks_embedding ON document_chunks USING ivfflat (embedding vector_cosine_ops);
-                """
+                # Create the documents table - with or without vector column
+                if pgvector_available:
+                    create_table_sql = """
+                    CREATE TABLE IF NOT EXISTS document_chunks (
+                        id SERIAL PRIMARY KEY,
+                        document_id VARCHAR(255) NOT NULL,
+                        document_name VARCHAR(255) NOT NULL,
+                        chunk_index INTEGER NOT NULL,
+                        content TEXT NOT NULL,
+                        embedding VECTOR(384),
+                        metadata JSONB,
+                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    );
+                    
+                    CREATE INDEX IF NOT EXISTS idx_document_chunks_doc_id ON document_chunks(document_id);
+                    CREATE INDEX IF NOT EXISTS idx_document_chunks_embedding ON document_chunks USING ivfflat (embedding vector_cosine_ops);
+                    """
+                else:
+                    create_table_sql = """
+                    CREATE TABLE IF NOT EXISTS document_chunks (
+                        id SERIAL PRIMARY KEY,
+                        document_id VARCHAR(255) NOT NULL,
+                        document_name VARCHAR(255) NOT NULL,
+                        chunk_index INTEGER NOT NULL,
+                        content TEXT NOT NULL,
+                        embedding_json TEXT,
+                        metadata JSONB,
+                        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                    );
+                    
+                    CREATE INDEX IF NOT EXISTS idx_document_chunks_doc_id ON document_chunks(document_id);
+                    """
                 
                 conn.execute(text(create_table_sql))
                 conn.commit()

@@ -45,21 +45,26 @@ class DocumentProcessor:
     def process_pdf(self, file_path: Path) -> Optional[ProcessedDocument]:
         """Process a single PDF file."""
         try:
-            logger.info(f"Processing PDF: {file_path}")
+            logger.info(f"📄 Starting PDF processing: {file_path.name}")
+            logger.debug(f"Full path: {file_path}")
             
             # Convert document using docling
+            logger.info(f"🔄 Converting document with Docling: {file_path.name}")
             result = self.converter.convert(str(file_path))
             
             if not result or not result.document:
-                logger.error(f"Failed to convert document: {file_path}")
+                logger.error(f"❌ Failed to convert document: {file_path}")
                 return None
+            logger.info(f"✅ Document conversion successful: {file_path.name}")
             
             # Extract text content
+            logger.info(f"📝 Extracting text content from: {file_path.name}")
             content = result.document.export_to_markdown()
             
             if not content.strip():
-                logger.warning(f"No content extracted from: {file_path}")
+                logger.warning(f"⚠️ No content extracted from: {file_path}")
                 return None
+            logger.info(f"✅ Content extracted successfully: {len(content)} characters")
             
             # Generate document ID
             doc_id = self.generate_document_id(file_path)
@@ -75,8 +80,10 @@ class DocumentProcessor:
             )
             
             # Split into chunks
+            logger.info(f"✂️ Splitting document into chunks: {file_path.name}")
             nodes = self.text_splitter.get_nodes_from_documents([llamaindex_doc])
             chunks = [node.text for node in nodes]
+            logger.info(f"✅ Document split into {len(chunks)} chunks")
             
             # Prepare metadata
             metadata = {

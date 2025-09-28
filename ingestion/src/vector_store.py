@@ -38,16 +38,17 @@ class VectorStoreManager:
                 port=settings.db_port,
                 user=settings.db_user,
                 table_name="document_chunks",
-                embed_dim=384,  # gemma:300m embedding dimension
+                embed_dim=768,  # embeddinggemma:300m actual dimension from test
             )
             
             # Create storage context
             storage_context = StorageContext.from_defaults(vector_store=self.vector_store)
             
-            # Create or load index
+            # Create or load index with our embedding model
             self.index = VectorStoreIndex.from_vector_store(
                 vector_store=self.vector_store,
-                storage_context=storage_context
+                storage_context=storage_context,
+                embed_model=self.embedding_service.embedding_model
             )
             
             logger.info("Vector store initialized successfully")
@@ -60,20 +61,25 @@ class VectorStoreManager:
         """Store a processed document in the vector store."""
         try:
             if not self.vector_store or not self.index:
-                logger.error("Vector store not initialized")
+                logger.error("❌ Vector store not initialized")
                 return False
             
-            logger.info(f"Storing document: {processed_doc.name}")
+            logger.info(f"💾 Starting document storage: {processed_doc.name}")
+            logger.info(f"📊 Document has {len(processed_doc.chunks)} chunks to process")
             
             # Create nodes for each chunk
+            logger.info(f"🔄 Processing {len(processed_doc.chunks)} chunks for storage")
             nodes = []
             for i, chunk in enumerate(processed_doc.chunks):
+                logger.debug(f"📝 Processing chunk {i+1}/{len(processed_doc.chunks)} (size: {len(chunk)} chars)")
+                
                 # Generate embedding for the chunk
                 embedding = self.embedding_service.embed_text(chunk)
                 
                 if embedding is None:
-                    logger.warning(f"Failed to generate embedding for chunk {i} of {processed_doc.name}")
+                    logger.warning(f"⚠️ Failed to generate embedding for chunk {i+1}/{len(processed_doc.chunks)} of {processed_doc.name}")
                     continue
+                logger.debug(f"✅ Embedding generated for chunk {i+1}/{len(processed_doc.chunks)}")
                 
                 # Create metadata for this chunk
                 chunk_metadata = {

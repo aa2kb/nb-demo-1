@@ -1,7 +1,8 @@
 """Configuration settings for the ingestion service."""
 
 from typing import Optional
-from pydantic import BaseSettings, Field
+from pydantic import Field
+from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
@@ -16,7 +17,7 @@ class Settings(BaseSettings):
     
     # Ollama configuration
     ollama_host: str = Field(default="http://localhost:11434", env="OLLAMA_HOST")
-    embedding_model: str = Field(default="gemma:300m", env="EMBEDDING_MODEL")
+    embedding_model: str = Field(default="embeddinggemma:300m", env="EMBEDDING_MODEL")
     
     # Document processing
     chunk_size: int = Field(default=1024, env="CHUNK_SIZE")

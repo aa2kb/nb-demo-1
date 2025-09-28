@@ -45,104 +45,122 @@ def ingest(directory: str, force: bool, dry_run: bool):
     """Ingest documents from a directory into the vector store."""
     
     directory_path = Path(directory)
+    logger = logging.getLogger(__name__)
     
-    with console.status(f"[bold green]Processing documents from {directory_path}..."):
-        try:
-            # Initialize services
-            processor = DocumentProcessor()
-            vector_store = VectorStoreManager()
+    console.print(f"🚀 Starting document ingestion from: {directory_path}", style="bold blue")
+    logger.info(f"Ingestion started - Directory: {directory_path}, Force: {force}, Dry-run: {dry_run}")
+    
+    try:
+        # Initialize services
+        console.print("📦 Initializing services...", style="yellow")
+        logger.info("Initializing DocumentProcessor")
+        processor = DocumentProcessor()
+        
+        logger.info("Initializing VectorStoreManager")
+        vector_store = VectorStoreManager()
+        
+        # Test connections first
+        console.print("🔍 Testing connections...", style="yellow")
+        logger.info("Starting connection tests")
+        
+        logger.info("Testing database connection...")
+        if not db_manager.test_connection():
+            logger.error("Database connection test failed")
+            console.print("❌ Database connection failed", style="red")
+            sys.exit(1)
+        logger.info("Database connection test passed")
+        
+        logger.info("Testing embedding service...")
+        if not vector_store.embedding_service.test_embedding():
+            logger.error("Embedding service test failed")
+            console.print("❌ Embedding service test failed", style="red")
+            sys.exit(1)
+        logger.info("Embedding service test passed")
+        
+        console.print("✅ All connections verified", style="green")
+        logger.info("All connection tests passed successfully")
+        
+        # Process documents
+        console.print(f"📄 Processing documents from: {directory_path}", style="cyan")
+        logger.info(f"Starting document processing from directory: {directory_path}")
+        processed_docs = processor.process_directory(directory_path)
+        logger.info(f"Document processing completed. Found {len(processed_docs)} processed documents")
+        
+        if not processed_docs:
+            console.print("⚠️ No documents were processed", style="yellow")
+            return
+        
+        # Show what will be processed
+        table = Table(title=f"Documents to Process ({'DRY RUN' if dry_run else 'PROCESSING'})")
+        table.add_column("Document", style="cyan")
+        table.add_column("Chunks", justify="right")
+        table.add_column("Status", style="magenta")
+        
+        for doc in processed_docs:
+            # Check if document exists
+            exists = vector_store.check_document_exists(doc.document_id) if not dry_run else False
             
-            # Test connections first
-            console.print("🔍 Testing connections...")
+            if exists and not force:
+                status = "EXISTS (skipping)"
+                style = "yellow"
+            elif dry_run:
+                status = "WOULD PROCESS"
+                style = "blue"
+            else:
+                status = "PROCESSING"
+                style = "green"
             
-            if not db_manager.test_connection():
-                console.print("❌ Database connection failed", style="red")
-                sys.exit(1)
-            
-            if not vector_store.embedding_service.test_embedding():
-                console.print("❌ Embedding service test failed", style="red")
-                sys.exit(1)
-            
-            console.print("✅ All connections verified", style="green")
-            
-            # Process documents
-            console.print(f"📄 Processing documents from: {directory_path}")
-            processed_docs = processor.process_directory(directory_path)
-            
-            if not processed_docs:
-                console.print("⚠️ No documents were processed", style="yellow")
-                return
-            
-            # Show what will be processed
-            table = Table(title=f"Documents to Process ({'DRY RUN' if dry_run else 'PROCESSING'})")
-            table.add_column("Document", style="cyan")
-            table.add_column("Chunks", justify="right")
-            table.add_column("Status", style="magenta")
+            table.add_row(
+                doc.name,
+                str(len(doc.chunks)),
+                f"[{style}]{status}[/{style}]"
+            )
+        
+        console.print(table)
+        
+        if dry_run:
+            console.print("🔍 Dry run completed - no documents were actually processed")
+            return
+        
+        # Store documents
+        stored_count = 0
+        skipped_count = 0
+        
+        with Progress(
+            SpinnerColumn(),
+            TextColumn("[progress.description]{task.description}"),
+            console=console,
+        ) as progress:
+            task = progress.add_task("Storing documents...", total=len(processed_docs))
             
             for doc in processed_docs:
-                # Check if document exists
-                exists = vector_store.check_document_exists(doc.document_id) if not dry_run else False
-                
-                if exists and not force:
-                    status = "EXISTS (skipping)"
-                    style = "yellow"
-                elif dry_run:
-                    status = "WOULD PROCESS"
-                    style = "blue"
-                else:
-                    status = "PROCESSING"
-                    style = "green"
-                
-                table.add_row(
-                    doc.name,
-                    str(len(doc.chunks)),
-                    f"[{style}]{status}[/{style}]"
-                )
-            
-            console.print(table)
-            
-            if dry_run:
-                console.print("🔍 Dry run completed - no documents were actually processed")
-                return
-            
-            # Store documents
-            stored_count = 0
-            skipped_count = 0
-            
-            with Progress(
-                SpinnerColumn(),
-                TextColumn("[progress.description]{task.description}"),
-                console=console,
-            ) as progress:
-                task = progress.add_task("Storing documents...", total=len(processed_docs))
-                
-                for doc in processed_docs:
-                    # Check if document exists and force is not set
-                    if not force and vector_store.check_document_exists(doc.document_id):
-                        skipped_count += 1
-                        progress.update(task, advance=1)
-                        continue
-                    
-                    # Delete existing if force is set
-                    if force and vector_store.check_document_exists(doc.document_id):
-                        vector_store.delete_document(doc.document_id)
-                    
-                    progress.update(task, description=f"Processing {doc.name}...")
-                    
-                    if vector_store.store_document(doc):
-                        stored_count += 1
-                    
+                # Check if document exists and force is not set
+                if not force and vector_store.check_document_exists(doc.document_id):
+                    skipped_count += 1
                     progress.update(task, advance=1)
-            
-            # Summary
-            console.print(f"✅ Ingestion completed!", style="bold green")
-            console.print(f"   📁 Processed: {len(processed_docs)} documents")
-            console.print(f"   💾 Stored: {stored_count} documents")
-            console.print(f"   ⏭️ Skipped: {skipped_count} documents")
-            
-        except Exception as e:
-            console.print(f"❌ Error during ingestion: {e}", style="red")
-            sys.exit(1)
+                    continue
+                
+                # Delete existing if force is set
+                if force and vector_store.check_document_exists(doc.document_id):
+                    vector_store.delete_document(doc.document_id)
+                
+                progress.update(task, description=f"Processing {doc.name}...")
+                
+                if vector_store.store_document(doc):
+                    stored_count += 1
+                
+                progress.update(task, advance=1)
+        
+        # Summary
+        console.print(f"✅ Ingestion completed!", style="bold green")
+        console.print(f"   📁 Processed: {len(processed_docs)} documents")
+        console.print(f"   💾 Stored: {stored_count} documents")
+        console.print(f"   ⏭️ Skipped: {skipped_count} documents")
+        
+    except Exception as e:
+        console.print(f"❌ Error during ingestion: {e}", style="red")
+        logger.exception("Full error traceback:")
+        sys.exit(1)
 
 
 @cli.command()

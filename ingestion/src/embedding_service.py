@@ -25,7 +25,19 @@ class EmbeddingService:
         """Verify that the embedding model is available."""
         try:
             models = self.client.list()
-            available_models = [model['name'] for model in models['models']]
+            # Handle different response formats from Ollama API
+            if hasattr(models, 'models'):
+                model_list = models.models
+            else:
+                model_list = models.get('models', [])
+            
+            # Extract model names, handling different formats
+            available_models = []
+            for model in model_list:
+                if isinstance(model, dict):
+                    available_models.append(model.get('name', model.get('model', '')))
+                else:
+                    available_models.append(str(model))
             
             if settings.embedding_model not in available_models:
                 logger.warning(
@@ -44,24 +56,29 @@ class EmbeddingService:
     def embed_text(self, text: str) -> Optional[List[float]]:
         """Generate embedding for a single text."""
         try:
+            logger.debug(f"🔢 Generating embedding for text (length: {len(text)} chars)")
             embedding = self.embedding_model.get_text_embedding(text)
+            if embedding:
+                logger.debug(f"✅ Embedding generated successfully (dimension: {len(embedding)})")
             return embedding
         except Exception as e:
-            logger.error(f"Failed to generate embedding: {e}")
+            logger.error(f"❌ Failed to generate embedding: {e}")
             return None
     
     def embed_texts(self, texts: List[str]) -> List[Optional[List[float]]]:
         """Generate embeddings for multiple texts."""
+        logger.info(f"🔢 Starting batch embedding generation for {len(texts)} texts")
         embeddings = []
         
         for i, text in enumerate(texts):
-            if i % 10 == 0:
-                logger.info(f"Processing embedding {i+1}/{len(texts)}")
+            if i % 5 == 0:  # More frequent logging
+                logger.info(f"📊 Processing embedding {i+1}/{len(texts)} ({(i+1)/len(texts)*100:.1f}%)")
             
             embedding = self.embed_text(text)
             embeddings.append(embedding)
         
-        logger.info(f"Generated {sum(1 for e in embeddings if e is not None)} embeddings out of {len(texts)}")
+        successful_count = sum(1 for e in embeddings if e is not None)
+        logger.info(f"✅ Generated {successful_count} embeddings out of {len(texts)} ({successful_count/len(texts)*100:.1f}% success rate)")
         return embeddings
     
     def test_embedding(self) -> bool:
