@@ -12,7 +12,7 @@ from llama_index.core.postprocessor.llm_rerank import LLMRerank
 from llama_index.llms.ollama import Ollama
 
 
-query = "What are the data protection and cybersecurity requirements?"
+query = "Termination of Service Notice – Notice Allowance"
 
 # Global query variable
 def main():
