@@ -9,7 +9,7 @@ from llama_index.vector_stores.postgres import PGVectorStore
 from llama_index.core.vector_stores import VectorStoreQuery
 
 
-query = "What are the procurement procedures for government entities?"
+query = "what do know about notice period of an employee?"
 
 # Global query variable
 def main():
