@@ -16,9 +16,10 @@ from typing import List, Dict, Any
 try:
     from llama_index.core import Settings
     from llama_index.llms.ollama import Ollama
+    from llama_index.llms.gemini import Gemini
 except ImportError as e:
     print(f"ERROR: Required packages not installed - {e}")
-    print("Run: pip install llama-index llama-index-llms-ollama")
+    print("Run: pip install llama-index llama-index-llms-ollama llama-index-llms-gemini")
     sys.exit(1)
 
 # Context prompt template
@@ -66,21 +67,43 @@ def load_config():
     return {
         'OLLAMA_HOST': os.getenv('OLLAMA_HOST', 'http://localhost:11434'),
         'CONTEXT_WINDOW_SIZE': int(os.getenv('CONTEXT_WINDOW_SIZE', 10)),
-        'LOG_LEVEL': os.getenv('LOG_LEVEL', 'INFO')
+        'LOG_LEVEL': os.getenv('LOG_LEVEL', 'INFO'),
+        'DEFAULT_LLM_PROVIDER': os.getenv('DEFAULT_LLM_PROVIDER', 'ollama'),
+        'DEFAULT_LLM_MODEL': os.getenv('DEFAULT_LLM_MODEL', 'mistral:7b'),
+        'GEMINI_API_KEY': os.getenv('GEMINI_API_KEY')
     }
 
 def setup_llm(config):
-    """Setup LLM instance for contextualization."""
-    # LlamaIndex Ollama LLM for context generation
-    ollama_llm = Ollama(
-        model="mistral:7b",
-        base_url=config['OLLAMA_HOST']
-    )
+    """Setup LLM instance for contextualization based on provider."""
+    provider = config['DEFAULT_LLM_PROVIDER'].lower()
+    model = config['DEFAULT_LLM_MODEL']
+    
+    if provider == 'gemini':
+        # Gemini LLM for context generation
+        if not config['GEMINI_API_KEY']:
+            raise ValueError("GEMINI_API_KEY is required when using Gemini provider")
+        
+        llm = Gemini(
+            model=model,
+            api_key=config['GEMINI_API_KEY']
+        )
+        print(f"Using Gemini LLM: {model}")
+        
+    elif provider == 'ollama':
+        # Ollama LLM for context generation
+        llm = Ollama(
+            model=model,
+            base_url=config['OLLAMA_HOST']
+        )
+        print(f"Using Ollama LLM: {model} @ {config['OLLAMA_HOST']}")
+        
+    else:
+        raise ValueError(f"Unsupported LLM provider: {provider}. Use 'gemini' or 'ollama'")
     
     # Set global LlamaIndex settings
-    Settings.llm = ollama_llm
+    Settings.llm = llm
     
-    return ollama_llm
+    return llm
 
 def load_chunk_file(chunk_file_path):
     """Load chunks from JSON file."""
@@ -202,7 +225,9 @@ def process_chunk_file(chunk_file_path, contextual_dir, llm, config):
             'source_markdown': chunk_data.get('source_markdown', 'unknown'),
             'total_chunks': len(chunks),
             'processing_metadata': {
-                'contextualization_method': 'llamaindex_ollama_mistral_7b',
+                'contextualization_method': f'llamaindex_{config["DEFAULT_LLM_PROVIDER"]}_{config["DEFAULT_LLM_MODEL"].replace(":", "_").replace("-", "_")}',
+                'llm_provider': config['DEFAULT_LLM_PROVIDER'],
+                'llm_model': config['DEFAULT_LLM_MODEL'],
                 'context_window_size': config['CONTEXT_WINDOW_SIZE'],
                 'processing_status': 'in_progress'
             },
@@ -291,8 +316,8 @@ def main():
     # Setup LLM
     try:
         print("Setting up LLM...")
-        ollama_llm = setup_llm(config)
-        print(f"LLM configured: Mistral 7B @ {config['OLLAMA_HOST']}")
+        llm = setup_llm(config)
+        print(f"LLM configured successfully")
     except Exception as e:
         print(f"ERROR: Failed to setup LLM - {e}")
         return 1
@@ -333,7 +358,7 @@ def main():
     
     for chunk_file in chunk_files:
         try:
-            success = process_chunk_file(chunk_file, contextual_dir, ollama_llm, config)
+            success = process_chunk_file(chunk_file, contextual_dir, llm, config)
             if success:
                 processed_files += 1
             else:

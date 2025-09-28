@@ -6,8 +6,8 @@
     "contextualization_method": "llamaindex_ollama_mistral_7b",
     "context_window_size": 10,
     "processing_status": "in_progress",
-    "last_processed_chunk": 78,
-    "processed_count": 79
+    "last_processed_chunk": 96,
+    "processed_count": 97
   },
   "chunks": [
     {
@@ -1351,6 +1351,312 @@
         "chunk_overlap_config": 200,
         "start_pos": 64021,
         "end_pos": 65045
+      }
+    },
+    {
+      "chunk_index": 79,
+      "content_contextualized": "Outlines the mandatory standards for publishing solicitations, ensuring fairness, transparency, and proper communication with all competing Suppliers. This operational guidance immediately transitions into the specific procedures for managing the subsequent bidding phase (10.15. Bid Management).",
+      "content": "gle Source tenders shall be followed\n- A2. Solicitations  shall  be  appropriately  published  as  per  the  requirement  of  the  selected sourcing method\n- A3. Probity  and  transparency  shall  be  maintained  for  ensuring  fairness,  impartiality,  and consistency\n- A4. The  same  level  of  information  shall  be  available  to  all  competing  Suppliers  and amendments in the solicitations shall be shared with all competing Suppliers at the same time\n- A5. Necessary communication to and from Suppliers shall be done through the Procurement Gate\n- A6. Sufficient time shall be given to Suppliers for submission of a response to the solicitation and formal written request for an extension in deadline shall be considered. Extension in deadline shall apply to all Suppliers\n- A7. Additional rounds of solicitation may be held if needed\n\n## 10.15. Bid Management\n\n- The Procurement shall manage bidding activity by arranging pre-bid meetings, receiving queries and  issuing  clarifications,  revising  or",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 64845,
+        "end_pos": 65859
+      }
+    },
+    {
+      "chunk_index": 80,
+      "content_contextualized": "Following the issuance of solicitation documents, this procedure details the active management of the bidding phase, including organizing pre-bid meetings, coordinating with stakeholders, and establishing the formal process for handling supplier queries and issuing clarifications. This step (10.15) bridges the gap between solicitation publication and the subsequent bid opening and evaluation stages.",
+      "content": "icitation may be held if needed\n\n## 10.15. Bid Management\n\n- The Procurement shall manage bidding activity by arranging pre-bid meetings, receiving queries and  issuing  clarifications,  revising  or  cancelling  solicitations,  handling  bid  submission  and opening. The Procurement shall coordinate with involved stakeholders including the Suppliers, the End-users, the Finance, the Legal, the Procurement Committee and other parties. A\n- A1. Pre-bid meetings may be organised with potential Suppliers to discuss the scope of work provisions, payment terms, technical and financial evaluation criteria and other terms and conditions. The Procurement shall not provide any information about the acceptable value of commercial offers. The Procurement is encouraged to organise pre-bid meetings for large and complex goods, services and projects.\n- A2. Supplier queries regarding the solicitation shall be submitted through the Procurement Gate. The Procurement shall draft responses seeking input from the End-users or",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 65659,
+        "end_pos": 66678
+      }
+    },
+    {
+      "chunk_index": 81,
+      "content_contextualized": "Continues the operational guidelines for Bid Management (10.15) by outlining mandatory procedures for handling supplier queries, issuing clarifications, and formally amending solicitation documents to maintain fairness and transparency during the bidding period.",
+      "content": "ods, services and projects.\n- A2. Supplier queries regarding the solicitation shall be submitted through the Procurement Gate. The Procurement shall draft responses seeking input from the End-users or subject matter experts if required. The list of queries and clarifications shall be made available to all competing Suppliers to promote transparency and probity.\n- A3. Amendment to the solicitation document shall be issued by the Procurement, if there is a material change in the scope of work, specifications, quantities, delivery schedules, terms and  conditions,  or  to  clarify  any  ambiguity  or  errors  in  the  solicitation  document.  The\n\n<!-- image -->\n\namendment shall be issued immediately to all competing Suppliers, and bid submission date shall be suitably revised to give appropriate time for the submission of responses. The Procurement  shall  ensure  that  amendment  to  solicitation  has  a  valid  and  approved business justification.\n\n- A4. Solicitation cancellation shall be made by the",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 66478,
+        "end_pos": 67494
+      }
+    },
+    {
+      "chunk_index": 82,
+      "content_contextualized": "Concluding the procedures for Bid Management, the content specifies the rules for amending or canceling solicitations, along with the mandatory electronic submission and confidential opening protocols for supplier bids.",
+      "content": "e submission of responses. The Procurement  shall  ensure  that  amendment  to  solicitation  has  a  valid  and  approved business justification.\n\n- A4. Solicitation cancellation shall be made by the Procurement, if there are substantial changes in the procurement requirement or if a duly approved request for cancellation is submitted by  the  End-users.  The  Procurement  may  also  cancel  solicitation  if  requirements  of competitive bidding are not met.\n- A5. Revising or withdrawing submitted responses by the Suppliers shall be allowed before the bid submission deadline.\n- A6. Bid  submission  shall  be  through  the  Procurement  Gate  and  shall  be  facilitated  by  the Procurement. Bid proposals shall be date and time stamped in the Procurement Gate, and late bids shall not be accepted.\n- A7. Bid opening shall be organised by the Procurement electronically. The obtained proposals of  competing  Suppliers  shall  be  disclosed  only  to  the  Tendering  Committee  and  the Procurement.\n\n## 10.16.",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 67294,
+        "end_pos": 68314
+      }
+    },
+    {
+      "chunk_index": 83,
+      "content_contextualized": "Focuses on the critical stage of bid processing, establishing rules for maintaining confidentiality, verifying bid responsiveness, and initiating the technical evaluation based on defined criteria like quality and ability to meet requirements.",
+      "content": "ening shall be organised by the Procurement electronically. The obtained proposals of  competing  Suppliers  shall  be  disclosed  only  to  the  Tendering  Committee  and  the Procurement.\n\n## 10.16. Rejection of Bids\n\n- The  Procurement  shall  verify  whether  the  submitted  bids  are  responsive.  Bids  shall  be considered  responsive  when  submitted  on  time  and  conform  to  the  requirements  and specifications of the solicitation. A\n- The Procurement shall reject the bids which do not comply with the provisions defined in the solicitation document or are in breach of the requirements. B\n\n## 10.17. Technical Evaluation\n\n- The Procurement shall ensure that assigned individuals or the Tendering Committees perform the technical evaluation as per the defined technical evaluation criteria. The technical evaluation criteria may be based on, but not limited to: A\n- A1. Ability to meet the specified requirements\n- A2. Innovation offered\n- A3. Delivery times and schedules offered\n- A4. Quality offered\n- A5",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 68114,
+        "end_pos": 69138
+      }
+    },
+    {
+      "chunk_index": 84,
+      "content_contextualized": "Establishes the detailed criteria for the technical evaluation of supplier proposals, defining the necessary skills, composition, and integrity requirements for the Tendering Committee managing this critical assessment stage of the procurement process. This phase follows bid opening and precedes the subsequent commercial evaluation.",
+      "content": "aluation criteria may be based on, but not limited to: A\n- A1. Ability to meet the specified requirements\n- A2. Innovation offered\n- A3. Delivery times and schedules offered\n- A4. Quality offered\n- A5. Experience of Supplier and personnel proposed\n- A6. Capability and capacity of the Supplier\n- A7. Supplier's  management  practices  and  performance  on  occupational  health  and  safety, workplace and industrial relations and environment sustainability\n\n<!-- image -->\n\n- The Procurement may request the End-users and the subject matter experts to be a part of the Tendering  Committee  for  the  technical  evaluation.  The  Tendering  Committee  shall  have  the necessary  skills  and  knowledge  to  carry  out  the  technical  evaluation  and  shall  be  free  from conflicts of interest that undermine the fairness of the process. B\n- The  Procurement  may  seek  clarification  regarding  the  submitted  technical  proposals  from participating Suppliers if allowed in the solicitation document. The Procurement",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 68938,
+        "end_pos": 69962
+      }
+    },
+    {
+      "chunk_index": 85,
+      "content_contextualized": "Details the conclusion of the technical evaluation, requiring confidentiality and formal reporting, and introduces the subsequent phase, which is the commercial evaluation of qualified suppliers focusing on pricing accuracy and anomalies.",
+      "content": "s of the process. B\n- The  Procurement  may  seek  clarification  regarding  the  submitted  technical  proposals  from participating Suppliers if allowed in the solicitation document. The Procurement shall seek such clarifications individually and maintain confidentiality. C.\n- The Procurement shall ensure preparation of the technical evaluation report, summarising the results of the evaluation, a list of qualified Suppliers and recommendations for further action. D.\n\n## 10.18. Commercial Evaluation\n\n- The Procurement shall carry out commercial proposal review of technically qualified Suppliers with an additional focus on arithmetic errors, anomalies, pricing distortions, front-end loading of rates and unrealistically low bids. The Procurement may request the Finance and the Endusers to be a part of the commercial evaluation. A\n- If mandated by the PDoA, the Procurement shall engage the Tendering Committee to perform the commercial evaluation. B\n- The submitted commercial proposals shall be reviewed against",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 69762,
+        "end_pos": 70785
+      }
+    },
+    {
+      "chunk_index": 86,
+      "content_contextualized": "Describes the process for commercial evaluation of bids, outlining the roles of the Procurement team and Tendering Committee, the use of benchmarks and TCO models, and the required procedures for seeking confidential clarifications, particularly concerning abnormally low offers. This step immediately follows the technical evaluation and precedes the final award recommendation phase of the procurement cycle.",
+      "content": "ial evaluation. A\n- If mandated by the PDoA, the Procurement shall engage the Tendering Committee to perform the commercial evaluation. B\n- The submitted commercial proposals shall be reviewed against benchmarks from the historical pricing for goods, services and projects, pricing insights obtained from market intelligence and Total  Cost  of  Ownership  model.  If  required,  the  Procurement  may  ask  Suppliers  to  provide detailed  breakdown  or  clarifications  regarding  the  submitted  commercial  proposals.  The Procurement shall seek such clarifications individually and maintain confidentiality. C.\n- In  case  of  abnormally  or  unrealistically  low  bids,  the  Procurement  must  seek  detailed clarifications  of  the  commercial  offer  from  the  Supplier  including  price  calculations.  The Procurement shall consider such a commercial offer as valid, only if sufficient and satisfactory clarifications have been received from the Supplier. D.\n- The  Procurement  shall  prepare  a  report  on",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 70585,
+        "end_pos": 71606
+      }
+    },
+    {
+      "chunk_index": 87,
+      "content_contextualized": "Concludes the procedures for reviewing and ranking commercial proposals, immediately transitioning to the specific guidelines and conditions that necessitate the Procurement department to conduct negotiations with qualified suppliers.",
+      "content": "curement shall consider such a commercial offer as valid, only if sufficient and satisfactory clarifications have been received from the Supplier. D.\n- The  Procurement  shall  prepare  a  report  on  commercial  proposals  review  containing,  at  the minimum: E\n- E1. Details of arithmetic errors, anomalies, pricing distortions and unrealistically low bids\n- E2. Summary  of  submitted  commercial  proposals  against  a  benchmark  or  lowest  received pricing\n- E3. Ranking  of  commercial  proposals  by  price  or  total  cost  appropriately  adjusted  by eliminating errors and miscalculations\n\n## 10.19. Negotiations Guidelines\n\n- The Procurement shall conduct negotiations with the most competitive qualified Suppliers to get the best possible value when: A\n\n<!-- image -->\n\n- A1. Conditions for competitive bidding have not been optimal\n- A2. Received offers are unreasonable or with unacceptable terms and conditions\n- A3. The lowest offer is higher than estimates or available funds\n- A4. There is a potential",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 71406,
+        "end_pos": 72428
+      }
+    },
+    {
+      "chunk_index": 88,
+      "content_contextualized": "Focuses on the criteria and approval process for initiating negotiations with competitive suppliers following bid evaluation, establishing strict guidelines for confidentiality and integrity that must be adhered to before proceeding to contract award.",
+      "content": "ing have not been optimal\n- A2. Received offers are unreasonable or with unacceptable terms and conditions\n- A3. The lowest offer is higher than estimates or available funds\n- A4. There is a potential to drive down the prices\n- A5. In case of Sole Source or Single Source tenders\n- The Procurement may conduct negotiations with the most competitive qualified Suppliers if such option  has  been  defined  in  the  solicitation  document  or  if  approved  by  the  head  of  the Procurement. B\n- The  Procurement  may  request  approval  from  the  head  of  the  Procurement  not  to  conduct negotiations if the estimated cost of delay to the project outweighs the potential benefits. C.\n- The Procurement shall adhere to the following guidelines while entering negotiations: D.\n- D1. Original and negotiated offers shall remain confidential and must not be discussed with other Suppliers.\n- D2. Suppliers shall not be given the impression that entering negotiations in any way assures them of success.\n- D3. Integrity",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 72228,
+        "end_pos": 73249
+      }
+    },
+    {
+      "chunk_index": 89,
+      "content_contextualized": "Outlines the mandatory steps for conducting supplier negotiations, specifying team composition, planning requirements, and documentation standards, immediately preceding the formal process for contract award recommendation and approval.",
+      "content": "ll remain confidential and must not be discussed with other Suppliers.\n- D2. Suppliers shall not be given the impression that entering negotiations in any way assures them of success.\n- D3. Integrity  shall  be  maintained,  and  the  Code  of  Business  Ethics  shall  be  followed  during negotiations.\n- D4. Award criteria shall not be altered during negotiations.\n\n## 10.20. Negotiations Execution\n\n- The  Procurement  shall  form  a  team  for  negotiations  consisting  at  minimum  two  members representing the Procurement Practitioners responsible for managing categories, the End-users, the  Finance  or  the  Legal,  as  required.  The  team  for  negotiations  shall  prepare  a  plan  for negotiations by taking into consideration potential areas such as price, terms and conditions, contract period, implementation timelines and scope. A\n- Results of the negotiations must be documented and confirmed by all involved stakeholders including Suppliers. B\n\n## 10.21. Award Recommendation and Approvals\n\n- The",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 73049,
+        "end_pos": 74068
+      }
+    },
+    {
+      "chunk_index": 90,
+      "content_contextualized": "Following the negotiation phase, this outlines the mandatory documentation and procedures for formally recommending suppliers for the award and obtaining the necessary approvals as mandated by the PDoA.",
+      "content": "mentation timelines and scope. A\n- Results of the negotiations must be documented and confirmed by all involved stakeholders including Suppliers. B\n\n## 10.21. Award Recommendation and Approvals\n\n- The Procurement shall recommend Suppliers for the award based on the results of the technical and commercial evaluation and the negotiations. Recommendation for the award shall include at the minimum the following: A\n- A1. Evaluation summary of the technical and financial proposal\n- A2. Summary of the outcome of negotiations\n\n<!-- image -->\n\n- A3. Type of award including but not limited to Single Award, Split Award, Multiple Awards, Primary and Secondary Awards\n- A4. Details of Suppliers recommended for award, including a brief statement of reasons\n- The  Procurement  shall  obtain  the  approval  of  the  recommendation  of  award  from  the appropriate  authority  as  per  the  PDoA.  The  Tendering  Committee  or  individuals  who  have conducted the technical evaluations, commercial evaluations and negotiations",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 73868,
+        "end_pos": 74891
+      }
+    },
+    {
+      "chunk_index": 91,
+      "content_contextualized": "Focuses on the final steps of the tendering process, covering the required approvals for the award recommendation and establishing detailed criteria and procedures for resolving ties among equally qualified supplier offers.",
+      "content": "on  of  award  from  the appropriate  authority  as  per  the  PDoA.  The  Tendering  Committee  or  individuals  who  have conducted the technical evaluations, commercial evaluations and negotiations may be called upon to explain the reason behind their approach and the recommendation. B\n\n## 10.22. Resolving Ties\n\n- The Procurement shall resolve situations where tie exists between two or more Suppliers' offers having identical prices that meet all specifications, terms, and conditions. A\n- In cases of the tie and if possible and agreed by Suppliers, the Procurement shall allocate Multiple Awards for the contract. B\n- In case it is not feasible to split the contract, the Procurement may resolve the tie by considering the following factors: C.\n- C1. Preference for goods manufactured or produced within the state\n- C2. Preference for local Suppliers and underrepresented businesses\n- C3. Past performance of the Suppliers\n- C4. Earliest delivery or commencement date\n- C5. Closest proximity to the delivery site\n-",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 74691,
+        "end_pos": 75713
+      }
+    },
+    {
+      "chunk_index": 92,
+      "content_contextualized": "Concludes the enumeration of specific evaluation criteria used in procurement decisions (C2-C6) and immediately establishes the formal procedures governing a Supplier's Right to Protest, including acknowledgment requirements and mandatory actions for resolving disputes.",
+      "content": "- C2. Preference for local Suppliers and underrepresented businesses\n- C3. Past performance of the Suppliers\n- C4. Earliest delivery or commencement date\n- C5. Closest proximity to the delivery site\n- C6. In-country value demonstrated by the Suppliers\n\n## 10.23. Right to Protest\n\n- The Procurement shall acknowledge written protest submitted by the Supplier, only when it is substantiated with supporting exhibits, evidence or documents. A\n- The Procurement shall endeavour to remedy any protest received. The Procurement shall put the  solicitation  on  hold  until  the  reason  for  protest  has  been  satisfactorily  resolved,  at  the minimum under the following circumstances: B\n- B1. Violation of applicable legislations\n- B2. Violation of bid submission requirements\n- B3. Violation of the Code of Business Ethics\n- The Procurement may provide the following resolutions to a protest, but not limited to: C.\n- C1. Modification of the solicitation document\n\n<!-- image -->\n\n- C2. Extension of the solicitation",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 75513,
+        "end_pos": 76530
+      }
+    },
+    {
+      "chunk_index": 93,
+      "content_contextualized": "This segment addresses the final administrative steps of the tendering process, specifically detailing the possible resolutions for supplier protests under the Ethics guidelines and establishing the mandatory content and procedure for the formal Award Communication (Section 10.24).",
+      "content": "Ethics\n- The Procurement may provide the following resolutions to a protest, but not limited to: C.\n- C1. Modification of the solicitation document\n\n<!-- image -->\n\n- C2. Extension of the solicitation closing date and time\n- C3. Cancellation of the solicitation\n- C4. Re-evaluation and re-award\n- C5. Cancellation of award\n\n## 10.24. Award Communication\n\n- The Procurement shall prepare and issue the communication  of award using a standardised template in the Procurement Gate which shall incorporate: A\n- A1. Reference  to  the  solicitation,  summarising  required  goods,  services  or  projects  with quantities, commencement or delivery dates, terms of the contract\n- A2. Terms and conditions\n- A3. Contract value and duration\n- A4. Requirement and mode of furnishing the performance bond, advanced payment guarantee or retention amount\n- A5. Date, mode and requirements for the contract signing\n- The award shall be communicated to successful Suppliers through the Procurement Gate. B\n- The Procurement shall notify",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 76330,
+        "end_pos": 77353
+      }
+    },
+    {
+      "chunk_index": 94,
+      "content_contextualized": "Following the final award recommendation, the guidelines detail the communication of the decision, the penalties and procedures for a successful supplier's withdrawal, and the mandatory conditions requiring the establishment of a formal contract.",
+      "content": "or retention amount\n- A5. Date, mode and requirements for the contract signing\n- The award shall be communicated to successful Suppliers through the Procurement Gate. B\n- The Procurement shall notify unsuccessful Suppliers. C\n\n## 10.25. Successful Supplier Withdrawal\n\nIn the event the successful Supplier withdraws or rejects the award, the Procurement on behalf of the government entity has the right to confiscate the bid bond and shall call upon the next eligible Supplier to sign the contract. In case of Sole Source or Single Source tenders, the solicitation shall be re-floated. The Procurement shall ensure that the Suppliers' withdrawal information is recorded in the Procurement Gate.\n\n## 10.26. Conditions for Contracting\n\n- The Procurement shall establish contracts at a minimum, for the following: A\n- A1. Commitments where the financial impact of non-performance by the Supplier would have a strong adverse effect on the government entity\n- A2. Procurement of frequently requested goods and services\n- A3.",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 77153,
+        "end_pos": 78173
+      }
+    },
+    {
+      "chunk_index": 95,
+      "content_contextualized": "Specifies various categories of procurement commitments—including high-risk, complex scope, and IP-related items—that necessitate formal contractual arrangements. This list acts as a prerequisite definition just before the document introduces the general guidelines for contracting (10.27).",
+      "content": "Commitments where the financial impact of non-performance by the Supplier would have a strong adverse effect on the government entity\n- A2. Procurement of frequently requested goods and services\n- A3. Procurement of goods, services and projects which includes a complex scope of work, even if not frequently requested\n- A4. The procurement of projects involving commissioning, extended warranties, support and maintenance\n\n<!-- image -->\n\n- A5. Performance-based arrangements where the financial return to the Supplier is based on achieving certain targets\n- A6. Lease or rental of equipment and or associated services\n- A7. Any procurement that will be subject to statutory requirements\n- A8. Procurement of proprietary goods, services and projects\n- A9. Procurement of goods, services or projects which involves ownership, sharing or licensing of intellectual property either by the Supplier or the government entity\n\n## 10.27. Guidelines for Contracting\n\n- The Procurement shall adhere to the following guidelines while",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 77973,
+        "end_pos": 78995
+      }
+    },
+    {
+      "chunk_index": 96,
+      "content_contextualized": "Outlines the mandatory procedural guidelines for formal contracting (10.27), focusing on ensuring legal compliance, budget verification, and proper authorization before the supplier commences work, following the award decision.",
+      "content": "p, sharing or licensing of intellectual property either by the Supplier or the government entity\n\n## 10.27. Guidelines for Contracting\n\n- The Procurement shall adhere to the following guidelines while contracting: A\n- A1. All  contracting  for  goods,  services  and  projects  must  go  through  the  appropriate solicitation method.\n- A2. The  Procurement  is  encouraged  to  use  Contract  templates,  terms  and  conditions  preapproved by the Legal and the Finance; any deviations shall require appropriate approvals.\n- A3. The availability of the approved budget must be verified before signing of the contract. The contract shall not directly commit the budget. The commitment of the budget shall be through issuing of the order executing the contract.\n- A4. Contracts must be signed by the appropriate authority authorised to commit on behalf of the government entity as per the PDoA.\n- A5. For each contract, the Procurement shall ensure issuance of relevant order before Supplier commences the work.\n\n## 10.28.",
+      "metadata": {
+        "source_file": "Abu Dhabi Procurement Standards.PDF",
+        "file_size": "1450487",
+        "file_hash": "0ef9c4a0",
+        "processed_at": "1759056839.5084734",
+        "content_length": "136620",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 78795,
+        "end_pos": 79816
       }
     }
   ]
