@@ -1,0 +1,679 @@
+{
+  "source_chunk_file": "Inforamation Security_8ac2fee2_8e99480b_chunks.json",
+  "source_markdown": "Inforamation Security_8ac2fee2.md",
+  "total_chunks": 2752,
+  "processing_metadata": {
+    "contextualization_method": "llamaindex_gemini_gemini_flash_latest",
+    "llm_provider": "gemini",
+    "llm_model": "gemini-flash-latest",
+    "context_window_size": 10,
+    "processing_status": "in_progress",
+    "last_processed_chunk": 38,
+    "processed_count": 39
+  },
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "content_contextualized": "Presents the Table of Contents and initial introductory chapters (Background, Purpose, Layout), establishing the organizational structure of the UAEIA Standards document. It immediately precedes the detailed overview of the standards and controls.",
+      "content": "<!-- image -->\n\n<!-- image -->\n\n<!-- image -->\n\n1\n\nTHE SUPREME COUNCIL FOR NATIONAL SECURITY\n\n<!-- image -->\n\n3\n\n<!-- image -->\n\n|                                      | FOREWORD                                                        | 4   |\n|--------------------------------------|-----------------------------------------------------------------|-----|\n| 1                                    | INTRODUCTION                                                    | 5   |\n| 1.1                                  | Background                                                      | 5   |\n| 1.2                                  | Purpose of the UAEIA Standards                                  | 6   |\n| 1.3                                  | Layout of the UAEIA Standards                                   | 7   |\n| 2                                    | UAEIASTANDARDSOVERVIEW                                          | 9   |\n| 2.1 2.2                              | Scope 9 Related NESADocuments",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 0,
+        "end_pos": 1024
+      }
+    },
+    {
+      "chunk_index": 1,
+      "content_contextualized": "No Context",
+      "content": "| UAEIASTANDARDSOVERVIEW                                          | 9   |\n| 2.1 2.2                              | Scope 9 Related NESADocuments                                   | 9   |\n| 2.3                                  | Entity, Sector, and National Contexts                           | 10  |\n| 2.4                                  | Information Assurance Lifecycle                                 | 11  |\n| 3                                    | UAEIASTANDARDSIMPLEMENTATION                                    | 12  |\n| 3.1                                  | Overview                                                        | 12  |\n| 3.2                                  | Risk-Based Approach                                             | 12  |\n| 3.3                                  | Applicability of Controls                                       | 15  |\n| 3.4                                  | Prioritization of Controls                                      | 16  |\n| 3.5",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 824,
+        "end_pos": 1848
+      }
+    },
+    {
+      "chunk_index": 2,
+      "content_contextualized": "Outlines the core structure of the document, detailing compliance requirements (Chapter 4) and introducing the comprehensive framework for security controls (Chapter 5), which are categorized into families like Management Controls.",
+      "content": "lity of Controls                                       | 15  |\n| 3.4                                  | Prioritization of Controls                                      | 16  |\n| 3.5                                  | Key Stakeholders Roles and Responsibilities                     | 17  |\n| 3.6                                  | Key Success Factors                                             | 19  |\n| 4                                    | COMPLIANCEWITHTHEUAEIASTANDARDS                                 | 21  |\n| 5                                    | SECURITYCONTROLS                                                | 23  |\n| 5.1                                  | Control Structure                                               | 23  |\n| 5.2                                  | Description of families of controls                             | 24  |\n| 5.3                                  | Management Controls                                             | 26  |\n|                                      | M1Strategy and",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1648,
+        "end_pos": 2670
+      }
+    },
+    {
+      "chunk_index": 3,
+      "content_contextualized": "Details the major categories of security requirements, specifically listing the Management Controls (M1-M6) and the initial Technical Controls (T1) that form the operational core of the standard.",
+      "content": "| 24  |\n| 5.3                                  | Management Controls                                             | 26  |\n|                                      | M1Strategy and Planning                                         | 26  |\n|                                      | M2Information Security Risk Management                          | 40  |\n|                                      | M3Awareness and Training                                        | 52  |\n|                                      | M4HumanResources Security                                       | 58  |\n|                                      | M5Compliance                                                    | 64  |\n|                                      | M6Performance Evaluation and Improvement                        | 74  |\n| 5.4                                  | Technical Controls                                              | 79  |\n|                                      | T1 Asset Management",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 2470,
+        "end_pos": 3494
+      }
+    },
+    {
+      "chunk_index": 4,
+      "content_contextualized": "Outlines the eight specific categories of Technical Controls (T1 through T8), including Asset Management, Access Control, and Incident Management, as a major component of the document's security control catalog, immediately following the Management Controls.",
+      "content": "5.4                                  | Technical Controls                                              | 79  |\n|                                      | T1 Asset Management                                             | 79  |\n|                                      | T2 Physical and Environmental Security                          | 88  |\n|                                      | T3 Operations Management                                        | 99  |\n|                                      | T4 Communications                                               | 113 |\n|                                      | T5 Access Control                                               | 127 |\n|                                      | T6 Third-Party Security                                         | 145 |\n|                                      | T7 Information Systems Acquisition, Development and Maintenance | 150 |\n|                                      | T8 Information Security Incident Management                     | 170 |\n|",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 3294,
+        "end_pos": 4318
+      }
+    },
+    {
+      "chunk_index": 5,
+      "content_contextualized": "Details the final technical controls (T7 through T9) and outlines the subsequent Annexes, which contain critical supplementary information such as control summaries, mappings to other standards, and sector-specific requirements.",
+      "content": "| T7 Information Systems Acquisition, Development and Maintenance | 150 |\n|                                      | T8 Information Security Incident Management                     | 170 |\n|                                      | T9 Information Systems Continuity Management                    | 180 |\n|                                      | ANNEX                                                           |     |\n| AnnexA                               | Summary of Always Applicable Controls                           | 186 |\n| Annex B                              | Summary of the Prioritized Controls                             | 189 |\n| AnnexC                               | Mapping of Controls against Leading Standards                   | 195 |\n| AnnexD                               | Mapping of Threats to Controls                                  | 215 |\n| Annex E                              | Sector and National Level Controls                              | 219 |\n| Annex F                              |",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 4118,
+        "end_pos": 5141
+      }
+    },
+    {
+      "chunk_index": 6,
+      "content_contextualized": "Provides the final entries of the Table of Contents (Annexes and Appendices) immediately followed by the FOREWORD, which serves as the document's introduction, justifying the need for information security standards based on the UAE's reliance on IT and cyberspace for economic growth.",
+      "content": "trols                                  | 215 |\n| Annex E                              | Sector and National Level Controls                              | 219 |\n| Annex F                              | Terms and Definitions                                           | 221 |\n| AnnexG                               | Bibliography                                                    | 226 |\n|                                      | APPENDICES                                                      |     |\n| Appendices Sector-Specific Standards | Appendices Sector-Specific Standards                            | 227 |\n\n6\n\n## FOREWORD\n\nThe  increased  adoption  of  Information  Technology  (IT),  electronic  communications, and cyberspace -comprising a global network of interdependent information technology  infrastructures,  telecommunications  networks,  and  computer  processing systems  -  has provided organizations in the UAE with a platform for delivering innovative services  and  stimulating  economic  development,",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 4941,
+        "end_pos": 5964
+      }
+    },
+    {
+      "chunk_index": 7,
+      "content_contextualized": "Justifies the need for national information assurance standards by detailing the UAE's reliance on technology and the commitment to securing infrastructure against evolving cyber threats. This introduction establishes the role of the National Electronic Security Authority (NESA) in leading these coordinated cybersecurity efforts.",
+      "content": "telecommunications  networks,  and  computer  processing systems  -  has provided organizations in the UAE with a platform for delivering innovative services  and  stimulating  economic  development,  as  well  as  facilitating  collaboration and  communications  among  individuals.  Our  dependence  on  these  technologies  will continue to grow in the future, and therefore, the UAE Government is committed to the development of a secure national information and communications infrastructure for UAE organizations and individuals to realize the full potential of its benefits, in the face of an evolving set of related cyber threats.\n\nAs  cyber  threats  such  as  hacktivism  and  cybercrime  evolve,  so  must  our  efforts  to defend against them in a coordinated and systematic manner. To align and direct national cybersecurity  efforts,  the  UAE  Government  created  the  National  Electronic  Security Authority  (NESA)  to  improve  our  national  cybersecurity,  and  protect  our  national information  and",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 5764,
+        "end_pos": 6788
+      }
+    },
+    {
+      "chunk_index": 8,
+      "content_contextualized": "Concluding the introductory remarks, this statement outlines the creation of NESA and its role in developing the UAE Information Assurance Standards to protect national infrastructure. It serves as a high-level endorsement of the document's purpose, signed by the Director General.",
+      "content": "cybersecurity  efforts,  the  UAE  Government  created  the  National  Electronic  Security Authority  (NESA)  to  improve  our  national  cybersecurity,  and  protect  our  national information  and  communications  infrastructure.  As  part  of  this  mandate,  NESA developed the UAE Information Assurance (IA) Standards to provide requirements for raising the minimum level of IA across all relevant entities in the UAE.\n\nThe adoption of these Standards by UAE entities will sustain the benefits of a trusted digital environment for businesses and individuals across the nation. As cybersecurity is  the  shared  responsibility  of  every  organization  and  individual,  collaboration  and partnerships  between  the  Government  and  private  sector  organizations  are  key  to success. I am confident that our combined efforts will make great strides in achieving the UAE's national cybersecurity objectives and allow our nation's interests to thrive.\n\n## JASSEM BU ATABA AL ZAABI\n\n## DIRECTOR GENERAL\n\nNATIONAL",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 6588,
+        "end_pos": 7607
+      }
+    },
+    {
+      "chunk_index": 9,
+      "content_contextualized": "Features the official endorsement by the NESA Director General and initiates the document's introductory chapter, establishing the critical background concerning the UAE's commitment to developing its IT infrastructure and securing its cyberspace.",
+      "content": "ombined efforts will make great strides in achieving the UAE's national cybersecurity objectives and allow our nation's interests to thrive.\n\n## JASSEM BU ATABA AL ZAABI\n\n## DIRECTOR GENERAL\n\nNATIONAL ELECTRONIC SECURITY AUTHORITY\n\n8\n\n<!-- image -->\n\n9\n\n10\n\n## 1.1 BACKGROUND\n\nThe  adoption  of  Information  Technology  (IT)  and  electronic  communication  have greatly improved the efficiency and productivity of businesses and governments within the  UAE,  and  facilitated  collaboration  of  individuals  within  the  nation  and  across  the globe. Undoubtedly, IT and electronic communication have and will continue to play a pivotal role in the economic development of the UAE and the daily life of its citizens. Therefore, the UAE stands committed to the further development of its national IT and electronic communication infrastructure, as well as its cyberspace, to support economic development  and  provide  an  environment  where  the  interests  of  its  governments, businesses, and citizens can thrive.",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 7407,
+        "end_pos": 8429
+      }
+    },
+    {
+      "chunk_index": 10,
+      "content_contextualized": "Outlines the strategic necessity for securing the UAE's national information infrastructure against evolving cyber threats, thereby establishing the foundational justification for the UAE IA Standards as a critical element of the National Information Assurance Framework (NIAF).",
+      "content": "munication infrastructure, as well as its cyberspace, to support economic development  and  provide  an  environment  where  the  interests  of  its  governments, businesses, and citizens can thrive.\n\nThe benefits of this technology adoption, however, come with a rapidly evolving set of cyber threats. These threats stem from a wide range of sources - including hacktivists, issue-motivated groups, and organized cybercrime syndicates - and represent national security concerns that can potentially disrupt critical national services and compromise critical information assets.\n\nMitigating cyber threats, and ensuring the development of a secure national information and communications infrastructure, and cyberspace, is a strategic priority for the UAE. To this end, NESA developed the UAE IA Standards as a critical element of the National Information  Assurance  Framework  (NIAF)  to  provide  requirements  for  elevating  the level of IA across all implementing entities in the UAE.\n\n11\n\nThe  development  of  the",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 8229,
+        "end_pos": 9250
+      }
+    },
+    {
+      "chunk_index": 11,
+      "content_contextualized": "Details the National Information Assurance Framework (NIAF) requirements for elevating IA levels and enumerates the specific international standards (ISO/IEC and NIST) that serve as the foundational best practices for the development of the UAE IA Standards.",
+      "content": "ement of the National Information  Assurance  Framework  (NIAF)  to  provide  requirements  for  elevating  the level of IA across all implementing entities in the UAE.\n\n11\n\nThe  development  of  the  UAE  IA  Standards  is  based  on  regional  and  global  best practices including:\n\n- ISO/IEC\t27001:2005 'Information technology - Security techniques - Information security management systems - Requirements',\n- ISO/IEC\t 27002:2005 'Information  technology  -  Security  techniques  -  Code  of practice for Information security management',\n- ISO/IEC\t27005:2005 'Information technology - Security techniques -Information security risk management'\n- ISO/IEC\t27010:2012 'Information technology - Security techniques - Information security management for inter-sector and inter-organizational communications'\n- ISO/IEC\t27032:2012 'Information  technology  -  Security  techniques  -  Guidelines for cybersecurity'\n- NIST\t 800-53\t Revision\t 4 'Security  and  Privacy  Controls  for  Federal  Information Systems and",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 9050,
+        "end_pos": 10064
+      }
+    },
+    {
+      "chunk_index": 12,
+      "content_contextualized": "Outlines the foundational international and local security standards and guidelines used to develop the UAE IA Standards, detailing the core principles that guided their creation, such as applicability across industries and support for performance management.",
+      "content": "/IEC\t27032:2012 'Information  technology  -  Security  techniques  -  Guidelines for cybersecurity'\n- NIST\t 800-53\t Revision\t 4 'Security  and  Privacy  Controls  for  Federal  Information Systems and Organizations'\n- Abu Dhabi Information Security Standards Version 1 and Version 2, developed by Abu Dhabi Systems and Information Centre (ADSIC)\n- SANS 20 Critical Security Controls for Effective Cyber Defense Version 4.1\n\nMoreover the development was guided by key principles including:\n\n- Applicability of the common IA requirements across industries , and applicability of the sector-specific IA requirements across entities within each CIIP sector\n- Support for the development of the entity, sector, and national-level views of cyber security,  to  address  potential  IA  risks  that  emerge  from  the  interconnectivity  of entities and sectors\n- Support the performance management and the evolution of the controls in these standards based on measuring and sharing effective performance indicators, as well as",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 9864,
+        "end_pos": 10884
+      }
+    },
+    {
+      "chunk_index": 13,
+      "content_contextualized": "Defines the mandatory scope and recommended adoption of the UAE IA Standards for government and critical entities, emphasizing the goal of raising national security levels and linking to the NESA Critical Information Infrastructure Protection Policy.",
+      "content": "ectivity  of entities and sectors\n- Support the performance management and the evolution of the controls in these standards based on measuring and sharing effective performance indicators, as well as  contributions from key stakeholders to support the ongoing development and refinement of these Standards\n\nCompliance  with  these  Standards  will  raise  the  level  of  national  IA  and  help  the UAE  progress  towards  a  more  resilient  national  information  and  communication infrastructure, and cyberspace. All UAE government entities and other entities identified as critical 1  by NESA are obligated to implement these Standards. However, NESA highly recommends all entities in the UAE to adopt these Standards on a voluntary basis, as applicable, in order to participate in raising the nation minimum-security levels.\n\n1  The process for NESA to designate an entity as 'critical' is outlined in the UAE Critical Information Infrastructure Protection (CIIP) Policy produced by NESA.\n\n## 1.2\n\n## 1.2 PURPOSE OF",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 10684,
+        "end_pos": 11707
+      }
+    },
+    {
+      "chunk_index": 14,
+      "content_contextualized": "Establishes the foundational purpose of the UAE IA Standards, which is to raise the minimum level of information protection across the UAE, and outlines the specific deliverables, including stakeholder roles and the reference catalog of security controls.",
+      "content": "y levels.\n\n1  The process for NESA to designate an entity as 'critical' is outlined in the UAE Critical Information Infrastructure Protection (CIIP) Policy produced by NESA.\n\n## 1.2\n\n## 1.2 PURPOSE OF THE UAE IA STANDARDS\n\nThe  purpose  of  the  UAE  IA  Standards  is  to  provide  requirements  to  raise  the minimum level of protection of information assets and supporting systems across all implementing entities in the UAE, as outlined in Section 2.1.\n\n## In particular, the UAE IA Standards provides:\n\n- Description\tof\thow\tinformation\tassurance\tis\tachieved\tat\tthe\tnational,\tsector, and\tentity\tlevels\n- Enable\ta\trisk-based\tapproach\tfor\tthe\timplementation\tof\tthese\tStandards\n- Outline\tof\tthe\t\troles\tand\tresponsibilities\tof\tkey\tstakeholders\tfor\tthe\tplanning, development,\timplementation,\tand\tongoing\tmonitoring\tand\timprovement\tof these\tStandards\n- Reference\tcatalog\tof\tcommon\tinformation\tsecurity\tcontrols\tto\tdefend against\tcommon\tthreats\tthat\texploit\tknown\tcyber\tsecurity\tvulnerabilities\n-",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 11507,
+        "end_pos": 12501
+      }
+    },
+    {
+      "chunk_index": 15,
+      "content_contextualized": "Outlines the key features and benefits of the Information Assurance Standards, such as defining compliance and providing a reference catalog of security controls, ultimately summarizing their role in improving the protection level of the UAE's critical information infrastructure.",
+      "content": "d\tongoing\tmonitoring\tand\timprovement\tof these\tStandards\n- Reference\tcatalog\tof\tcommon\tinformation\tsecurity\tcontrols\tto\tdefend against\tcommon\tthreats\tthat\texploit\tknown\tcyber\tsecurity\tvulnerabilities\n- Realization\tfor\tsectorial\trequirements\tthrough\tthe\tprovision\tof\tspecialized controls\tto\taddress\tsector-specific\tinformation\tassurance\trequirements\n- Phased\timplementation\tapproach\tto\taddress\tthe\tmost\tcommon\tthreats, facilitate\tthe\tincremental\tadoption\tof\tthese\tStandards,\tand\toptimize\tthe value\trealized\tthrough\timplementation\n- Definition\tof\tcompliance\tfrom\tthe\tperspective\tof\tthese\tStandards\tand describe\tthe\tapproach\tthat\twill\tbe\tadopted\tby\tNESA\tto\tassess\tcompliance\n- Enabler\tfor\tinter-entity\tand\tcross-sector\tcommunication\tto\tsupport information\tsharing\tand\tbuild\tnational\tsituational\tawareness\n\n## In\tsummary,\tthe\timplementation\n\n- of\tthese\tStandards\twill\tserve\tto improve\tthe\tIA\tprotection\tlevel\n- of\tthe\tUAE\tcritical\tinformation infrastructure.\tAs\tsuch,\tthis\n- document\tserves\tas\tthe\n-",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 12301,
+        "end_pos": 13295
+      }
+    },
+    {
+      "chunk_index": 16,
+      "content_contextualized": "Provides the concluding summary of the Standards' purpose—to mandate compliance for protecting critical infrastructure—followed immediately by a detailed overview of the document's structure, specifically describing the content and scope of Chapter 1 and Chapter 2, and its relationship to complementary NESA documents like the CIIP Policy.",
+      "content": "reness\n\n## In\tsummary,\tthe\timplementation\n\n- of\tthese\tStandards\twill\tserve\tto improve\tthe\tIA\tprotection\tlevel\n- of\tthe\tUAE\tcritical\tinformation infrastructure.\tAs\tsuch,\tthis\n- document\tserves\tas\tthe\n- national\tUAE\tIA\tStandards\tthat\n- implementing\tentities\thave\tto demonstrate\tcompliance\twith.\n\n<!-- image -->\n\n## 1.3 LAYOUT OF THE UAE IA STANDARDS\n\nThis section provides an overview of the layout of the UAE IA Standards to guide the readability of this document.\n\nOverall, the UAE IA Standards is composed of seven chapters:\n\n## CHAPTER\t1:\tINTRODUCTION\n\nThis chapter outlines NESA's rationale for developing the UAE IA Standards and provides an overview of the document layout.\n\n## CHAPTER\t2:\tUAE\tIA\tSTANDARDS\tOVERVIEW\n\nThis chapter outlines the scope of the document and describes the relationship of the UAE IA Standards with other national cyber security program documents published by NESA (e.g.  UAE  CIIP  Policy).  This  chapter  also  describes  how  information  assurance requirements are addressed at the",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 13095,
+        "end_pos": 14111
+      }
+    },
+    {
+      "chunk_index": 17,
+      "content_contextualized": "Concludes the discussion on the relationship between the UAE IA Standards and other national cybersecurity policies, then introduces Chapter 3, which details the implementation guidance, risk-based control identification, and the roles and responsibilities of key stakeholders.",
+      "content": "andards with other national cyber security program documents published by NESA (e.g.  UAE  CIIP  Policy).  This  chapter  also  describes  how  information  assurance requirements are addressed at the national, sector, and entity levels following a lifecycle approach to progress the adoption and evolution of information assurance in the UAE.\n\n## CHAPTER\t3:\tUAE\tIA\tSTANDARDS\tIMPLEMENTATION\n\nThis  chapter  outlines  the  implementation  guidance  for  entities  applying  the  UAE  IA Standards.  To  help  guide  the  implementation  of  these  Standards,  this  chapter  also provides  an  overview  of  the  risk-based  approach  for  the  identification  of  applicable controls to be implemented in order to address risks in a manner commensurate with their  potential  impact.  Moreover,  this  chapter  outlines  the  roles  and  responsibilities of  key  stakeholders  to  provide  clarity  on  how  to  plan,  develop,  implement,  monitor, improve,  and  report  on  the  implementation  of  these  Standards.",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 13911,
+        "end_pos": 14932
+      }
+    },
+    {
+      "chunk_index": 18,
+      "content_contextualized": "The document structure transitions from implementation planning to defining compliance requirements and detailing the core management and technical security controls. These chapters provide the necessary framework for evaluating adherence and executing the phased implementation of the UAE IA Standards.",
+      "content": "the  roles  and  responsibilities of  key  stakeholders  to  provide  clarity  on  how  to  plan,  develop,  implement,  monitor, improve,  and  report  on  the  implementation  of  these  Standards.  Lastly,  this  chapter concludes  by  outlining  critical  success  factors  for  the  effective  implementation  of these Standards.\n\n## CHAPTER\t4:\tCOMPLIANCE\tWITH\tTHE\tUAE\tIA STANDARDS\n\nThis  chapter  provides  a  definition  of  compliance  with  respect  to  the  requirements of these Standards, and outlines the approach that NESA will follow when evaluating compliance.\n\n## CHAPTER\t5:\tSECURITY\tCONTROLS\n\nThis  chapter  details  the  management  and  technical  security  controls,  and  describes the prioritization approach for implementing these controls, to guide the gradual and phased implementation of these Standards.\n\n## CHAPTER\t6:\tANNEXES\n\nThis chapter provides key reference tools to help stakeholders understand and utilize the  security  controls  including:  grouping  of  controls  by  priority,",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 14732,
+        "end_pos": 15749
+      }
+    },
+    {
+      "chunk_index": 19,
+      "content_contextualized": "Defines the content and function of the document's concluding chapters (Annexes and Appendices), which provide reference tools and sector-specific requirements. This structural overview precedes the formal definition of the scope and nature of the UAE Information Assurance Standards.",
+      "content": "ese Standards.\n\n## CHAPTER\t6:\tANNEXES\n\nThis chapter provides key reference tools to help stakeholders understand and utilize the  security  controls  including:  grouping  of  controls  by  priority,  cross-referencing  of controls to equivalent controls in other key IA standards, mapping of controls against common threats they help to manage, and listing the controls that contain sector and national level requirements. Lastly, this chapter enhances the clarity of the document by providing terms and definitions and a bibliography.\n\n## CHAPTER\t7:\tAPPENDICES\n\nThe  appendices  are  designed  to  augment  the  common  information  assurance requirements (applicable to all sectors) with sector-specific requirements for all critical sectors as outlined in the UAE CIIP Policy.\n\n<!-- image -->\n\n<!-- image -->\n\n## 2.1 SCOPE\n\nThe  UAE  IA  Standards  provides  management  and  technical  information  security controls  (henceforth  referred  to  as  'security  controls')  for  entities  to  establish, implement,",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 15549,
+        "end_pos": 16566
+      }
+    },
+    {
+      "chunk_index": 20,
+      "content_contextualized": "Outlines the scope and applicability of the UAE IA Standards, specifying that NESA designates the critical entities required to implement the security controls. It then transitions to detailing how these standards integrate with the National Cyber Security Strategy and other related NESA policy documents.",
+      "content": "2.1 SCOPE\n\nThe  UAE  IA  Standards  provides  management  and  technical  information  security controls  (henceforth  referred  to  as  'security  controls')  for  entities  to  establish, implement, maintain, and continuously improve information assurance.\n\nNESA  will  designate  the  critical  entities,  as  per  the  UAE  CIIP  Policy,  mandated  to implement the UAE IA Standards and apply its requirements to the use, processing, storage, and transmission of information or data, and the systems and processes used for those purposes. This includes information in physical or electronic form that may be owned, leased, or otherwise in the possession, custody, or control of the entities.\n\n## 2.2\n\n## RELATED NESA DOCUMENTS\n\nThe  UAE  IA  Standards  are  critical  element  of  the  National  Cyber  Security  Strategy (NCSS). Given this, these Standards rely on related and complementary policies issued under the NCSS. Table 1 below describes the relationships and dependencies between the UAE IA Standards and some",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 16366,
+        "end_pos": 17390
+      }
+    },
+    {
+      "chunk_index": 21,
+      "content_contextualized": "Establishes the regulatory context for the UAE IA Standards by detailing their reliance on and relationship with complementary policies issued under the National Cyber Security Strategy (NCSS). This introduction sets up a table that explicitly maps these dependencies to ensure integration with the national framework.",
+      "content": "y (NCSS). Given this, these Standards rely on related and complementary policies issued under the NCSS. Table 1 below describes the relationships and dependencies between the UAE IA Standards and some other NCSS policies:\n\n## TABLE 1: OVERVIEW OF DOCUMENTS RELATED TO THE UAE IA STANDARDS\n\n| DOCUMENT                                                     | RELATIONTOTHEUAEIASTANDARDS                                                                                                                                                                                                                                                                                                                                                                                                                            |\n|--------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 17190,
+        "end_pos": 18214
+      }
+    },
+    {
+      "chunk_index": 22,
+      "content_contextualized": "Defining the foundational national documents, such as the National Information Assurance Framework (NIAF), that establish the scope and interdependencies for the UAE IA Standards implementation. This content clarifies how the Standards relate to and rely upon complementary policies issued under the National Cyber Security Strategy.",
+      "content": "-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| National Information Assurance Framework (NIAF)              | The NIAF document outlines key building blocks of the UAEinformation assurance capabilities and program, and specifies the entity, sector, and national information assurance interdependencies and requirements that need to be addressed as part of the UAEIA Standards.                                                                                                                                                                             |\n| Critical Information Infrastructure",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 18014,
+        "end_pos": 19035
+      }
+    },
+    {
+      "chunk_index": 23,
+      "content_contextualized": "Outlines the critical dependencies between the UAE IA Standards and foundational national documents like the CIIP Policy and the National Cyber Risk Management Framework, establishing the mandatory scope and required risk assessment guidelines for implementation.",
+      "content": "|\n| Critical Information Infrastructure Protection (CIIP) Policy | The CIIP Policy establishes the list of sectors and outlines the process for the identification of critical entities where the UAEIA Standards implementation is mandatory.                                                                                                                                                                                                                                                                            |\n| National Cyber Risk Management Framework (NCRMF)             | The National Cyber Risk Management Framework details the sector and national level risk management approach with regards to Critical National Services and their Critical Information Infrastructure, and provides guidelines on the implementation of risk assessment in this regard. As such,",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 18835,
+        "end_pos": 19856
+      }
+    },
+    {
+      "chunk_index": 24,
+      "content_contextualized": "Concludes the detailed mapping of the UAE IA Standards against complementary national cyber security policies and immediately transitions to defining the integrated entity, sector, and national contexts where these standards must be applied.",
+      "content": "management approach with regards to Critical National Services and their Critical Information Infrastructure, and provides guidelines on the implementation of risk assessment in this regard. As such, the UAEIA Standards outline key elements to be included in an entity-level risk assessment, to support sector and national risk assessment activities. |\n| National Cyber Information Sharing Policy                    | The National Cyber Information Sharing policy outlines key requirements for inter-entity and inter-sector communication that serves as a key input to developing national situational awareness. The UAEIA Standards address these requirements by embedding respective Information Sharing security controls that UAEentities will implement.                                                                                                         |\n\n## 2.3\n\n## ENTITY, SECTOR, AND NATIONAL CONTEXTS\n\nThe  entity,  sector,  and  national  contexts  refer  to  the  integrated  relationships  and interactions",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 19656,
+        "end_pos": 20675
+      }
+    },
+    {
+      "chunk_index": 25,
+      "content_contextualized": "Establishes the scope of the UAE IA Standards by defining the integrated entity, sector, and national contexts. It justifies the need for these standards by detailing the systemic security shortcomings that arise from inter-sector dependencies and entity-level isolation.",
+      "content": "|\n\n## 2.3\n\n## ENTITY, SECTOR, AND NATIONAL CONTEXTS\n\nThe  entity,  sector,  and  national  contexts  refer  to  the  integrated  relationships  and interactions  among  individual  sector  entities,  sector  regulators,  and  NESA  to  form sector and national level views on prevailing IA requirements, corresponding adequacy of IA capabilities, and on-going situational awareness.\n\nWhile IA Standards that exist today prescribe requirements for the entity level, they do not take into account the IA issues that emerge from the systemic interconnectivity of entities at the sector and national levels. This leads to two key shortcomings: first, continued exposure to security threats that no single entity is able to address individually (such as Advanced Persistent Threats), and second, an isolated approach to handling risks related to inter-sector dependencies, often leading to increased efforts, cost, and risk exposure of concerned sectors.\n\nThe  UAE  IA  Standards  includes",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 20475,
+        "end_pos": 21499
+      }
+    },
+    {
+      "chunk_index": 26,
+      "content_contextualized": "Explains the integrated structure of the UAE IA Standards across national, sector, and entity contexts, detailing how entities must report implementation status and risk assessment outcomes to regulators to enable a consolidated sector view.",
+      "content": "cond, an isolated approach to handling risks related to inter-sector dependencies, often leading to increased efforts, cost, and risk exposure of concerned sectors.\n\nThe  UAE  IA  Standards  includes  minimum  IA  requirements  and  capabilities  for  UAE entities to integrate into the Sector and National Contexts (refer to Figure 2).\n\n## FIGURE 2: NATIONAL, SECTOR AND ENTITY CONTEXT\n\n<!-- image -->\n\nThe development of the sector and national contexts relies on the consolidation and analysis of key entity level information, in particular relating to the state of the UAE IA Standards implementation, risk assessment outcomes, as well as information relating to cyber security threats, risks and incidents.  2 To enable the sector and national contexts, entities are required to submit UAE IA Standards implementation progress and key cyber security information to sector regulators, who consolidate and analyze the information to form a sector view of risks and assess the state of these Standards implementation.",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 21299,
+        "end_pos": 22318
+      }
+    },
+    {
+      "chunk_index": 27,
+      "content_contextualized": "Describes the governance mechanism for monitoring the UAE IA Standards, outlining the flow of critical risk and implementation data from individual entities up to NESA and the subsequent sharing of national insights back to regulators and entities. This structure ensures integrated risk management and enhances the effectiveness of cyber incident and risk programs across sectors.",
+      "content": "ion progress and key cyber security information to sector regulators, who consolidate and analyze the information to form a sector view of risks and assess the state of these Standards implementation. Similarly, sector regulators are required to submit the analyzed sector-level information to NESA, to form the national views on critical risks, situational awareness and state of these Standards implementation across sectors.\n\nHaving formed the national view of risks and state of these Standards implementation, NESA shares relevant risk and UAE IA Standards implementation best practices with the sector regulators to enhance the effectiveness of these Standards implementation, as well as the cyber incident management and the cyber risk management programs. Similarly, sector regulators share key risk and implementation related information with relevant entities to progress the implementation of these Standards, and enhance the effectiveness of the incident management and risk management programs.\n\nIn summary, the",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 22118,
+        "end_pos": 23142
+      }
+    },
+    {
+      "chunk_index": 28,
+      "content_contextualized": "Following the definition of entity and sector contexts, the document concludes the discussion on the integrated national approach to IA. It then introduces the Information Assurance Lifecycle, outlining the core activities required for establishing, maintaining, and continuously improving information assurance capabilities.",
+      "content": "on related information with relevant entities to progress the implementation of these Standards, and enhance the effectiveness of the incident management and risk management programs.\n\nIn summary, the UAE IA Standards is designed to avoid the isolation created by a single-entity approach to IA, hence creating a stronger and more integrated approach for national information assurance.\n\n## 2.4\n\n## INFORMATION ASSURANCE LIFECYCLE\n\nThe UAE IA Standards promotes a lifecycle approach for establishing, implementing, maintaining and continuously improving information assurance. This lifecycle approach ensures continual improvement of the UAE's information assurance capabilities based on well-defined activities:\n\n- A.  UNDERSTANDING an entity's and / or sector's information security requirements and the need to establish a policy and objectives for information security\n- B.  CONDUCTING risk  assessments,  identifying  appropriate  risk  treatment  actions, and selecting controls to manage the risks\n- C.  IMPLEMENTING",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 22942,
+        "end_pos": 23965
+      }
+    },
+    {
+      "chunk_index": 29,
+      "content_contextualized": "Concludes the description of the Information Assurance (IA) lifecycle, listing the five key activities required for continuous security management. This serves as a transition point, immediately preceding the start of Chapter 3, which details the implementation concepts of the UAE IA Standards.",
+      "content": "a policy and objectives for information security\n- B.  CONDUCTING risk  assessments,  identifying  appropriate  risk  treatment  actions, and selecting controls to manage the risks\n- C.  IMPLEMENTING and  operating  security  controls  to  manage  information  security risks in the context of the entity's or sector's overall business risks\n- D.  MONITORING and reviewing the performance and effectiveness of the information security processes and controls\n- E.  ENSURING continual improvement based on objective measurements\n\nThe continuous improvement aspect of the IA lifecycle ensures that IA capabilities are continuously adapted and evolved in line with changing requirements.   The application of  the  IA  lifecycle  is  facilitated  best  when  integrated  in  the  planning  and  governance activities of an entity or sector.\n\n24\n\nHAPTER 03\n\nUAE IA STANDARDS\n\nIMPLEMENTATION\n\n26\n\n## 3.1 OVERVIEW\n\nThe purpose of this chapter is to explain key concepts related to the implementation of the UAE IA Standards such",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 23765,
+        "end_pos": 24787
+      }
+    },
+    {
+      "chunk_index": 30,
+      "content_contextualized": "Introduces Chapter 3, detailing the implementation methodology for the UAE IA Standards. It provides an overview of key concepts, including the risk-based approach, control applicability, and stakeholder roles, setting the stage for the detailed discussion of risk management principles that follow.",
+      "content": "tity or sector.\n\n24\n\nHAPTER 03\n\nUAE IA STANDARDS\n\nIMPLEMENTATION\n\n26\n\n## 3.1 OVERVIEW\n\nThe purpose of this chapter is to explain key concepts related to the implementation of the UAE IA Standards such as the risk-based approach to information assurance and the applicability and prioritization of security controls.  This chapter also highlights key stakeholder roles and responsibilities for the effective adoption and progression of the UAE IA Standards, and it lists critical implementation success factors.\n\nThe  implementation  of  these  Standards  is  meant  to  complement  any  existing information assurance programs at implementing entities.  This Standard represents the sole point of reference for compliance against its requirements, as measured by the criteria associated with each of its security controls.\n\n## 3.2\n\n## RISK-BASED APPROACH\n\nIn today's world, the cyber threat landscape is evolving rapidly at a pace where entities are challenged to keep up with the number and variety of threats.  In the face",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 24587,
+        "end_pos": 25611
+      }
+    },
+    {
+      "chunk_index": 31,
+      "content_contextualized": "Outlines the core philosophy—the risk-based approach—that guides the implementation of the UAE IA Standards, emphasizing the need to align security controls with current risk assessments and the potential impact on critical assets. This approach sets the stage for the subsequent detailed activities of the risk assessment process described later in the chapter.",
+      "content": "## 3.2\n\n## RISK-BASED APPROACH\n\nIn today's world, the cyber threat landscape is evolving rapidly at a pace where entities are challenged to keep up with the number and variety of threats.  In the face of this growing threat  landscape,  entities  need  to  adopt  practical  measures  to  defend  their  critical information and information infrastructure against their most critical vulnerabilities that could be exploited by threats.  To this end, a risk-based approach provides entities with a pragmatic mean to identify their most critical vulnerabilities that could expose them to risks, and develop corresponding appropriate treatments.\n\nAdopting  a  risk-based  approach  ensures  that  security  controls  are  instituted  in accordance with current risk assessments commensurate with the risk and magnitude of  the  impact  that  could  result  if  critical  information  assets  are  compromised.    The risk-based  approach  briefly  outlined  in  these  Standards  summarizes  a  systematic methodology for",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 25411,
+        "end_pos": 26429
+      }
+    },
+    {
+      "chunk_index": 32,
+      "content_contextualized": "Details the systematic, eight-activity Risk-Based Approach methodology required for implementing the UAE IA Standards. This explanation serves as the introduction to the subsequent detailed breakdown of the specific risk management activities, beginning with Activity 1: Establishing the Environment.",
+      "content": "the  impact  that  could  result  if  critical  information  assets  are  compromised.    The risk-based  approach  briefly  outlined  in  these  Standards  summarizes  a  systematic methodology for identifying, estimating, evaluating, and treating identified entity-level risks. It consists of eight key activities as illustrated in Figure 3.\n\n## FIGURE 3: THE RISK-BASED APPROACH PROCESS\n\n<!-- image -->\n\nPerforming a risk management is a key step towards the implementation of the UAE IA Standards as it helps entities identify, prioritize, and measure the effectiveness of the security controls that are needed to treat identified entity-specific risks. Critical entities implementing these Standards shall also refer to the National Cyber Risk Management Framework  (NCRMF)  which  highlights  the  National  Risk  Management  approach  and process of Critical Information Infrastructure.\n\n## ACTIVITY 1: ESTABLISHING THE ENVIRONMENT\n\nThe risk assessment process should be initiated by establishing objectives,",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 26229,
+        "end_pos": 27246
+      }
+    },
+    {
+      "chunk_index": 33,
+      "content_contextualized": "Outlines the initial stages of the systematic Risk Management process, specifically defining the scope and criteria (Activity 1) and identifying sources and consequences of risk (Activity 2) for Critical Information Infrastructure. This content provides the detailed methodology following the introduction of the risk-based approach.",
+      "content": "isk  Management  approach  and process of Critical Information Infrastructure.\n\n## ACTIVITY 1: ESTABLISHING THE ENVIRONMENT\n\nThe risk assessment process should be initiated by establishing objectives, strategies, scope and parameters of the activities of the entity, or those parts of the entity where the risk management process is being applied. Further, criteria for assessing risks should be established in line with the entity's objectives, available resources, and the magnitude of  impact  that  could  result  from  the  compromise  of  confidentiality,  integrity  and/or availability of information assets. Topics such as authenticity and non-repudiation could also be considered based on the entity context.\n\n## ACTIVITY 2: RISK IDENTIFICATION\n\nThe entity should identify sources of risk, areas of impacts, events and their causes, and the potential consequences. The aim of this step is to generate a comprehensive list  of  risks  based on the identified information security requirements. Because a risk that",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 27046,
+        "end_pos": 28068
+      }
+    },
+    {
+      "chunk_index": 34,
+      "content_contextualized": "Continuing the explanation of the risk-based approach, this outlines the critical steps of Risk Estimation and Risk Evaluation, detailing how threats, vulnerabilities, and potential impacts are analyzed and compared against established risk criteria. These activities form the core analytical phase of the systematic risk assessment methodology required for implementing the UAE IA Standards.",
+      "content": "ts and their causes, and the potential consequences. The aim of this step is to generate a comprehensive list  of  risks  based on the identified information security requirements. Because a risk that is not identified at this stage will not be included in further analysis, comprehensive identification is critical.\n\n## ACTIVITY 3: RISK ESTIMATION\n\nRisk  estimation  involves  consideration  of  the  causes  and  sources  of  risk  in  the  form of  threats  and  vulnerabilities,  their  impacts  in  terms  of  consequences  of  a  loss  of confidentiality,  integrity  and/or  availability  of  information,  and  the  likelihood  that  the potential impacts will occur. The risk should also take into account the effectiveness and efficiency of existing controls in addressing the current level of risk.\n\n## ACTIVITY 4: RISK EVALUATION\n\nRisk  evaluation  involves  comparing  the  level  of  risk  found  during  the  risk  estimation activity with risk criteria established at the beginning of the process as part of",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 27868,
+        "end_pos": 28891
+      }
+    },
+    {
+      "chunk_index": 35,
+      "content_contextualized": "This segment details the final steps of the systematic risk assessment methodology required for implementing the UAE IA Standards. It defines Activity 4, Risk Evaluation, and introduces Activity 5, Risk Treatment, outlining the options for managing risks that exceed acceptable parameters.",
+      "content": "4: RISK EVALUATION\n\nRisk  evaluation  involves  comparing  the  level  of  risk  found  during  the  risk  estimation activity with risk criteria established at the beginning of the process as part of establishing the context (Activity 1). The objective is to determine which risks are outside acceptable parameters and therefore require treatment.\n\n## ACTIVITY 5: RISK TREATMENT\n\nFor each of the risks identified in the risk assessment, a number of treatment options can  be  considered  and  applied  either  individually,  or  in  combination,  for  treating  the risk.  There  are  several  options  that  are  usually  considered  for  treating  risks;  these options include:\n\n- Risk  Reduction -  Reducing  the  risk  by  applying  security  controls.  The  selection of  security  controls  should  follow  a  risk-based  approach  by  apply  the  first  set  of security  controls  that  treat  the  highest  risks  identified  during  the  Risk  Evaluation (See 3.4 Prioritization of Controls).\n- Risk Retention -",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 28691,
+        "end_pos": 29714
+      }
+    },
+    {
+      "chunk_index": 36,
+      "content_contextualized": "Concluding the systematic risk management methodology, this describes the various options for risk treatment, the formal process of risk acceptance by management, and the subsequent requirement for continuous monitoring and review of risks.",
+      "content": "based  approach  by  apply  the  first  set  of security  controls  that  treat  the  highest  risks  identified  during  the  Risk  Evaluation (See 3.4 Prioritization of Controls).\n- Risk Retention - Accepting the risk based on the entity's risk accepting criteria.\n- Risk Avoidance - Avoiding the activity or condition causing the risk.\n- Risk Transfer - Transferring the risk to another party.\n\n## ACTIVITY 6: RISK ACCEPTANCE\n\nThe risk acceptance is the decision to accept residual risk by the management of the entity. The management based on the acceptance criteria should review and approve the treat plan and the residual risk.\n\n## ACTIVITY 7: RISK MONITORING AND REVIEW\n\nThe  results  of  the  risk  assessment  and  treatment  process  need  to  be  monitored and reviewed for ongoing risk management, and to ensure their continued suitability. The monitoring and review of information security  risks  should  be  a  planned  part  of the risk management process, and involve regular checking or surveillance as",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 29514,
+        "end_pos": 30535
+      }
+    },
+    {
+      "chunk_index": 37,
+      "content_contextualized": "Concluding the detailed systematic methodology for risk management, the content specifies the requirements for continuous monitoring and review of information security risks. It then introduces Activity 8, mandating communication and consultation with key stakeholders throughout the entire risk management process.",
+      "content": "ure their continued suitability. The monitoring and review of information security  risks  should  be  a  planned  part  of the risk management process, and involve regular checking or surveillance as well as improvements  when  significant  changes  occur.  The  entity's  monitoring  and  review processes should encompass all aspects of the risk management process, including the  risk  criteria,  the  identified  assets,  threats,  risks,  risk  treatment  options  and security controls.\n\n## ACTIVITY 8: RISK COMMUNICATION AND CONSULTATION\n\nCommunication  and  consultation  with  key  stakeholders  should  take  place  during  all stages  of  the  risk  management  process.  Therefore,  plans  for  communication  and consultation  should  be  developed  at  an  early  stage.  These  should  address  issues relating  to  the  risk  itself,  its  causes,  its  consequences  (if  known),  and  the  measures being taken to treat it. Effective external and internal communication and consultation should take place",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 30335,
+        "end_pos": 31358
+      }
+    },
+    {
+      "chunk_index": 38,
+      "content_contextualized": "This defines the concept of Applicability of Controls (Section 3.3), detailing how entities must select security measures based on their unique risk assessment results (Step 5 of the process outlined in 3.2), acknowledging that the standard risk profile may not fit all organizations.",
+      "content": "ing  to  the  risk  itself,  its  causes,  its  consequences  (if  known),  and  the  measures being taken to treat it. Effective external and internal communication and consultation should take place to ensure that stakeholders and those accountable for implementing the risk management process understand the basis on which decisions are made, as well as the reasons why particular actions are required.\n\n## 3.3\n\n## APPLICABILITY OF CONTROLS\n\nThe concept of Applicability relates to the identification of security controls for treating entity-specific risks as outlined in [Step 5] of the risk assessment process described above (section 3.2).\n\nThe  security  controls  included  in  these  Standards  are  developed  to  treat  a  typical entity risk profile developed based on benchmark risk registers. While this common risk profile is widely applicable to implementing entities, NESA recognizes that entity risk profiles do differ based on their specific business and operational context.  Given these differences, not",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 31158,
+        "end_pos": 32182
+      }
+    }
+  ]
+}
