@@ -1,0 +1,796 @@
+{
+  "source_chunk_file": "Procurement Manual (Business Process)_66d86f21_f0dc8576_chunks.json",
+  "source_markdown": "Procurement Manual (Business Process)_66d86f21.md",
+  "total_chunks": 328,
+  "processing_metadata": {
+    "contextualization_method": "mistral_7b_llm",
+    "context_window_size": 10,
+    "processing_status": "in_progress",
+    "last_processed_chunk": 45,
+    "processed_count": 46
+  },
+  "chunks": [
+    {
+      "chunk_index": 0,
+      "content_contextualized": "This chunk pertains to the Procurement Manual (Business Processes) issued pursuant to the Abu Dhabi Procurement Standards. It is a part of the introduction section of the document and provides information about its title, version, date published, authors, approvers, and issuer. This manual is connected to the overall document as it outlines the procurement processes established under the Abu Dhabi Procurement Standards, which are further detailed in subsequent sections like the Procurement Operating Model, Category Classification, Strategic Procurement Capability, and Supporting Capability.",
+      "content": "<!-- image -->\n\n## Procurement Manual (Business Processes)\n\n## Issued pursuant to the Abu Dhabi Procurement Standards\n\n<!-- image -->\n\n| Document Title   | Procurement Manual (Business Processes)   |\n|------------------|-------------------------------------------|\n| Version          | V 1.0                                     |\n| Date Published   | 18th April 2021                           |\n\n| Version   | Date            | Author                        | Approver                    |\n|-----------|-----------------|-------------------------------|-----------------------------|\n| V 1.0     | 24th March 2021 | Government Procurement Office | Abu Dhabi Executive Council |\n\nIssued By\n\n## H.E. Ali Rashed Al Ketbi\n\nChairman, Department of Government Support - Abu Dhabi\n\n## List of Content\n\n| 1. Introduction.......................................................................................................................... 5      | 1. Introduction.................................................................",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 0,
+        "end_pos": 1024
+      }
+    },
+    {
+      "chunk_index": 1,
+      "content_contextualized": "1. This chunk (Chunk 10) pertains to a subsection under the 'Supporting Capability (Level 1)' within the broader topic of 'Strategic Procurement Capability' in the document titled 'Procurement Manual (Business Processes)', issued pursuant to the Abu Dhabi Procurement Standards.\n2. This section outlines 'Supporting Capability (Level 1)', which is one of the components of the 'Strategic Procurement Capability', providing a foundational understanding of the procurement operating model outlined earlier in the document.\n3. The 'Supporting Capability (Level 1)' connects with other areas in the document, such as 'Category Classification' and 'Procurement Operating Model', as it is a part of the comprehensive procurement framework defined within the manual.\n4. The 'Introduction' section provides an overview of the entire Procurement Manual (Business Processes), setting the context for the subsequent sections, including 'Supporting Capability (Level 1)' under 'Strategic Procurement Capability'.",
+      "content": ".............................................................................................................. 5      | 1. Introduction.......................................................................................................................... 5                                                                                                                                         | 1. Introduction.......................................................................................................................... 5      |\n|--------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 824,
+        "end_pos": 1848
+      }
+    },
+    {
+      "chunk_index": 2,
+      "content_contextualized": "1. This chunk (1.1) belongs to the introduction section of the Procurement Manual, specifically the purpose of the document as outlined in the Procurement Operating Model.\n2. The introduction provides a general overview of the Procurement Manual and its objectives, setting the context for the subsequent sections detailing business processes, category classification, strategic procurement capabilities, and supporting capabilities.\n3. It connects to other areas by serving as a foundation for understanding the various aspects covered in the manual, such as the procurement operating model, category classification, and procurement capabilities.",
+      "content": "--------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|\n| 1.1                                                                                                                                              | Introduction to the Procurement Manual................................................................................................5                                                                                                                                             |                                                                                                                                                  |\n| 1.1.1                                                                                                                                            |",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1648,
+        "end_pos": 2665
+      }
+    },
+    {
+      "chunk_index": 3,
+      "content_contextualized": "1. The provided chunk (1.1.1 and 1.1.2) pertains to the purpose and scope of the Procurement Manual within the document, which outlines business processes issued pursuant to the Abu Dhabi Procurement Standards. These sections provide essential information about the reason for and extent of the manual's applicability.\n\n2. The chunk connects to the overall document as an introduction that sets the foundation for understanding the rest of the procurement processes detailed in the manual.\n\n3. In terms of relationship to other areas, the purpose and scope of the Procurement Manual (1.1.1 and 1.1.2) serve as a precursor to the subsequent sections discussing various aspects of procurement operating models, category classification, strategic procurement capability, supporting capabilities, general principles, and calculation methodologies.\n\n4. The purpose and scope of the Procurement Manual provide essential context for understanding the structure and objectives of the document as a whole, guiding readers through the subsequent detailed explanations of various procurement processes.",
+      "content": "|\n| 1.1.1                                                                                                                                            | Purpose of the Procurement Manual...................................................................................................5                                                                                                                                               |                                                                                                                                                  |\n| 1.1.2                                                                                                                                            | Scope of the Procurement Manual ......................................................................................................5",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 2465,
+        "end_pos": 3489
+      }
+    },
+    {
+      "chunk_index": 4,
+      "content_contextualized": "1. The chunk pertains to the structure of the Procurement Manual, specifically how it is organized within the document.\n2. This section provides an overview of the organizational structure of the Procurement Manual, which follows the Procurement Operating Model introduced earlier in the document.\n3. The structure described in this chunk helps readers navigate through the various sections and topics covered in the Procurement Manual, connecting related information for easy understanding.\n4. This structure also serves as a foundation for the subsequent sections that detail specific business processes, procedures, and guidelines outlined within the Procurement Manual.",
+      "content": ".....................................................................................5                                                                                                                                             |                                                                                                                                                  |\n| 1.1.3                                                                                                                                            | Structure of the Manual.......................................................................................................................6                                                                                                                                     |                                                                                                                                                  |\n| 1.2 Procurement Operating Model.........................................",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 3289,
+        "end_pos": 4313
+      }
+    },
+    {
+      "chunk_index": 5,
+      "content_contextualized": "1. The provided chunk (1.2 Procurement Operating Model) is a subsection within the Procurement Manual, specifically discussing the operational model for procurement activities.\n2. This section follows directly after the introduction and provides more detailed information about the procurement processes outlined in the manual.\n3. The Procurement Operating Model is closely related to Category Classification (discussed later in the document) as both sections focus on organizing and managing procurement activities.\n4. This subsection also foreshadows discussions on strategic procurement capability, general principles, calculation methodologies, and economic incentives for Emirati entrepreneurs.",
+      "content": "|\n| 1.2 Procurement Operating Model................................................................................................................7 | 1.2 Procurement Operating Model................................................................................................................7                                                                                                                                    | 1.2 Procurement Operating Model................................................................................................................7 |\n| 1.2.1                                                                                                                                            | Category Classification .........................................................................................................................8",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 4113,
+        "end_pos": 5137
+      }
+    },
+    {
+      "chunk_index": 6,
+      "content_contextualized": "1. The provided chunk relates to the section outlining the Category Taxonomy within the Procurement Manual (Business Processes), which is a part of the broader Procurement Operating Model.\n2. This chunk specifically discusses the categorization system for different procurement categories, connecting it to the overall document's purpose of providing guidelines and standards for procurement activities in Abu Dhabi.\n3. The Category Taxonomy is related to other sections in the document such as Strategic Procurement Capability and General Principles, as they all contribute to organizing and structuring the procurement process effectively.",
+      "content": "| Category Classification .........................................................................................................................8                                                                                                                                  |                                                                                                                                                  |\n| 1.2.2                                                                                                                                            | Category Taxonomy..............................................................................................................................8                                                                                                                                    |                                                                                                                                                  |",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 4937,
+        "end_pos": 5960
+      }
+    },
+    {
+      "chunk_index": 7,
+      "content_contextualized": "1. This chunk discusses the Procurement Capability Model, specifically focusing on the Strategic Procurement Capability at Level 1.\n2. It falls under the section outlining various procurement capabilities and is part of the broader Procurement Manual (Business Processes) that complies with Abu Dhabi Procurement Standards.\n3. The Strategic Procurement Capability is a key component within the overall Procurement Operating Model, and its Level 1 denotes an initial stage in the capability maturity framework of the model.\n4. This discussion builds upon previous sections that introduced the Procurement Operating Model and other procurement capabilities, and it paves the way for subsequent sections discussing supporting capabilities and general principles.",
+      "content": "|                                                                                                                                                  |\n| 1.3                                                                                                                                              | Procurement Capability Model..............................................................................................................10                                                                                                                                        |                                                                                                                                                  |\n| 1.3.1                                                                                                                                            | Strategic Procurement Capability (Level 1)..........................................................",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 5760,
+        "end_pos": 6784
+      }
+    },
+    {
+      "chunk_index": 8,
+      "content_contextualized": "1. This chunk pertains to the sections discussing the Procurement Capabilities (Level 1), specifically the Strategic and Tactical Procurement Capabilities within the Procurement Manual.\n2. It connects to the overall document by outlining key components of the business processes established under the Abu Dhabi Procurement Standards.\n3. The strategic procurement capability is preceded by the purpose, procurement operating model, category classification, and supporting capability (Level 1). In contrast, the tactical procurement capability follows the general principles section in the document.\n4. Both capabilities are part of the broader context of establishing a comprehensive procurement manual that guides various aspects of procurement operations.",
+      "content": "| Strategic Procurement Capability (Level 1)........................................................................................10                                                                                                                                                |                                                                                                                                                  |\n| 1.3.2                                                                                                                                            | Tactical Procurement Capability (Level 1)..........................................................................................10                                                                                                                                               |",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 6584,
+        "end_pos": 7608
+      }
+    },
+    {
+      "chunk_index": 9,
+      "content_contextualized": "This chunk (1.3.3 and 1.3.4) discusses the Operational Procurement Capability at Level 1, which is a part of the larger Procurement Operating Model outlined in the document. It follows the introduction to the procurement manual and connects to the support capabilities mentioned earlier (1.3.4). The operational procurement capability is likely related to the practical application and execution of the procurement processes within the business.",
+      "content": "|                                                                                                                                                  |\n| 1.3.3                                                                                                                                            | Operational Procurement Capability (Level 1)...................................................................................10                                                                                                                                                   |                                                                                                                                                  |\n| 1.3.4                                                                                                                                            | Supporting Capability",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 7408,
+        "end_pos": 8427
+      }
+    },
+    {
+      "chunk_index": 10,
+      "content_contextualized": "1. This chunk (1.3.4 and 1.4) relates to sections discussing Supporting Capability (Level 1) and Procurement Benefits within the Procurement Manual (Business Processes).\n2. These sections provide details about capabilities and benefits related to the procurement operating model outlined in the document.\n3. They are connected to other areas such as strategic procurement capability (Level 1) and general principles, as they build upon the foundational concepts established earlier in the document.",
+      "content": "|\n| 1.3.4                                                                                                                                            | Supporting Capability (Level 1)...........................................................................................................11                                                                                                                                        |                                                                                                                                                  |\n| 1.4                                                                                                                                              | Procurement Benefits...........................................................................................................................11",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 8227,
+        "end_pos": 9251
+      }
+    },
+    {
+      "chunk_index": 11,
+      "content_contextualized": "This chunk (1.4.1 Definitions) falls within the Procurement Operating Model section and provides essential terms used throughout the document. It connects to the overall document by providing a common language for understanding various procurement-related concepts. The definitions also relate to other areas such as Category Classification, Strategic Procurement Capability, General Principles, and Economic Incentives as they are key terms that appear in multiple sections of the manual.",
+      "content": "........................................................................11                                                                                                                                   |                                                                                                                                                  |\n| 1.4.1                                                                                                                                            | Definitions ..........................................................................................................................................11                                                                                                                            |                                                                                                                                                  |\n| 1.4.2",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 9051,
+        "end_pos": 10075
+      }
+    },
+    {
+      "chunk_index": 12,
+      "content_contextualized": "This chunk (1.4.2 and 1.4.3) discusses general principles and calculation methodologies within the Procurement Operating Model, specifically following the introduction of the operating model (Section 1.2). These sections are connected to the overall document as they form part of the Procurement Manual (introduced in Chunk 3), which outlines various aspects of procurement strategy and processes. The general principles and calculation methodologies are likely related to other procurement-related topics such as category classification (Chunk 6) and Supporting Capability (Level 1) (Chunk 10).",
+      "content": "|\n| 1.4.2                                                                                                                                            | General Principles...............................................................................................................................12                                                                                                                                 |                                                                                                                                                  |\n| 1.4.3                                                                                                                                            | Calculation Methodologies.................................................................................................................13",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 9875,
+        "end_pos": 10899
+      }
+    },
+    {
+      "chunk_index": 13,
+      "content_contextualized": "1. The given chunk (Calculation Methodologies) relates to the section discussing various methodologies used in procurement activities, specifically at Level 1 under Strategic Procurement Capability.\n2. This chunk is part of a comprehensive Procurement Manual that outlines the overall approach and procedures for procurement operations within the document.\n3. It connects to other areas such as Category Classification (Chunk 6) and Source to Contract (S2C) (Chunk 22), as these sections may also require specific methodologies for their implementation.\n4. The section on Legislations applicable for Procurement (Chunk 16) is a related topic, as it provides the legal framework within which procurement activities are carried out, potentially influencing or being influenced by the methodologies employed.",
+      "content": "| Calculation Methodologies.................................................................................................................13                                                                                                                                        |                                                                                                                                                  |\n| 1.5                                                                                                                                              | Legislations applicable for Procurement................................................................................................16                                                                                                                                           |                                                                                                                                                  |\n| 1.5.1 1.5.2",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 10699,
+        "end_pos": 11723
+      }
+    },
+    {
+      "chunk_index": 14,
+      "content_contextualized": "This chunk discusses Abu Dhabi Local Content (ADLC) and economic incentives for MSMEs (Micro, Small, and Medium Enterprises), as well as economic incentives for Emirati Entrepreneurs within the broader context of strategic procurement capabilities. It links to the overall document by detailing specific measures aimed at supporting local businesses in the region's procurement processes. The content is also related to sections focusing on procurement operating models, strategic procurement capability, and economic incentives for Emirati Entrepreneurs elsewhere in the document.",
+      "content": "|                                                                                                                                                  |\n| 1.5.1 1.5.2                                                                                                                                      | Abu Dhabi Local Content (ADLC)........................................................................................................16 Economic Incentives for MSMEs (Micro, Small, and Medium                                                                                    | Enterprises).......................................16                                                                                            |\n| 1.5.3                                                                                                                                            | Economic Incentives for Emirati Entrepreneurs..............................................................................",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 11523,
+        "end_pos": 12547
+      }
+    },
+    {
+      "chunk_index": 15,
+      "content_contextualized": "1. This section discusses Economic Incentives for Emirati Entrepreneurs, which falls under the broader topic of Procurement Processes Groups, as part of the Procurement Operating Model.\n2. The chunk provides a specific case study or example within the context of the document's discussion on procurement processes and strategies.\n3. It connects to other areas such as Strategic Procurement Capability, General Principles, Demand and Category Management (DCM), Source to Contract (S2C), RACI Matrix, and Contract Lifecycle Management (CLM) as they all are part of the overall procurement operating model and processes.\n4. The chunk focuses on a particular aspect related to local entrepreneurship within the Emirati context, which could potentially influence or be influenced by the document's broader discussion on procurement strategies and practices.",
+      "content": "| Economic Incentives for Emirati Entrepreneurs.................................................................................17                                                                                                                                                    |                                                                                                                                                  |\n| 2. Procurement Processes Groups ............................................................................................18                   | 2. Procurement Processes Groups ............................................................................................18                                                                                                                                                      |",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 12347,
+        "end_pos": 13371
+      }
+    },
+    {
+      "chunk_index": 16,
+      "content_contextualized": "1. This chunk pertains to the Procurement Strategy under Section 2.1 of the document.\n2. It provides an overview of the procurement strategy within the broader context of strategic procurement capability discussed earlier.\n3. The procurement strategy is closely related to demand and category management (DCM) as it outlines the plan for sourcing goods and services, which is a key aspect of DCM.",
+      "content": "|                                                                                                                                                  |\n| 2.1                                                                                                                                              | Procurement Strategy...........................................................................................................................18                                                                                                                                   |                                                                                                                                                  |\n| 2.1.1                                                                                                                                            | Overview.........................................",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 13171,
+        "end_pos": 14195
+      }
+    },
+    {
+      "chunk_index": 17,
+      "content_contextualized": "1. This section (Chunk) discusses the Level 3 processes within Strategy 2.1, which focuses on procurement strategies.\n2. It is part of a larger document outlining various procurement capabilities and principles.\n3. Chunk 21.1 and 21.2 are interconnected, with the first providing an overview and the second detailing the specific Level 3 processes for Strategy 2.1.",
+      "content": "|\n| 2.1.1                                                                                                                                            | Overview.............................................................................................................................................18                                                                                                                             |                                                                                                                                                  |\n| 2.1.2                                                                                                                                            | Details of Level 3 Processes................................................................................................................18                                                                                                                                      |",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 13995,
+        "end_pos": 15019
+      }
+    },
+    {
+      "chunk_index": 18,
+      "content_contextualized": "1. This chunk belongs to the section 'Demand and Category Management (DCM)' under the main topic 'Strategic Procurement Capability.' It discusses the RACI Matrix which is a part of the DCM process.\n2. The chunk provides details about one of the processes within the overall document's focus on procurement capabilities, specifically outlining aspects related to Demand and Category Management.\n3. The RACI Matrix in this context relates to responsibilities and accountabilities assigned during the Source to Contract (S2C) process under SPRM (Supplier Performance and Relationship Management).",
+      "content": ".........................................18                                                                                                                                      |                                                                                                                                                  |\n| 2.1.3                                                                                                                                            | RACI Matrix.........................................................................................................................................22                                                                                                                              |                                                                                                                                                  |\n| 2.2",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 14819,
+        "end_pos": 15843
+      }
+    },
+    {
+      "chunk_index": 19,
+      "content_contextualized": "1. This section pertains to Demand and Category Management (DCM), a key process within the broader scope of Procurement and Supply Chain Management.\n2. The DCM section outlines strategies for managing the demand for goods and services, which aligns with the overall document's focus on various procurement processes.\n3. The DCM section is interconnected with other areas such as Supplier Performance and Relationship Management (SPRM) and Contract Lifecycle Management (CLM), as all these processes contribute to effective procurement.\n4. Specifically, the Overview subsection within DCM provides an introduction to the principles and objectives of demand management in the context of the entire supply chain process.",
+      "content": "|\n| 2.2                                                                                                                                              | Demand and Category Management (DCM)...........................................................................................22                                                                                                                                                   |                                                                                                                                                  |\n| 2.2.1                                                                                                                                            | Overview.............................................................................................................................................22",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 15643,
+        "end_pos": 16667
+      }
+    },
+    {
+      "chunk_index": 20,
+      "content_contextualized": "1. This section pertains to the details of Level 3 processes within the Demand and Category Management (DCM), specifically discussing Work Aids - Forms and Documents.\n2. It is part of a broader document that outlines various principles, support capabilities, calculation methodologies, economic incentives for Emirati entrepreneurs, and contract lifecycle management, among other topics.\n3. The chunk connects to the overall document by providing specific details on a subtopic within the DCM section, which is one of the main sections discussed in the document.\n4. This section also relates to other areas such as the S2C process and Supplier Performance and Relationship Management (SPRM), as they are all part of the contract lifecycle management discussed in the document.",
+      "content": "............................................................................................................................22                                                                                                                             |                                                                                                                                                  |\n| 2.2.2 2.2.3                                                                                                                                      | Details of Level 3 Processes................................................................................................................22 Work Aids - Forms and Documents...................................................................................................28 |                                                                                                                                                  |\n| 2.2.4",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 16467,
+        "end_pos": 17491
+      }
+    },
+    {
+      "chunk_index": 21,
+      "content_contextualized": "This chunk relates to the RACI Matrix within the Source to Contract (S2C) process. It connects to the overall document as it is a part of the detailed discussion on procurement processes, particularly the S2C process. The RACI Matrix is related to other areas such as contract lifecycle management and supplier performance and relationship management, as they all pertain to the broader topic of managing procurement processes.",
+      "content": "|                                                                                                                                                  |\n| 2.2.4                                                                                                                                            | RACI Matrix.........................................................................................................................................29                                                                                                                              |                                                                                                                                                  |\n\n<!-- image -->\n\n<!-- image -->\n\n| 2.3   | Source to Contract (S2C) .......................................................................................................................29   | Source to Contract (S2C) .................................................................................",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 17291,
+        "end_pos": 18315
+      }
+    },
+    {
+      "chunk_index": 22,
+      "content_contextualized": "1. This chunk relates to the topic of \"Source to Contract (S2C)\" process, which falls under the category of Procurement Lifecycle in the document.\n2. The S2C process is part of a larger sequence covering various stages from demand management to supplier performance and relationship management.\n3. This chunk connects to other areas such as RACI Matrix (Chunk 24) and Contract Lifecycle Management (Chunk 24), as they are also components of the procurement lifecycle.",
+      "content": ".......................................................................................29   | Source to Contract (S2C) .......................................................................................................................29      |\n|-------|------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|\n| 2.3.1 | 2.3.1                                                                                                                                                | Overview.............................................................................................................................................29 |\n| 2.3.2 | 2.3.2",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 18115,
+        "end_pos": 19139
+      }
+    },
+    {
+      "chunk_index": 23,
+      "content_contextualized": "This chunk (29-30) discusses specific Level 3 processes within the sections of Contract Lifecycle Management (CLM), focusing on Details of Level 3 Processes and RACI Matrix in relation to the overall document, which appears to outline various management procedures in a procurement context. These processes are connected to other areas such as Work Aids - Forms and Documents (Chunk 33) and Item Master Data Management (Chunk 31).",
+      "content": ".................................................29 |\n| 2.3.2 | 2.3.2                                                                                                                                                | Details of Level 3 Processes................................................................................................................31          |\n| 2.3.3 | 2.3.3                                                                                                                                                | Work Aids - Forms and Documents...................................................................................................39                    |\n| 2.3.4 | 2.3.4                                                                                                                                                | RACI Matrix.........................................................................................................................................40  |\n| 2.4   | Contract",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 18939,
+        "end_pos": 19956
+      }
+    },
+    {
+      "chunk_index": 24,
+      "content_contextualized": "1. This chunk pertains to Contract Lifecycle Management (CLM) as a section/topic within the document.\n2. It connects to the overall document by discussing an essential aspect of managing contracts, which is a key focus in various business processes outlined in the document.\n3. The RACI Matrix, mentioned in this chunk, is used for assigning roles and responsibilities related to CLM, linking it to other areas such as supplier performance and relationship management (SPRM) or item master data management, which also involve collaborative efforts among different parties.",
+      "content": "| RACI Matrix.........................................................................................................................................40  |\n| 2.4   | Contract Lifecycle Management (CLM) ..................................................................................................40             | Contract Lifecycle Management (CLM) ..................................................................................................40                |\n| 2.4.1 | 2.4.1                                                                                                                                                | Overview.............................................................................................................................................40 |\n| 2.4.2 | 2.4.2                                                                                                                                                | Details of Level 3 Processes.......................",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 19756,
+        "end_pos": 20780
+      }
+    },
+    {
+      "chunk_index": 25,
+      "content_contextualized": "1. This section (Chunk 35) discusses details of Level 3 Processes, specifically focusing on Supplier Performance and Relationship Management (SPRM). It is a subtopic under Section 2.9 - Item Master Data Management.\n2. In the context of the overall document, this chunk provides an explanation and details about one of the level 3 processes involved in the item master data management process.\n3. The SPRM process connects to other areas within the document, as it is part of the larger supply chain management system discussed throughout the document.\n4. This section follows discussions on Contract Lifecycle Management (CLM) and RACI Matrix in earlier sections, while leading into details about Item Master Data Management and its level 3 processes.",
+      "content": "4.2                                                                                                                                                | Details of Level 3 Processes................................................................................................................41          |\n| 2.4.3 | 2.4.3                                                                                                                                                | Work Aids - Forms and Documents...................................................................................................47                    |\n| 2.4.4 | 2.4.4                                                                                                                                                | RACI Matrix.........................................................................................................................................47  |\n| 2.5   | Supplier Performance and Relationship Management (SPRM) .........................",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 20580,
+        "end_pos": 21604
+      }
+    },
+    {
+      "chunk_index": 26,
+      "content_contextualized": "1. This section pertains to Supplier Performance and Relationship Management (SPRM) under Demand and Category Management (DCM).\n2. It fits within the broader discussion of DCM processes, which is a part of the overall document focused on Procurement best practices.\n3. The SPRM section outlines strategies for managing supplier performance and relationships, complementing other sections that address sourcing, contract management, and item master data management.",
+      "content": ".......................................................................................................47  |\n| 2.5   | Supplier Performance and Relationship Management (SPRM) ...............................................................48                            | Supplier Performance and Relationship Management (SPRM) ...............................................................48                               |\n| 2.5.1 | 2.5.1                                                                                                                                                | Overview.............................................................................................................................................48 |\n| 2.5.2 | 2.5.2                                                                                                                                                | Details of the Level 3 Processes ...........................................................................................",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 21404,
+        "end_pos": 22428
+      }
+    },
+    {
+      "chunk_index": 27,
+      "content_contextualized": "This chunk details the Level 3 processes within the sections of Supplier Performance and Relationship Management (SPRM), specifically focusing on Work Aids - Forms and Documents, and RACI Matrix. It connects to the overall document by providing specific details for the mentioned processes in the context of Demand and Category Management (DCM) and Contract Lifecycle Management (CLM). The RACI Matrix is also related to Responsibility Assignment Matrix discussed earlier in the document.",
+      "content": "| Details of the Level 3 Processes .........................................................................................................48            |\n| 2.5.3 | 2.5.3                                                                                                                                                | Work Aids - Forms and Documents...................................................................................................55                    |\n| 2.5.4 | 2.5.4                                                                                                                                                | RACI Matrix.........................................................................................................................................56  |\n| 2.6   | 2.6                                                                                                                                                  |",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 22228,
+        "end_pos": 23248
+      }
+    },
+    {
+      "chunk_index": 28,
+      "content_contextualized": "1. This section relates to Requisition to Pay (R2P), a Level 3 process within the Demand and Category Management (DCM) framework of the document.\n2. It forms part of the overall document's discussion on procurement processes, specifically focusing on how requests are processed and paid for.\n3. R2P connects to other areas like Source to Contract (S2C), which is a previous process in the same framework, as well as Supplier Performance and Relationship Management (SPRM).",
+      "content": "..................................56  |\n| 2.6   | 2.6                                                                                                                                                  | Requisition to Pay (R2P)........................................................................................................................56      |\n| 2.6.1 | 2.6.1                                                                                                                                                | Overview.............................................................................................................................................56 |\n| 2.6.2 | 2.6.2                                                                                                                                                | Details of Level 3 Processes................................................................................................................56          |\n| 2.6.3 | 2.6.3",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 23048,
+        "end_pos": 24072
+      }
+    },
+    {
+      "chunk_index": 29,
+      "content_contextualized": "This section (Details of Level 3 Processes) discusses specific details of processes within a broader topic of process management (likely Procurement or Supply Chain Management). It connects to the overall document by outlining one of the level 3 processes mentioned in the document, such as RACI Matrix. The relationship to other areas includes connections to sections like Source to Contract (S2C), Demand and Category Management (DCM), Contract Lifecycle Management (CLM), Supplier Performance and Relationship Management (SPRM), and Risk and Regulations (R&R).",
+      "content": "| Details of Level 3 Processes................................................................................................................56          |\n| 2.6.3 | 2.6.3                                                                                                                                                | RACI Matrix.........................................................................................................................................63  |\n| 2.7   | Risk and Regulations (R&R)...................................................................................................................63      | Risk and Regulations (R&R)...................................................................................................................63         |\n| 2.7.1 | 2.7.1                                                                                                                                                | Overview................................................................",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 23872,
+        "end_pos": 24896
+      }
+    },
+    {
+      "chunk_index": 30,
+      "content_contextualized": "1. This section pertains to the details of Level 3 processes within the Source to Contract (S2C) process. It also covers work aids such as forms and documents related to these processes.\n\n2. This chunk is a part of the S2C section, which outlines the various stages from identifying a need for a product or service to awarding a contract. Here, it specifically focuses on the third level of these processes.\n\n3. The information in this chunk connects to other areas within the document related to the S2C process and its respective Level 3 processes. It also relates to the work aids section, discussing specific forms and documents used throughout these processes.\n\n4. The presented overview leads into further details about each of the Level 3 processes mentioned (2.7.2, 2.7.3, and 2.7.4), while \"Work Aids - Forms and Documents\" discusses materials used in executing those processes.",
+      "content": "| Overview.............................................................................................................................................63 |\n| 2.7.2 | 2.7.2                                                                                                                                                | Details of Level 3 Processes................................................................................................................64          |\n| 2.7.3 | 2.7.3                                                                                                                                                | Work Aids - Forms and Documents...................................................................................................69                    |\n| 2.7.4 | 2.7.4",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 24696,
+        "end_pos": 25720
+      }
+    },
+    {
+      "chunk_index": 31,
+      "content_contextualized": "1. This chunk (2.7.4 and following) pertains to the section discussing the RACI Matrix within the Supplier Master Data Management process.\n2. It follows the discussion on Overview of Contract Lifecycle Management and Supplier Performance and Relationship Management, and precedes the detailed explanation of specific Level 3 processes under Supplier Master Data Management.\n3. This section is connected to the overall document as it forms part of the Procurement Manual that outlines operational procedures for procurement practitioners.\n4. The RACI Matrix in this context is used for defining accountability and decision-making roles for stakeholders involved in Supplier Master Data Management processes.",
+      "content": "................................................................69                    |\n| 2.7.4 | 2.7.4                                                                                                                                                | RACI Matrix.........................................................................................................................................69  |\n| 2.8   | Supplier Master Data Management.......................................................................................................69             | Supplier Master Data Management.......................................................................................................69                |\n| 2.8.1 | 2.8.1                                                                                                                                                | Overview.........................................................................................................................................",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 25520,
+        "end_pos": 26544
+      }
+    },
+    {
+      "chunk_index": 32,
+      "content_contextualized": "This chunk (69-70) pertains to Section 2.8, specifically discussing Level 3 processes and a RACI Matrix within Item Master Data Management, which connects to the overall document's focus on Procurement procedures. It builds upon previous discussions related to Contract Lifecycle Management and Supplier Performance and Relationship Management, but it is distinct in its focus on Item Master Data Management. The RACI Matrix (80) further clarifies roles and responsibilities associated with this process.",
+      "content": "| Overview.............................................................................................................................................69 |\n| 2.8.2 | 2.8.2                                                                                                                                                | Details of Level 3 Processes................................................................................................................70          |\n| 2.8.3 | 2.8.3                                                                                                                                                | RACI Matrix.........................................................................................................................................80  |\n| 2.9   | Item Master Data Management ............................................................................................................80           | Item Master Data",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 26344,
+        "end_pos": 27360
+      }
+    },
+    {
+      "chunk_index": 33,
+      "content_contextualized": "This chunk relates to the section on Item Master Data Management, a subtopic within the Level 3 processes for Procurement. It provides an overview and details of the specific processes involved in this management system. In the overall document, it is part of the Procurement Manual which outlines operational procedures for procurement practitioners. The Item Master Data Management is connected to other areas such as Contract Lifecycle Management, Supplier Performance and Relationship Management, and other Level 3 processes within the Procurement framework.",
+      "content": ".................80  |\n| 2.9   | Item Master Data Management ............................................................................................................80           | Item Master Data Management ............................................................................................................80              |\n| 2.9.1 | 2.9.1                                                                                                                                                | Overview.............................................................................................................................................80 |\n| 2.9.2 | 2.9.2                                                                                                                                                | Details of the level 3 Processes ..........................................................................................................81           |\n\n<!-- image -->\n\n| 2.9.3   | 2.9.3",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 27160,
+        "end_pos": 28184
+      }
+    },
+    {
+      "chunk_index": 34,
+      "content_contextualized": "1. This chunk pertains to the details of Level 3 Processes within the Procurement process group for Item Master Data Management (2.9.3).\n2. It is part of a comprehensive procurement manual that provides operational procedures and reinforces the organization's procurement standards.\n3. The RACI Matrix, shown in this chunk, outlines roles and accountabilities within the context of the Level 3 Processes for Item Master Data Management.\n4. This section is connected to other Level 3 Process sections, such as Supplier Performance and Relationship Management (2.5) and Contract Lifecycle Management (2.4), which also have their own detailed processes and RACI matrices.",
+      "content": "the level 3 Processes ..........................................................................................................81           |\n\n<!-- image -->\n\n| 2.9.3   | 2.9.3                                                                                                                                      | 2.9.3                                                                                                                                                    | RACI Matrix.........................................................................................................................................82   |\n|---------|--------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 27984,
+        "end_pos": 29008
+      }
+    },
+    {
+      "chunk_index": 35,
+      "content_contextualized": "1. The chunk relates to the User Master Data Management process, which is a Level 3 Process within the Procurement processes outlined in the document.\n2. This section follows the Supplier Performance and Relationship Management (SPRM) and precedes the Overview of the subsequent Level 3 Process.\n3. The user master data management process is part of the procurement processes that are covered in detail, with relevant roles and key business terms defined in the Procurement Manual.\n4. It is related to other areas within the document such as Item Master Data Management, as both are concerned with managing data related to users or items within the procurement process.",
+      "content": "----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|\n| 2.10    | User Master Data Management ............................................................................................................82 | User Master Data Management ............................................................................................................82               | User Master Data Management ............................................................................................................82               |\n| 2.10.1  | 2.10.1                                                                                                                                     | 2.10.1",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 28808,
+        "end_pos": 29832
+      }
+    },
+    {
+      "chunk_index": 36,
+      "content_contextualized": "1. This chunk (Chunk 37) belongs to Section 2.10.3 of the Procurement Manual and details a specific level 3 process within the procurement processes covered in the manual.\n2. It connects to the overall document as it is part of the operational procedures provided for procurement practitioners, reinforcing the Procurement Standards.\n3. This section is related to other areas such as Overview (Section 2.10.1) and Details of the Level 3 Processes (Section 2.10.2), forming a coherent structure for understanding the procurement process.\n4. It outlines one of the detailed level 3 processes, providing specific operational procedures within the broader context of the Procurement Manual.",
+      "content": "| 2.10.1                                                                                                                                                   | Overview.............................................................................................................................................82  |\n| 2.10.2  | 2.10.2                                                                                                                                     | 2.10.2                                                                                                                                                   | Details of the level 3 Processes ..........................................................................................................83            |\n| 2.10.3  | 2.10.3                                                                                                                                     | 2.10.3",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 29632,
+        "end_pos": 30656
+      }
+    },
+    {
+      "chunk_index": 37,
+      "content_contextualized": "1. This chunk (Chunk 36-40) pertains to the RACI Matrix and Appendix which are additional materials in the Procurement Manual.\n2. It follows the discussion on the Procurement Manual's structure and its coverage of procurement process groups, roles, terms, and critical matters.\n3. The RACI Matrix is likely a responsibility assignment matrix used to clarify roles and accountabilities in the procurement processes. The Appendix serves as an additional section for supplementary information.\n4. This chunk is closely related to sections discussing responsibilities and roles within the Procurement Manual.",
+      "content": "|\n| 2.10.3  | 2.10.3                                                                                                                                     | 2.10.3                                                                                                                                                   | RACI Matrix.........................................................................................................................................83   |\n| 3.      | Appendix..............................................................................................................................84   | Appendix..............................................................................................................................84                 | Appendix..............................................................................................................................84                 |\n| 3.1     | 3.1",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 30456,
+        "end_pos": 31480
+      }
+    },
+    {
+      "chunk_index": 38,
+      "content_contextualized": "1. The chunk (84) relates to Section 3.1 titled \"Process Maps,\" which provides visual representations of procurement processes.\n2. This section connects to the overall document by detailing operational procedures for procurement practitioners as outlined in the Procurement Manual.\n3. The relationship to other areas includes its connection with Level 3 Processes mentioned earlier (Chunk 29) and the List of Figures (Chunk 39).\n4. This section is important for understanding the visual representation of various procurement processes within the Procurement Manual.",
+      "content": ".....................................................................................84                 |\n| 3.1     | 3.1                                                                                                                                        | Process Maps........................................................................................................................................84   | Process Maps........................................................................................................................................84   |\n| 3.2     | 3.2                                                                                                                                        | List of Figures .....................................................................................................................................113 | List of Figures ...................................................................................................................................",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 31280,
+        "end_pos": 32304
+      }
+    },
+    {
+      "chunk_index": 39,
+      "content_contextualized": "1. This chunk (Chunk 33 - Chunk 49) primarily discusses the Procurement Manual, its purpose, structure, and various components such as procurement process groups, category taxonomy, and category classification. It also introduces the Government Procurement Office (GPO) and the UNSPSC (United Nations Standard Products and Services Code).\n2. These sections provide an overview of the operational procedures for procurement practitioners, reinforcing the Procurement Standards and their application in various contexts.\n3. The procurement process groups, key business terms, and critical matters covered in these sections are interconnected, forming a comprehensive guide for procurement activities within the organization.\n4. The Glossary of Terms (Chunk 40) and List of Figures/Tables (Chunk 41) are related resources that further clarify and support the information presented in these sections.",
+      "content": "...............................................113 | List of Figures .....................................................................................................................................113 |\n| 3.3     | 3.3                                                                                                                                        | List of Tables.......................................................................................................................................113 | List of Tables.......................................................................................................................................113 |\n| 3.4     | 3.4                                                                                                                                        | Glossary of Terms...............................................................................................................................115      | Glossary of Terms............................",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 32104,
+        "end_pos": 33128
+      }
+    },
+    {
+      "chunk_index": 40,
+      "content_contextualized": "This chunk (Glossary of Terms) is part of Section 3.5 and it provides definitions for various terms used throughout the Procurement Manual, reinforcing standardized terminology across the document. It connects to the overall document by offering clarification on specific terms that are crucial to understanding the procurement processes discussed in the manual. Additionally, its relationship to other areas includes cross-references with definitions mentioned earlier or later in the document.",
+      "content": "Glossary of Terms...............................................................................................................................115      | Glossary of Terms...............................................................................................................................115      |\n| 3.5     | 3.5                                                                                                                                        | Glossary of Definitions........................................................................................................................116       | Glossary of Definitions........................................................................................................................116       |\n\n## 1. Introduction\n\n## 1.1 Introduction to the Procurement Manual\n\n## 1.1.1 Purpose of the Procurement Manual\n\nThe  Procurement  Manual  provides  operational  procedures  to  the  Procurement  practitioners.  It reinforces the Procurement Standards,",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 32928,
+        "end_pos": 33952
+      }
+    },
+    {
+      "chunk_index": 41,
+      "content_contextualized": "1. This chunk relates to the purpose and scope of the Procurement Manual. It explains the operational procedures provided for procurement practitioners and reinforces Procurement Standards, Charter, and Delegation of Authority.\n2. The chunk connects to the overall document by setting up the framework for understanding the structure and application of the Procurement Manual within the government entities and the Government Procurement Office (GPO).\n3. It is related to other areas such as the procurement processes, Procurement Standards, Charter, and Delegation of Authority mentioned later in the document.\n4. The chunk introduces exemptions from the application of the Procurement Manual, which are detailed further in the next chunk.",
+      "content": "curement Manual\n\n## 1.1.1 Purpose of the Procurement Manual\n\nThe  Procurement  Manual  provides  operational  procedures  to  the  Procurement  practitioners.  It reinforces the Procurement Standards, the Procurement Charter, and the Procurement Delegation of Authority (PDoA), giving a more detailed explanation of their application.\n\n## 1.1.2 Scope of the Procurement Manual\n\nThe Procurement Manual applies to all procurement activities conducted by the government Entities and  the  Government  Procurement  Office  (GPO).  The  Executive  Council  (EC),  or  a  relevant  body authorised by the EC, may exclude an Entity from the application of the Procurement Manual. The Procurement  Manual  covers  all  relevant  procurement  processes  and  serves  as  the  operational framework.\n\n## 1.1.2.(I) List of Exemptions\n\nThe Procurement Manual does not apply to:\n\n- a) Staff salaries and benefits\n- b) Direct employment contracts or the engagement of individual experts which cannot be subject to tender\n- c) General  and",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 33752,
+        "end_pos": 34776
+      }
+    },
+    {
+      "chunk_index": 42,
+      "content_contextualized": "1. The given chunk pertains to the exclusions of the Procurement Manual.\n2. This section outlines various categories of expenses and agreements that are not governed by the Procurement Manual.\n3. These excluded items include staff salaries, direct employment contracts, general and administrative expenses, agreements among government entities or with international professional bodies, sponsorships and grants, purchase of artworks, copyright license fees, travel reimbursements below Petty Cash threshold, and mandatory or regulatory fees.\n4. The relationship to other areas is that these exclusions help define the scope and applicability of the Procurement Manual, which primarily focuses on operational procedures for procurement practitioners.",
+      "content": "The Procurement Manual does not apply to:\n\n- a) Staff salaries and benefits\n- b) Direct employment contracts or the engagement of individual experts which cannot be subject to tender\n- c) General  and  administration  expenses  for  non-predefined  technical  specifications,  electricity, water, utilities, accommodation rentals provided to the employees and governed by the housing policies,  professional  and  nonprofessional  bodies'  subscriptions,  fee  paid  to  organisers  of conferences/exhibitions\n- d) Agreements  among  government  Entities  or  with  international  professional  bodies  for  the purposes of research/collaboration/promotions\n- e) Sponsorships and grants\n- f) Purchase of artworks, artifacts, and associated ancillary expenses\n- g) Copyrights license fees except where there is a contractual obligation to purchase goods, services or projects\n- h) Reimbursement of adhoc expenses incurred during travel (below Petty Cash threshold).\n- i) Mandatory or Regulatory fees (such as court fees,",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 34576,
+        "end_pos": 35595
+      }
+    },
+    {
+      "chunk_index": 43,
+      "content_contextualized": "1. This chunk describes the types of obligations for which the Procurement Manual does not apply, such as staff salaries, direct employment contracts, and general matters.\n2. It connects to the overall document by outlining exceptions to the procedures provided in the Procurement Manual.\n3. Its relationship to other areas includes the Procurement Capability Model, which is presented earlier in the document, and the Procurement Standards, which are referenced throughout the manual.",
+      "content": "tual obligation to purchase goods, services or projects\n- h) Reimbursement of adhoc expenses incurred during travel (below Petty Cash threshold).\n- i) Mandatory or Regulatory fees (such as court fees, duties and taxes, bank fees etc.)\n- j) Any other exceptions approved by the Executive Council (EC)\n\n<!-- image -->\n\n## 1.1.3 Structure of the Manual\n\nThe structure of the Procurement Manual is aligned to the Procurement Capability Model (refer to Figure 1.3.1 ):\n\n- a) Level 1 - Procurement capabilities are classified into Strategic, Tactical, Operational, and Support capabilities.\n- b) Level 2 - Each procurement capability includes one or more procurement process group.\n- c) Level 3 - Each procurement process group consists of procurement processes.\n\nImportant  Note:  All  procurement  processes  must  be  executed  in  line  with  the  Procurement Standards.\n\nProcurement process groups are covered in the manual as per the following structure:\n\n1. Overview\n2. Details of level 3 Processes\n- i. Scope and Purpose\n-",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 35395,
+        "end_pos": 36419
+      }
+    },
+    {
+      "chunk_index": 44,
+      "content_contextualized": "1. This chunk provides an overview of the structure and contents of the Procurement Manual, detailing the process groups covered, work aids, forms, documents, roles, responsibilities, and various other components such as procurement process maps, lists of tables and figures, glossary of terms, and definitions.\n2. The chunk connects to the overall document by establishing the organization and format of the Procurement Manual, outlining its key sections, and providing guidelines for procurement practitioners.\n3. It relates to other areas in the document, particularly the level 3 processes (Section 2.9.3) and the category taxonomy (Sections 1.2.2 and 1.2.1), as it discusses the procedures and methodologies associated with these topics.\n4. The chunk also highlights important elements, such as key roles, functions, business terms, and keywords, which are covered in bold italic throughout the manual.",
+      "content": "in  line  with  the  Procurement Standards.\n\nProcurement process groups are covered in the manual as per the following structure:\n\n1. Overview\n2. Details of level 3 Processes\n- i. Scope and Purpose\n- ii. Procedures and Methodologies\n- iii. Roles and Responsibilities\n3. Work Aids -Forms and Documents\n4. RACI Matrix\n\nWork  Aids -Forms  and  Documents section  is  only  provided  where  applicable.  Best  practice templates of these work aids are issued and maintained by the GPO. Entities may either use the templates provided by the GPO, or use another approved template covering required elements.\n\nProcurement process maps, lists of tables and figures, and glossary of terms and definitions are covered in Appendix.\n\nProcurement practitioners reading this manual should consider the following points:\n\n- a) Key roles and functions are covered in the Procurement Manual in bold Italic (e.g., Sourcing Specialist, Tendering Committee, Contract Administrator etc.).\n- b) Key business terms and keywords are covered in the",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 36219,
+        "end_pos": 37243
+      }
+    },
+    {
+      "chunk_index": 45,
+      "content_contextualized": "1. This chunk provides additional details about the Procurement Manual, specifically focusing on the presentation of various roles, business terms, keywords, and key documents in the manual, as well as the use of SAP Ariba for Supplier Master Data Management.\n2. The information provided is part of the overall introduction and purpose of the Procurement Manual, which aims to provide operational procedures to procurement practitioners.\n3. It connects to other areas of the document by establishing the guidelines and structure for the Procurement process groups covered in the manual.\n4. The chunk also highlights important notes related to matters critical from a feasibility or compliance perspective, providing emphasis on key points throughout the document.",
+      "content": "nd functions are covered in the Procurement Manual in bold Italic (e.g., Sourcing Specialist, Tendering Committee, Contract Administrator etc.).\n- b) Key business terms and keywords are covered in the Procurement Manual in Upper Case and defined in the Glossary (e.g., Negotiations Team, Common Category, Entity Specific Category, etc.).\n- c) Key  documents  a re  covered  in  the  Procurement  Manual  in  'single  quotes'  (e.g.,  'Supplier Segmentation Report', 'Sourcing Strategy', 'Category Strategy', etc.).\n- d) Supplier  Master  Data  Management  process  group  is  executed  entirely  by  Government Procurement Office (GPO) using ' SAP Ariba ' . For this process group, key SAP Ariba terms, roles, statuses,  templates,  etc.  are  covered  in  the  Procurement  Manual  in  'double  quotes'  (e.g., 'Supplier Manager', 'General Registration Questionnaire' etc.).\n\n<!-- image -->\n\n<!-- image -->\n\n- e) Matters critical from a feasibility or compliance perspective are highlighted as Important Note (e.g.,",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 37043,
+        "end_pos": 38059
+      }
+    }
+  ]
+}
