@@ -12,14 +12,13 @@ from pathlib import Path
 from dotenv import load_dotenv
 from typing import List, Dict, Any
 
-# LlamaIndex and CrewAI imports
+# LlamaIndex imports
 try:
-    from crewai import LLM
     from llama_index.core import Settings
     from llama_index.llms.ollama import Ollama
 except ImportError as e:
     print(f"ERROR: Required packages not installed - {e}")
-    print("Run: pip install crewai llama-index llama-index-llms-ollama")
+    print("Run: pip install llama-index llama-index-llms-ollama")
     sys.exit(1)
 
 # Context prompt template
@@ -71,23 +70,17 @@ def load_config():
     }
 
 def setup_llm(config):
-    """Setup LLM instances for contextualization."""
-    # CrewAI LLM for context generation
-    crewai_llm = LLM(
-        model="ollama/mistral:7b",
-        base_url=config['OLLAMA_HOST']
-    )
-    
-    # LlamaIndex Ollama LLM for additional processing if needed
-    llamaindex_llm = Ollama(
+    """Setup LLM instance for contextualization."""
+    # LlamaIndex Ollama LLM for context generation
+    ollama_llm = Ollama(
         model="mistral:7b",
         base_url=config['OLLAMA_HOST']
     )
     
     # Set global LlamaIndex settings
-    Settings.llm = llamaindex_llm
+    Settings.llm = ollama_llm
     
-    return crewai_llm, llamaindex_llm
+    return ollama_llm
 
 def load_chunk_file(chunk_file_path):
     """Load chunks from JSON file."""
@@ -135,13 +128,10 @@ def generate_context_for_chunk(llm, chunk: Dict, context_window: str) -> str:
             current_chunk=chunk['content']
         )
         
-        # Use CrewAI LLM to generate context
-        response = llm.call([{"role": "user", "content": prompt}])
+        # Use LlamaIndex Ollama LLM to generate context
+        response = llm.complete(prompt)
         
-        if isinstance(response, dict) and 'content' in response:
-            return response['content'].strip()
-        else:
-            return str(response).strip()
+        return str(response).strip()
             
     except Exception as e:
         print(f"    WARNING: Context generation failed - {e}")
@@ -212,7 +202,7 @@ def process_chunk_file(chunk_file_path, contextual_dir, llm, config):
             'source_markdown': chunk_data.get('source_markdown', 'unknown'),
             'total_chunks': len(chunks),
             'processing_metadata': {
-                'contextualization_method': 'mistral_7b_llm',
+                'contextualization_method': 'llamaindex_ollama_mistral_7b',
                 'context_window_size': config['CONTEXT_WINDOW_SIZE'],
                 'processing_status': 'in_progress'
             },
@@ -301,7 +291,7 @@ def main():
     # Setup LLM
     try:
         print("Setting up LLM...")
-        crewai_llm, llamaindex_llm = setup_llm(config)
+        ollama_llm = setup_llm(config)
         print(f"LLM configured: Mistral 7B @ {config['OLLAMA_HOST']}")
     except Exception as e:
         print(f"ERROR: Failed to setup LLM - {e}")
@@ -343,7 +333,7 @@ def main():
     
     for chunk_file in chunk_files:
         try:
-            success = process_chunk_file(chunk_file, contextual_dir, crewai_llm, config)
+            success = process_chunk_file(chunk_file, contextual_dir, ollama_llm, config)
             if success:
                 processed_files += 1
             else:

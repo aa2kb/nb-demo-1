@@ -6,8 +6,8 @@
     "contextualization_method": "mistral_7b_llm",
     "context_window_size": 10,
     "processing_status": "in_progress",
-    "last_processed_chunk": 72,
-    "processed_count": 73
+    "last_processed_chunk": 94,
+    "processed_count": 95
   },
   "chunks": [
     {
@@ -1249,6 +1249,380 @@
         "chunk_overlap_config": 200,
         "start_pos": 59195,
         "end_pos": 60218
+      }
+    },
+    {
+      "chunk_index": 73,
+      "content_contextualized": "Focuses on economic facilities, providing information about employee numbers and annual revenue in different sectors, particularly trade sector, and classifying them as micro, small, or medium. This data connects to the overall document by demonstrating an application of the procurement strategy discussed earlier in optimizing spending and improving efficiency. It relates to other sections discussing procurement objectives, initiatives, and economic incentives for Emirati entrepreneurs.\n\n(No Context for non-content text)",
+      "content": "| Economic Facilities   | Number of employees   | Annual Revenue (AED)                  |\n|--------------|-----------------------|-----------------------|---------------------------------------|\n| Trade Sector | Micro Small           | 5 or less 6 to 50     | < 3 million 3 to less than 50 million |\n| Trade Sector | Medium                | 51 to 100             | 50 to 250 million                     |\n|              | Micro                 | 9 or less             | < 3 million                           |\n|              | Small                 | 10 to 100             | 3 to less than 50 million             |\n|              | Medium                | 101 to 250            | 50 to 250 million                     |\n|              | Micro                 | 5 or less             | < 2 million                           |\n|              | Small                 | 6 to 50               | 2 to less than 20 million             |\n|              | Medium                | 51 to 250             | 20 to 250 million",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 60018,
+        "end_pos": 61042
+      }
+    },
+    {
+      "chunk_index": 74,
+      "content_contextualized": "Focuses on economic incentives in government procurement for MSMEs and Emirati entrepreneurs, detailing allocation requirements, exemptions from guarantees, payment terms, and reporting obligations. This section is connected to the overall document by contributing to the discussion of procurement strategies and initiatives aimed at improving efficiency and effectiveness within the entity. It is related to sections discussing procurement objectives, value propositions, and analysis methods for developing a procurement strategy. No Context (navigational text).",
+      "content": "|\n|              | Small                 | 6 to 50               | 2 to less than 20 million             |\n|              | Medium                | 51 to 250             | 20 to 250 million                     |\n\nThe Department of Government Support (DGS) has announced the following economic incentives in government Procurement for MSMEs:\n\n- a) All Entities/GPO shall allocate 15% of their annual purchases and contracts to MSMEs.\n- b) All MSMEs shall be exempted from submitting the Bid Bond bank guarantee.\n- c) All MSMEs shall be exempted from submitting the Performance Bond bank guarantee, provided that the Entities reserves 5% of the value of each invoice due for a period of 3 months after the final delivery.\n- d) All dues shall be paid to the MSMEs within a period of 15 days from the date of the invoice.\n- e) The  Entity  must  submit  quarterly  reports  to  the  GPO  on  the  implementation  of  the  above guidelines.\n\n## 1.5.3 Economic Incentives for Emirati Entrepreneurs\n\nThe organizations having Abu",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 60842,
+        "end_pos": 61866
+      }
+    },
+    {
+      "chunk_index": 75,
+      "content_contextualized": "Focuses on economic incentives provided by the Abu Dhabi Department of Economic Development for Emirati Entrepreneurs in government procurement, including exemptions from Bid and Performance Bonds, quicker payment terms, and specific payment rules. This section connects with the overall document as it is part of a comprehensive procurement strategy that includes guidelines, objectives, and initiatives for the entity. It relates to other sections discussing procurement strategies, objectives, and reporting requirements. No Context (navigational text).",
+      "content": ") The  Entity  must  submit  quarterly  reports  to  the  GPO  on  the  implementation  of  the  above guidelines.\n\n## 1.5.3 Economic Incentives for Emirati Entrepreneurs\n\nThe organizations having Abu Dhabi DED commercial licenses and owned in 100% by UAE nationals (including  partners)  are  recognized  as  Emirati  Entrepreneurs  by  the  Abu  Dhabi  Department  of Economic Development (AD-DED).\n\nThe Department of Government Support (DGS) has announced the following economic incentives in government Procurement for Emirati Entrepreneurs:\n\n- a) All Emirati Entrepreneurs shall be exempted from submitting the Bid Bond bank guarantee.\n- b) All  Emirati  Entrepreneurs  shall  be  exempted  from  submitting  the  Performance  Bond  bank guarantee, provided that the Entity reserves 5% of the value of each invoice due for a period of 3 months after the final delivery.\n- c) All dues shall be paid to the Emirati Entrepreneurs within a period of 15 days from the date of the invoice.\n- d) The  Entities  must  submit",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 61666,
+        "end_pos": 62688
+      }
+    },
+    {
+      "chunk_index": 76,
+      "content_contextualized": "The provided section pertains to the Procurement Strategy of an entity in Abu Dhabi, outlining the high-level approach for achieving procurement objectives, resource allocation, and budget planning. It connects to other sections by detailing various methods of calculation for savings realization (Chunk 66, Chunk 70), economic incentives (Chunk 1.5.3), guidelines for economic facilities (Chunk 72-74) and the expected outcomes of the strategy (Chunk 81-85). No Context (for navigational text: Chunk 75, Chunk 76, Chunk 77, Chunk 78).",
+      "content": "e for a period of 3 months after the final delivery.\n- c) All dues shall be paid to the Emirati Entrepreneurs within a period of 15 days from the date of the invoice.\n- d) The  Entities  must  submit  quarterly  reports  to  the  GPO  on  the  implementation  of  the  above guidelines.\n\n## 2. Procurement Processes Groups\n\n## 2.1 Procurement Strategy\n\n## 2.1.1 Overview\n\n'Procurement  Strategy' is  a  highlevel  document  that  states  an  Entity's  approach  to  achieving  its procurement objectives, executing its activities and key initiatives. It guides on allocation of resources and budget for strategic initiatives and aligns procurement activities with Entity strategy and Abu Dhabi Governmental initiatives.\n\nThe 'Procurement Strategy'  is created  with  mid-to-long  term  perspective  and  updated  yearly.  Key elements of value proposition addressed by the 'Procurement Strategy' include (but not limited to):\n\n- a) Increased value to the Entity\n- b) Improved efficiency and effectiveness\n- c) Greater",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 62488,
+        "end_pos": 63505
+      }
+    },
+    {
+      "chunk_index": 77,
+      "content_contextualized": "This part relates to the creation and execution of a Procurement Strategy aimed at increasing value, improving efficiency, enhancing stakeholder alignment, and fostering external partnerships for the entity. It connects to the overall document by providing details on the procedures and methodologies involved in developing this strategy, which includes internal and external analyses. The topic ties closely with sections discussing various aspects of Procurement, such as savings calculations, economic incentives, and roles and responsibilities.",
+      "content": "ly.  Key elements of value proposition addressed by the 'Procurement Strategy' include (but not limited to):\n\n- a) Increased value to the Entity\n- b) Improved efficiency and effectiveness\n- c) Greater stakeholder alignment\n- d) Enhanced external partnerships\n\nThe Head of Procurement is responsible for the creation of the Procurement Strategy. The Head of Procurement assigns  key  members  from Procurement to  create  and  monitor  execution  of  the 'Procurement Strategy'.\n\n## 2.1.2 Details of Level 3 Processes\n\n## 2.1.2.(I) Create and Execute 'Procurement Strategy'\n\n1. Scope and Purpose\n\nThe purpose of this process is to create, approve, and execute 'Procurement Strategy'.\n\n## 2. Procedures and Methodologies\n\n- i. Conduct Internal and External Analysis\n\nAssigned  key  members  conduct  internal  and  external  analyses  as  follows,  to  develop  a 'Procurement Strategy':\n\n- a. Analyse Procurement -The  assigned  key  members  conduct  an  analysis  of  the  Entity Procurement on following aspects to",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 63305,
+        "end_pos": 64321
+      }
+    },
+    {
+      "chunk_index": 78,
+      "content_contextualized": "This part focuses on internal analyses aimed at developing a 'Procurement Strategy' for the Entity. The analyses include examining the people, processes, technology, and governance within procurement (Section a), analyzing spend data for optimization opportunities (Section b), and conducting market analysis (Section c). These sections connect to the overall document by providing insights that help identify areas for improvement in the current procurement practices. The 'Procurement Strategy' is also mentioned later in the document as part of the roles and responsibilities (Sections 3 and 2.1.3). No Context (for chunk 78 as it seems to be navigational text).",
+      "content": "ernal  analyses  as  follows,  to  develop  a 'Procurement Strategy':\n\n- a. Analyse Procurement -The  assigned  key  members  conduct  an  analysis  of  the  Entity Procurement on following aspects to identify procurement optimization initiatives:\n2. a1. People\n3. a2. Processes\n4. a3. Technology\n5. a4. Governance\n\nThis  analysis  leads  to  a  better  understanding  the Procurement from  the  perspective  of operating processes, organizational excellence, and knowledge and information\n\n<!-- image -->\n\n<!-- image -->\n\n- management. Post this analysis, various models (such as SWOT analysis) can be utilized to identify the key competencies and major areas of improvement.\n- b. Conduct  Spend  analysis  In  addition  to  above, spend  data  is  collated  and  analysed  for additional optimization opportunities. This analysis provides insights into historical spend, Supplier base, and spend categories to identify the focus areas for improvement.\n- c. Conduct Market analysis Assigned key members analyse the",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 64121,
+        "end_pos": 65136
+      }
+    },
+    {
+      "chunk_index": 79,
+      "content_contextualized": "This part relates to the process of creating a procurement strategy for the organization. It includes historical spend analysis, market analysis, benchmarking, and demand and category management (DCM) procedures. The procurement strategy aims to improve focus areas, assess industry best practices, and address various aspects of the organization's procurement process. This section is connected to other parts that discuss the roles and responsibilities in executing the procurement strategy, as well as the initiatives and implementation plans associated with it. No Context (Navigational Text)",
+      "content": "s. This analysis provides insights into historical spend, Supplier base, and spend categories to identify the focus areas for improvement.\n- c. Conduct Market analysis Assigned key members analyse the evolution of markets, trends and  conditions  to  assess  their  impact  on  the Procurement .  The  necessary  data  may  be collected  through  primary  and  secondary  sources.  This  data  is  updated  over  time,  to maintain  relevance.  Various  methodologies,  such  as Por ter's  five  forces (industry  rivalry, buyer  power,  Supplier  power,  threat  to  new  entrant,  substitution  possibilities),  TOWS (Threat, Opportunities, Weakness, and Strengths) and PESTLE (political, economic, social, technological, legal and environmental) analysis may be used.\n- d. Conduct  Benchmarking  A  'Competitive  Assessment',  conducted  through  survey  and benchmarking,  may  show  Entity's  strengths  /  weaknesses  with  respect  to  industry  best practices.\n\nThe 'Procurement Strategy' addresses the areas of",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 64936,
+        "end_pos": 65955
+      }
+    },
+    {
+      "chunk_index": 80,
+      "content_contextualized": "Focuses on the development of a procurement strategy for the Entity, addressing areas of improvement based on market changes and industry best practices. The strategy includes setting clear objectives, key initiatives, and measurable outputs to achieve these objectives. It connects to other sections that discuss internal analyses, demand management, and roles and responsibilities in executing this strategy.",
+      "content": "essment',  conducted  through  survey  and benchmarking,  may  show  Entity's  strengths  /  weaknesses  with  respect  to  industry  best practices.\n\nThe 'Procurement Strategy' addresses the areas of improvemen ts and adjustments required to remain relevant with respect to the changes in the market.\n\n## ii. Develop ' Procurement Strategy '\n\nThe 'Procurement Strategy' includes the following:\n\n- a. Vision and Mission The vision and mission of the Procurement is derived from the vision and mission of the Entity.\n- b. Goals / Objectives -  Based  on  the  analysis  done  in  previous sections,  assigned  members develop clear objectives for the Procurement . Following are few examples of objectives and associated guiding principles for the Procurement :\n- c. Key Initiatives The objectives identified in the 'Procurement Strategy' are achieved through initiatives. The initiatives are expressed with measurable outputs. These identified initiatives\n\nTable 2.1.1 Examples - Procurement Objectives\n\n| Guiding Principles",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 65755,
+        "end_pos": 66779
+      }
+    },
+    {
+      "chunk_index": 81,
+      "content_contextualized": "This part focuses on the initiatives outlined in the Procurement Strategy, which are designed to achieve various procurement objectives such as aligning with Abu Dhabi government strategy, delivering process and cost efficiencies, and promoting local content. These initiatives have measurable outputs and help create a structured approach to procurement management.\n\nThis section connects to the overall document by being part of the discussion on developing and implementing the Procurement Strategy. It follows the sections that detail the assessment, analysis, and creation of the strategy, while also addressing elements such as roles and responsibilities and demand and category management.\n\nNo Context (navigational text)",
+      "content": "ent Strategy' are achieved through initiatives. The initiatives are expressed with measurable outputs. These identified initiatives\n\nTable 2.1.1 Examples - Procurement Objectives\n\n| Guiding Principles                      | Procurement Objective Examples                                                                                                                                                                     |\n|-----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| Align to Abu Dhabi government strategy  | • Scale procurement capabilities to enable alignment with agenda of the Entity • Promote MSMEs and Emirati Entrepreneurs • Empower green procurement through awareness& specifications enhancement |\n| Deliver Processes and Cost Efficiencies | • Reduce cycle time for procurement processes • Execute Strategic Sourcing to",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 66579,
+        "end_pos": 67603
+      }
+    },
+    {
+      "chunk_index": 82,
+      "content_contextualized": "This section outlines various procurement objectives for the entity, focusing on initiatives that aim to empower green procurement, deliver process and cost efficiencies, and improve governance. The objectives are designed to be SMART (specific, measurable, achievable, realistic, and timely). These objectives connect to the overall document by providing examples of initiatives and outputs within the Procurement Strategy. They relate to other sections, such as the Roles and Responsibilities, Demand and Category Management, and the 'Procurement Strategy' document, where specific details for each initiative are discussed in detail. No Context (navigational text) is not detected.",
+      "content": "rs • Empower green procurement through awareness& specifications enhancement |\n| Deliver Processes and Cost Efficiencies | • Reduce cycle time for procurement processes • Execute Strategic Sourcing to meet requirements at a competitive cost • Bring innovations and spend insights to the Entity                         |\n| Improve Governance                      | • Enhance visibility and control on Entity spend                                                                                                                                                   |\n\n<!-- image -->\n\nmust be SMART (specific, measurable, achievable, realistic, and timely). Following are the examples of initiatives and outputs:\n\nTable 2.1.2 Examples -Procurement Initiatives and Outputs\n\n| Procurement Objective                                               | Initiatives",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 67403,
+        "end_pos": 68427
+      }
+    },
+    {
+      "chunk_index": 83,
+      "content_contextualized": "This section outlines specific initiatives within a procurement strategy aimed at optimizing spending and achieving cost savings for the entity. It connects to the overall document by building upon earlier discussions about economic incentives, the procurement strategy, and roles and responsibilities in managing the entity's procurement processes. These initiatives are related to other sections, such as those addressing demand and category management, where strategies are created to group similar goods/services for optimization opportunities and achieve cost savings across common categories.",
+      "content": "| Initiatives                                                                                                                                                                                                       | Output                                                |\n|---------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------|\n| Execute Strategic Sourcing to meet requirements at competitive cost | • Conduct Strategic Sourcing for categories contributing to top 80% of the Entity Spend                                                                                                                           | • Achieve xx% annual savings across Common Categories |\n| Enhance visibility and control on Entity spend",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 68227,
+        "end_pos": 69251
+      }
+    },
+    {
+      "chunk_index": 84,
+      "content_contextualized": "This part focuses on specific initiatives outlined in the 'Procurement Strategy' aimed at achieving savings, enhancing visibility over Entity spend, reducing cycle times for procurement processes, and analyzing tail spend. It connects to other sections detailing the strategy development process, guiding principles, and objectives. The initiatives are to be documented with a name, short description, and an implementation plan. This section also mentions the need to include draft contract agreements in 100% of tenders and decrease cycle times for contract signing.\n\nNo Context (navigational text)",
+      "content": "| • Achieve xx% annual savings across Common Categories |\n| Enhance visibility and control on Entity spend                      | • Conclude demand gathering by Q3 • Analyse tail spend (bottom 20%) to identify opportunities of increasing spend under compliance • Decrease unplanned spend by xx% • Increase spend coverage under PR-PO by xx% |                                                       |\n| Reduce cycle times for procurement processes                        | • Include draft contract agreements in 100% of tenders • Decrease cycle contract signing by x%                                                                                                                    | time of                                               |\n\nFollowing  details  should  be  provided  for  each  initiative  in  the 'Procurement  Strategy' document:\n\n- c1. Name and short description with expected outputs\n- c2. Implementation plan (including",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 69051,
+        "end_pos": 70069
+      }
+    },
+    {
+      "chunk_index": 85,
+      "content_contextualized": "This part focuses on the detailed planning and execution of initiatives within the 'Procurement Strategy'. It provides guidelines for naming, describing, and prioritizing these initiatives, along with their expected outputs, implementation plans, business cases, potential challenges, resource requirements, RACI assignments, and overall high-level and short-term action plans. This section is closely connected to the previous discussion on the 'Procurement Strategy', as it outlines the practical steps for its execution. It also complements later sections detailing roles and responsibilities and the RACI matrix in managing the procurement process effectively. If a text does not contain substantive content related to these aspects, no context will be provided.",
+      "content": "Following  details  should  be  provided  for  each  initiative  in  the 'Procurement  Strategy' document:\n\n- c1. Name and short description with expected outputs\n- c2. Implementation plan (including timelines and milestones)\n- c3. Business case indicating costs and expected impact, if applicable\n- c4. Potential challenges, risks and issues\n- c5. Initiative Owner and resources required to execute\n- c6. RACI for key activities\n- d. Prioritization  of  Initiatives  The  initiatives  should  be  prioritized  considering  the  ease  of implementation and their impact/value. Initiatives may also be classified as quick wins, if applicable. Below is an illustrative example of prioritization of initiatives:\n\nFigure 2.1.1 Initiative Prioritization\n\n<!-- image -->\n\n<!-- image -->\n\n- e. Implementation plan An overall high-level implementation plan and a short-term detailed action plan must be prepared for the execution of the 'Procurement Strategy'. Below is an illustrative example of an implementation plan:\n\nFigure 2",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 69869,
+        "end_pos": 70892
+      }
+    },
+    {
+      "chunk_index": 86,
+      "content_contextualized": "This part relates to the implementation plan for executing the Procurement Strategy, including the roles and responsibilities involved. It connects to the overall document by providing a detailed plan on how the Procurement Strategy will be implemented, monitored, and reported to stakeholders. It is related to sections discussing the creation of the Procurement Strategy, demand and category management processes, and the RACI matrix. No Context (navigational text).",
+      "content": "-level implementation plan and a short-term detailed action plan must be prepared for the execution of the 'Procurement Strategy'. Below is an illustrative example of an implementation plan:\n\nFigure 2.1.2 Example - Implementation Plan\n\n<!-- image -->\n\n## iii. Approve 'Procurement Strategy'\n\n- a. The 'Procurement Strategy' is reviewed and approved by approvers designated as per the PDoA .\n\n## iv. Execute 'Procurement Strategy'\n\n- a. Execution  of  the  'Procurement  Strategy' may  require  involvement  from  other  business functions (e.g., Finance, End-User etc.).\n- b. Execution  of  the  'Procurement  Strategy'  must  be  regularly  monitored  by  the  team  that created the 'Procurement Strategy' and reported to involved stakeholders.\n- c. The Head of Procurement remains responsible for the execution of the 'Procurement Strategy'.\n\n## 3. Roles and Responsibilities\n\nTable 2.1.3 Roles and Responsibilities -Create and Execute 'Procurement Strategy'\n\n| Role                    | Responsibilities",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 70692,
+        "end_pos": 71716
+      }
+    },
+    {
+      "chunk_index": 87,
+      "content_contextualized": "Focuses on the roles and responsibilities for creating and executing the 'Procurement Strategy', detailing who is responsible for various tasks such as internal and external analysis, strategy development, and approval. This section connects to the overall document by providing more details about the implementation of the procurement strategy discussed earlier. It relates to other sections discussing the development and execution of initiatives within the procurement strategy and the RACI matrix that outlines responsibilities for different roles. No Context (navigational text).",
+      "content": "ocurement Strategy'.\n\n## 3. Roles and Responsibilities\n\nTable 2.1.3 Roles and Responsibilities -Create and Execute 'Procurement Strategy'\n\n| Role                    | Responsibilities                                                                                                                     |\n|-------------------------|--------------------------------------------------------------------------------------------------------------------------------------|\n| Head of Procurement     | 1. Assign members from the Procurement to develop and execute 'Procurement Strategy'. 2. Ensure execution of 'Procurement Strategy'. |\n| Assigned members        | 3. Conduct internal and external analyses. 4. Develop 'Procurement Strategy'. 5. Execute 'Procurement Strategy'.                     |\n| Approvers (as per PDoA) | 6. Approve/deny the 'Procurement Strategy'.                                                                                          |\n\n## 2.1.3 RACI Matrix\n\nBelow are the details of the RACI (R",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 71516,
+        "end_pos": 72529
+      }
+    },
+    {
+      "chunk_index": 88,
+      "content_contextualized": "Focuses on approval procedures for the Procurement Strategy process group, outlining responsibilities within the RACI matrix. This section ties in with the development of the strategy, as outlined in Section 2.1.2., and Demand and Category Management (DCM), discussed in Section 2.2.1. The approval stage ensures that all initiatives are executed according to procurement policies and scope. No Context (navigational text).",
+      "content": "oA) | 6. Approve/deny the 'Procurement Strategy'.                                                                                          |\n\n## 2.1.3 RACI Matrix\n\nBelow are the details of the RACI (R -Responsible, A -Accountable, C -Consult, and I -Inform) for the Procurement Strategy process group:\n\nTable 2.1.4 RACI Matrix -Procurement Strategy  process group\n\n| L3 Processes                                          | Head of Procurement   | Assigned members   | Approvers (as per PDoA)   | Procurement Scope   |\n|-------------------------------------------------------|-----------------------|--------------------|---------------------------|---------------------|\n| 2.1.2. (I) Develop and Execute 'Procurement Strategy' | R, A                  | R                  | R                         | Entity/GPO          |\n\n## 2.2 Demand and Category Management (DCM)\n\n## 2.2.1 Overview\n\n- a) Demand and Category Management (DCM) process group consists of procedures to create, review, approve, execute, and monitor",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 72329,
+        "end_pos": 73345
+      }
+    },
+    {
+      "chunk_index": 89,
+      "content_contextualized": "Focuses on procurement strategies related to specific goods/services categories, discussing their creation, review, approval, and monitoring for optimization opportunities within the broader Procurement Strategy. This section interlinks with other parts detailing strategic planning, roles & responsibilities, and execution plans in the overall document management process.\n\nNo Context (navigational text)",
+      "content": "|\n\n## 2.2 Demand and Category Management (DCM)\n\n## 2.2.1 Overview\n\n- a) Demand and Category Management (DCM) process group consists of procedures to create, review, approve, execute, and monitor 'Category Strategy' and 'Procurement Plan'.\n- b) This  section  explains  the  activities,  decisions  involved,  documents  used,  outcomes,  and  the stakeholders involved in the DCM processes.\n- c) The following Level 3 processes are included in the DCM process group:\n1. Create and Monitor 'Category Strategy'\n2. Create and Monitor 'Procurement Plan'\n\n## 2.2.2 Details of Level 3 Processes\n\n## 2.2.2.(I) Create and Monitor 'Category Strategy'\n\n## 1. Scope and Purpose\n\n- i. The purpose of this process is to create, review, approve, and monitor 'Category Strategy'.\n- ii. ' Category Strategy' enables management of Procurement spend in groups of similar or related goods/services/projects, leading to consolidation and optimization opportunities.\n- iii. 'Category Strategy' is created periodically, preferably once a",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 73145,
+        "end_pos": 74166
+      }
+    },
+    {
+      "chunk_index": 90,
+      "content_contextualized": "This part focuses on creating a 'Category Strategy' for procurement spend in groups of similar goods/services, aiming to consolidate and optimize expenditures. The strategy is created periodically for all common categories and those specific to the entity contributing to 80% of its total spend. It involves conducting category analyses like internal category profile, demand and market analysis, and identifying initiatives and execution plans. This section connects with the overall document by further elaborating on the 'Procurement Strategy' discussed earlier, providing details about how specific categories are managed.",
+      "content": "rocurement spend in groups of similar or related goods/services/projects, leading to consolidation and optimization opportunities.\n- iii. 'Category Strategy' is created periodically, preferably once a yea r, for:\n- a. All Common Categories\n- b. Entity-Specific Categories contributing to the top 80% of the Entity spend\n- iv. A Sourcing Specialist/Lead may be assigned as the Category Manager to manage the category. The Category Manager is responsible for creation and monitoring of 'Category Strategy'.\n\n<!-- image -->\n\n## 2. Procedures and Methodologies\n\n## i. Conduct category analyses\n\n- a. To create a 'Category Strategy', the Category Manager conducts following category analyses:\n\n## a1. 'Internal Category Profile'\n\nThe  'Internal  Category  Profile' is  developed  by  spend  analysis  and  insights  from supplementary documentation (supplier contracts, PO). It includes details such as (but not limited to) category description, annual spend and volume, Supplier base, top 10 Suppliers by spend, and spend by",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 73966,
+        "end_pos": 74986
+      }
+    },
+    {
+      "chunk_index": 91,
+      "content_contextualized": "This part relates to the creation and execution of category strategies in procurement processes, which involves defining categories, analyzing external markets, and developing initiatives for optimization opportunities. It connects to the overall document by building upon the initial discussion of procurement objectives, initiatives, and implementation plans. This section is closely related to sections discussing roles and responsibilities, RACI matrices, demand and category management processes, as well as supplier landscapes and risk and sustainability considerations in procurement.\n\nNo Context (navigational or non-content text)",
+      "content": "lementary documentation (supplier contracts, PO). It includes details such as (but not limited to) category description, annual spend and volume, Supplier base, top 10 Suppliers by spend, and spend by subcategory.  Each detail provided in the 'Internal Category Profile' must be supported by relevant analysis.\n\n## a2. External Market Analysis\n\n'External Market Analysis' includes details of the industry structure and Supplier market for the category. It includes details such as (but not limited to):\n\n- I. Category Definition -includes description of the category, its characteristics and other relevant information\n- II. Value Chain -includes graphical representation of activities/processes performed or undertaken to deliver the goods/services/projects\n- III. Demand Drivers -includes  details  regarding  historic  and  expected  demand,  key demand  segments,  unit  price  and  price  movement,  policies  and  other  Govt. mandates that impact demand etc.\n- IV. Supply Market Dynamics includes details regarding",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 74786,
+        "end_pos": 75807
+      }
+    },
+    {
+      "chunk_index": 92,
+      "content_contextualized": "Focuses on detailed aspects of Demand and Category Management (DCM) within procurement processes, including demand gathering, supply market dynamics, cost structure analysis, and supplier landscape assessment. This section connects to the overall document by elaborating on specific initiatives mentioned earlier, particularly 'Enhance visibility and control on Entity spend' and 'Achieve xx% annual savings across Common Categories'. It further relates to other sections such as 'Roles and Responsibilities', 'RACI Matrix', and 'Initiatives and Execution Plan'. No Context (navigational text).",
+      "content": "and  expected  demand,  key demand  segments,  unit  price  and  price  movement,  policies  and  other  Govt. mandates that impact demand etc.\n- IV. Supply Market Dynamics includes details regarding market size, overall industry capacity, key Suppliers , market growth and trends, mergers and acquisitions, etc. It covers  Porter's  five  forces  analysis  (buyer  power,  supplier  power,  threat  to  new entrants, substitutes, and industry rivalry).\n- V. Cost Structure includes details regarding Total Cost of Ownership (TCO) (including but not limited to unit cost, logistics, maintenance, warranty, insurance, wear and tear,  administrative, taxes  and  overheads).  TCO  provides visibility on  cost  heads, helping estimate potential areas of cost improvement which can generate savings and spend optimization opportunities.\n- VI. Supplier  Landscape  includes  details  regarding  key Suppliers ,  brands,  products available in the geography.\n- b. Various information sources can be used to develop 'External",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 75607,
+        "end_pos": 76627
+      }
+    },
+    {
+      "chunk_index": 93,
+      "content_contextualized": "Auto-generated context for chunk in document (context generation failed)",
+      "content": "opportunities.\n- VI. Supplier  Landscape  includes  details  regarding  key Suppliers ,  brands,  products available in the geography.\n- b. Various information sources can be used to develop 'External Market Analysis'. These sources may include (but not limited to):\n\n## b1. Primary Sources\n\n- End-Users and buyers of goods/services/projects\n- Suppliers and industry associations\n\n<!-- image -->\n\n## b2. Secondary Sources\n\n- Internet searches and company-specific publications\n- Online databases and media sources\n- Specialist public sector organisations\n- Private-sector research organisations\n- c. It  is  recommended  that  publicly  available  secondary  sources  are  researched  before conducting primary research. The Category Manager should explore paid market research reports only if publicly available secondary sources and primary sources are not sufficient.\n- d. The Category Manager may either use the provided template for 'Internal Category Profile' and 'External Market Analysis' or another approved",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 76427,
+        "end_pos": 77443
+      }
+    },
+    {
+      "chunk_index": 94,
+      "content_contextualized": "Focuses on creating and executing a 'Category Strategy' for effective procurement, outlining criteria for category segmentation based on criticality and complexity, and providing inputs from internal and external analysis. This section builds upon the previously discussed roles and responsibilities in the Procurement Strategy document, connecting to the RACI Matrix, Demand and Category Management (DCM), and the execution plan. It also introduces the concepts of Internal Category Profile, External Market Analysis, and Procurement Plan.",
+      "content": "ondary sources and primary sources are not sufficient.\n- d. The Category Manager may either use the provided template for 'Internal Category Profile' and 'External Market Analysis' or another approved template covering required elements.\n\n## ii. Create 'Category Strategy'\n\n- a. The 'Internal Category Profile' and 'External Category Analysis' provide actionable insights that serve as inputs to the 'Category Strategy'.\n- b. 'Category Strategy' should cover (but not limited to) following sections:\n\n## b1. Category Segmentation\n\nCategory Segmentation depends on the following criteria:\n\n- I. Criticality  of  the  Category is  determined  by  factors  such  as  (but  not  limited  to) impact on Entity's operations in case of unavailability, and critical factors such as Health, Safety and Environment.\n- II. Complexity  of  the  Category defines  the  inherent  nature  of  a  category  that  is governed by several factors including (but not limited to) availability of Suppliers, market  structure  (monopolistic,",
+      "metadata": {
+        "source_file": "Procurement Manual (Business Process).PDF",
+        "file_size": "2635031",
+        "file_hash": "66d86f21",
+        "processed_at": "1759056839.5511978",
+        "content_length": "269316",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 77243,
+        "end_pos": 78263
       }
     }
   ]
