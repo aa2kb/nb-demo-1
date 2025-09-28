@@ -1,0 +1,192 @@
+SEMANTIC SEARCH RESULTS WITH LLM RERANKING
+============================================================
+Timestamp: 2025-09-29 02:29:55
+Query: HR policy for Priority for Vacant Positions
+============================================================
+
+POSITION MAPPING
+==============================
+Original - Reranked
+------------------
+0        - 2
+1        - 7
+2        - 9
+3        - 3
+4        - 4
+5        - 5
+6        - 6
+7        - 8
+8        - 1
+9        - 0
+==============================
+
+🎯 ALL RERANKED RESULTS WITH LLM SCORES:
+  [ 1] LLM: 8.0/10 | Sim: 77.0% | Inforamation Security.pdf
+  [ 2] LLM: 8.0/10 | Sim: 70.9% | Inforamation Security.pdf
+  [ 3] LLM: 8.0/10 | Sim: 69.8% | Inforamation Security.pdf
+  [ 4] LLM: 7.0/10 | Sim: 76.1% | Inforamation Security.pdf
+  [ 5] LLM: 7.0/10 | Sim: 72.8% | Inforamation Security.pdf
+  [ 6] LLM: 6.0/10 | Sim: 72.3% | Inforamation Security.pdf
+  [ 7] LLM: 6.0/10 | Sim: 71.3% | HR Bylaws.pdf
+  [ 8] LLM: 5.0/10 | Sim: 70.4% | Inforamation Security.pdf
+  [ 9] LLM: 4.0/10 | Sim: 80.0% | Inforamation Security.pdf
+  [10] LLM: 3.0/10 | Sim: 80.0% | Inforamation Security.pdf
+
+📊 FULL RESULTS SUMMARY:
+Original results: 10
+Reranked results: 10
+Original best match: 80.0% similarity
+Reranked results: All 10 results reordered by LLM scoring
+
+🔄 ALL POSITION CHANGES (Original → Reranked):
+   2→0    7→1    9→2    3→3    4→4    5→5    6→6    8→7    1→8    0→9
+
+DETAILED SEARCH RESULTS
+====================================================================================================
+[ 1] LLM: 8.0/10 | Similarity: 77.0% | Source: Inforamation Security.pdf
+     Chunk #702 (ID: Inforamation Security_8ac2fee2.md_chunk_702)
+     Source Path: 
+
+     FULL CONTEXT:
+     No Context
+
+     FULL CONTENT:
+     | PRIORITY
+     
+     Context: No Context
+
+----------------------------------------------------------------------------------------------------
+
+[ 2] LLM: 8.0/10 | Similarity: 70.9% | Source: Inforamation Security.pdf
+     Chunk #818 (ID: Inforamation Security_8ac2fee2.md_chunk_818)
+     Source Path: 
+
+     FULL CONTEXT:
+     Details the required steps managers must take immediately after identifying non-compliance during a security review, focusing on determining causes and implementing corrective actions. This procedure is part of the overall governance framework ensuring adherence to security policies and standards.
+
+     FULL CONTENT:
+     | If any non-compliance is found as a result of the review, managers should: A. Determine the causes of the non-compliance                                                                                                                                                                         | If any non-compliance is found as a result of the review, managers should: A. Determine the causes of the non-compliance                                                                                                                                                                         | If any non-compliance is found as a result of the review, managers should: A. Determine the causes of the non-compliance                                                                                                                                                                         |
+     | B. Evaluate the need for actions to ensure that non-compliance do not recur C. Determine and implement
+     
+     Context: Details the required steps managers must take immediately after identifying non-compliance during a security review, focusing on determining causes and implementing corrective actions. This procedure is part of the overall governance framework ensuring adherence to security policies and standards.
+
+----------------------------------------------------------------------------------------------------
+
+[ 3] LLM: 8.0/10 | Similarity: 69.8% | Source: Inforamation Security.pdf
+     Chunk #817 (ID: Inforamation Security_8ac2fee2.md_chunk_817)
+     Source Path: 
+
+     FULL CONTEXT:
+     Focuses on the mandatory initial response required of managers when a security review identifies non-compliance. This step initiates the formal corrective action process, requiring managers to determine the causes of the failure.
+
+     FULL CONTENT:
+     non-compliance is found as a result of the review, managers should: A. Determine the causes of the non-compliance                                                                                                                                                                         | If any non-compliance is found as a result of the review, managers should: A. Determine the causes of the non-compliance                                                                                                                                                                         | If any non-compliance is found as a result of the review, managers should: A. Determine the causes of the non-compliance                                                                                                                                                                         | If any non-compliance is found as a result of the review, managers should: A. Determine the causes of the non-compliance
+     
+     Context: Focuses on the mandatory initial response required of managers when a security review identifies non-compliance. This step initiates the formal corrective action process, requiring managers to determine the causes of the failure.
+
+----------------------------------------------------------------------------------------------------
+
+[ 4] LLM: 7.0/10 | Similarity: 76.1% | Source: Inforamation Security.pdf
+     Chunk #390 (ID: Inforamation Security_8ac2fee2.md_chunk_390)
+     Source Path: 
+
+     FULL CONTEXT:
+     No Context
+
+     FULL CONTENT:
+     | PRIORITY APPLICABILITY
+     
+     Context: No Context
+
+----------------------------------------------------------------------------------------------------
+
+[ 5] LLM: 7.0/10 | Similarity: 72.8% | Source: Inforamation Security.pdf
+     Chunk #300 (ID: Inforamation Security_8ac2fee2.md_chunk_300)
+     Source Path: 
+
+     FULL CONTEXT:
+     No Context
+
+     FULL CONTENT:
+     | P2
+     
+     Context: No Context
+
+----------------------------------------------------------------------------------------------------
+
+[ 6] LLM: 6.0/10 | Similarity: 72.3% | Source: Inforamation Security.pdf
+     Chunk #220 (ID: Inforamation Security_8ac2fee2.md_chunk_220)
+     Source Path: 
+
+     FULL CONTEXT:
+     No Context
+
+     FULL CONTENT:
+     | P1
+     
+     Context: No Context
+
+----------------------------------------------------------------------------------------------------
+
+[ 7] LLM: 6.0/10 | Similarity: 71.3% | Source: HR Bylaws.pdf
+     Chunk #14 (ID: HR Bylaws_2f9c1749.md_chunk_14)
+     Source Path: 
+
+     FULL CONTEXT:
+     Continues the document's comprehensive glossary by defining key roles, such as the Line manager, and structural elements like the Main grade, which are essential for interpreting employee management regulations.
+
+     FULL CONTENT:
+     |
+     
+     |                          | a specified period of time, enabling it to take appropriate decisions related to the employee during their service.                                                                                                                                                                          |
+     |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+     | Line manager             | : The employee whosupervises the concerned employee, according to the approved organizational structure of the government authority.                                                                                                                                                         |
+     | Main grade               | : The grade
+     
+     Context: Continues the document's comprehensive glossary by defining key roles, such as the Line manager, and structural elements like the Main grade, which are essential for interpreting employee management regulations.
+
+----------------------------------------------------------------------------------------------------
+
+[ 8] LLM: 5.0/10 | Similarity: 70.4% | Source: Inforamation Security.pdf
+     Chunk #1397 (ID: Inforamation Security_8ac2fee2.md_chunk_1397)
+     Source Path: 
+
+     FULL CONTEXT:
+     No Context
+
+     FULL CONTENT:
+     |
+     |-------------------------------------|-----------------------------------------------------------------------------------
+     
+     Context: No Context
+
+----------------------------------------------------------------------------------------------------
+
+[ 9] LLM: 4.0/10 | Similarity: 80.0% | Source: Inforamation Security.pdf
+     Chunk #391 (ID: Inforamation Security_8ac2fee2.md_chunk_391)
+     Source Path: 
+
+     FULL CONTEXT:
+     No Context
+
+     FULL CONTENT:
+     |
+     
+     Context: No Context
+
+----------------------------------------------------------------------------------------------------
+
+[10] LLM: 3.0/10 | Similarity: 80.0% | Source: Inforamation Security.pdf
+     Chunk #1045 (ID: Inforamation Security_8ac2fee2.md_chunk_1045)
+     Source Path: 
+
+     FULL CONTEXT:
+     No Context
+
+     FULL CONTENT:
+     |
+     
+     Context: No Context
+
+----------------------------------------------------------------------------------------------------
+

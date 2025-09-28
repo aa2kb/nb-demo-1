@@ -3,6 +3,7 @@ import sys
 import json
 from pathlib import Path
 from dotenv import load_dotenv
+from datetime import datetime
 from typing import List, Dict, Any, Tuple
 from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.vector_stores.postgres import PGVectorStore
@@ -11,7 +12,7 @@ from llama_index.core.postprocessor.llm_rerank import LLMRerank
 from llama_index.llms.ollama import Ollama
 
 
-query = "what do know about notice period of an employee?"
+query = "Please tell me HR Bylaws for Priority for Vacant Positions"
 
 # Global query variable
 def main():
@@ -96,6 +97,12 @@ def main():
             for i in range(0, len(position_changes), 10):
                 chunk = position_changes[i:i+10]
                 print(" ".join(f"{change:>6}" for change in chunk))
+        
+        # Save results to file
+        print("\n💾 Saving results to file...")
+        saved_file = save_results_to_file(query, original_results, reranked_results)
+        if saved_file:
+            print(f"✅ Results saved to: {saved_file}")
         
         print(f"\n✅ Found {len(original_results)} original results, reranked all {len(reranked_results)}")
         print(f"Original best match: {original_results[0]['similarity_score']*100:.1f}% similarity")
@@ -374,6 +381,103 @@ def rerank_results(reranker, results: List[Dict], query: str) -> List[Dict]:
     except Exception as e:
         print(f"ERROR: Failed to rerank results - {e}")
         return results  # Return all original results as fallback
+
+def save_results_to_file(query: str, original_results: List[Dict], reranked_results: List[Dict]) -> str:
+    """Save search results to a text file."""
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    filename = f"search_results_{timestamp}.txt"
+    filepath = Path(filename)
+    
+    try:
+        with open(filepath, 'w', encoding='utf-8') as f:
+            # Write header
+            f.write("SEMANTIC SEARCH RESULTS WITH LLM RERANKING\n")
+            f.write("=" * 60 + "\n")
+            f.write(f"Timestamp: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+            f.write(f"Query: {query}\n")
+            f.write("=" * 60 + "\n\n")
+            
+            # Write position mapping
+            f.write("POSITION MAPPING\n")
+            f.write("=" * 30 + "\n")
+            f.write("Original - Reranked\n")
+            f.write("-" * 18 + "\n")
+            
+            position_changes = []
+            for new_pos, reranked_result in enumerate(reranked_results):
+                original_pos = None
+                for orig_pos, orig_result in enumerate(original_results):
+                    if orig_result['id'] == reranked_result['id']:
+                        original_pos = orig_pos
+                        position_changes.append(f"{orig_pos}→{new_pos}")
+                        break
+                
+                if original_pos is not None:
+                    f.write(f"{new_pos:<8} - {original_pos}\n")
+                else:
+                    f.write(f"{new_pos:<8} - ?\n")
+            
+            f.write("=" * 30 + "\n\n")
+            
+            # Write reranked results with scores
+            f.write("🎯 ALL RERANKED RESULTS WITH LLM SCORES:\n")
+            for i, result in enumerate(reranked_results):
+                llm_score = result.get('llm_score', 0.0)
+                sim_score = result['similarity_score'] * 100
+                f.write(f"  [{i+1:2d}] LLM: {llm_score:.1f}/10 | Sim: {sim_score:.1f}% | {result['source_file'][:30]}\n")
+            
+            f.write("\n")
+            
+            # Write summary
+            f.write("📊 FULL RESULTS SUMMARY:\n")
+            f.write(f"Original results: {len(original_results)}\n")
+            f.write(f"Reranked results: {len(reranked_results)}\n")
+            f.write(f"Original best match: {original_results[0]['similarity_score']*100:.1f}% similarity\n")
+            f.write(f"Reranked results: All {len(reranked_results)} results reordered by LLM scoring\n\n")
+            
+            # Write position changes
+            f.write("🔄 ALL POSITION CHANGES (Original → Reranked):\n")
+            if len(position_changes) <= 10:
+                f.write(" ".join(f"{change:>6}" for change in position_changes) + "\n")
+            else:
+                for i in range(0, len(position_changes), 10):
+                    chunk = position_changes[i:i+10]
+                    f.write(" ".join(f"{change:>6}" for change in chunk) + "\n")
+            
+            f.write("\n")
+            
+            # Write detailed results
+            f.write("DETAILED SEARCH RESULTS\n")
+            f.write("=" * 100 + "\n")
+            
+            for i, result in enumerate(reranked_results, 1):
+                llm_score = result.get('llm_score', 0.0)
+                similarity_percent = result['similarity_score'] * 100
+                
+                f.write(f"[{i:2d}] LLM: {llm_score:.1f}/10 | Similarity: {similarity_percent:.1f}% | Source: {result['source_file']}\n")
+                f.write(f"     Chunk #{result['chunk_index']} (ID: {result['id']})\n")
+                f.write(f"     Source Path: {result.get('source_path', 'N/A')}\n")
+                
+                # Show full context if available
+                if result.get('content_contextualized'):
+                    f.write(f"\n     FULL CONTEXT:\n")
+                    f.write(f"     {result['content_contextualized']}\n")
+                else:
+                    f.write(f"     Context: No Context Available\n")
+                
+                # Show full content
+                f.write(f"\n     FULL CONTENT:\n")
+                content_lines = result['content'].split('\n')
+                for line in content_lines:
+                    f.write(f"     {line}\n")
+                
+                f.write("\n" + "-" * 100 + "\n\n")
+        
+        return str(filepath.absolute())
+        
+    except Exception as e:
+        print(f"ERROR: Failed to save results to file - {e}")
+        return None
 
 def print_comparison_table(original_results: List[Dict], reranked_results: List[Dict], query: str):
     """Print a simple position mapping table."""
