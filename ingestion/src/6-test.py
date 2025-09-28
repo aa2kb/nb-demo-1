@@ -12,7 +12,7 @@ from llama_index.core.postprocessor.llm_rerank import LLMRerank
 from llama_index.llms.ollama import Ollama
 
 
-query = "Please tell me HR Bylaws for Priority for Vacant Positions"
+query = "What are the data protection and cybersecurity requirements?"
 
 # Global query variable
 def main():
@@ -38,6 +38,13 @@ def main():
     print(f"\nSearching for: '{query}'")
     
     try:
+        # Setup LLM for document selection
+        print("\nSetting up LLM for document selection...")
+        llm = setup_llm(config)
+        
+        # Select relevant documents using LLM
+        selected_documents = select_relevant_documents(llm, query)
+        
         # Generate query embedding
         print(f"\nGenerating embedding for query...")
         query_embedding = generate_query_embedding(embedding_model, query)
@@ -45,9 +52,9 @@ def main():
             print("Failed to generate query embedding")
             return
         
-        # Search using LlamaIndex PGVectorStore (get more results for reranking)
-        print("Searching with LlamaIndex PGVectorStore...")
-        original_results = search_similar_chunks_llamaindex(vector_store, query_embedding, top_k=10)
+        # Search using LlamaIndex PGVectorStore with document filtering
+        print("Searching with LlamaIndex PGVectorStore (filtered by selected documents)...")
+        original_results = search_similar_chunks_llamaindex(vector_store, query_embedding, selected_documents, top_k=10)
         
         if not original_results:
             print("❌ No results found")
@@ -55,11 +62,8 @@ def main():
             print("You may need to run the insertion script first.")
             return
         
-        # Setup LLM for reranking  
-        print("\nSetting up LLM for reranking...")
-        llm = setup_llm(config)
-        
         # Use custom reranking to preserve all results
+        print("\nLLM reranking results...")
         print("Custom LLM scoring all results...")
         print(f"Input to reranker: {len(original_results)} results")
         reranked_results = rerank_results_custom(llm, original_results, query)
@@ -163,6 +167,105 @@ def setup_llm(config):
         print(f"ERROR: Failed to setup LLM - {e}")
         sys.exit(1)
 
+def select_relevant_documents(llm, query: str) -> List[str]:
+    """Use LLM to determine which documents are most relevant to the query."""
+    available_documents = [
+        "Abu Dhabi Procurement Standards.PDF",
+        "HR Bylaws.pdf", 
+        "Inforamation Security.pdf",
+        "Procurement Manual (Ariba Aligned).PDF",
+        "Procurement Manual (Business Process).PDF"
+    ]
+    
+    # Create document descriptions for better LLM decision making
+    document_descriptions = {
+        "Abu Dhabi Procurement Standards.PDF": "Government procurement standards, rules, and regulations for Abu Dhabi",
+        "HR Bylaws.pdf": "Human Resources policies, procedures, employee relations, hiring, and HR governance", 
+        "Inforamation Security.pdf": "Information security policies, data protection, cybersecurity guidelines and procedures",
+        "Procurement Manual (Ariba Aligned).PDF": "Procurement processes using Ariba system, vendor management, purchasing workflows",
+        "Procurement Manual (Business Process).PDF": "General business procurement processes, approval workflows, and purchasing procedures"
+    }
+    
+    try:
+        # Create a detailed prompt for document selection
+        selection_prompt = f"""Query: {query}
+
+Available documents:
+"""
+        
+        for i, doc in enumerate(available_documents, 1):
+            selection_prompt += f"{i}. {doc}: {document_descriptions[doc]}\n"
+        
+        selection_prompt += f"""
+Based on the query, which document(s) would be most relevant to search? 
+Consider the query topic and match it to the document contents.
+Respond with only the exact document names (including file extensions) that are relevant, separated by commas.
+If multiple documents could be relevant, include all relevant ones.
+Example response: "HR Bylaws.pdf, Inforamation Security.pdf"
+
+Response:"""
+        
+        print(f"\n🤖 Using LLM to select relevant documents...")
+        response = llm.complete(selection_prompt)
+        selected_text = response.text.strip()
+        
+        print(f"   LLM response: {selected_text}")
+        
+        # Parse the LLM response to extract document names
+        selected_docs = []
+        response_lower = selected_text.lower()
+        
+        # Check for each document with flexible matching
+        for doc in available_documents:
+            doc_lower = doc.lower()
+            doc_base = doc.replace('.PDF', '').replace('.pdf', '').lower()
+            
+            # Exact match
+            if doc in selected_text or doc_lower in response_lower:
+                selected_docs.append(doc)
+            # Base name match
+            elif doc_base in response_lower:
+                selected_docs.append(doc)
+            # Key word matching for specific documents
+            elif 'information' in response_lower and 'security' in response_lower and 'inforamation security' in doc_lower:
+                selected_docs.append(doc)
+            elif 'hr' in response_lower and 'bylaw' in response_lower and 'hr bylaws' in doc_lower:
+                selected_docs.append(doc)
+            elif 'procurement' in response_lower and 'ariba' in response_lower and 'ariba aligned' in doc_lower:
+                selected_docs.append(doc)
+            elif 'procurement' in response_lower and 'business' in response_lower and 'business process' in doc_lower:
+                selected_docs.append(doc)
+            elif 'abu dhabi' in response_lower and 'standards' in response_lower and 'abu dhabi procurement standards' in doc_lower:
+                selected_docs.append(doc)
+        
+        # Remove duplicates while preserving order
+        selected_docs = list(dict.fromkeys(selected_docs))
+        
+        # If no documents found in response, fall back to keyword matching
+        if not selected_docs:
+            query_lower = query.lower()
+            if any(word in query_lower for word in ['hr', 'human', 'resource', 'employee', 'staff', 'bylaws']):
+                selected_docs.append("HR Bylaws.pdf")
+            if any(word in query_lower for word in ['security', 'information', 'data', 'cyber']):
+                selected_docs.append("Inforamation Security.pdf")
+            if any(word in query_lower for word in ['procurement', 'purchase', 'vendor', 'ariba']):
+                selected_docs.extend(["Procurement Manual (Ariba Aligned).PDF", "Procurement Manual (Business Process).PDF"])
+            if any(word in query_lower for word in ['standards', 'abu dhabi', 'government']):
+                selected_docs.append("Abu Dhabi Procurement Standards.PDF")
+        
+        # If still no documents, default to all documents
+        if not selected_docs:
+            print("   ⚠️  No specific documents identified, searching all documents")
+            selected_docs = available_documents
+        
+        print(f"   📋 Selected documents: {selected_docs}")
+        return selected_docs
+        
+    except Exception as e:
+        print(f"   ❌ ERROR: Failed to select documents - {e}")
+        print(f"   🔄 Falling back to all documents")
+        return available_documents
+
 def create_vector_store(config):
     """Create LlamaIndex PGVectorStore for searching."""
     try:
@@ -223,14 +326,44 @@ def generate_query_embedding(embedding_model, query: str) -> List[float]:
         print(f"ERROR: Failed to generate query embedding - {e}")
         return []
 
-def search_similar_chunks_llamaindex(vector_store, query_embedding: List[float], top_k: int = 25) -> List[Dict]:
+def search_similar_chunks_llamaindex(vector_store, query_embedding: List[float], selected_documents: List[str], top_k: int = 25) -> List[Dict]:
     """Search for similar chunks using LlamaIndex PGVectorStore."""
     try:
-        # Create a VectorStoreQuery
+        # Create metadata filters for selected documents
+        from llama_index.core.vector_stores import MetadataFilters, MetadataFilter, FilterOperator
+        
+        # Create filter for source files
+        if len(selected_documents) == 1:
+            # Single document filter
+            filters = MetadataFilters(
+                filters=[
+                    MetadataFilter(
+                        key="source_file",
+                        value=selected_documents[0],
+                        operator=FilterOperator.EQ
+                    )
+                ]
+            )
+        else:
+            # Multiple documents filter using IN operator
+            filters = MetadataFilters(
+                filters=[
+                    MetadataFilter(
+                        key="source_file",
+                        value=selected_documents,
+                        operator=FilterOperator.IN
+                    )
+                ]
+            )
+        
+        print(f"  Filtering by documents: {selected_documents}")
+        
+        # Create a VectorStoreQuery with metadata filtering
         query_obj = VectorStoreQuery(
             query_embedding=query_embedding,
             similarity_top_k=top_k,
-            mode="default"
+            mode="default",
+            filters=filters
         )
         
         # Execute the query
