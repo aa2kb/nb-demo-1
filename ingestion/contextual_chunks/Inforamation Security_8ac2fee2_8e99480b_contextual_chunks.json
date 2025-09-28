@@ -8,8 +8,8 @@
     "llm_model": "gemini-flash-latest",
     "context_window_size": 10,
     "processing_status": "in_progress",
-    "last_processed_chunk": 638,
-    "processed_count": 639
+    "last_processed_chunk": 658,
+    "processed_count": 659
   },
   "chunks": [
     {
@@ -10873,6 +10873,346 @@
         "chunk_overlap_config": 200,
         "start_pos": 524218,
         "end_pos": 525242
+      }
+    },
+    {
+      "chunk_index": 639,
+      "content_contextualized": "Defining the specific security requirements that must be incorporated into the terms and conditions of employment, this detail mandates the use of confidentiality or non-disclosure agreements for all personnel accessing sensitive information systems. This requirement is part of a larger control focusing on managing personnel security obligations and responsibilities.",
+      "content": "|\n| The terms and conditions of employment should reflect the entity's security policy in addition to clarifying and stating: A. That all employees, contractors and third party users who are given access to sensitive information should sign a confidentiality or non-disclosure agreement prior to being given access to information systems                                                                                                     | The terms and conditions of employment should reflect the entity's security policy in addition to clarifying and stating: A. That all employees, contractors and third party users who are given access to sensitive",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 525042,
+        "end_pos": 526065
+      }
+    },
+    {
+      "chunk_index": 640,
+      "content_contextualized": "Provides implementation guidance for the security control on Terms and Conditions of Employment, specifically mandating that all personnel accessing sensitive information must sign a confidentiality or non-disclosure agreement. This requirement (A) begins a list detailing necessary security provisions within employment contracts.",
+      "content": "d conditions of employment should reflect the entity's security policy in addition to clarifying and stating: A. That all employees, contractors and third party users who are given access to sensitive information should sign a confidentiality or non-disclosure agreement prior to being given access to information systems                                                                                                     | The terms and conditions of employment should reflect the entity's security policy in addition to clarifying and stating: A. That all employees, contractors and third party users who are given access to sensitive information should sign a confidentiality or non-disclosure agreement prior to being given access to information systems                                                                                                     | The terms and conditions of employment should reflect the entity's security policy in addition to clarifying and stating: A. That all employees, contractors and",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 525865,
+        "end_pos": 526885
+      }
+    },
+    {
+      "chunk_index": 641,
+      "content_contextualized": "Provides implementation guidance detailing the specific security requirements that must be incorporated into employment contracts, including mandatory confidentiality agreements for users accessing sensitive information and clarification of legal responsibilities.",
+      "content": "| The terms and conditions of employment should reflect the entity's security policy in addition to clarifying and stating: A. That all employees, contractors and third party users who are given access to sensitive information should sign a confidentiality or non-disclosure agreement prior to being given access to information systems                                                                                                     |\n| B. The                                                                                                                                                                                                                                                                                                                                                                                                                                            | employee's, contractor's and any other user's legal responsibilities and rights, e.g. regarding copyright laws",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 526685,
+        "end_pos": 527709
+      }
+    },
+    {
+      "chunk_index": 642,
+      "content_contextualized": "Specifies the legal responsibilities and rights, including adherence to copyright and data protection laws, that must be clearly defined within the terms and conditions of employment for all employees and third-party users. This requirement is part of the implementation guidance detailing mandatory security clauses in contractual agreements.",
+      "content": "| employee's, contractor's and any other user's legal responsibilities and rights, e.g. regarding copyright laws or data protection legislation                                                                                                                                                                                                                                                                                                     | employee's, contractor's and any other user's legal responsibilities and rights, e.g. regarding copyright laws or data protection legislation                                                                                                                                                                                                                                                                                                     | employee's, contractor's and any other user's legal",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 527509,
+        "end_pos": 528522
+      }
+    },
+    {
+      "chunk_index": 643,
+      "content_contextualized": "Defining the legal responsibilities and rights (e.g., copyright and data protection) for employees and contractors, this point is part of the implementation guidance detailing required content for security-focused employment contracts. It specifies the necessary clauses to ensure users understand their legal obligations regarding information handling.",
+      "content": "| employee's, contractor's and any other user's legal responsibilities and rights, e.g. regarding copyright laws or data protection legislation                                                                                                                                                                                                                                                                                                     |\n| C.                                                                                                                                                                                                                                                                                                                                                                                                                                                |",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 528322,
+        "end_pos": 529344
+      }
+    },
+    {
+      "chunk_index": 644,
+      "content_contextualized": "Providing specific implementation guidance, this item details the mandatory inclusion of employee responsibilities within contracts concerning information classification and the management of organizational assets associated with information systems. This forms part of a comprehensive list defining the security requirements that must be addressed in employment terms and conditions.",
+      "content": "| Responsibilities for the classification of information and managementof organizational assets associated with information systems and services handled by the employee, contractor or third party user                                                                                                                                                                                                                                            | Responsibilities for the classification of information and managementof organizational assets associated with information systems and services handled by the employee, contractor or third party user",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 529144,
+        "end_pos": 530168
+      }
+    },
+    {
+      "chunk_index": 645,
+      "content_contextualized": "Details the required contractual responsibilities for employees, contractors, and third parties concerning information classification and the management of associated organizational assets. This forms part of the enumerated list of security requirements that must be included in employment terms.",
+      "content": "party user                                                                                                                                                                                                                                            | Responsibilities for the classification of information and managementof organizational assets associated with information systems and services handled by the employee, contractor or third party user                                                                                                                                                                                                                                            |\n| D.",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 529968,
+        "end_pos": 530992
+      }
+    },
+    {
+      "chunk_index": 646,
+      "content_contextualized": "Detailing the specific responsibilities required of employees, contractors, and third-party users concerning the secure handling of information obtained from external companies or parties. This is part of a larger list outlining necessary security clauses to be included in employment terms and conditions.",
+      "content": "| Responsibilities of the employee, contractor or third party user for the handling of information received from other companies or external parties                                                                                                                                                                                                                                                                                                | Responsibilities of the employee, contractor or third party user for the handling of information received from other companies or external parties",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 530792,
+        "end_pos": 531816
+      }
+    },
+    {
+      "chunk_index": 647,
+      "content_contextualized": "Details specific contractual responsibilities for employees, contractors, and third-party users regarding the secure handling of information obtained from external companies. This item (E) continues a comprehensive list of security clauses required within employment terms reflecting the entity's security policy.",
+      "content": "rmation received from other companies or external parties                                                                                                                                                                                                                                                                                                | Responsibilities of the employee, contractor or third party user for the handling of information received from other companies or external parties                                                                                                                                                                                                                                                                                                |\n| E.",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 531616,
+        "end_pos": 532640
+      }
+    },
+    {
+      "chunk_index": 648,
+      "content_contextualized": "Outlines the entity's specific responsibilities for managing personal information, including data generated during employment, as part of the mandatory security clauses required in employment terms and conditions.",
+      "content": "| Responsibilities of the entity for the handling of personal information, including personal information created as a result of, or in the course of, employment with the entity                                                                                                                                                                                                                                                                   | Responsibilities of the entity for the handling of personal information, including personal information created as a result of, or in the course of, employment with the entity",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 532440,
+        "end_pos": 533464
+      }
+    },
+    {
+      "chunk_index": 649,
+      "content_contextualized": "Focuses on the entity's specific duty to manage personal information generated during or resulting from employment. This point is part of a comprehensive list outlining necessary information security clauses for employee, contractor, and third-party user agreements.",
+      "content": "| Responsibilities of the entity for the handling of personal information, including personal information created as a result of, or in the course of, employment with the entity                                                                                                                                                                                                                                                                   | Responsibilities of the entity for the handling of personal information, including personal information created as a result of, or in the course of, employment with the entity                                                                                                                                                                                                                                                                   |\n| F.",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 533264,
+        "end_pos": 534288
+      }
+    },
+    {
+      "chunk_index": 650,
+      "content_contextualized": "The point addresses the extension of information security responsibilities for employees and third parties when working remotely or outside standard hours (e.g., home-working). It functions as a specific requirement within a larger enumeration of clauses that must be included in employment terms and conditions regarding security policy.",
+      "content": "|\n| F.                                                                                                                                                                                                                                                                                                                                                                                                                                                | Responsibilities that are extended outside the entity's premises and outside normal working hours, e.g. in the case of home-working                                                                                                                                                                                                                                                                                                               | Responsibilities that are extended outside the entity's premises and outside normal working",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 534088,
+        "end_pos": 535110
+      }
+    },
+    {
+      "chunk_index": 651,
+      "content_contextualized": "Defining employee, contractor, and third-party user responsibilities for information security that extend beyond the entity's physical premises or normal working hours, particularly addressing scenarios like home-working. This is one item in a comprehensive list detailing required content for security-focused employment terms and conditions.",
+      "content": "| Responsibilities that are extended outside the entity's premises and outside normal working hours, e.g. in the case of home-working                                                                                                                                                                                                                                                                                                               | Responsibilities that are extended outside the entity's premises and outside normal working hours, e.g. in the case of home-working                                                                                                                                                                                                                                                                                                               |\n| G.",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 534910,
+        "end_pos": 535934
+      }
+    },
+    {
+      "chunk_index": 652,
+      "content_contextualized": "Concluding a detailed list of human resources security responsibilities, this point specifies the necessary disciplinary actions and consequences for employees, contractors, or third-party users who disregard the entity's established security requirements.",
+      "content": "|\n| G.                                                                                                                                                                                                                                                                                                                                                                                                                                                | Actions to be taken if the employee, contractor or third party user disregards the entity's security requirements",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 535734,
+        "end_pos": 536758
+      }
+    },
+    {
+      "chunk_index": 653,
+      "content_contextualized": "The document outlines the required components of human resources security policies, detailing the necessary actions and enforcement mechanisms when employees, contractors, or third-party users disregard established security requirements. This point concludes a list of specific responsibilities and policy elements related to personnel security.",
+      "content": "| Actions to be taken if the employee, contractor or third party user disregards the entity's security requirements                                                                                                                                                                                                                                                                                                                                 | Actions to be taken if the employee, contractor or third party user disregards the entity's security requirements",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 536558,
+        "end_pos": 537582
+      }
+    },
+    {
+      "chunk_index": 654,
+      "content_contextualized": "This requirement defines the formal agreement process for personnel security, specifying that terms and conditions must cover access rights and extend responsibilities beyond the period of employment. It functions as a specific control within the broader framework of human resources security policies.",
+      "content": "|\n| The entity should ensure that employees, contractors and third party users agree to terms and conditions concerning information security appropriate to the nature and extent of access they will have to the entity's assets associated with information systems and services. Where appropriate, responsibilities contained within the terms and conditions of employment should continue for a defined period after the end of the employment. | The entity should ensure that employees, contractors and third party users agree to terms and conditions concerning information security appropriate to the nature and extent of access they will have to the entity's assets associated with information systems and services. Where appropriate, responsibilities contained within the",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 537382,
+        "end_pos": 538403
+      }
+    },
+    {
+      "chunk_index": 655,
+      "content_contextualized": "Details the mandatory requirement for employees, contractors, and third-party users to formally agree to information security terms appropriate to their access level, establishing a key control within the Human Resources Security framework that mandates responsibilities continue post-employment.",
+      "content": "security appropriate to the nature and extent of access they will have to the entity's assets associated with information systems and services. Where appropriate, responsibilities contained within the terms and conditions of employment should continue for a defined period after the end of the employment. | The entity should ensure that employees, contractors and third party users agree to terms and conditions concerning information security appropriate to the nature and extent of access they will have to the entity's assets associated with information systems and services. Where appropriate, responsibilities contained within the terms and conditions of employment should continue for a defined period after the end of the employment. | The entity should ensure that employees, contractors and third party users agree to terms and conditions concerning information security appropriate to the nature and extent of access they will have to the entity's assets associated with information systems and services. Where",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 538203,
+        "end_pos": 539224
+      }
+    },
+    {
+      "chunk_index": 656,
+      "content_contextualized": "Concludes the requirements for employee security agreements, including post-employment obligations, and introduces the subsequent control (M4.3) detailing information security objectives applicable during the employment period.",
+      "content": "ree to terms and conditions concerning information security appropriate to the nature and extent of access they will have to the entity's assets associated with information systems and services. Where appropriate, responsibilities contained within the terms and conditions of employment should continue for a defined period after the end of the employment. |\n\n| M4.3                  | DURINGEMPLOYMENT                                                                                                                                                                                                                                                                                 |\n|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| OBJECTIVE             | To",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 539024,
+        "end_pos": 540046
+      }
+    },
+    {
+      "chunk_index": 657,
+      "content_contextualized": "Focuses on the specific objectives and performance indicators for Security Awareness Training, which is a critical component of the Human Resources Security policy. This control ensures personnel are equipped to handle threats and precedes guidelines on compliance and disciplinary processes.",
+      "content": "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| OBJECTIVE             | To ensure that employees, contractors and third party users are aware of information security threats and concerns, their responsibilities and liabilities, and are equipped to support organizational security policy in the course of their normal work, and to reduce the risk of human error |\n| PERFORMANCE INDICATOR | Percentage of employeesthatparticipated in Security AwarenessTraining                                                                                                                                                                                                                            |\n| AUTOMATION GUIDANCE   | Not applicable",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 539846,
+        "end_pos": 540870
+      }
+    },
+    {
+      "chunk_index": 658,
+      "content_contextualized": "Identifies specific threats and vulnerabilities, including abuse of system access and illegal data processing, relevant to the objective of ensuring personnel comply with established information security terms and conditions. This content serves as the risk assessment component following the definition of the security control related to employee agreements.",
+      "content": "NCE   | Not applicable                                                                                                                                                                                                                                                                                   |\n| RELEVANT              | • Abuse of system access/privileges                                                                                                                                                                                                                                                              |\n| THREATSAND            | • Use of unapproved hardware/devices                                                                                                                                                                                                                                                             |\n| VULNERABILITIES       | • Illegal processing of data",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 540670,
+        "end_pos": 541694
       }
     }
   ]
