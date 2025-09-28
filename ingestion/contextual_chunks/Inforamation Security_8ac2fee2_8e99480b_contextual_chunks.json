@@ -8,8 +8,8 @@
     "llm_model": "gemini-flash-latest",
     "context_window_size": 10,
     "processing_status": "in_progress",
-    "last_processed_chunk": 2396,
-    "processed_count": 2397
+    "last_processed_chunk": 2399,
+    "processed_count": 2400
   },
   "chunks": [
     {
@@ -40759,6 +40759,57 @@
         "chunk_overlap_config": 200,
         "start_pos": 1972748,
         "end_pos": 1973768
+      }
+    },
+    {
+      "chunk_index": 2397,
+      "content_contextualized": "Outlines the required elements of security-focused supplier reviews, including process analysis and personnel assessment, which are critical steps in managing supply chain risk and ensuring compliance with established security controls.",
+      "content": "|\n| Supplier reviews include, for example: A. Analysis of supplier processes used to design, develop, test, implement, verify, deliver, and support informationsystems,systemcomponents,andinformationsystemservices B. Assessmentofsuppliertrainingandexperienceindevelopingsystems,components,orservices with the required security capability These reviews provide entities with increased levels of visibility into supplier activities during the | Supplier reviews include, for example: A. Analysis of supplier processes used to design, develop, test, implement, verify, deliver, and support informationsystems,systemcomponents,andinformationsystemservices B. Assessmentofsuppliertrainingandexperienceindevelopingsystems,components,orservices with the required security capability These reviews provide entities with increased levels of visibility into supplier",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1973568,
+        "end_pos": 1974590
+      }
+    },
+    {
+      "chunk_index": 2398,
+      "content_contextualized": "Completes the detailed requirements for evaluating supplier training and experience in developing secure systems, serving as the transition point to the formal definition of the subsequent supply chain security control, T7.8.3 (Limitation of Harm).",
+      "content": "ssessmentofsuppliertrainingandexperienceindevelopingsystems,components,orservices with the required security capability These reviews provide entities with increased levels of visibility into supplier activities during the |\n\n<!-- image -->\n\n| T7.8.3                                                                                                                                                                                                                                                                                                                                                                                                   | LIMITATIONOF HARM PRIORITY P4 APPLICABILITY BASEDONRISK ASSESSMENT",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1974390,
+        "end_pos": 1975414
+      }
+    },
+    {
+      "chunk_index": 2399,
+      "content_contextualized": "No Context",
+      "content": "|\n|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| CONTROL",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1975214,
+        "end_pos": 1976238
       }
     }
   ]
