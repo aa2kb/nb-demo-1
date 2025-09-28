@@ -8,8 +8,8 @@
     "llm_model": "gemini-flash-latest",
     "context_window_size": 10,
     "processing_status": "in_progress",
-    "last_processed_chunk": 1455,
-    "processed_count": 1456
+    "last_processed_chunk": 1489,
+    "processed_count": 1490
   },
   "chunks": [
     {
@@ -24762,6 +24762,584 @@
         "chunk_overlap_config": 200,
         "start_pos": 1196394,
         "end_pos": 1197418
+      }
+    },
+    {
+      "chunk_index": 1456,
+      "content_contextualized": "Defines the core security control requiring an entity to monitor the use of its information systems, serving as the header for the subsequent detailed sub-controls, assessment criteria, and implementation guidance within this security framework.",
+      "content": "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| CONTROL                                                                                                                                                                                                                                                                                                                                      | The entity shall monitor the use of information systems.                                                                                                                                                                                                                                                                                     | The entity shall monitor the use of",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1197218,
+        "end_pos": 1198241
+      }
+    },
+    {
+      "chunk_index": 1457,
+      "content_contextualized": "Focuses on the mandatory requirement for system monitoring, serving as the foundational control statement that introduces the subsequent detailed assessment criteria and implementation guidance for defining monitoring scope and frequency.",
+      "content": "| The entity shall monitor the use of information systems.                                                                                                                                                                                                                                                                                     | The entity shall monitor the use of information systems.                                                                                                                                                                                                                                                                                     |\n| SUB-CONTROL",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1198041,
+        "end_pos": 1199065
+      }
+    },
+    {
+      "chunk_index": 1458,
+      "content_contextualized": "Specifies the assessment criteria for the control requiring entities to monitor information system usage, detailing requirements for identifying system use, gathering minimum information, and defining review frequency.",
+      "content": "|\n| SUB-CONTROL                                                                                                                                                                                                                                                                                                                                  | ASSESSMENT The entity shall: 1) Identify all types of system use to be monitored 2) Identify minimum information gathering requirements for each monitoring activity 3) Define minimum frequency requirements for reviewing information                                                                                                      | monitoring activities                                                                                                                                                                                                                                                                                                                        |",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1198865,
+        "end_pos": 1199882
+      }
+    },
+    {
+      "chunk_index": 1459,
+      "content_contextualized": "Specifies the mandatory assessment requirements for the control concerning the monitoring of information system use, detailing what activities to track, the data required, and the frequency of review. This requirement immediately precedes the detailed implementation guidance for the monitoring control.",
+      "content": "| ASSESSMENT The entity shall: 1) Identify all types of system use to be monitored 2) Identify minimum information gathering requirements for each monitoring activity 3) Define minimum frequency requirements for reviewing information                                                                                                      |\n| IMPLEMENTATIONGUIDANCE(FORINFORMATIONPURPOSEONLY)                                                                                                                                                                                                                                                                                            | IMPLEMENTATIONGUIDANCE(FORINFORMATIONPURPOSEONLY)",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1199682,
+        "end_pos": 1200706
+      }
+    },
+    {
+      "chunk_index": 1460,
+      "content_contextualized": "No Context",
+      "content": "| IMPLEMENTATIONGUIDANCE(FORINFORMATIONPURPOSEONLY)                                                                                                                                                                                                                                                                                            | IMPLEMENTATIONGUIDANCE(FORINFORMATIONPURPOSEONLY)                                                                                                                                                                                                                                                                                            | IMPLEMENTATIONGUIDANCE(FORINFORMATIONPURPOSEONLY)",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1200506,
+        "end_pos": 1201530
+      }
+    },
+    {
+      "chunk_index": 1461,
+      "content_contextualized": "Focuses on the implementation guidance for system monitoring controls, specifying that the required level of monitoring must be determined through a risk assessment and adhere to all applicable legal requirements. This guidance precedes a detailed list of specific areas and risk factors that entities must consider when establishing monitoring procedures.",
+      "content": "|\n| The level of monitoring required for individual systems should be determined by a risk assessment. An entity should comply with all relevant legal requirements applicable to its monitoring activities. Areas that should be considered include:                                                                                            | The level of monitoring required for individual systems should be determined by a risk assessment. An entity should comply with all relevant legal requirements applicable to its monitoring activities. Areas that should be considered include:                                                                                            | The level of monitoring required for individual systems should be determined by a risk assessment. An entity should comply",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1201330,
+        "end_pos": 1202354
+      }
+    },
+    {
+      "chunk_index": 1462,
+      "content_contextualized": "Details the implementation guidance for system monitoring controls, emphasizing that monitoring levels must be determined by risk assessment and legal requirements, and specifying the necessary logging details for authorized system access.",
+      "content": "| The level of monitoring required for individual systems should be determined by a risk assessment. An entity should comply with all relevant legal requirements applicable to its monitoring activities. Areas that should be considered include:                                                                                            | The level of monitoring required for individual systems should be determined by a risk assessment. An entity should comply with all relevant legal requirements applicable to its monitoring activities. Areas that should be considered include:                                                                                            |\n| A. Authorized access, including detail such as: 1- The user ID 2- The date and time of key events 3- The types of events 4- The files accessed 5- The program/utilities used",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1202154,
+        "end_pos": 1203178
+      }
+    },
+    {
+      "chunk_index": 1463,
+      "content_contextualized": "Focuses on the specific details required for logging authorized access within information systems monitoring controls. This includes mandatory data points such as user identification, timestamps of key events, files accessed, and programs utilized.",
+      "content": "and time of key events 3- The types of events 4- The files accessed 5- The program/utilities used                                                                                                                                                                 | A. Authorized access, including detail such as: 1- The user ID 2- The date and time of key events 3- The types of events 4- The files accessed 5- The program/utilities used                                                                                                                                                                 | A. Authorized access, including detail such as: 1- The user ID 2- The date and time of key events 3- The types of events 4- The files accessed 5- The program/utilities used                                                                                                                                                                 | A. Authorized access, including detail such as: 1- The user ID 2- The date and time of key",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1202978,
+        "end_pos": 1203999
+      }
+    },
+    {
+      "chunk_index": 1464,
+      "content_contextualized": "Details the specific information required for logging authorized system access (user ID, files accessed, etc.) and transitions into defining the risk factors that dictate how frequently monitoring results must be reviewed. This content supports the overall control requirement for continuous monitoring of information systems.",
+      "content": "| A. Authorized access, including detail such as: 1- The user ID 2- The date and time of key events 3- The types of events 4- The files accessed 5- The program/utilities used                                                                                                                                                                 |\n| F. Changes to, or attempts to change, system security settings and controls. Howoftentheresults of monitoring activities are reviewed should depend onthe risks involved. Risk factors that should be considered include the: A. Criticality of the application processes B. Value, sensitivity, and criticality of the information involved | F. Changes to, or attempts to change, system security settings and controls. Howoftentheresults of monitoring activities are reviewed should depend onthe risks involved. Risk factors that should be considered include the: A. Criticality of",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1203799,
+        "end_pos": 1204820
+      }
+    },
+    {
+      "chunk_index": 1465,
+      "content_contextualized": "This defines the specific risk factors, such as application criticality and changes to security settings, that dictate the required frequency for reviewing the results of information system monitoring activities. It serves as detailed guidance supporting the broader requirement for continuous system surveillance and logging.",
+      "content": "ystem security settings and controls. Howoftentheresults of monitoring activities are reviewed should depend onthe risks involved. Risk factors that should be considered include the: A. Criticality of the application processes B. Value, sensitivity, and criticality of the information involved | F. Changes to, or attempts to change, system security settings and controls. Howoftentheresults of monitoring activities are reviewed should depend onthe risks involved. Risk factors that should be considered include the: A. Criticality of the application processes B. Value, sensitivity, and criticality of the information involved | F. Changes to, or attempts to change, system security settings and controls. Howoftentheresults of monitoring activities are reviewed should depend onthe risks involved. Risk factors that should be considered include the: A. Criticality of the application processes B. Value, sensitivity, and criticality of the information involved |\n| Past experience of system infiltration and misuse, and",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1204620,
+        "end_pos": 1205642
+      }
+    },
+    {
+      "chunk_index": 1466,
+      "content_contextualized": "This content specifies the key risk factors—including application criticality, data sensitivity, and history of misuse—that must be assessed to determine the required level and frequency of information system monitoring. These factors are essential components of the risk assessment process mandated by the overall control requirement for system monitoring.",
+      "content": "uld be considered include the: A. Criticality of the application processes B. Value, sensitivity, and criticality of the information involved |\n| Past experience of system infiltration and misuse, and the frequency of vulnerabilities                                                                                                                                                                                                                                                      | Past experience of system infiltration and misuse, and the frequency of vulnerabilities                                                                                                                                                                                                                                                      | Past experience of system infiltration and misuse, and the frequency of vulnerabilities",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1205442,
+        "end_pos": 1206466
+      }
+    },
+    {
+      "chunk_index": 1467,
+      "content_contextualized": "Details specific risk factors, including past system infiltration and the frequency of vulnerabilities being exploited, used to determine the necessary level and frequency of information system monitoring. This content completes a list of criteria required for the risk assessment phase of the monitoring control.",
+      "content": "erience of system infiltration and misuse, and the frequency of vulnerabilities                                                                                                                                                                                                                                                      | Past experience of system infiltration and misuse, and the frequency of vulnerabilities                                                                                                                                                                                                                                                      |\n| being exploited                                                                                                                                                                                                                                                                                                                              | being exploited",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1206266,
+        "end_pos": 1207290
+      }
+    },
+    {
+      "chunk_index": 1468,
+      "content_contextualized": "Completes a list of risk factors used to determine the frequency of reviewing system monitoring results, specifically referencing the likelihood of vulnerabilities being exploited.",
+      "content": "| being exploited                                                                                                                                                                                                                                                                                                                              | being exploited                                                                                                                                                                                                                                                                                                                              | being exploited",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1207090,
+        "end_pos": 1208114
+      }
+    },
+    {
+      "chunk_index": 1469,
+      "content_contextualized": "Lists specific risk factors, including the frequency of vulnerability exploitation and the extent of system interconnection, that must be evaluated during a risk assessment to determine the required level and frequency of system monitoring.",
+      "content": "| being exploited                                                                                                                                                                                                                                                                                                                              |\n| Extent of system interconnection (particularly public networks)                                                                                                                                                                                                                                                                              | Extent of system interconnection (particularly public networks)",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1207914,
+        "end_pos": 1208938
+      }
+    },
+    {
+      "chunk_index": 1470,
+      "content_contextualized": "The document is detailing specific risk factors and vulnerabilities, such as system interconnection with public networks and the potential deactivation of logging facilities, which must be considered when determining the required level and frequency of system monitoring. These items continue a list of criteria used in risk assessments for information security controls.",
+      "content": "| Extent of system interconnection (particularly public networks)                                                                                                                                                                                                                                                                              | Extent of system interconnection (particularly public networks)                                                                                                                                                                                                                                                                              |\n| Logging facility being de-activated",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1208738,
+        "end_pos": 1209762
+      }
+    },
+    {
+      "chunk_index": 1471,
+      "content_contextualized": "Identifies a critical operational risk—the deactivation of the logging facility—which entities must address when implementing controls to protect system monitoring data and ensure log integrity.",
+      "content": "|\n| Logging facility being de-activated                                                                                                                                                                                                                                                                                                          | Logging facility being de-activated                                                                                                                                                                                                                                                                                                          | Logging facility being de-activated",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1209562,
+        "end_pos": 1210586
+      }
+    },
+    {
+      "chunk_index": 1472,
+      "content_contextualized": "Identifies the deactivation of the logging facility as a specific operational risk. This risk factor is part of a comprehensive list used by entities to determine the appropriate frequency for reviewing system monitoring activities.",
+      "content": "| Logging facility being de-activated                                                                                                                                                                                                                                                                                                          |\n| C.                                                                                                                                                                                                                                                                                                                                           | C.",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1210386,
+        "end_pos": 1211410
+      }
+    },
+    {
+      "chunk_index": 1473,
+      "content_contextualized": "No Context",
+      "content": "| C.                                                                                                                                                                                                                                                                                                                                           | C.                                                                                                                                                                                                                                                                                                                                           | C.",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1211210,
+        "end_pos": 1212234
+      }
+    },
+    {
+      "chunk_index": 1474,
+      "content_contextualized": "No Context",
+      "content": "|\n| D. E.                                                                                                                                                                                                                                                                                                                                        | D. E.                                                                                                                                                                                                                                                                                                                                        | D. E.",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1212034,
+        "end_pos": 1213058
+      }
+    },
+    {
+      "chunk_index": 1475,
+      "content_contextualized": "Concludes the list of risk factors (D and E) used to determine the necessary frequency for reviewing monitoring results, immediately transitioning to the introduction of Control T3.6.4, which mandates the protection of log information.",
+      "content": "| D. E.                                                                                                                                                                                                                                                                                                                                        | D. E.                                                                                                                                                                                                                                                                                                                                        |\n\n| T3.6.4                                                                                                                                              | PROTECTIONOF LOGINFORMATION PRIORITY P2 APPLICABILITY BASEDONRISK ASSESSMENT",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1212858,
+        "end_pos": 1213882
+      }
+    },
+    {
+      "chunk_index": 1476,
+      "content_contextualized": "Following a discussion of risk factors that necessitate robust logging, this control establishes the mandatory requirement for protecting audit and event log information against tampering and unauthorized access. It serves as the primary directive before subsequent sub-controls detail specific protective measures.",
+      "content": "| PROTECTIONOF LOGINFORMATION PRIORITY P2 APPLICABILITY BASEDONRISK ASSESSMENT                                                                                                                                |\n|-----------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| CONTROL                                                                                                                                             | The entity shall protect log information against tampering and unauthorized access.",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1213682,
+        "end_pos": 1214706
+      }
+    },
+    {
+      "chunk_index": 1477,
+      "content_contextualized": "Defines the mandatory control requirements for protecting system log information against unauthorized access and tampering, ensuring that protection levels are commensurate with the sensitivity of the log content. This requirement follows the general risk assessment criteria for log protection and precedes detailed guidance on preventing operational failures of the logging facility.",
+      "content": "The entity shall protect log information against tampering and unauthorized access.                                                                                                                         |\n| SUB-CONTROL                                                                                                                                         | The entity shall: 1) Identify the log information across all information systems that shall be protected 2) Ensure log information are protected commensurate to the sensitivity of the content of the logs |\n| IMPLEMENTATIONGUIDANCE(FORINFORMATIONPURPOSEONLY)                                                                                                   | IMPLEMENTATIONGUIDANCE(FORINFORMATIONPURPOSEONLY)                                                                                                                                                           |\n| Controls should aim to protect against unauthorized changes and operational problems with the",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1214506,
+        "end_pos": 1215524
+      }
+    },
+    {
+      "chunk_index": 1478,
+      "content_contextualized": "Detailing the implementation of controls for log information protection, this material specifies the operational risks that must be mitigated, including unauthorized alterations to recorded messages and failures caused by exceeding log file storage capacity.",
+      "content": "|\n| Controls should aim to protect against unauthorized changes and operational problems with the logging facility including:                           | Controls should aim to protect against unauthorized changes and operational problems with the logging facility including:                                                                                   |\n| A. Alterations to the message types that are recorded;                                                                                              | A. Alterations to the message types that are recorded;                                                                                                                                                      |\n| C. Storage capacity of the log file media being exceeded, resulting in either the failure to record events or over-writing of past recorded events. | C. Storage capacity of the log file media being",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1215324,
+        "end_pos": 1216344
+      }
+    },
+    {
+      "chunk_index": 1479,
+      "content_contextualized": "Concludes the discussion of operational risks to logging facilities, such as storage capacity failure and archiving needs. It transitions directly into the formal security control T3.6.5, detailing requirements for managing administrator and operator logs within the overall security framework.",
+      "content": "| C. Storage capacity of the log file media being exceeded, resulting in either the failure to record events or over-writing of past recorded events. | C. Storage capacity of the log file media being exceeded, resulting in either the failure to record events or over-writing of past recorded events.                                                         |\n| Someaudit logs may be required to be archived as part of the record retention policy or because of requirements to collect and retain evidence.     | Someaudit logs may be required to be archived as part of the record retention policy or because of requirements to collect and retain evidence.                                                             |\n\n| T3.6.5 ADMINISTRATOR ANDOPERATOR LOGS PRIORITY P2 APPLICABILITY BASEDONRISK ASSESSMENT                                                                                                                                                                                                                   |",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1216144,
+        "end_pos": 1217162
+      }
+    },
+    {
+      "chunk_index": 1480,
+      "content_contextualized": "Focuses on the specific security requirement for logging system administrator and operator activities, outlining the associated sub-controls for defining review frequency and ensuring logs are handled by appropriately trained personnel.",
+      "content": "|\n|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| CONTROL The entity shall log system administrator and system operator activities.                                                                                                                                                                                                                        |\n| SUB-CONTROL captured 3) Define minimum frequency requirements for reviewing administrator and operator logs 4) Ensure administrator and operator logs are reviewed by personnel with appropriate training and skills 5)",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1216962,
+        "end_pos": 1217982
+      }
+    },
+    {
+      "chunk_index": 1481,
+      "content_contextualized": "Defines the procedural requirements for reviewing and maintaining administrator and operator logs, immediately followed by implementation guidance specifying the essential time and event details that must be captured within those records.",
+      "content": "tured 3) Define minimum frequency requirements for reviewing administrator and operator logs 4) Ensure administrator and operator logs are reviewed by personnel with appropriate training and skills 5) Define minimum time requirements for maintaining administrator and operator logs |\n| IMPLEMENTATIONGUIDANCE(FORINFORMATIONPURPOSEONLY) which an event (success or failure- occurred;                                                                                                                                                                                                          |\n| Logs should include:                                                                                                                                                                                                                                                                                     |\n| A. The time at B. about the event (e.g. files handled- or failure (e.g. error occurred and action taken);",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1217782,
+        "end_pos": 1218806
+      }
+    },
+    {
+      "chunk_index": 1482,
+      "content_contextualized": "Itemizes the specific data elements—including time, event details, involved personnel, and processes—that must be captured within system logs to meet the preceding requirements for log information protection and review. This list concludes the detailed specifications for mandatory log content before the document transitions to the next control concerning fault logging (T3.6.6).",
+      "content": "|\n| A. The time at B. about the event (e.g. files handled- or failure (e.g. error occurred and action taken);                                                                                                                                                                                                |\n| Information corrective account and which administrator or operator was involved;                                                                                                                                                                                                                         |\n| C. Which                                                                                                                                                                                                                                                                                                 |\n| D. processes were involved.",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1218606,
+        "end_pos": 1219630
+      }
+    },
+    {
+      "chunk_index": 1483,
+      "content_contextualized": "Concluding the requirements for protecting log information, this detail emphasizes the mandatory regular review of system administrator and operator logs as a key security control.",
+      "content": "|\n| D. processes were involved.                                                                                                                                                                                                                                                                              |\n| Which                                                                                                                                                                                                                                                                                                    |\n| System administrator and operator logs should be reviewed on a regular basis.",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1219430,
+        "end_pos": 1220454
+      }
+    },
+    {
+      "chunk_index": 1484,
+      "content_contextualized": "Introduces the specific security control T3.6.6, which mandates requirements for fault logging based on risk assessment criteria. This control is part of a larger series of requirements focused on system logging, monitoring, and protection of log information, immediately following controls related to log protection and preceding controls on time synchronization.",
+      "content": "|\n\n<!-- image -->\n\n| T3.6.6                                                                                                                                  | FAULTLOGGING PRIORITY P3 APPLICABILITY BASEDONRISK ASSESSMENT                                                                                                                                                                                                                                                                                                                      |\n|-----------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1220254,
+        "end_pos": 1221278
+      }
+    },
+    {
+      "chunk_index": 1485,
+      "content_contextualized": "Defines the specific requirement for fault logging (T3.6.6), mandating that entities record all failures related to information processing and communication systems. This requirement is part of a broader set of security controls governing logging, monitoring, and time synchronization.",
+      "content": "----------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| CONTROL                                                                                                                                 | The entity shall log faults related to information processing or communication.                                                                                                                                                                                                                                                                                                    |\n| SUB-CONTROL",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1221078,
+        "end_pos": 1222102
+      }
+    },
+    {
+      "chunk_index": 1486,
+      "content_contextualized": "Details the sub-controls for T3.6.6, Fault Logging, outlining mandatory steps for identifying, capturing, reviewing, and retaining records of system problems, errors, and failures. This specific logging requirement is situated between general log protection policies and time synchronization controls.",
+      "content": "|\n| SUB-CONTROL                                                                                                                             | The entity shall: 1) Identify all faults to be captured in fault logs 2) Identify minimum information requirements for each fault to be captured 3) Define minimum frequency requirements for reviewing fault logs 4) Ensure fault logs are reviewed and analyzed by personnel with appropriate training and skills 5) Define minimum time requirements for maintaining fault logs |\n| IMPLEMENTATIONGUIDANCE(FORINFORMATIONPURPOSEONLY) Fault Logging enables systems to log and report faults (problems, errors or failures) | related",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1221902,
+        "end_pos": 1222926
+      }
+    },
+    {
+      "chunk_index": 1487,
+      "content_contextualized": "Introducing the security control T3.6.7, this header shifts the focus from Fault Logging to the requirement for Clock Synchronization. It establishes the title and priority level for the subsequent detailed requirements concerning accurate timekeeping across information systems.",
+      "content": "|\n\n<!-- image -->\n\n| T3.6.7                                                                                                                                                                                                                                                                                                                                                                                                                                 | CLOCK SYNCHRONIZATION PRIORITY P4 APPLICABILITY BASEDONRISK ASSESSMENT",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1222726,
+        "end_pos": 1223750
+      }
+    },
+    {
+      "chunk_index": 1488,
+      "content_contextualized": "No Context",
+      "content": "SEDONRISK ASSESSMENT                                                                                                                                                                                                                                                                                                                                                                 |\n|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1223550,
+        "end_pos": 1224574
+      }
+    },
+    {
+      "chunk_index": 1489,
+      "content_contextualized": "This control shifts focus from fault logging requirements to establishing accurate time synchronization across all information systems. It mandates using an agreed accurate time source to ensure reliable timestamps for security events and is immediately followed by specific implementation guidance.",
+      "content": "-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| CONTROL                                                                                                                                                                                                                                                                                                                                                                                                                                | The entity shall synchronize clocks of all relevant information systems with an agreed accurate time source.",
+      "metadata": {
+        "source_file": "Inforamation Security.pdf",
+        "file_size": "6375955",
+        "file_hash": "8ac2fee2",
+        "processed_at": "1759056839.5237064",
+        "content_length": "2266169",
+        "chunk_method": "simple_text",
+        "chunk_size_config": 1024,
+        "chunk_overlap_config": 200,
+        "start_pos": 1224374,
+        "end_pos": 1225398
       }
     }
   ]

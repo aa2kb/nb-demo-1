@@ -89,8 +89,10 @@ def create_text_nodes(vectors_data, source_file):
         }
         
         # Create TextNode
+        content = chunk_data.get('content', '')
+        context = chunk_data.get('content_contextualized', '')
         node = TextNode(
-            text=f"{chunk_data.get('content', '')}\n\nContext: {chunk_data.get('content_contextualized', '')}",
+            text=f"{content}\n\nContext: {context}",
             metadata=metadata,
             id_=f"{source_file}_chunk_{chunk_data.get('chunk_index', i)}"
         )
