@@ -18,12 +18,14 @@ export OPENAI_API_BASE_URL="http://localhost:8000/v1"
 export OPENAI_API_KEY="local-api"
 export HOST="0.0.0.0"
 export PORT="8080"
+export ENABLE_FOLLOW_UP_GENERATION=false
 
 echo "Starting Open WebUI with configuration:"
 echo "- API Base URL: $OPENAI_API_BASE_URL"
 echo "- API Key: $OPENAI_API_KEY"
 echo "- Host: $HOST"
 echo "- Port: $PORT"
+echo "- Follow-up Generation: $ENABLE_FOLLOW_UP_GENERATION"
 
 # Start Open WebUI
 open-webui serve

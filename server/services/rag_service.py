@@ -7,6 +7,7 @@ from llama_index.core.vector_stores import MetadataFilters, MetadataFilter, Filt
 from llama_index.vector_stores.postgres import PGVectorStore
 from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.llms.ollama import Ollama
+from llama_index.llms.gemini import Gemini
 from crewai.tools import BaseTool
 from typing import Type
 from pydantic import BaseModel, Field
@@ -30,14 +31,14 @@ class HRRAGTool(BaseTool):
     
     # === RAG CONFIGURATION CONTROLS ===
     # Retrieval settings
-    retriever_top_k: int = 5          # Number of documents to retrieve initially
+    retriever_top_k: int = 10          # Number of documents to retrieve initially
     
     # Reranking settings  
-    use_reranking: bool = False         # Enable/disable reranking step
-    reranking_top_n: int = 3          # Number of documents after reranking
-    
+    use_reranking: bool = True          # Enable/disable reranking step (using Gemini Flash)
+    reranking_top_n: int = 5            # Number of documents after reranking
+
     # Generation settings
-    max_context_chunks: int = 3        # Maximum chunks to use for response generation
+    max_context_chunks: int = 10        # Maximum chunks to use for response generation
     
     def _run(self, question: str) -> str:
         """Main RAG pipeline execution."""
@@ -46,22 +47,22 @@ class HRRAGTool(BaseTool):
             print("=" * 50)
             
             # Setup components
-            vector_store, embed_model, index, llm = self.setup_components()
+            vector_store, embed_model, index, gemini_llm, ollama_llm = self.setup_components()
             
             # Step 1: Retrieve
             retrieved_nodes, query_bundle = self.retrieve_documents(index, question, self.retriever_top_k)
             if not retrieved_nodes:
                 return "No relevant HR documents found in the database."
             
-            # Step 2: Rerank (optional)
+            # Step 2: Rerank (optional) - Use Gemini Flash for fast, accurate reranking
             if self.use_reranking:
-                final_nodes = self.rerank_documents(retrieved_nodes, query_bundle, llm, self.reranking_top_n)
+                final_nodes = self.rerank_documents(retrieved_nodes, query_bundle, gemini_llm, self.reranking_top_n)
             else:
                 print("🔄 Skipping reranking (disabled)")
                 final_nodes = retrieved_nodes[:self.reranking_top_n]  # Use top N without reranking
             
-            # Step 3: Generate
-            response = self.generate_response(final_nodes, question, llm)
+            # Step 3: Generate - Use Ollama for generation
+            response = self.generate_response(final_nodes, question, ollama_llm)
             
             print(f"✅ Generated response: {response[:100]}...")
             return response
@@ -118,14 +119,32 @@ class HRRAGTool(BaseTool):
             embed_model=embed_model
         )
         
-        # Setup LLM for reranking and generation with timeout
-        llm = Ollama(
+        # Setup Gemini Flash for reranking (fastest with large context)
+        gemini_api_key = os.getenv("GEMINI_API_KEY")
+        if not gemini_api_key:
+            print("⚠️ GEMINI_API_KEY not found, using Ollama for reranking instead")
+            # Fallback to Ollama for both reranking and generation
+            gemini_llm = Ollama(
+                model="mistral:7b",
+                base_url="http://localhost:11434",
+                request_timeout=60.0
+            )
+        else:
+            gemini_llm = Gemini(
+                model="gemini-1.5-flash",  # Updated model name format
+                api_key=gemini_api_key,
+                temperature=0.1,  # Low temperature for consistent reranking
+                max_tokens=8192   # Reasonable limit for reranking tasks
+            )
+        
+        # Setup Ollama for generation (keep existing for consistency)
+        ollama_llm = Ollama(
             model="mistral:7b",
             base_url="http://localhost:11434",
             request_timeout=60.0  # 60 seconds timeout
         )
         
-        return vector_store, embed_model, index, llm
+        return vector_store, embed_model, index, gemini_llm, ollama_llm
     
     def retrieve_documents(self, index, question: str, top_k: int):
         """Step 1: Retrieve relevant documents from HR Bylaws."""
@@ -155,8 +174,8 @@ class HRRAGTool(BaseTool):
         return retrieved_nodes, query_bundle
     
     def rerank_documents(self, retrieved_nodes, query_bundle, llm, top_n: int):
-        """Step 2: Rerank documents using LLM."""
-        print(f"� Reranking {len(retrieved_nodes)} documents to top {top_n} (this may take 30-60 seconds)...")
+        """Step 2: Rerank documents using Gemini Flash LLM."""
+        print(f"📄 Reranking {len(retrieved_nodes)} documents to top {top_n} using Gemini Flash (fast & accurate)...")
         
         if not retrieved_nodes:
             return []

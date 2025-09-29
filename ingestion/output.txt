@@ -1,4 +1,4 @@
-Question: Appointment of Graduate Trainees
+Question: Priority for Vacant Positions
 Filter: filename = 'HR Bylaws_2f9c1749.md'
 ==================================================
 
@@ -6,53 +6,25 @@ Found 10 relevant chunks (HR Bylaws only):
 
 Chunk 1 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-## Article ( 20 ) Probationary Period
+Exception may be made after the approval of the Authority.
+- c. If  their  service  is  terminated  due  to  their  incapacity  to  carry  out  their  duties  during  the probationary period, or whose service has already been terminated as a result of their dismissal by a disciplinary decision, a court ruling, or a final judgment that restricts their freedom due to a felony or misdemeanour involving breach of honour or trust.
 
-1. The employee appointed by the government authority shall be subject to a probationary period of three months starting from the date they take over the work, and it may be extended for another similar period from the date they take over the work.
-2. The line officer shall carry out accurate followup to evaluate the employee's job performance and behaviour according to clear bases during the probationary period, in accordance with the procedures specified by the government authority, and shall assist and direct the employee to develop their job performance and behaviour. In the light of the evaluation result, the line officer may either recommend the employee for tenure, the extension of the probationary period, or the termination of their services if it is proved that they are unfit for the job, before the expiration of a period of three months from the date of the employee taking over the job.
-3. During the probationary period, the service of the employee may be terminated if they do not prove their competence or merit to carry out their job duties, or because of their unsatisfactory performance or behaviour, by a decision of the head of the government authority, in accordance with the approved procedures, provided that they are given a notice period of (5) working days.
-4. An employee may resign from their job during the probationary period, provided that they notify their employer of the same through their line officer, and that it be before (5) working days from the date of resignation.
+## Article ( 12 ) The approved domicile of the non-national employee
 
-5. If  a  period  of  three  months  lapses  from  the  date  of  the  employee  taking  over  their  work  without terminating their service or extending the probationary period, they shall be tenured to the job to which they were appointed.
-6. The probationary period of the employee shall be extended by an equal number of leave days granted to them during the probationary period.
-7. The probationary period shall be calculated as part of the employee's continuous service period with the government authority.
+1. The approved domicile of a non-national employee shall be determined in the employment contract based on his nationality provided upon appointment.
+2. An employee's approved domicile shall not be automatically changed at the registry of the Government Authority after changing their nationality, acquiring another nationality or changing their residence after appointment, unless approved by the head of the Government Authority.
+3. The approved domicile for eligible non-citizen family members shall be the same domicile approved in the records of the government authority, regardless of their nationalities or actual place of residence.
 
-Score: 0.4761879302191623
+## Article ( 13 ) Priority for Vacant Positions
+
+The order of priority for vacant positions in the Government Authority shall be as follows:
+
+1. A citizen employee of the same Government Authority who meets the conditions and requirements of the job.
+
+
+Score: 0.5829104532546169
 
 Chunk 2 (from HR Bylaws_2f9c1749.md):
-------------------------------
-- c. The Human Resources Department shall notify the employees in writing at least three months prior to the date specified for their retirement or termination of service.
-- d. The employee's service shall be extended after reaching the retirement age for one year or more in accordance with the following provisions:
-
-- -The service of a citizen employee may be extended after reaching the age of retirement in cases required by the work interest until they reach the age of seventy for males and the age of sixtyfive for females, as a maximum, by virtue of a decision of the head of the government authority, provided that a report is available from the health authority stating their fitness for work, and that they submit a performance report of no less than -Good- for each year during which the service is extended.
-- -The service of a non-citizen employee may be extended after reaching the age specified in Clause (1-b) of this article in cases required by the work interest until they reach the age of sixty-five for males and the age of sixty for females, as a maximum, by virtue of a decision of the head of the government authority, provided that this is limited to those who occupy the positions of experts and consultants, provided that a report from the medical committee is available stating that they are fit for work, and that they submit a performance report of - no less than Good- for each year during which the service is extended.
-- -The appointing authority may terminate the employee's service at any time during the service extension period, without mentioning the reasons, by virtue of a two-month written warning or the remaining period of the end of the service extension period, whichever is less.
-- e. Retirement of the Suspended Employee:
-- -If the employee reaches the age of retirement while serving the period of pre-trial detention or suspension from work as a disciplinary penalty, they shall be retired during that period.
-- -The citizen employee's pension rights shall be settled and disbursed thereto in accordance with what is decided in the Retirement Pensions and Benefits Law in force in the Emirate.
-
-## 2.  Total Disability or Unfitness for Service:
-
-- a. Subject to the relevant provisions of the Retirement Pensions and Benefits Law in force in the Emirate, the employee's service shall end if their total disability or unfitness for service is proven, in accordance with a report issued by the competent medical committee.
-- b. The date of the employee's termination of service shall be determined as of the date of issuance of the report of the competent medical committee.
-- c. The period spent by the employee who continues to serve during the period from the date of issuance of the report of the competent medical committee until the date of  issuance of the decision to terminate their service by the competent authority shall not be counted within their actual  service  for  the  purposes  of  retirement  for  citizens  or  end-of-service  benefits  for  noncitizens. The employee's salaries during this period are considered wages for work, and for the citizen employee, the contributions deducted from their salary for the benefit of the retirement fund shall be returned to them.
-- d. The government authority may not terminate the service of an employee with a disability for unfitness for service due to their stable health condition when they were appointed.
-
-## 3. Resignation:
-
-- a. The employee may submit a written request to resign from their job - without the obligation to give reasons - with at least two months' written warning.
-- b. The government authority must reply to the resignation request within (30) days from the date of its submission, otherwise the resignation will be considered accepted subject to a statute of limitations.
-
-- c. The  government  authority  shall  discuss  the  employee's  resignation  request  to  find  out  the reasons that led them to do so and try to settle their situation to retain them if it has an interest in that.
-- d. The employee shall not leave work before the date specified in the resignation, or before thirty days from the date of submitting the resignation without a reply from the government authority. If  they  cease  to  work  during  this  period  without  a  legitimate  excuse,  the  provisions  of  the discontinuance provisions set forth in these regulations shall apply.
-- e. The employee may withdraw his resignation, provided that this is before the issuance of the decision of the head of the government authority to accept the resignation, or before (30) days from the date of its submission, as soon as the employee submits a written notification to their direct supervisor.
-- f. In order to clarify the reasons, the government authority shall conduct an interview with the employee who submits his resignation or request for transfer.
-
-## 4.
-
-Score: 0.3638478029230694
-
-Chunk 3 (from HR Bylaws_2f9c1749.md):
 ------------------------------
 2. A citizen candidate from outside the Government Authority who has completed national  service or submitted a certificate indicating his relevant status (if the candidate had to enlist in national service or if he has been exempted from it).
 3. Citizen candidate from outside the government authority.
@@ -74,52 +46,127 @@ The Government Authority shall evaluate the candidate in accordance with the nat
 
 - Authority  shall  notify  the  candidate  of  their  admission  upon  the  terms,  requirements  and financial and functional allowances prescribed.
 - b. Candidates  shall  be  rejected  if  they  haven't  passed  the  necessary  tests,  examinations  and obtained relevant approvals or if the conditions and requirements of the appointment set forth in the law and regulations herein are not met. The candidate shall be notified of the result.
-4. Appointment decision
-- The decision to appoint the candidate shall be issued by the head of the Government Authority based on the recommendation of the Human Resources Committee, provided said decision determines the job title, job degree and sub-degree that the employee would occupy, as well as their total salary.
-5. Commencement of employment
-- a. Employment may not be commenced prior to the appointment decision.
-- b. The  date  of  commencement  of  employment  at  the  Government  Authority  shall  be determined by agreement with the appointed employee, no later than three months after the date of issuance of the appointment decision.
-- c. An employment contract shall be concluded with the employee prior to his commencement of  employment  at  the  Government  Authority,  and  after  issuance  of  the  appointment decision. The said contract shall be signed by both the head of the Government Authority and the appointed employee.
-- d. The Government Authority shall act in accordance to the forms of employment contracts issued  by  the  Authority  and  may  not  make  any  amendment  thereto  except  with  the Authority's approval.
-- e. Before assuming their duties, the employee shall review the Rules of Professional Conduct for Government Entity Employees of and sign a copy thereof.
-- f. Upon job commencement, the employee shall sign an acknowledgment of receipt of the work,  indicating  the  work  commencement  date,  provided  that  the  acknowledgment  is approved by the head of the department to which the employee is affiliated, and is kept in the employee's service file.
-- g. Upon job commencement, the employee shall sign a declaration that they do not work for any civil or military government entity and do not receive any pension, provided that the
 
-declaration is approved by the head of the department to which the employee is affiliated, and it is kept in the employee's service file.
 
-## Article ( 15 ) Appointment of Graduate Trainees
+Score: 0.5459533929824985
 
-1. Fresh graduates who are candidates for appointment shall be given special attention when they are being appointed to work in the government entity during the onboarding and functional development to hold a position in the approved organizational structure of the government entity.
-2. The graduate trainee in government entities shall be granted a stipend according to the duration of the training program and according to the schedule attached to these Regulations.
-3. No candidate shall be appointed in job Grades 4 to 6 except after they successfully pass the training period, except for candidates with previous practical experience.
-4.
+Chunk 3 (from HR Bylaws_2f9c1749.md):
+------------------------------
+## 2. Compensation for Recruitment
 
-Score: 0.3607328871625748
+The head of the government authority may determine the percentage of the compensation for recruitment for the new employee of the third grade and above, according to the following controls:
+
+- a. The value of the compensation shall not exceed (200%) of the employee's basic salary.
+
+- b. This compensation shall not be granted to more than (5) employees per year.
+
+- c. This compensation shall not be disbursed until the employee successfully passes the probationary period.
+
+- d. This compensation shall be paid to the employee only once throughout the period of their service in the government authority.
+
+
+
+Score: 0.5044521694722414
 
 Chunk 4 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-- d. Notice allowance in accordance with the relevant clause of these regulations, where applicable.
-- e. End of service benefits for non-citizen employees and other benefits specified in these regulations, where applicable.
-- f. Any additional compensation or benefits, which the employee whose service is ended may be entitled to, as applicable, including overtime compensation due to them or compensation for total or partial permanent disability or death in accordance with the provisions of these regulations and the laws and systems in force.
-2. Citizen employees shall be subject to the provisions of the Retirement Pensions and Benefits Law in force in the Emirate at the end of their service with the government authority.
+2. Expiry of the authorization period.
+3. End of the purpose for which the authorization was granted.
+4. Revocation of the authorization decision.
 
-3. A non-citizen employee shall be entitled to an end-of-service gratuity at the end of their service for any of the reasons specified by the law, as follows:
-- a. One month's salary for each of the first five years of service.
-- b. One and a half month's salary for each year of the second five years of service.
-- c. Two months' salary for each of the following years of service in excess of that.
-4. The provisions prescribed in the legislations and regulations issued in this regard by the competent authorities in the Emirate shall apply to the employee who is allocated housing by the government authority at the end of his service.
-5. The government authority may deduct from the final settlement amount due to the employee whose service is ended all amounts owed to the government or that are required by law or that the employee has previously agreed to deduct from their salary, including the salary for the periodic leave days in excess of what they are entitled to, taking into account the provisions for death grant.
+5. Revocation of the position occupied by the authorized person, transferring it from them, or changing its job title.
+6. Vacancy in the position of the person to whom the authorities have been delegated, for whatever reason, whether permanently or temporarily.
+7. Three  months  have  elapsed  from  the  date  of  appointment  of  another  government authority chairman.
 
-## Article ( 138 ) Approval of the Final Settlement
+## Regulating public jobs
 
-The  employee  whose  service  is  ended  or  their  legal  heirs,  as  the  case  may  be,  shall  sign  an acknowledgement stating their  approval  of  the  full  final  settlement  of  their  entitlements.  Appropriate procedures in this regard shall be taken when the entitlements of the deceased employee are handed over.
+## Chapter II Article ( 7 ) General Policy
 
-Score: 0.35676671781957203
+1. The Executive Council shall issue a decision regulating public functions, including the mechanism for analysing, evaluating, classifying and regulating their grades.
+2. The Government Authority shall prepare the organizational structure that is commensurate with its strategic objectives and needs in terms of jobs required to accomplish the work and tasks assigned to it, in accordance with the public jobs law issued by the Executive Council.
+
+3. The government authority shall prepare the jobs budget in coordination with the Authority and the Department of Finance in light of the five-year human resources plan in accordance with the financial rules in force in the Emirate.
+4. The job budget shall be prepared in accordance with the approved organizational structure of the Government Authority and the annual employment plan, and includes the following:
+- a. Types of jobs, their job titles, corresponding job grades, and financial allocations set for them.
+- b. Total job positions approved in the organizational structure.
+- c. Part of the job budget should be allocated to recruiting graduate trainees.
+
+
+Score: 0.49516975937253305
 
 Chunk 5 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-- b. The amounts owing to the employee for any of the raises, bonuses, allowances, job benefits, end of service benefits are rounded to the nearest monetary unit (25-50-75) fils.
-6. The calculation of the degree of kinship for the purposes of applying the provisions of this regulation shall  be  done  in  accordance  with  the  provisions  of  the  Civil  Transactions  Law  of  the  United  Arab Emirates issued by the Federal Law No. (5) of 1985 and its amendments. The following table can be used to determine the degrees of kinship:
+Giving priority to employees using external roads.
+
+
+
+Score: 0.49506229162217585
+
+Chunk 6 (from HR Bylaws_2f9c1749.md):
+------------------------------
+The program to which the employee is subject should be within the relevant approved annual training plan .
+
+## Article ( 51
+
+## Chapter 8
+
+## Promotions ) General Policy
+
+The employee is promoted according to the following conditions:
+
+1. By virtue of a decision of the head of the Government Authority based on the recommendation of the Human Resources Committee, provided said decision determines the job title and job degree that the employee would occupy, as well as the total salary and the effective date.
+2. The required approvals shall be obtained from the competent authorities before the issuance of the promotion decision.
+
+
+Score: 0.48765878195446655
+
+Chunk 7 (from HR Bylaws_2f9c1749.md):
+------------------------------
+5. The chairman of the Government Authority may make adjustments to the approved annual job budget by adding, cancelling or transferring financial allocations between said jobs within the limits of the financial appropriations for the annual budget and in accordance with the financial rules in force in the Emirate and the public job regulation issued by the Executive Council.
+6. The number of employees may not exceed the total number specified in the annual job budget and contained in the approved organizational structure of the Government Authority, regardless of the tool for filling the job, unless there is a special provision for that.
+7. The Government Authority shall plan for its future needs in terms of human resources for the next five years and have it approved by the chairman of the Government Authority, provided that a copy of the approved plan is provided to the Authority and it is notified of any amendments to it.
+8. The Government Authority shall nationalize its jobs in accordance with the legislation issued in this regard.
+9. The Government Authority shall implement the approved five-year human resources plan through an annual  recruitment  plan  that  is  prepared  according  to  the  approved  job  budget.  The  annual employment plan and any amendments thereto shall be approved by the chairman of the Government Authority.
+
+## Article ( 8 ) Human Resources Committee
+
+The  Authority  shall  issue  a  guide  for  the  work  of  the  Human  Resources  Committee  in  government authorities.
+
+## Article ( 9
+
+## Chapter III
+
+## Appointment ) General Policy
+
+1. Appointment  in  the  Government  Authority  shall  be  based  on  vacant  positions  in  the  approved organizational structure, which have an approved job description card and are included in the job budget, according to what is decided in this regulation.
+2. An employee may not work under the direct supervision of his spouse or any of his relatives up to the fourth degree.
+3. The employee shall not participate in any decisions related to the appointment of his spouse or any of his  relatives  up  to  the  fourth  degree  or  in-laws  up  to  the  second  degree.  The  employee  shall  be responsible for reporting the relationship in writing and not participating in the decisions.
+
+
+Score: 0.48623597129678053
+
+Chunk 8 (from HR Bylaws_2f9c1749.md):
+------------------------------
+6. They  should  not  have  been  previously  dismissed  from  service  by  virtue  of  a  final  disciplinary judgement or decision unless at least two years have elapsed since its issuance. The period may be reduced to one year or they may be exempted from this condition if the appointment authority finds justification for that.
+7. They shall prove their physical fitness for the job. The health fitness conditions shall be determined by virtue  of  a  decision  from  the  Authority  after  agreement  with  the  relevant  health  authorities  in accordance with health regulations and standards.
+8. They shall have the necessary qualification for appointment to the job, and the qualification shall be duly certified and equalized by the competent authorities.
+
+9. The candidate shall meet the requirements and conditions for occupying the job according to the approved job description and the schedule of the minimum periods of total experience required for appointment to the jobs.
+
+## Article ( 11 ) Conditions for Appointing Non Nationals
+
+1. As an exception to Clause (1) of the previous article, an expatriate may be appointed, provided that there is no national candidate who meets the conditions and requirements for occupying the position, after the approval of the Authority.
+2. In order to appoint an expatriate, they shall not be bound by a contract with another government authority, unless that authority has notified them of its unwillingness to renew the contract.
+3. The contract of an expatriate employee may not be renewed except after ensuring that there is no national candidate who meets the requirements to fill the position, and after obtaining the approval of the Authority.
+4. An expatriate may not be appointed in any of the government authorities in the following cases:
+- a. If  they  previously  worked  in  a  Government  Authority  and  received  a  performance  evaluation report result that is less than (good) compared to their last performance evaluation.
+- b. If their service was terminated by dismissal for the public interest or by reason of interruption of employment. 
+
+Score: 0.4853534084979817
+
+Chunk 9 (from HR Bylaws_2f9c1749.md):
+------------------------------
+The following table can be used to determine the degrees of kinship:
 7. The  government  authority  shall  commit  to  grant  equal  opportunities  to  train  and  qualify  citizens seeking work in coordination with the Authority, in accordance with the rewards controls and system approved by the Executive Council.
 
 | Degrees of kinship   | Kinship                                                              |
@@ -132,247 +179,29 @@ Chunk 5 (from HR Bylaws_2f9c1749.md):
 
 8. The government authority shall commit to train and qualify the citizen employee in order to replace the job occupied by the non-citizen employee, or to notify the Authority to include the needs of the government authority in terms of educational disciplines required for that job in coordination with concerned authorities - as the case may be.
 
-## Article ( 4 ) Delegation of Powers
 
-1. The head of the government authority shall be responsible for the proper application of the provisions of the law, this regulation, systems, decisions, and guides issued in implementation thereof. They may delegate some of their powers as needed and in the interests of the work, provided that the delegation does not violate the law and the delegator is eligible for what they delegate.
-2. Delegation does not exempt the head of the government authority from the responsibility of their powers and authorities established by virtue of their position, and the delegate must always adhere to consistency and good judgement when exercising what they have been delegated, and in the interests of the work.
 
-## Article ( 5 )
-
-1. Delegation is made by an administrative decision from the  head of the government authority or their equivalent, which includes the delegated authorities and powers, the name of the delegated employee, job title, and the delegation period, provided that this is included in the authorities and powers table of the government authority.
-2. The delegation decision must determine the name and capacity of the person replacing the delegate, and that in the event of their absence together , they shall be replaced by the higher official of the person who was originally delegated.
-
-3. The authorities and powers are delegated to the employee in their functional capacity, at the discretion of the head of the government authority, according to the administrative decision issued in this regard, and accordingly the delegate assumes the authorities and powers delegated to them.
-4. No delegate may authorize others except with the approval of the head of the government authority.
-5. Authorities  and  powers  are  determined  based  on  the  approved  organizational  structure  of  the government authority, provided that the table of authorities and powers is reviewed when making any amendments to the organizational structure or changing the occupants of executive management jobs in the government authority and other levels.
-6. If  an  employee  is  assigned  the  work  of  another  employee,  this  does  not  entail  that  the  assigned employee  exercises  the  powers  delegated  to  the  one  who  used  to  occupy  the  job,  unless  this  is stipulated in the assignment or delegation decision.
-7. The employee may not approve the disbursement of a benefit or allowance that pertains to them personally, unless this is in implementation of the provisions of the laws and regulations in force and the policies approved in this regard.
-8. Given that the authority vested in the office holder stems primarily from the position they occupy, the power and authority to disburse is in accordance with the powers of the position they occupy and within the limits of the amounts contained in the approved budget of the government authority and in accordance with the provisions in force in this regard.
-
-## Article ( 6 )
-
-Delegation shall cease in any of the following cases:
-
-1. End of service of the authorized person.
-2. Expiry of the authorization period.
-3. End of the purpose for which the authorization was granted.
-4.
-
-Score: 0.34722567598273024
-
-Chunk 6 (from HR Bylaws_2f9c1749.md):
-------------------------------
-As such, such employee shall not ask to carry it out to the next year, postpone it or ask for a cash allowance in lieu thereof.
-
-## Article ( 90 )
-
-A breastfeeding employee shall be entitled to two hours of daily leave (if she desired), after the end of the maternity leave and for a period of one year from the date of delivery to take care of her new-born. These departure hours are considered part of the official working hours, even if the official working hours are reduced in the month of Ramadan.
-
-## Article ( 91 ) Paternity Leave
-
-An employee who gives has a new-born shall be granted paternity leave with a total salary for a period of three consecutive or intermittent working days during the first six months of the birth of his child.
-
-## Article ( 92 ) Bereavement/Mourning Leave
-
-1. The  employee  shall  report  the  death  according  to  their  circumstances,  provided  that  they  submit acceptable proof after returning from leave.
-2. This leave shall not apply to the Muslim female employee whose husband has passed away, as she shall be subject to the provisions of the Iddah period leave.
-3. The employee shall be granted a mourning leave as follows:
-- a. For a period of (5) working days in the event of the death of his spouse, an ascendant, descendant, relative or in-law of the first degree.
-- b. For a period of (3) working days for second degree relatives.
-- c. For a period of one working day for third degree relatives.
-
-## Article ( 93 )
-
-The mourning leave shall be calculated according to the following:
-
-1. Starting from the date of burial of the deceased inside the country.
-
-2. Within a month from the date of death, if the deceased was buried abroad.
-
-## Article ( 94 ) Iddah Leave
-
-1. A Muslim female employee whose husband dies shall be granted a paid Iddah leave of four months and ten days from the date of the husband's death.
-2. The female employee shall report the death according to her circumstances, provided that she submits acceptable evidence.
-
-## Article ( 95 ) Hajj Leave
-
-1. A Muslim employee shall be granted a Hajj leave with a total salary to perform the Hajj pilgrimage once during their service in the government.
-2. The Hajj leave shall be authorized for a period of (15) working days.
-3. This leave shall be counted within the employee's service period and granting it does not affect their annual periodic leave entitlement.
-4. If the employee decided not to take a Hajj leave, such leave shall not be considered an acquired right for them, and shall not be included in calculating the accrual periodic leave balance at the end of their service.
-5. Upon their return, the employee shall submit documents proving his performance of the Hajj during the leave period.
-6. The total salary of the employee for this leave may be paid in advance at their request, provided that the request is made (15) days before the start date of their leave.
-
-## Article ( 96 ) Patient Accompaniment Leave
-
-The head of the government entity, based on the recommendation of the Human Resources Committee, shall grant the employee leave to accompany any of the following persons to receive treatment inside the country or abroad: their spouse, a first-degree or second-degree relative, a dependent, or other persons as decided in a ruling issued by a competent court regardless of the degree of kinship.
-
-## Article ( 97 )
-
-During the patient accompaniment leave, the following shall apply:
-
-1. Payment of total salary for a period not exceeding two months in one calendar year.
-2. Possibility of extending the paid leave for a month.
-3. Possibility of extending the patient accompaniment leave for longer periods without pay, by two months each time, if required by the circumstances, provided that documents supporting entitlement are submitted.
-
-## Article ( 98 )
-
-1. As a condition to granting a patient accompaniment leave within the country, the patient should be staying in the hospital - with the exception of a patient with a disability - and a document should be submitted proving that the employee is accompanying the patient during the treatment period, with a maximum number of (2) companions per case, in accordance with the controls set by the Department of Health.
-2. In order to grant a patient accompaniment leave outside the country, a letter shall be provided by the entity responsible for the treatment or the health attaché of the country's embassy in the country of treatment, proving that the employee accompanied the patient during the treatment period.
-
-Score: 0.34352523635194476
-
-Chunk 7 (from HR Bylaws_2f9c1749.md):
-------------------------------
-The  Government  Authority  shall  be  responsible  for  the  identification  of  annual  training  and  job development  needs  for  its  employees  in  accordance  with  the  results  of  annual  performance  and competency evaluation as per the rules of job development, which are determined by the Academy, and in a way that supports the strategies and objectives of the Government and Government Authority.
-2. The Government Authority is committed to provide training and continuous learning to the employee to grow their individual talents, develop their capabilities and achieve the job interest according to career paths and objectives as per the tasks and needs of the Government Authority.
-3. The deployment of employees for training sessions shall be based on the decision of the head of the Government  Authority,  except  for  the  training  programs  that  are  implemented  by  the  Academy,  as attendance is mandatory.
-
-4. Except for the training programs implemented by the Academy, training sessions within and outside the State  are  limited  to  citizen  employees.  In  case  it  was  required  to  include  a  non-citizen  employee  in training sessions, the Government Authority shall coordinate with the Academy in this regard.
-5. The Government Authority is committed to planning and the provision of the required resources to train and develop the skills and capabilities of its citizen employees and increase the level of specialized and leadership competencies to enable them to perform their current and future job duties in the best way and create continuous learning culture at all levels.
-6. The Government Authority shall benefit from government resources and services provided centrally by specific authorities in the Emirate to ensure the consistency of the general executive framework and the alignment of the unified Kingdom vision.
-7. The  Government  Authority  is  committed  to  measure  the  efficiency  and  return  of  training  and development to ensure the best investment of government resources; it shall also provide the Academy with the results of training and development on a yearly basis.
-8. The Government Authority shall study and determine the training needs and individual development plans  for  all  of  its  citizen  employees  and  adopt  an  annual  training  plan,  in  light  of  the  results  of performance training, through the areas of improvement and development, which are determined by the line manager in the document of the employee's annual performance evaluation, or as needed.
-9. The Government Authority shall consider the inclusion of its training needs plans within the approved budget to cover the costs of training implementation and the costs of deployment.
-10. The Government Authority may contract with specialized training authorities and benefit from the best practices  to  implement  the  job  development  and  training  programs,  whether  local  or  international, pursuant to the relevant applicable legislations; it may also prioritise internal human resources that are qualified for specialized training sessions.
-
-11. The Government Authority may terminate the participation of the employee in the training program, in case their conditions or the business need or the general interest require so.
-12. Before placing and deploying the employee to attend the training program, the Government Authority shall agree with the employee on a period during which the employee shall undertake to work therefor. In case they breach this commitment without a valid reason, they shall settle all the costs incurred by the Government Authority for their training and development.
-13. The employee shall undertake to attend the whole training program and abide by its requirements. The days of absence from the training program -if they fail to come to their workplace- should be treated as decided within this regulation in this regard.
-14. The employee shall undertake to settle the actual financial cost incurred by the Government Authority for their deployment to the training program, in case they fail to commit to the attendance requirements and the completion of the training program without a valid reason.
-15. The employee shall benefit from the job development opportunities that are available in the Authority by  undertaking  to  participate  effectively  in  the  development  and  implementation  of  their  own development plan, applying the acquired knowledge and skills in the work environment, and activating learning exchange with their colleagues, which promotes the culture of continuous personal learning.
-
-## Article ( 48 ) Minimum hours of training per year
-
-1. The training of the graduate trainee shall last for the period prescribed in the applicable legislations.
-2. The minimum training hours for all the employees that are eligible for training shall be equal to 40 training hours, (5 business days) each year.
-
-Score: 0.3403083719477561
-
-Chunk 8 (from HR Bylaws_2f9c1749.md):
-------------------------------
-Compensation for Overtime
-
-The employee shall be paid for the overtime work they perform outside the official working hours in a compensation not exceeding (50%) of the employee's basic salary and a maximum of 4,000 dirhams per month in the following cases:
-
-| Conditions of Entitlement                                                                                                                                                                                                                                                                                                                   | Method of calculating the value of compensation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1. The employee is requested to perform the additional work in writing. 2. The overtime work should not be part of the employee's original duties that they perform during the working hours specified for them. 3. The tasks that the employee is assigned to accomplish shall not be the result of negligence or default from their part. | 1. The number of additional hours shall be calculated after the employee performs (40) basic work hours per week as follows: 2. An hourly work salary = the employee's basic salary / 160 working hours per month, provided that the number of overtime hours per month does not exceed (80) working hours, and a maximum of (4) hours per day . 3. Anemployee entitled to overtime compensation maychoose between overtime compensation or days equal to the total number of overtime hours they worked at the rate of one day for every (8) working hours. |
-
-## 4. Compensation for Deployment
-
-- a. An employee deployed on an official mission shall be entitled to a daily compensation to cover the expenses they incur in order to perform the  mission assigned to them according to the schedule attached to this Regulation.
-- b. Deployment on official or training missions inside or outside the country shall take place by a decision of the head of the government authority. The head of the government authority may also deploy non-workers in the government authority on official missions outside the country or include them in official delegations - if the need arises - and the deployed person shall be treated according to the category determined by the deployment decision, provided that the decision specifies the party who shall bear the expenses.
-
-- c. The delegation decision must include a statement of the nature and objectives of the mission, the  employee  assigned  to  perform  it,  the  authority  to  which  they  are  delegated,  and  the duration of the delegation.
-- d. The duration of the deployment outside the country shall be determined by the duration of the official or training mission, in addition to one day for travel and one day for return from travel for countries whose travel hours are less than (10) hours, and two days for travel and two days for return from travel for countries whose travel hours are not less than (10) hours, regardless of the actual date of travel and return.
-- e. The period of deployment within the country shall be determined in actual days for the official or training mission.
-- f. The employee assigned to an official or training mission inside or outside the country shall be granted, in addition to their total monthly salary, a daily allowance for every day or part of a day spent in the official or training mission. This allowance shall include accommodation, food, petty cash, and transportation expenses.
-- g. The deployment compensation shall be paid for the period of deployment within the country to another city in the Emirate other than the one in which the concerned employee's workplace is  located,  or  outside  the  country,  and  the  monetary  value  of  the  compensation  shall  be calculated as follows:
-6. -100% of the value of the compensation if the duration of the assignment or training course exceeds one day in the event that the employee bears the expenses of accommodation, food, and transportation without the government authority or the authority to which they are delegated.
-7. -30% of the compensation value in case of return on the same day.
-
-- -50% of the allowance value if the employee is hosted by the authority to which they are delegated, and the same value shall be paid to those enrolled in the National Defence College in the event that the official mission is outside the country only.
-- h. The government authority may, at the request of the concerned employee, disburse them the full  deployment  compensation  before  the  deployment  date,  and  if  the  deployment  period exceeds (30) days, it will be disbursed on a monthly basis. Should the employee fail to attend the official mission or training course, the previously paid compensation for deployment shall be deducted, along with the entitlement of the first salary following the date of deployment.
-
-Score: 0.3340371053264237
-
-Chunk 9 (from HR Bylaws_2f9c1749.md):
-------------------------------
-The head of the government authority may, upon a written request from the employee, transfer them from full time to part time or vice versa.
-2. The service of an employee whose work is transferred from part-time to full-time or vice versa shall be  considered  a  continuous  service  since  the  date  of  their  appointment  with  the  government authority.
-
-## Chapter 4
-
-## National, Reserve, and Alternative Service
-
-## Article ( 29 ) General Policy
-
-1. The National Service and Reserve Authority shall select the  employees assigned to the national and reserve service courses by their names and according to the databases available to it, without referring to their employer.
-2. The government authority shall commit to allow the employee who meets the conditions for joining the national, reserve and alternative service to join the service in accordance with the legislation in force in this regard.
-3. The employee of the category targeted to join the national service shall be granted a leave with a total salary for a period of three working days to complete the registration process for the service and conduct medical examinations. This leave may be extended for similar periods based on a statement from the National Service and Reserve Authority.
-4. The  employee  who  meets  the  conditions  for  joining  the  national,  reserve,  and  alternative  service throughout the period of their performance of this service or the period of their call-up shall be paid the salaries, bonuses, allowances, periodic leave, and other rights and privileges arising from the job, as if they were on the job. The period of their service in their job and their original work shall be considered continuous.
-5. The government authority shall retain its job for any of its employees who joins the national, reserve, or alternative service, or is called to it, until the end of performing this service or the call-up period, provided that the employee is returned to their job upon completion of the national, reserve, or alternative service.
-
-6. The employee shall commit to start working for their employer within (5) working days from the date of completion of the enrolment period, according to the statement of the National Service and Reserve Authority, with a proof of the same.
-7. The employee called up for resuscitation training must start working for their original employer during the next working day from the date of completion of the training.
-8. If the employee is dismissed from the national, reserve, or alternative service for any reason, they must on the next working day from the date of their notification of the dismissal  - start working for their employer, otherwise they will be considered disengaged from work from that date with the resulting consequences  of  that  discontinuance,  unless  they  present  an  acceptable  excuse  to  their  employer justifying this absence.
-9. If  the  government  authority  finds  that  the  employee  was  dismissed  from  the  national,  reserve,  or alternative  service  because  they  committed  a  violation  that  requires  a  disciplinary  penalty,  it  must conduct the necessary investigation into the reasons for dismissing the employee from this service and impose the necessary disciplinary penalty.
-
-## Article ( 30 ) Joining the National, Reserve, and Alternative Service During the Probationary Period
-
-1. Without prejudice to the provisions of Article (20) of this Regulation, in the event that the employee is assigned to the national, reserve, or alternative service during the probationary period, this period shall be interrupted immediately after the employee's joining.
-2. The employee's probationary period shall resume after the end of the national, reserve, and alternative service enlistment period .
-
-## Article ( 31 ) Performance Evaluation
-
-The  performance  of  the  employee  who  performs  the  national,  reserve,  or  alternative  service  shall  be evaluated with a grade of 'very good', and if their evaluation in the previous year was rated as 'excellent',
-
-they  shall  be  evaluated  with  the  same  evaluation,  with  the  exception  of  those  with  low  performance according to the statement of the National Service and Reserve Authority .
-
-## Chapter 5 Salaries and Allowances
-
-## Article ( 32 ) General Policy
-
-1. By a decision of the Chairman of the Executive Council based on the proposal of the Authority, the following shall be issued:
-- a. One or more schedules of government authority employees' salaries.
-- b. Bonuses, allowances, and various benefits.
-2. An approved budget must be available for the payment of salaries, bonuses, allowances, and benefits.
-3.
-
-Score: 0.3244598419119984
+Score: 0.4806646716198735
 
 Chunk 10 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-## Article ( 83 ) Study Leave
+4. The  candidate  for  appointment  shall  submit  all  documents  and  supporting  papers  necessary  to complete the appointment procedures, certified and approved by the concerned authorities, and the Government Authority shall keep a copy of them in the personal file of the candidate for appointment upon his appointment and maintain its confidentiality. The candidate is responsible for the validity and integrity of the documents they submitted.
+5. The age of the candidate for appointment is recorded in all records and transactions related to them according to the date of birth as evidenced by the birth certificate, Emirates ID card or passport at the time of appointment.
+6. In the event that the certificate or document mentions the year of birth only, then the thirty-first day of December of that year is the assumed date of birth that is mentioned in everything related to the employee's service.
+7. The  date  of  birth  of  the  employee  shall  not  be  amended  after  their  appointment  except  in implementation of a decision or judgement issued by the competent authorities, provided that it is duly documented if it was issued from outside the country.
+8. For the effect of amending the date of birth of the national employee after  their appointment, the approval of the Pension Fund shall be required by an official letter for each case separately.
+9. Upon their appointment, the candidate shall occupy the lower sub-grade of the approved main grade for the job, and the chairman of the Government Authority may make an exception to this condition
 
-1. The plans of government entities include their estimates of study leaves, according to future needs and goals,  human  resource  plans  and  job  replacement  in  the  government  entity,  provided  that  the equivalent jobs and grades of those expected to be granted study leaves are included in the job budget of those entities.
-2. The  head  of  the  government  entity  may,  based  on  the  recommendation  of  the  Human  Resources Committee, authorize the national employee to take a study leave with total salary for the prescribed period of study within the limits of the approved annual budget, in coordination with the authorities concerned with authorizing study leaves.
-3. 3. The decided study period includes any periods prescribed for the necessary preliminary studies, including the period of study of the foreign language if studying will take place in a foreign country, provided that it does not exceed one year. The study leave may be extended if required by the study reports received from the employee.
-4. After graduation, the employee shall be required to work for the government for a period equivalent to the study period.
+by appointing a sub-grade higher by not more than 5% of the number of jobs targeted in the approved annual employment plan.
 
-## Article ( 84 )
+10. The appointed employee shall be entitled to the total salary, allowances, benefits and any other rights prescribed by law.
 
-1. The study leave shall be considered an actual period of service for the employee. As such, it shall be included in their end of service benefits or retirement pension entitlement, as the case  may be. The employee shall be subject to the laws and procedures in force with regard to periodic leaves and others in the educational institution throughout the period of the study leave.
-2. The employee shall start their work within (5) working days from the end of their study leave if their studies took place inside the country, and within a period of (15) working days at most if their studies
+## Article ( 10 ) General Conditions for Appointment
 
-- took place abroad, otherwise they shall be considered as discontinued from work and shall be subject to the provisions related to discontinuation of work provided for by law and in these Regulations.
-3. An employee may be granted a leave with total salary for a period not exceeding one month before starting their studies abroad.
+The candidate for appointment to a public job shall:
 
-## Article ( 85 )
+1. To be a citizen of the country.
 
-Conditions for granting study leave:
 
-1. The employee should have spent at least three years working for the government entity from the  date  of  appointment,  with  the  exception of those whose studies are among the rare or important specializations that meet the needs of the government entity.
-2. The employee should have received a performance evaluation of at least 'very good' in the last annual performance report.
-3. The  employee  should  have  obtained  academic  approval  from  a  recognized  educational institution.
-4. The nature of the study and specialization should be consistent with the employee's career path and the nature of work performed in the government entity.
-5. An approved budget should be available to cover the employee's total salary costs during the study leave period.
-
-6.
-
-Any other requirements specified by the authorities concerned with authorizing study leaves.
-
-## Article ( 86 )
-
-The study leave shall end in any of the following cases:
-
-1. The reasons specified by the authorities concerned with authorizing study leaves.
-
-2.
-
-If  required  by  the  need for work or  the  public interest.  In  all  cases,  coordination  shall  be  made between the employee's employer and the authorities concerned with authorizing study leaves.
-
-Article (
-
-87
-
-)
-
-1. A national employee may be granted a short study permit for two hours per day to attend lectures, seminars or scientific discussions in any accredited study program until the end of such program. This permission shall not be required if the official working hours do not conflict with the study hours.
-2. The head of the government entity may grant the citizen employee who attends regular evening studies  within  the  country  in  a  recognized  university  or  college,  a  leave  with  a  gross  salary  to perform  the  semester  and  annual  exams  and  debate  postgraduate  theses,  provided  that  the duration of leave is determined according to the actual days of the exams. This shall not apply to the monthly exams or any admission exams, registration or discussion of study projects during the semester.
-3. The national employee may be granted additional leave prior to the commencement of the exams referred to in the previous clause by a period not exceeding one day if the exams are performed within the country and not exceeding three days if the exams are performed abroad, provided that the total leave does not exceed (15) days per year, without including the actual exam days.
-4.
-
-Score: 0.3214789959222595
+Score: 0.47358951602237465
 
