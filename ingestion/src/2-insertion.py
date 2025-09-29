@@ -17,17 +17,9 @@ def get_document_id(file_path):
 
 def check_document_exists(vector_store, doc_id):
     """Check if document is already in the vector store."""
-    try:
-        # Try to get nodes with this document ID
-        # This is a simple check - we'll look for any nodes with this doc_id
-        index = VectorStoreIndex.from_vector_store(vector_store)
-        
-        # Since there's no direct way to check by doc_id in PGVectorStore,
-        # we'll use a different approach - track processed files
-        return False  # For now, always process (can be enhanced with metadata table)
-    except Exception as e:
-        print(f"Error checking document existence: {e}")
-        return False
+    # For now, always process (can be enhanced with metadata table)
+    # This avoids the embedding model initialization issue
+    return False
 
 def load_markdown_document(file_path):
     """Load markdown file as Document."""
