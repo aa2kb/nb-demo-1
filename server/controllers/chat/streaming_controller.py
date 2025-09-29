@@ -16,7 +16,7 @@ class ChatStreamingController:
     def prepare_streaming_content(self, content: str) -> str:
         """
         Clean and prepare content for streaming.
-        Remove CrewAI-specific formatting.
+        Remove CrewAI-specific formatting while preserving formatting.
         """
         content = content.strip()
         
@@ -24,12 +24,16 @@ class ChatStreamingController:
         lines = content.split('\n')
         cleaned_lines = []
         for line in lines:
-            line = line.strip()
+            # Don't strip the line completely to preserve indentation
+            original_line = line
+            stripped_line = line.strip()
+            
             # Skip lines that look like CrewAI metadata
-            if line and not line.startswith(('Thought:', 'Action:', 'Observation:', 'Final Answer:')):
-                cleaned_lines.append(line)
+            if not stripped_line.startswith(('Thought:', 'Action:', 'Observation:', 'Final Answer:')):
+                cleaned_lines.append(original_line)
         
-        return ' '.join(cleaned_lines).strip()
+        # Join with newlines to preserve formatting
+        return '\n'.join(cleaned_lines).strip()
     
     def format_streaming_response(
         self,
@@ -77,18 +81,16 @@ class ChatStreamingController:
         
         return chunk
     
-    def split_content_for_streaming(self, content: str, chunk_size: int = 20) -> list:
+    def split_content_for_streaming(self, content: str, chunk_size: int = 15) -> list:
         """
-        Split content into chunks suitable for streaming.
-        Returns list of content chunks.
+        Split content into chunks suitable for streaming while preserving formatting.
+        Returns list of content chunks that maintain newlines and formatting.
         """
-        words = content.split()
+        # Split by characters instead of words to preserve all formatting
         chunks = []
         
-        for i in range(0, len(words), chunk_size):
-            chunk = ' '.join(words[i:i + chunk_size])
-            if i + chunk_size < len(words):
-                chunk += ' '  # Add space between chunks
+        for i in range(0, len(content), chunk_size):
+            chunk = content[i:i + chunk_size]
             chunks.append(chunk)
         
         return chunks
