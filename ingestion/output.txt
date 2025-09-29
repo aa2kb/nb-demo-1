@@ -6,107 +6,70 @@ Found 10 relevant chunks (HR Bylaws only):
 
 Chunk 1 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-## Article ( 20 ) Probationary Period
+Exception may be made after the approval of the Authority.
+- c. If  their  service  is  terminated  due  to  their  incapacity  to  carry  out  their  duties  during  the probationary period, or whose service has already been terminated as a result of their dismissal by a disciplinary decision, a court ruling, or a final judgment that restricts their freedom due to a felony or misdemeanour involving breach of honour or trust.
 
-1. The employee appointed by the government authority shall be subject to a probationary period of three months starting from the date they take over the work, and it may be extended for another similar period from the date they take over the work.
-2. The line officer shall carry out accurate followup to evaluate the employee's job performance and behaviour according to clear bases during the probationary period, in accordance with the procedures specified by the government authority, and shall assist and direct the employee to develop their job performance and behaviour. In the light of the evaluation result, the line officer may either recommend the employee for tenure, the extension of the probationary period, or the termination of their services if it is proved that they are unfit for the job, before the expiration of a period of three months from the date of the employee taking over the job.
-3. During the probationary period, the service of the employee may be terminated if they do not prove their competence or merit to carry out their job duties, or because of their unsatisfactory performance or behaviour, by a decision of the head of the government authority, in accordance with the approved procedures, provided that they are given a notice period of (5) working days.
-4. An employee may resign from their job during the probationary period, provided that they notify their employer of the same through their line officer, and that it be before (5) working days from the date of resignation.
+## Article ( 12 ) The approved domicile of the non-national employee
 
-5. If  a  period  of  three  months  lapses  from  the  date  of  the  employee  taking  over  their  work  without terminating their service or extending the probationary period, they shall be tenured to the job to which they were appointed.
-6. The probationary period of the employee shall be extended by an equal number of leave days granted to them during the probationary period.
-7. The probationary period shall be calculated as part of the employee's continuous service period with the government authority.
+1. The approved domicile of a non-national employee shall be determined in the employment contract based on his nationality provided upon appointment.
+2. An employee's approved domicile shall not be automatically changed at the registry of the Government Authority after changing their nationality, acquiring another nationality or changing their residence after appointment, unless approved by the head of the Government Authority.
+3. The approved domicile for eligible non-citizen family members shall be the same domicile approved in the records of the government authority, regardless of their nationalities or actual place of residence.
 
-Score: 0.43728773290818523
+## Article ( 13 ) Priority for Vacant Positions
+
+The order of priority for vacant positions in the Government Authority shall be as follows:
+
+1. A citizen employee of the same Government Authority who meets the conditions and requirements of the job.
+
+
+Score: 0.5829104532546169
 
 Chunk 2 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-The head of the government authority may, upon a written request from the employee, transfer them from full time to part time or vice versa.
-2. The service of an employee whose work is transferred from part-time to full-time or vice versa shall be  considered  a  continuous  service  since  the  date  of  their  appointment  with  the  government authority.
+2. A citizen candidate from outside the Government Authority who has completed national  service or submitted a certificate indicating his relevant status (if the candidate had to enlist in national service or if he has been exempted from it).
+3. Citizen candidate from outside the government authority.
 
-## Chapter 4
+## Article ( 14 ) Appointment procedures
 
-## National, Reserve, and Alternative Service
+1. Research and Selection
+- a. The Government Authority shall announce its vacancies in appropriate ways.
+- b. The Government Authority shall select applicants who fulfil the conditions set forth in the law and regulations herein, for the vacancy that best meet its requirements.
+2. Evaluation and preference
 
-## Article ( 29 ) General Policy
+The Government Authority shall evaluate the candidate in accordance with the nature of the candidate's position, taking into account the following:
 
-1. The National Service and Reserve Authority shall select the  employees assigned to the national and reserve service courses by their names and according to the databases available to it, without referring to their employer.
-2. The government authority shall commit to allow the employee who meets the conditions for joining the national, reserve and alternative service to join the service in accordance with the legislation in force in this regard.
-3. The employee of the category targeted to join the national service shall be granted a leave with a total salary for a period of three working days to complete the registration process for the service and conduct medical examinations. This leave may be extended for similar periods based on a statement from the National Service and Reserve Authority.
-4. The  employee  who  meets  the  conditions  for  joining  the  national,  reserve,  and  alternative  service throughout the period of their performance of this service or the period of their call-up shall be paid the salaries, bonuses, allowances, periodic leave, and other rights and privileges arising from the job, as if they were on the job. The period of their service in their job and their original work shall be considered continuous.
-5. The government authority shall retain its job for any of its employees who joins the national, reserve, or alternative service, or is called to it, until the end of performing this service or the call-up period, provided that the employee is returned to their job upon completion of the national, reserve, or alternative service.
+- a. Conducting at least one personal interview with the candidate for the vacant post before taking the decision to appoint them.
+- b. Selecting the most qualified candidate by the Government Authority according to the results of the evaluation, test and personal interview.
+- c. If the qualifications, skills, competencies, and experiences of the candidates for the job were found equal, the matter shall be referred to the head of the government authority, along with the recommendation of the Human Resources Committee, in order to select the appropriate candidate.
+3. Fulfilment of job requirements
+- a. After the candidate passes all examinations, obtains all types of approvals for admission from the  competent authorities and meets any requirements related to the job, the Government
 
-6. The employee shall commit to start working for their employer within (5) working days from the date of completion of the enrolment period, according to the statement of the National Service and Reserve Authority, with a proof of the same.
-7. The employee called up for resuscitation training must start working for their original employer during the next working day from the date of completion of the training.
-8. If the employee is dismissed from the national, reserve, or alternative service for any reason, they must on the next working day from the date of their notification of the dismissal  - start working for their employer, otherwise they will be considered disengaged from work from that date with the resulting consequences  of  that  discontinuance,  unless  they  present  an  acceptable  excuse  to  their  employer justifying this absence.
-9. If  the  government  authority  finds  that  the  employee  was  dismissed  from  the  national,  reserve,  or alternative  service  because  they  committed  a  violation  that  requires  a  disciplinary  penalty,  it  must conduct the necessary investigation into the reasons for dismissing the employee from this service and impose the necessary disciplinary penalty.
+- Authority  shall  notify  the  candidate  of  their  admission  upon  the  terms,  requirements  and financial and functional allowances prescribed.
+- b. Candidates  shall  be  rejected  if  they  haven't  passed  the  necessary  tests,  examinations  and obtained relevant approvals or if the conditions and requirements of the appointment set forth in the law and regulations herein are not met. The candidate shall be notified of the result.
 
-## Article ( 30 ) Joining the National, Reserve, and Alternative Service During the Probationary Period
 
-1. Without prejudice to the provisions of Article (20) of this Regulation, in the event that the employee is assigned to the national, reserve, or alternative service during the probationary period, this period shall be interrupted immediately after the employee's joining.
-2. The employee's probationary period shall resume after the end of the national, reserve, and alternative service enlistment period .
-
-## Article ( 31 ) Performance Evaluation
-
-The  performance  of  the  employee  who  performs  the  national,  reserve,  or  alternative  service  shall  be evaluated with a grade of 'very good', and if their evaluation in the previous year was rated as 'excellent',
-
-they  shall  be  evaluated  with  the  same  evaluation,  with  the  exception  of  those  with  low  performance according to the statement of the National Service and Reserve Authority .
-
-## Chapter 5 Salaries and Allowances
-
-## Article ( 32 ) General Policy
-
-1. By a decision of the Chairman of the Executive Council based on the proposal of the Authority, the following shall be issued:
-- a. One or more schedules of government authority employees' salaries.
-- b. Bonuses, allowances, and various benefits.
-2. An approved budget must be available for the payment of salaries, bonuses, allowances, and benefits.
-3.
-
-Score: 0.3850790214162756
+Score: 0.5459533929824985
 
 Chunk 3 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-- c. The Human Resources Department shall notify the employees in writing at least three months prior to the date specified for their retirement or termination of service.
-- d. The employee's service shall be extended after reaching the retirement age for one year or more in accordance with the following provisions:
+## 2. Compensation for Recruitment
 
-- -The service of a citizen employee may be extended after reaching the age of retirement in cases required by the work interest until they reach the age of seventy for males and the age of sixtyfive for females, as a maximum, by virtue of a decision of the head of the government authority, provided that a report is available from the health authority stating their fitness for work, and that they submit a performance report of no less than -Good- for each year during which the service is extended.
-- -The service of a non-citizen employee may be extended after reaching the age specified in Clause (1-b) of this article in cases required by the work interest until they reach the age of sixty-five for males and the age of sixty for females, as a maximum, by virtue of a decision of the head of the government authority, provided that this is limited to those who occupy the positions of experts and consultants, provided that a report from the medical committee is available stating that they are fit for work, and that they submit a performance report of - no less than Good- for each year during which the service is extended.
-- -The appointing authority may terminate the employee's service at any time during the service extension period, without mentioning the reasons, by virtue of a two-month written warning or the remaining period of the end of the service extension period, whichever is less.
-- e. Retirement of the Suspended Employee:
-- -If the employee reaches the age of retirement while serving the period of pre-trial detention or suspension from work as a disciplinary penalty, they shall be retired during that period.
-- -The citizen employee's pension rights shall be settled and disbursed thereto in accordance with what is decided in the Retirement Pensions and Benefits Law in force in the Emirate.
+The head of the government authority may determine the percentage of the compensation for recruitment for the new employee of the third grade and above, according to the following controls:
 
-## 2.  Total Disability or Unfitness for Service:
+- a. The value of the compensation shall not exceed (200%) of the employee's basic salary.
 
-- a. Subject to the relevant provisions of the Retirement Pensions and Benefits Law in force in the Emirate, the employee's service shall end if their total disability or unfitness for service is proven, in accordance with a report issued by the competent medical committee.
-- b. The date of the employee's termination of service shall be determined as of the date of issuance of the report of the competent medical committee.
-- c. The period spent by the employee who continues to serve during the period from the date of issuance of the report of the competent medical committee until the date of  issuance of the decision to terminate their service by the competent authority shall not be counted within their actual  service  for  the  purposes  of  retirement  for  citizens  or  end-of-service  benefits  for  noncitizens. The employee's salaries during this period are considered wages for work, and for the citizen employee, the contributions deducted from their salary for the benefit of the retirement fund shall be returned to them.
-- d. The government authority may not terminate the service of an employee with a disability for unfitness for service due to their stable health condition when they were appointed.
+- b. This compensation shall not be granted to more than (5) employees per year.
 
-## 3. Resignation:
+- c. This compensation shall not be disbursed until the employee successfully passes the probationary period.
 
-- a. The employee may submit a written request to resign from their job - without the obligation to give reasons - with at least two months' written warning.
-- b. The government authority must reply to the resignation request within (30) days from the date of its submission, otherwise the resignation will be considered accepted subject to a statute of limitations.
+- d. This compensation shall be paid to the employee only once throughout the period of their service in the government authority.
 
-- c. The  government  authority  shall  discuss  the  employee's  resignation  request  to  find  out  the reasons that led them to do so and try to settle their situation to retain them if it has an interest in that.
-- d. The employee shall not leave work before the date specified in the resignation, or before thirty days from the date of submitting the resignation without a reply from the government authority. If  they  cease  to  work  during  this  period  without  a  legitimate  excuse,  the  provisions  of  the discontinuance provisions set forth in these regulations shall apply.
-- e. The employee may withdraw his resignation, provided that this is before the issuance of the decision of the head of the government authority to accept the resignation, or before (30) days from the date of its submission, as soon as the employee submits a written notification to their direct supervisor.
-- f. In order to clarify the reasons, the government authority shall conduct an interview with the employee who submits his resignation or request for transfer.
 
-## 4.
 
-Score: 0.3805135377856276
+Score: 0.5044521694722414
 
 Chunk 4 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-7. The employee may not approve the disbursement of a benefit or allowance that pertains to them personally, unless this is in implementation of the provisions of the laws and regulations in force and the policies approved in this regard.
-8. Given that the authority vested in the office holder stems primarily from the position they occupy, the power and authority to disburse is in accordance with the powers of the position they occupy and within the limits of the amounts contained in the approved budget of the government authority and in accordance with the provisions in force in this regard.
-
-## Article ( 6 )
-
-Delegation shall cease in any of the following cases:
-
-1. End of service of the authorized person.
 2. Expiry of the authorization period.
 3. End of the purpose for which the authorization was granted.
 4. Revocation of the authorization decision.
@@ -127,6 +90,38 @@ Delegation shall cease in any of the following cases:
 - a. Types of jobs, their job titles, corresponding job grades, and financial allocations set for them.
 - b. Total job positions approved in the organizational structure.
 - c. Part of the job budget should be allocated to recruiting graduate trainees.
+
+
+Score: 0.49516975937253305
+
+Chunk 5 (from HR Bylaws_2f9c1749.md):
+------------------------------
+Giving priority to employees using external roads.
+
+
+
+Score: 0.49506229162217585
+
+Chunk 6 (from HR Bylaws_2f9c1749.md):
+------------------------------
+The program to which the employee is subject should be within the relevant approved annual training plan .
+
+## Article ( 51
+
+## Chapter 8
+
+## Promotions ) General Policy
+
+The employee is promoted according to the following conditions:
+
+1. By virtue of a decision of the head of the Government Authority based on the recommendation of the Human Resources Committee, provided said decision determines the job title and job degree that the employee would occupy, as well as the total salary and the effective date.
+2. The required approvals shall be obtained from the competent authorities before the issuance of the promotion decision.
+
+
+Score: 0.48765878195446655
+
+Chunk 7 (from HR Bylaws_2f9c1749.md):
+------------------------------
 5. The chairman of the Government Authority may make adjustments to the approved annual job budget by adding, cancelling or transferring financial allocations between said jobs within the limits of the financial appropriations for the annual budget and in accordance with the financial rules in force in the Emirate and the public job regulation issued by the Executive Council.
 6. The number of employees may not exceed the total number specified in the annual job budget and contained in the approved organizational structure of the Government Authority, regardless of the tool for filling the job, unless there is a special provision for that.
 7. The Government Authority shall plan for its future needs in terms of human resources for the next five years and have it approved by the chairman of the Government Authority, provided that a copy of the approved plan is provided to the Authority and it is notified of any amendments to it.
@@ -146,13 +141,12 @@ The  Authority  shall  issue  a  guide  for  the  work  of  the  Human  Resource
 1. Appointment  in  the  Government  Authority  shall  be  based  on  vacant  positions  in  the  approved organizational structure, which have an approved job description card and are included in the job budget, according to what is decided in this regulation.
 2. An employee may not work under the direct supervision of his spouse or any of his relatives up to the fourth degree.
 3. The employee shall not participate in any decisions related to the appointment of his spouse or any of his  relatives  up  to  the  fourth  degree  or  in-laws  up  to  the  second  degree.  The  employee  shall  be responsible for reporting the relationship in writing and not participating in the decisions.
-4.
 
-Score: 0.37916120986013646
 
-Chunk 5 (from HR Bylaws_2f9c1749.md):
+Score: 0.48623597129678053
+
+Chunk 8 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-The  Authority  may  exempt  nationals  from  this condition, if necessary, based on the proposal of the Government Authority.
 6. They  should  not  have  been  previously  dismissed  from  service  by  virtue  of  a  final  disciplinary judgement or decision unless at least two years have elapsed since its issuance. The period may be reduced to one year or they may be exempted from this condition if the appointment authority finds justification for that.
 7. They shall prove their physical fitness for the job. The health fitness conditions shall be determined by virtue  of  a  decision  from  the  Authority  after  agreement  with  the  relevant  health  authorities  in accordance with health regulations and standards.
 8. They shall have the necessary qualification for appointment to the job, and the qualification shall be duly certified and equalized by the competent authorities.
@@ -166,238 +160,48 @@ The  Authority  may  exempt  nationals  from  this condition, if necessary, base
 3. The contract of an expatriate employee may not be renewed except after ensuring that there is no national candidate who meets the requirements to fill the position, and after obtaining the approval of the Authority.
 4. An expatriate may not be appointed in any of the government authorities in the following cases:
 - a. If  they  previously  worked  in  a  Government  Authority  and  received  a  performance  evaluation report result that is less than (good) compared to their last performance evaluation.
-- b. If their service was terminated by dismissal for the public interest or by reason of interruption of employment. Exception may be made after the approval of the Authority.
-- c. If  their  service  is  terminated  due  to  their  incapacity  to  carry  out  their  duties  during  the probationary period, or whose service has already been terminated as a result of their dismissal by a disciplinary decision, a court ruling, or a final judgment that restricts their freedom due to a felony or misdemeanour involving breach of honour or trust.
+- b. If their service was terminated by dismissal for the public interest or by reason of interruption of employment. 
 
-## Article ( 12 ) The approved domicile of the non-national employee
-
-1. The approved domicile of a non-national employee shall be determined in the employment contract based on his nationality provided upon appointment.
-2. An employee's approved domicile shall not be automatically changed at the registry of the Government Authority after changing their nationality, acquiring another nationality or changing their residence after appointment, unless approved by the head of the Government Authority.
-3. The approved domicile for eligible non-citizen family members shall be the same domicile approved in the records of the government authority, regardless of their nationalities or actual place of residence.
-
-## Article ( 13 ) Priority for Vacant Positions
-
-The order of priority for vacant positions in the Government Authority shall be as follows:
-
-1. A citizen employee of the same Government Authority who meets the conditions and requirements of the job.
-2. A citizen candidate from outside the Government Authority who has completed national  service or submitted a certificate indicating his relevant status (if the candidate had to enlist in national service or if he has been exempted from it).
-3. Citizen candidate from outside the government authority.
-
-## Article ( 14 ) Appointment procedures
-
-1. Research and Selection
-- a. The Government Authority shall announce its vacancies in appropriate ways.
-- b. The Government Authority shall select applicants who fulfil the conditions set forth in the law and regulations herein, for the vacancy that best meet its requirements.
-2. Evaluation and preference
-
-The Government Authority shall evaluate the candidate in accordance with the nature of the candidate's position, taking into account the following:
-
-- a. Conducting at least one personal interview with the candidate for the vacant post before taking the decision to appoint them.
-- b. Selecting the most qualified candidate by the Government Authority according to the results of the evaluation, test and personal interview.
-
-Score: 0.3725678242945154
-
-Chunk 6 (from HR Bylaws_2f9c1749.md):
-------------------------------
-| Written warning                | Deduction of salary for 7 days  | Suspension from work without a gross salary, except for housing allowance, for a period not exceeding one month | Dismissal from job while preserving the right to a pension or bonus.             | -           | -           | Without prejudice to civil or penal liability |
-|                                         | 27  | Sleeping during work                                                                                                                     | Written warning                | Deduction of salary for 7 days  | Deduction of salary for 8 days                                                                                  | Deduction of salary for 15 days                                                  | -           | -           | -                                             |
-| Violations related to the job behaviour | 28  | Violation of public order or morals while at work or when using the government authority's information facilities, systems and networks. | Deduction of salary for 3 days | Deduction of salary for 15 days | Suspension from work without a gross salary, except for housing allowance, for a period not exceeding one month | Dismissal from job while preserving the right to a pension or bonus.             | -           | -           | Without prejudice to civil or penal liability |
-| and ethics                              | 29  | Using means of transportation, machinery, and special equipment without a prior authorization from the government authority, or          | Deduction of salary for 3 days | Deduction of salary for 15 days | Suspension from work without a gross salary, except for housing allowance, for a                                | Suspension from work without a gross salary, except for housing allowance, for a | -           | -           | -                                             |
-
-|        |     |                                                                                                                              | Penalties                       | Penalties                       | Penalties                                                                                                       | Penalties                                                            | Penalties   | Penalties   | Remarks                                       |
-|--------|-----|------------------------------------------------------------------------------------------------------------------------------|---------------------------------|---------------------------------|-----------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|-------------|-------------|-----------------------------------------------|
-| Clause | S.N | Type of Violation                                                                                                            | First Time                      | First Time                      | Second Time                                                                                                     | Second Time                                                          | Third Time  | Third Time  |                                               |
-|        |     |                                                                                                                              | Minimum                         | Maximum                         | Minimum                                                                                                         | Maximum                                                              | Minimum     | Maximum     |                                               |
-|        |     | using them for purposes other than work without authorization.                                                               |                                 |                                 | period not exceeding one month                                                                                  | period not less than one month and not more than three months.       |             |             |                                               |
-|        | 30  | Insulting, defaming or verbally abusing a superior or a colleague while working.                                             | Deduction of salary for 3 days  | Deduction of salary for 15 days | Suspension from work without a gross salary, except for housing allowance, for a period not exceeding one month | Dismissal from job while preserving the right to a pension or bonus. | -           | -           | Without prejudice to civil or penal liability |
-|        | 31  | Falsely pretence on colleagues or superiors and submitting malicious complaints against them within the government authority | Deduction of salary for 10 days | Deduction of salary for 15 days | Suspension from work without a gross salary, except for housing allowance, for a period not exceeding one month | Dismissal from job while preserving the right to a pension or bonus. | -           | -           | Without prejudice to civil or penal liability |
-|        | 32  | Giving testimony that does not correspond to reality or refraining from testifying in investigations.                        | Deduction of salary for 3 days  | Deduction of salary for 15 days | Suspension from work without a gross salary, except for                                                         | Dismissal from job while preserving the                              | -           | -           | -                                             |
-
-|        |     |                                                                                                                        | Penalties                      | Penalties                       | Penalties                                                                                                       | Penalties                                                            | Penalties   | Penalties   | Remarks                                       |
-|--------|-----|------------------------------------------------------------------------------------------------------------------------|--------------------------------|---------------------------------|-----------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|-------------|-------------|-----------------------------------------------|
-| Clause | S.N | Type of Violation                                                                                                      | First Time                     | First Time                      | Second Time                                                                                                     | Second Time                                                          | Third Time  | Third Time  |                                               |
-|        |     |                                                                                                                        | Minimum                        | Maximum                         | Minimum                                                                                                         | Maximum                                                              | Minimum     | Maximum     |                                               |
-|        | 33  | Abuse of power or influence.                                                                                           | Deduction of salary for 7 days | Deduction of salary for 15 days | Suspension from work without a gross salary, except for housing allowance, for a period not exceeding one month | Dismissal from job while preserving the right to a pension or bonus.
-
-Score: 0.37183696720069126
-
-Chunk 7 (from HR Bylaws_2f9c1749.md):
-------------------------------
-14. The employee shall undertake to settle the actual financial cost incurred by the Government Authority for their deployment to the training program, in case they fail to commit to the attendance requirements and the completion of the training program without a valid reason.
-15. The employee shall benefit from the job development opportunities that are available in the Authority by  undertaking  to  participate  effectively  in  the  development  and  implementation  of  their  own development plan, applying the acquired knowledge and skills in the work environment, and activating learning exchange with their colleagues, which promotes the culture of continuous personal learning.
-
-## Article ( 48 ) Minimum hours of training per year
-
-1. The training of the graduate trainee shall last for the period prescribed in the applicable legislations.
-2. The minimum training hours for all the employees that are eligible for training shall be equal to 40 training hours, (5 business days) each year.
-
-## Article ( 49 ) Types of training programs
-
-The Academy shall determine the training topics for leadership and behavioural competencies, institutional support programs, future work skills, as well as the best training patterns, types and methods.
-
-## Article ( 50 ) General rules and requirements
-
-In order to nominate an employee for training programs, the following shall be required:
-
-1. The  budget,  approved  to  cover  the  costs  of  training  programs  implementation  and  the  relevant deployment costs, should be available.
-2. The program to which the employee is subject should be within the relevant approved annual training plan .
-
-## Article ( 51
-
-## Chapter 8
-
-## Promotions ) General Policy
-
-The employee is promoted according to the following conditions:
-
-1. By virtue of a decision of the head of the Government Authority based on the recommendation of the Human Resources Committee, provided said decision determines the job title and job degree that the employee would occupy, as well as the total salary and the effective date.
-2. The required approvals shall be obtained from the competent authorities before the issuance of the promotion decision.
-3. When the employee is promoted before 01/01/2020, according to divisional or functional promotion, and the total  salary  of  the  employee  is  higher  than  the  total  salary  of  the  grade  to  which  they  are promoted:
-- a. The  total  salary  shall  be  distributed  to  the  salary  specifications  that  are  subject  to  pension contributions as a deduction, first from the raise of the Federation, and second from the placement allowance.
-- b. The total salary shall be granted to the grade to which the employee is promoted or (5%) of the employee's total salary is added there to (to the basic salary), whichever is greater.
-- c. The raise of the Federation and the placement allowance shall be waived when the reason of their provision is gone.
-
-## Article ( 52 ) Types of promotions
-
-## 1- Divisional promotion
-
-The divisional promotion of the employee shall be under the following conditions:
-
-- aThey shall have spent in the divisional grade one year at least.
-- bThey shall have obtained a performance evaluation with a result of (very good) at least in the latest performance report.
-- cThe necessary financial provision for promotion shall be available .
-
-## 2- Job promotion
-
-- -The employee's job promotion shall be according to the following conditions:
-- aThere is a vacancy.
-- bThe candidate for promotion shall have the minimum qualifications, practical experience, and job requirements according to the approved job description card.
-- cThe necessary financial provision for promotion shall be available.
-- dThe promotion shall be to the lower sub-grade of the main grade following the grade occupied by the employee.
-- eThey should have spent at least one year in the higher sub-rank.
-- fThey  shall  have  obtained  a  performance  evaluation  of  no  less  than  (very  good)  for  the  last performance report submitted for them.
-- gWith the exception of supervisory positions, to which promotion is by selection by the chairman of  the  Government  Authority,  priority  in  promotion  when  competing  is  given  to  the  most qualified candidate according to the annual performance evaluation, then the person who spent  who  spent  the  most  time  in  the  current  main  grade,  then  the  highest  academically qualified in  the same field, then the  most experienced in the job field. This order shall be adhered to.
-
-Score: 0.3675082325935468
-
-Chunk 8 (from HR Bylaws_2f9c1749.md):
-------------------------------
-|             |             |             |             |           |
-|        | 39  | Having an interest in person or through mediation in business or contracting related to the work of the Government Authority to which he belongs, or having personal benefits or interests that conflict with the goals and objectives of the Government Authority. | Suspension from work without a gross salary, except for housing allowance, for a period not exceeding one month | Dismissal from job while preserving the right to a pension or bonus. | -           | -           |             |             | -         |
-|        | 40  | Renting real estate, lands, or others with the intention of exploiting them in the field in which the work of his position is performed.                                                                                                                            | Suspension from work without a gross salary, except for housing allowance, for a period not exceeding one month | Dismissal from job while preserving the right to a pension or bonus. | -           | -           |             |             | -         |
-|        | 41  | Violating the provisions governing tenders, auctions, warehouses as well as all rules, provisions, regulations, and financial circulars for the purpose of                                                                                                          | Suspension from work without a gross salary, except for housing allowance, for a period not                     | Dismissal from job while preserving the right to a                   | -           | -           |             |             | -         |
-
-|        |     |                                                                                                  | Penalties                                                                                                       | Penalties                                                            | Penalties   | Penalties   | Penalties   | Remarks                                       |
-|--------|-----|--------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|-------------|-------------|-------------|-----------------------------------------------|
-| Clause | S.N | Type of Violation                                                                                | First Time                                                                                                      | First Time                                                           | Second Time | Second Time | Third Time  | Third Time                                    |
-|        |     |                                                                                                  | Minimum                                                                                                         | Maximum                                                              | Minimum     | Maximum     | Minimum     |                                               |
-|        |     | achieving personal or third party benefit.                                                       | exceeding one month                                                                                             | pension or bonus.                                                    |             |             |             |                                               |
-|        | 42  | Physical assault on Government Authority's employees during service or at the workplace.         | Suspension from work without a gross salary, except for housing allowance, for a period not exceeding one month | Dismissal from job while preserving the right to a pension or bonus. | -           | -           |             | Without prejudice to civil or penal liability |
-|        | 43  | Attacking those whodeal with the Government Authority.                                           | Suspension from work without a gross salary, except for housing allowance, for a period not exceeding one month | Dismissal from job while preserving the right to a pension or bonus. | -           | -           |             | Without prejudice to civil or penal liability |
-|        | 44  | Accepting material or moral benefits from the Government Authority's employees or third parties. | Suspension from work without a gross salary, except for housing allowance, for a period not exceeding one month | Dismissal from job while preserving the right to a pension or bonus. | -           | -           |             | Without prejudice to civil or penal liability |
-
-|        |     |                                                                                                                                                                       | Penalties                                                                                                       | Penalties                                                            | Penalties   | Penalties   | Penalties   | Remarks                                       |
-|--------|-----|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|-------------|-------------|-------------|-----------------------------------------------|
-| Clause | S.N | Type of Violation                                                                                                                                                     | First Time                                                                                                      | First Time                                                           | Second Time | Second Time | Third Time  | Third Time                                    |
-|        |     |                                                                                                                                                                       | Minimum                                                                                                         | Maximum                                                              | Minimum     | Maximum     | Minimum     |                                               |
-|        | 45  | Disclosing a secret of the Government Authority or highly confidential information with the intent of achieving personal benefit or harming the Government Authority. | Suspension from work without a gross salary, except for housing allowance, for a period not exceeding one month | Dismissal from job while preserving the right to a pension or bonus. | -           | -           |             | Without prejudice to civil or penal liability |
-|        | 46  | Finding the employee under the influence of intoxication or narcotics while working.                                                                                  | Suspension from work without a gross salary, except for housing allowance, for a period not exceeding one month | Dismissal from job while preserving the right to a pension or bonus. | -           | -           |             | Without prejudice to civil or penal liability |
-|        | 47  | Publishing or displaying materials or information violating public order or morals through e-mail or the information network.
-
-Score: 0.36549589839603747
+Score: 0.4853534084979817
 
 Chunk 9 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-During their study leave.
-2. If they have been subjected to a disciplinary penalty and the period specified for writing it off has not expired, or a decision has not been issued to write off the penalty in accordance with what is stipulated in these regulations.
-3. An employee brought to criminal trial for a felony or misdemeanour breaching honour or trust, until the end of their trial.
-4. If they are a retired military.
+The following table can be used to determine the degrees of kinship:
+7. The  government  authority  shall  commit  to  grant  equal  opportunities  to  train  and  qualify  citizens seeking work in coordination with the Authority, in accordance with the rewards controls and system approved by the Executive Council.
 
-## Article ( 55 ) Modification of Status
+| Degrees of kinship   | Kinship                                                              |
+|----------------------|----------------------------------------------------------------------|
+| First degree         | Father - Mother - Husband - Children                                 |
+| First-degree in-laws | The husband's father - the husband's mother - the husband's children |
+| Second degree        | Grandfather - grandmother - brother - sister - grandson              |
+| Third degree         | Uncles - aunts - nephews                                             |
+| Fourth degree        | Cousins                                                              |
 
-- I. General Provisions:
+8. The government authority shall commit to train and qualify the citizen employee in order to replace the job occupied by the non-citizen employee, or to notify the Authority to include the needs of the government authority in terms of educational disciplines required for that job in coordination with concerned authorities - as the case may be.
 
-Modification the status  of an  employee who obtained a  higher  qualification  during  their  service in the Government Authority shall be as follows: -
 
-1. The extent to which the educational qualification of the employee matches their work and matches the needs of the Government Authority.
-2. The prior approval of the Government Authority in case the employee desires to obtain a higher qualification after joining the job.
 
-## II. General Controls: -
-
-The Government Authority shall abide by the following controls when modifying the employee's status:
-
-1. The target job shall be according to the job conditions in terms of the required qualification, up to the fourth degree.
-
-2.
-
-3.
-
-4.
-
-The employee shall have completed at least one year of service.
-
-The employee whose status has been modified may not be promoted except after the minimum period for staying in the job grade has lapsed.
-
-Meeting other promotion conditions mentioned in these regulations.
-
-Three: Cases of modifying employee status:
-
-1.
-
-The employment status of an employee who obtained a qualification may be modified prior to his appointment, provided that they adhere to the minimum requirements for filling the position.
-
-2. If  the  employee  has  completed  their  studies  based  on  the  approval  of  their  employer  and  as previously  agreed  upon  in  writing,  the  Government  Authority  shall  amend  their  job  grade  by selecting the job that matches their qualification.
-3. If  the  employee  has  completed  their  studies  without  the  approval  of  their  employer  and  the qualification of the employee corresponds to the needs of the Government Authority and the nature of its work, the Government Authority may modify their status according to what the work interest requires, and in accordance with the following controls:
-
-a.
-
-b.
-
-The  employee  shall  have  priority  in  filling  the  vacant  positions  if  they  fulfil  the  conditions required for filling them.
-
-The modification of the employee's status shall be by transferring them to a vacant position.
-
-Chapter IX Transfer, Loan and Secondment
-
-## Article ( 56 ) General Policy
-
-1. The objective of the transfer, loan or secondment shall be to achieve the public interest.
-2. The Government Authority may carry out the transfer, loan or secondment based on a request from the employee or the requesting authority, in accordance with what is stipulated in this regulation.
-3. The  job  to  which  the  employee  is  transferred  or  loaned  shall  be  vacant  and  approved  within  the organizational structure.
-4. The transferred or loaned employee shall fulfil the main conditions and requirements for the position they are transferred or loaned to in terms of their academic qualifications and practical experience, and be able to carry out their duties and responsibilities.
-5. The  process  of  transferring  one  or  more  employees  can  take  place  in  accordance  with  plans  for restructuring and redistribution of human resources.
-6. An employee may not be transferred, loaned, or seconded outside the Government Authority during the probation period.
-7. An employee may not be transferred or loaned to a job whose grade is lower than that of their original job.
-8. The  Government  Authority  shall  ensure  avoiding  affecting  its  tasks  in  carrying  out  its  work  in accordance with its plans and programs when carrying out transfers, loan or secondment.
-9. The Government Authority shall inform the employee of the renewal or expiration of their secondment or loan period, well in advance of issuing the decision.
-10. The Government Authority shall carry out the loan or secondment process in accordance with the agreement forms issued by the Authority.
-
-## Article ( 57 ) Internal Transfer
-
-Transfer within the Government Authority shall be as follows:
-
-1. By virtue of a decision of the chairman of the Government Authority upon the recommendation of the Human Resources Committee, the employee may be transferred from their job to another vacant job equivalent to their sub-grade.
-2.
-
-Score: 0.36430919192436817
+Score: 0.4806646716198735
 
 Chunk 10 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-- d. Notice allowance in accordance with the relevant clause of these regulations, where applicable.
-- e. End of service benefits for non-citizen employees and other benefits specified in these regulations, where applicable.
-- f. Any additional compensation or benefits, which the employee whose service is ended may be entitled to, as applicable, including overtime compensation due to them or compensation for total or partial permanent disability or death in accordance with the provisions of these regulations and the laws and systems in force.
-2. Citizen employees shall be subject to the provisions of the Retirement Pensions and Benefits Law in force in the Emirate at the end of their service with the government authority.
+4. The  candidate  for  appointment  shall  submit  all  documents  and  supporting  papers  necessary  to complete the appointment procedures, certified and approved by the concerned authorities, and the Government Authority shall keep a copy of them in the personal file of the candidate for appointment upon his appointment and maintain its confidentiality. The candidate is responsible for the validity and integrity of the documents they submitted.
+5. The age of the candidate for appointment is recorded in all records and transactions related to them according to the date of birth as evidenced by the birth certificate, Emirates ID card or passport at the time of appointment.
+6. In the event that the certificate or document mentions the year of birth only, then the thirty-first day of December of that year is the assumed date of birth that is mentioned in everything related to the employee's service.
+7. The  date  of  birth  of  the  employee  shall  not  be  amended  after  their  appointment  except  in implementation of a decision or judgement issued by the competent authorities, provided that it is duly documented if it was issued from outside the country.
+8. For the effect of amending the date of birth of the national employee after  their appointment, the approval of the Pension Fund shall be required by an official letter for each case separately.
+9. Upon their appointment, the candidate shall occupy the lower sub-grade of the approved main grade for the job, and the chairman of the Government Authority may make an exception to this condition
 
-3. A non-citizen employee shall be entitled to an end-of-service gratuity at the end of their service for any of the reasons specified by the law, as follows:
-- a. One month's salary for each of the first five years of service.
-- b. One and a half month's salary for each year of the second five years of service.
-- c. Two months' salary for each of the following years of service in excess of that.
-4. The provisions prescribed in the legislations and regulations issued in this regard by the competent authorities in the Emirate shall apply to the employee who is allocated housing by the government authority at the end of his service.
-5. The government authority may deduct from the final settlement amount due to the employee whose service is ended all amounts owed to the government or that are required by law or that the employee has previously agreed to deduct from their salary, including the salary for the periodic leave days in excess of what they are entitled to, taking into account the provisions for death grant.
+by appointing a sub-grade higher by not more than 5% of the number of jobs targeted in the approved annual employment plan.
 
-## Article ( 138 ) Approval of the Final Settlement
+10. The appointed employee shall be entitled to the total salary, allowances, benefits and any other rights prescribed by law.
 
-The  employee  whose  service  is  ended  or  their  legal  heirs,  as  the  case  may  be,  shall  sign  an acknowledgement stating their  approval  of  the  full  final  settlement  of  their  entitlements.  Appropriate procedures in this regard shall be taken when the entitlements of the deceased employee are handed over.
+## Article ( 10 ) General Conditions for Appointment
 
-Score: 0.3642886928136362
+The candidate for appointment to a public job shall:
+
+1. To be a citizen of the country.
+
+
+Score: 0.47358951602237465
 
