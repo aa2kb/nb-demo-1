@@ -17,9 +17,23 @@ class HRQueryInput(BaseModel):
 
 
 class HRRAGTool(BaseTool):
-    name: str = "HR RAG Search"
-    description: str = "Search HR bylaws and policies to answer HR-related questions using retrieval, reranking, and generation"
+    name: str = "hr_rag_search"
+    description: str = """Use this tool to search HR bylaws, policies, and employment regulations. 
+    This is your ONLY source for HR information - do not attempt to use web searches or other tools.
+    The tool contains comprehensive HR documentation including employee policies, procedures, and bylaws.
+    Always use this tool for any HR-related questions."""
     args_schema: Type[BaseModel] = HRQueryInput
+    
+    # === RAG CONFIGURATION CONTROLS ===
+    # Retrieval settings
+    retriever_top_k: int = 5          # Number of documents to retrieve initially
+    
+    # Reranking settings  
+    use_reranking: bool = False         # Enable/disable reranking step
+    reranking_top_n: int = 3          # Number of documents after reranking
+    
+    # Generation settings
+    max_context_chunks: int = 3        # Maximum chunks to use for response generation
     
     def _run(self, question: str) -> str:
         """Main RAG pipeline execution."""
@@ -31,23 +45,35 @@ class HRRAGTool(BaseTool):
             vector_store, embed_model, index, llm = self.setup_components()
             
             # Step 1: Retrieve
-            retrieved_nodes, query_bundle = self.retrieve_documents(index, question)
+            retrieved_nodes, query_bundle = self.retrieve_documents(index, question, self.retriever_top_k)
             if not retrieved_nodes:
-                return "No relevant HR documents found."
+                return "No relevant HR documents found in the database."
             
-            # Step 2: Rerank
-            reranked_nodes = self.rerank_documents(retrieved_nodes, query_bundle, llm)
+            # Step 2: Rerank (optional)
+            if self.use_reranking:
+                final_nodes = self.rerank_documents(retrieved_nodes, query_bundle, llm, self.reranking_top_n)
+            else:
+                print("🔄 Skipping reranking (disabled)")
+                final_nodes = retrieved_nodes[:self.reranking_top_n]  # Use top N without reranking
             
             # Step 3: Generate
-            response = self.generate_response(reranked_nodes, question, llm)
+            response = self.generate_response(final_nodes, question, llm)
             
             print(f"✅ Generated response: {response[:100]}...")
             return response
             
+        except TimeoutError:
+            return "The HR search took too long to complete. Please try a simpler question or try again later."
+        except ConnectionError:
+            return "Unable to connect to the HR database or AI services. Please check system connectivity."
         except Exception as e:
-            error_msg = f"HR RAG pipeline failed: {str(e)}"
-            print(f"❌ {error_msg}")
-            return error_msg
+            error_type = type(e).__name__
+            if "timed out" in str(e).lower() or "timeout" in str(e).lower():
+                return "The HR search timed out. The question might be too complex or the system is busy. Please try again with a simpler question."
+            elif "connection" in str(e).lower():
+                return "Connection issue with HR database or AI services. Please try again later."
+            else:
+                return f"HR search encountered an issue: {error_type}. Please rephrase your question and try again."
 
     def get_vector_store(self):
         """Get PGVectorStore instance with configuration."""
@@ -88,15 +114,16 @@ class HRRAGTool(BaseTool):
             embed_model=embed_model
         )
         
-        # Setup LLM for reranking and generation
+        # Setup LLM for reranking and generation with timeout
         llm = Ollama(
             model="mistral:7b",
-            base_url="http://localhost:11434"
+            base_url="http://localhost:11434",
+            request_timeout=60.0  # 60 seconds timeout
         )
         
         return vector_store, embed_model, index, llm
     
-    def retrieve_documents(self, index, question: str, top_k: int = 10):
+    def retrieve_documents(self, index, question: str, top_k: int):
         """Step 1: Retrieve relevant documents from HR Bylaws."""
         # Create metadata filter for HR Bylaws
         metadata_filters = MetadataFilters(
@@ -120,44 +147,53 @@ class HRRAGTool(BaseTool):
         query_bundle = QueryBundle(question)
         retrieved_nodes = retriever.retrieve(query_bundle)
         
-        print(f"📄 Retrieved {len(retrieved_nodes)} documents")
+        print(f"📄 Retrieved {len(retrieved_nodes)} documents (top_k={top_k})")
         return retrieved_nodes, query_bundle
     
-    def rerank_documents(self, retrieved_nodes, query_bundle, llm, top_n: int = 5):
+    def rerank_documents(self, retrieved_nodes, query_bundle, llm, top_n: int):
         """Step 2: Rerank documents using LLM."""
-        print(f"📄 Reranking {len(retrieved_nodes)} documents (This takes some time)")
+        print(f"� Reranking {len(retrieved_nodes)} documents to top {top_n} (this may take 30-60 seconds)...")
         
         if not retrieved_nodes:
             return []
         
-        # Configure reranker
-        reranker = LLMRerank(
-            top_n=min(top_n, len(retrieved_nodes)),
-            llm=llm
-        )
-        
-        # Rerank documents
-        reranked_nodes = reranker.postprocess_nodes(retrieved_nodes, query_bundle)
-        
-        # Print reranking order
-        print("🔄 Reranking results:")
-        for new_idx, node in enumerate(reranked_nodes):
-            # Find original position
-            for orig_idx, orig_node in enumerate(retrieved_nodes):
-                if orig_node.node_id == node.node_id:
-                    print(f"   {orig_idx} -> {new_idx}")
-                    break
-        
-        return reranked_nodes
+        try:
+            # Configure reranker
+            reranker = LLMRerank(
+                top_n=min(top_n, len(retrieved_nodes)),
+                llm=llm
+            )
+            
+            # Rerank documents
+            reranked_nodes = reranker.postprocess_nodes(retrieved_nodes, query_bundle)
+            
+            # Print reranking order
+            print("✅ Reranking completed:")
+            for new_idx, node in enumerate(reranked_nodes):
+                # Find original position
+                for orig_idx, orig_node in enumerate(retrieved_nodes):
+                    if orig_node.node_id == node.node_id:
+                        print(f"   {orig_idx} -> {new_idx}")
+                        break
+            
+            return reranked_nodes
+            
+        except Exception as e:
+            print(f"⚠️ Reranking failed, using original order: {str(e)}")
+            # Return top documents without reranking if reranking fails
+            return retrieved_nodes[:top_n]
     
-    def generate_response(self, reranked_nodes, question: str, llm):
+    def generate_response(self, nodes, question: str, llm):
         """Step 3: Generate natural language response from context."""
-        if not reranked_nodes:
+        if not nodes:
             return "No relevant information found in HR bylaws."
         
-        # Prepare context from top reranked nodes
+        # Use configurable number of chunks
+        chunks_to_use = min(len(nodes), self.max_context_chunks)
+        
+        # Prepare context from top nodes
         context_parts = []
-        for i, node in enumerate(reranked_nodes[:3], 1):  # Use top 3
+        for i, node in enumerate(nodes[:chunks_to_use], 1):
             context_parts.append(f"Context {i}:\n{node.text}")
         
         context = "\n\n".join(context_parts)
@@ -171,6 +207,8 @@ Context from HR Bylaws:
 Question: {question}
 
 Answer: Provide a clear, direct answer based only on the information in the context. If the context doesn't contain enough information to answer the question, say so."""
+        
+        print(f"💭 Generating response using {chunks_to_use} context chunks...")
         
         # Generate response
         response = llm.complete(prompt)
