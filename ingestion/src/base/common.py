@@ -29,7 +29,7 @@ def get_config():
     }
 
 def get_vector_store_v1():
-    """Get PGVectorStore instance."""
+    """Get PGVectorStore instance. v1"""
     config = get_config()
     
     return PGVectorStore.from_params(
@@ -39,6 +39,22 @@ def get_vector_store_v1():
         port=config['DB_PORT'],
         user=config['DB_USER'],
         table_name="vectors",
+        embed_dim=1024,
+        hybrid_search=True,
+        text_search_config="english"
+    )
+
+def get_vector_store_v2():
+    """Get PGVectorStore instance. v2"""
+    config = get_config()
+    
+    return PGVectorStore.from_params(
+        database=config['DB_NAME'],
+        host=config['DB_HOST'],
+        password=config['DB_PASSWORD'],
+        port=config['DB_PORT'],
+        user=config['DB_USER'],
+        table_name="vectors_v2",
         embed_dim=1024,
         hybrid_search=True,
         text_search_config="english"

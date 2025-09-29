@@ -9,7 +9,7 @@ from llama_index.core.vector_stores import MetadataFilters, MetadataFilter, Filt
 from base.common import get_vector_store_v1
 
 questions = [
-    "Appointment of Persons with Disabilities"
+    "Priority for Vacant Positions"
 ]
 
 def main():
