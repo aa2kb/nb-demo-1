@@ -65,9 +65,9 @@ class HRRAGTool(BaseTool):
                 print("🔄 Skipping reranking (disabled)")
                 final_nodes = retrieved_nodes[:self.reranking_top_n]  # Use top N without reranking
             
-            # Step 3: Generate - Use Ollama for generation
+            # Step 3: Generate - Use Gemini if available, fallback to Ollama
             print("💭 Starting response generation...")
-            response = self.generate_response(final_nodes, question, ollama_llm)
+            response = self.generate_response(final_nodes, question, gemini_llm, ollama_llm)
             
             print(f"✅ Generated response: {response[:100]}...")
             return response
@@ -263,8 +263,8 @@ class HRRAGTool(BaseTool):
             # Return top documents without reranking if reranking fails
             return retrieved_nodes[:top_n]
     
-    def generate_response(self, nodes, question: str, llm):
-        """Step 3: Generate natural language response from context."""
+    def generate_response(self, nodes, question: str, gemini_llm, ollama_llm):
+        """Step 3: Generate natural language response from context using Gemini if available."""
         if not nodes:
             return "No relevant information found in HR bylaws."
         
@@ -288,10 +288,22 @@ Question: {question}
 
 Answer: Provide a clear, direct answer based only on the information in the context. If the context doesn't contain enough information to answer the question, say so."""
         
-        print(f"💭 Generating response using {chunks_to_use} context chunks...")
+        # Try Gemini first if it's available and properly configured
+        gemini_api_key = os.getenv("GEMINI_API_KEY")
+        if gemini_api_key and isinstance(gemini_llm, Gemini):
+            try:
+                print(f"💭 Generating response using Gemini Flash with {chunks_to_use} context chunks...")
+                response = gemini_llm.complete(prompt)
+                print("✅ Response generated successfully with Gemini Flash")
+                return str(response).strip()
+            except Exception as e:
+                print(f"⚠️ Gemini generation failed: {str(e)}")
+                print("🔄 Falling back to Ollama for generation")
         
-        # Generate response
-        response = llm.complete(prompt)
+        # Fallback to Ollama
+        print(f"💭 Generating response using Ollama Mistral with {chunks_to_use} context chunks...")
+        response = ollama_llm.complete(prompt)
+        print("✅ Response generated successfully with Ollama")
         
         return str(response).strip()
     

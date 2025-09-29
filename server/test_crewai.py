@@ -4,6 +4,8 @@ Test CrewAI service to verify HR RAG tool is called only once.
 """
 
 from services.crewai_service import CrewAIService
+from dotenv import load_dotenv
+load_dotenv()
 
 def test_single_tool_call():
     """Test that the HR RAG tool is called only once"""
@@ -13,7 +15,7 @@ def test_single_tool_call():
     service = CrewAIService()
     
     # Test with an HR-related question
-    hr_question = "What are the working hours mentioned in the HR bylaws?"
+    hr_question = "according to hr law tell me about: Priority for Vacant Positions"
     
     print(f"\nQuestion: {hr_question}")
     print("-" * 50)
