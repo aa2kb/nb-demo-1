@@ -10,6 +10,7 @@ from llama_index.core.retrievers import VectorIndexRetriever
 from llama_index.core.postprocessor import LLMRerank
 from llama_index.core.schema import QueryBundle, NodeWithScore
 from llama_index.core.vector_stores import MetadataFilters, MetadataFilter, FilterOperator
+from phoenix.client import Client
 
 
 class RAGPipelineService:
@@ -30,6 +31,18 @@ class RAGPipelineService:
         self.reranking_top_n = reranking_top_n
         self.use_reranking = use_reranking
         self.max_context_chunks = max_context_chunks
+        
+        # Phoenix configuration for response generation
+        self.document_processing_prompt_version_id = os.getenv("DOCUMENT_PROCESSING_PROMPT_VERSION_ID", "UHJvbXB0VmVyc2lvbjoxOA==")
+        self.document_processing_answer_version_id = os.getenv("DOCUMENT_ANSWER_PROMPT_VERSION_ID", "UHJvbXB0VmVyc2lvbjoxOQ==")
+        
+        # Always initialize Phoenix client
+        try:
+            self.phoenix_client = Client()
+            print("✅ Phoenix client initialized successfully")
+        except Exception as e:
+            print(f"❌ Failed to initialize Phoenix client: {str(e)}")
+            raise Exception(f"Phoenix client initialization failed: {str(e)}")
     
     def process_single_document(self, index: VectorStoreIndex, question: str, 
                               doc_filename: str, primary_llm, secondary_llm) -> Optional[str]:
@@ -128,8 +141,8 @@ class RAGPipelineService:
             return retrieved_nodes[:top_n]
     
     def generate_response_for_document(self, nodes: List[NodeWithScore], question: str, 
-                                     doc_filename: str, llm) -> Optional[str]:
-        """Generate response for a specific document."""
+                                     doc_filename: str, llm=None) -> Optional[str]:
+        """Generate response for a specific document using Phoenix-managed prompts."""
         if not nodes:
             return None
         
@@ -142,24 +155,39 @@ class RAGPipelineService:
         context = "\n\n".join(context_parts)
         doc_name = self._format_citation(doc_filename)
         
-        prompt = f"""Based on the following context from {doc_name}, answer the question clearly and accurately.
-
-Context from {doc_name}:
-{context}
-
-Question: {question}
-
-Answer: Provide a clear, direct answer based only on the information in the context. If the context doesn't contain enough information to answer the question, say so. Focus on information specific to this document."""
-        
-        try:
-            response = llm.complete(prompt)
-            return str(response).strip()
-        except Exception as e:
-            print(f"⚠️ Response generation failed for {doc_filename}: {str(e)}")
-            return None
+        return self._generate_with_phoenix(context, question, doc_name, doc_filename, llm)
     
-    def combine_responses_with_citations(self, question: str, document_responses: List[dict], llm) -> str:
-        """Combine multiple document responses with proper citations."""
+    def _generate_with_phoenix(self, context: str, question: str, doc_name: str, doc_filename: str, llm) -> Optional[str]:
+        """Generate response using Phoenix-managed prompts."""
+        try:
+            # Get the prompt from Phoenix
+            prompt = self.phoenix_client.prompts.get(prompt_version_id=self.document_processing_prompt_version_id)
+            
+            # Format the prompt template with variables
+            formatted_result = prompt.format(variables={
+                "context": context,
+                "question": question,
+                "doc_name": doc_name
+            })
+            
+            # Extract the actual prompt text from Phoenix format
+            if isinstance(formatted_result, dict) and 'messages' in formatted_result:
+                # Phoenix returns OpenAI format, extract the user message content
+                prompt_text = formatted_result['messages'][-1]['content']
+            else:
+                # Fallback if format is different
+                prompt_text = str(formatted_result)
+            
+            # Use the existing LLM with the extracted prompt text
+            response = llm.complete(prompt_text)
+            return str(response).strip()
+            
+        except Exception as e:
+            print(f"⚠️ Phoenix response generation failed for {doc_filename}: {str(e)}")
+            return f"Unable to generate response for {doc_name} due to processing error."
+    
+    def combine_responses_with_citations(self, question: str, document_responses: List[dict], llm=None) -> str:
+        """Combine multiple document responses with proper citations using Phoenix-managed prompts."""
         if len(document_responses) == 1:
             # Single document response
             doc_info = document_responses[0]
@@ -171,29 +199,37 @@ Answer: Provide a clear, direct answer based only on the information in the cont
             for item in document_responses
         ])
         
-        prompt = f"""You are tasked with combining multiple responses from different documents into a single, coherent answer.
-
-Original Question: {question}
-
-Multiple Document Responses:
-{responses_text}
-
-Instructions:
-1. Create a comprehensive answer that combines information from all sources
-2. Maintain accuracy - don't make up information not in the sources
-3. When information conflicts, note the differences
-4. Include proper citations for each piece of information
-5. Structure the response clearly with markdown formatting
-6. End with a "Sources" section listing all referenced documents
-
-Provide a well-structured, comprehensive response with proper citations:"""
-
+        return self._combine_with_phoenix(question, responses_text, document_responses, llm)
+    
+    def _combine_with_phoenix(self, question: str, responses_text: str, document_responses: List[dict], llm) -> str:
+        """Combine responses using Phoenix-managed prompts."""
         try:
-            print("🔗 Combining responses from multiple documents...")
-            combined_response = llm.complete(prompt)
-            return str(combined_response).strip()
+            print("🔗 Combining responses from multiple documents using Phoenix...")
+            
+            # Get the prompt from Phoenix - use same prompt ID for now, could be separate
+            prompt = self.phoenix_client.prompts.get(prompt_version_id=self.document_processing_answer_version_id)
+            
+            # Format the prompt template with variables
+            formatted_result = prompt.format(variables={
+                "question": question,
+                "responses_text": responses_text,
+                "operation": "combine_multiple_responses"
+            })
+            
+            # Extract the actual prompt text from Phoenix format
+            if isinstance(formatted_result, dict) and 'messages' in formatted_result:
+                # Phoenix returns OpenAI format, extract the user message content
+                prompt_text = formatted_result['messages'][-1]['content']
+            else:
+                # Fallback if format is different
+                prompt_text = str(formatted_result)
+            
+            # Use the existing LLM with the extracted prompt text
+            response = llm.complete(prompt_text)
+            return str(response).strip()
+            
         except Exception as e:
-            print(f"⚠️ Failed to combine responses: {str(e)}, using simple concatenation")
+            print(f"⚠️ Phoenix response combination failed: {str(e)}, using simple concatenation")
             # Fallback: simple combination
             combined = f"Based on multiple documents:\n\n{responses_text}"
             sources = "\n".join([f"- {self._format_citation(item['document'])}" for item in document_responses])

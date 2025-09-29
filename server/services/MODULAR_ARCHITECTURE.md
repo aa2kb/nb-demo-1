@@ -7,16 +7,18 @@ The Government Document Search system has been refactored from a single large fi
 
 ### New Modular Services
 
-1. **`document_detection_service.py`** (5,176 bytes)
+1. **`document_detection_service.py`** (Enhanced with Phoenix)
    - **Purpose**: Intelligent document detection and selection
    - **Responsibilities**:
      - Analyze user queries to determine relevant documents
+     - Support for Arize Phoenix prompt management
      - Provide fallback keyword-based detection
      - Format document citations
    - **Key Features**:
-     - LLM-based document selection
-     - Keyword fallback mechanism
-     - Document metadata management
+     - **Phoenix Integration**: Centralized prompt management and versioning
+     - **Dual Mode**: Phoenix-managed prompts or traditional LLM-based detection
+     - **Robust Fallbacks**: LLM → Response parsing → Keyword-based → Default
+     - **Environment Configuration**: Toggle between modes via environment variables
 
 2. **`rag_pipeline_service.py`** (9,029 bytes)
    - **Purpose**: Core RAG pipeline operations
@@ -92,9 +94,18 @@ The Government Document Search system has been refactored from a single large fi
 
 ## Configuration
 All services respect environment variables for configuration:
+
+### LLM Configuration
 - `DEFAULT_LLM_PROVIDER` (gemini/ollama)
 - `DEFAULT_LLM_MODEL` 
 - `GEMINI_API_KEY`
+
+### Phoenix Integration (New)
+- `USE_PHOENIX_PROMPTS` (true/false) - Enable Phoenix prompt management
+- `PHOENIX_DOCUMENT_DETECTION_PROMPT_ID` - Phoenix prompt version ID
+- `OPENAI_API_KEY` - Required for Phoenix inference
+
+### Database Configuration
 - Database connection parameters (`DB_HOST`, `DB_PORT`, etc.)
 
 ## Integration
