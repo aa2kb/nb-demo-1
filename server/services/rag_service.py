@@ -139,7 +139,7 @@ class GovernmentDocumentTool(BaseTool):
                 password=config['DB_PASSWORD'],
                 port=config['DB_PORT'],
                 user=config['DB_USER'],
-                table_name="vectors",
+                table_name="vectors_v2",
                 embed_dim=1024,
                 hybrid_search=True,
                 text_search_config="english"
