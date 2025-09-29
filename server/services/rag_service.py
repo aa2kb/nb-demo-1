@@ -46,39 +46,51 @@ class HRRAGTool(BaseTool):
             print(f"\n🔍 HR RAG Query: {question}")
             print("=" * 50)
             
-            # Setup components
+            # Step 0: Debug setup
+            print("🔧 Setting up RAG components...")
             vector_store, embed_model, index, gemini_llm, ollama_llm = self.setup_components()
+            print("✅ Components setup completed")
             
             # Step 1: Retrieve
+            print("📡 Starting document retrieval...")
             retrieved_nodes, query_bundle = self.retrieve_documents(index, question, self.retriever_top_k)
             if not retrieved_nodes:
                 return "No relevant HR documents found in the database."
             
             # Step 2: Rerank (optional) - Use Gemini Flash for fast, accurate reranking
             if self.use_reranking:
+                print("🔄 Starting document reranking...")
                 final_nodes = self.rerank_documents(retrieved_nodes, query_bundle, gemini_llm, self.reranking_top_n)
             else:
                 print("🔄 Skipping reranking (disabled)")
                 final_nodes = retrieved_nodes[:self.reranking_top_n]  # Use top N without reranking
             
             # Step 3: Generate - Use Ollama for generation
+            print("💭 Starting response generation...")
             response = self.generate_response(final_nodes, question, ollama_llm)
             
             print(f"✅ Generated response: {response[:100]}...")
             return response
             
-        except TimeoutError:
+        except TimeoutError as e:
+            print(f"⏰ Timeout error details: {str(e)}")
             return "The HR search took too long to complete. Please try a simpler question or try again later."
-        except ConnectionError:
+        except ConnectionError as e:
+            print(f"🔌 Connection error details: {str(e)}")
             return "Unable to connect to the HR database or AI services. Please check system connectivity."
         except Exception as e:
             error_type = type(e).__name__
-            if "timed out" in str(e).lower() or "timeout" in str(e).lower():
+            error_msg = str(e)
+            print(f"❌ Detailed error - Type: {error_type}, Message: {error_msg}")
+            
+            if "timed out" in error_msg.lower() or "timeout" in error_msg.lower():
                 return "The HR search timed out. The question might be too complex or the system is busy. Please try again with a simpler question."
-            elif "connection" in str(e).lower():
+            elif "connection" in error_msg.lower():
                 return "Connection issue with HR database or AI services. Please try again later."
+            elif "not found" in error_msg.lower() or error_type == "NotFound":
+                return f"HR search encountered a lookup issue: {error_msg}. This might be due to missing documents or configuration. Please check if HR documents are properly loaded."
             else:
-                return f"HR search encountered an issue: {error_type}. Please rephrase your question and try again."
+                return f"HR search encountered an issue: {error_type}: {error_msg}. Please rephrase your question and try again."
 
     def get_vector_store(self):
         """Get PGVectorStore instance with configuration."""
@@ -90,17 +102,25 @@ class HRRAGTool(BaseTool):
             'DB_NAME': os.getenv('DB_NAME', 'postgres'),
         }
         
-        return PGVectorStore.from_params(
-            database=config['DB_NAME'],
-            host=config['DB_HOST'],
-            password=config['DB_PASSWORD'],
-            port=config['DB_PORT'],
-            user=config['DB_USER'],
-            table_name="vectors",
-            embed_dim=1024,
-            hybrid_search=True,
-            text_search_config="english"
-        )
+        print(f"🗄️ Connecting to database: {config['DB_HOST']}:{config['DB_PORT']}/{config['DB_NAME']}")
+        
+        try:
+            vector_store = PGVectorStore.from_params(
+                database=config['DB_NAME'],
+                host=config['DB_HOST'],
+                password=config['DB_PASSWORD'],
+                port=config['DB_PORT'],
+                user=config['DB_USER'],
+                table_name="vectors",
+                embed_dim=1024,
+                hybrid_search=True,
+                text_search_config="english"
+            )
+            print("✅ Database connection successful")
+            return vector_store
+        except Exception as e:
+            print(f"❌ Database connection failed: {type(e).__name__}: {str(e)}")
+            raise
     
     def setup_components(self):
         """Initialize RAG components."""
@@ -130,12 +150,22 @@ class HRRAGTool(BaseTool):
                 request_timeout=60.0
             )
         else:
-            gemini_llm = Gemini(
-                model="gemini-1.5-flash",  # Updated model name format
-                api_key=gemini_api_key,
-                temperature=0.1,  # Low temperature for consistent reranking
-                max_tokens=8192   # Reasonable limit for reranking tasks
-            )
+            print("✅ GEMINI_API_KEY found, using Gemini for reranking")
+            try:
+                gemini_llm = Gemini(
+                    model="gemini-flash-lite-latest",  # Standard model name
+                    api_key=gemini_api_key,
+                    temperature=0.1,  # Low temperature for consistent reranking
+                    max_tokens=8192   # Reasonable limit for reranking tasks
+                )
+            except Exception as e:
+                print(f"⚠️ Gemini initialization failed: {str(e)}")
+                print("🔄 Falling back to Ollama for reranking")
+                gemini_llm = Ollama(
+                    model="mistral:7b",
+                    base_url="http://localhost:11434",
+                    request_timeout=60.0
+                )
         
         # Setup Ollama for generation (keep existing for consistency)
         ollama_llm = Ollama(
@@ -148,30 +178,57 @@ class HRRAGTool(BaseTool):
     
     def retrieve_documents(self, index, question: str, top_k: int):
         """Step 1: Retrieve relevant documents from HR Bylaws."""
-        # Create metadata filter for HR Bylaws
-        metadata_filters = MetadataFilters(
-            filters=[
-                MetadataFilter(
-                    key="filename",
-                    value="HR Bylaws_2f9c1749.md",
-                    operator=FilterOperator.EQ
+        try:
+            # Create metadata filter for HR Bylaws
+            metadata_filters = MetadataFilters(
+                filters=[
+                    MetadataFilter(
+                        key="filename",
+                        value="HR Bylaws_2f9c1749.md",
+                        operator=FilterOperator.EQ
+                    )
+                ]
+            )
+            
+            print(f"🔍 Searching for documents with filename: HR Bylaws_2f9c1749.md")
+            
+            # Configure retriever
+            retriever = VectorIndexRetriever(
+                index=index,
+                similarity_top_k=top_k,
+                filters=metadata_filters
+            )
+            
+            # Create query bundle and retrieve
+            query_bundle = QueryBundle(question)
+            retrieved_nodes = retriever.retrieve(query_bundle)
+            
+            print(f"📄 Retrieved {len(retrieved_nodes)} documents (top_k={top_k})")
+            
+            if len(retrieved_nodes) == 0:
+                print("⚠️ No documents found - checking if any documents exist in the database...")
+                # Try without filter to see if there are any documents at all
+                no_filter_retriever = VectorIndexRetriever(
+                    index=index,
+                    similarity_top_k=top_k
                 )
-            ]
-        )
-        
-        # Configure retriever
-        retriever = VectorIndexRetriever(
-            index=index,
-            similarity_top_k=top_k,
-            filters=metadata_filters
-        )
-        
-        # Create query bundle and retrieve
-        query_bundle = QueryBundle(question)
-        retrieved_nodes = retriever.retrieve(query_bundle)
-        
-        print(f"📄 Retrieved {len(retrieved_nodes)} documents (top_k={top_k})")
-        return retrieved_nodes, query_bundle
+                all_docs = no_filter_retriever.retrieve(query_bundle)
+                print(f"📊 Total documents in database (no filter): {len(all_docs)}")
+                
+                if len(all_docs) > 0:
+                    print("📝 Available filenames in database:")
+                    filenames = set()
+                    for doc in all_docs[:5]:  # Show first 5
+                        if hasattr(doc, 'metadata') and 'filename' in doc.metadata:
+                            filenames.add(doc.metadata['filename'])
+                    for filename in sorted(filenames):
+                        print(f"   - {filename}")
+            
+            return retrieved_nodes, query_bundle
+            
+        except Exception as e:
+            print(f"❌ Document retrieval failed: {type(e).__name__}: {str(e)}")
+            raise
     
     def rerank_documents(self, retrieved_nodes, query_bundle, llm, top_n: int):
         """Step 2: Rerank documents using Gemini Flash LLM."""
