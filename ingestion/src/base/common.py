@@ -28,7 +28,7 @@ def get_config():
         'EMBEDDING_DIM': int(os.getenv('EMBEDDING_DIM', 1024)),
     }
 
-def get_vector_store():
+def get_vector_store_v1():
     """Get PGVectorStore instance."""
     config = get_config()
     
@@ -38,8 +38,8 @@ def get_vector_store():
         password=config['DB_PASSWORD'],
         port=config['DB_PORT'],
         user=config['DB_USER'],
-        table_name=config['VECTOR_TABLE_NAME'],
-        embed_dim=config['EMBEDDING_DIM'],
-        hybrid_search=False,
+        table_name="vectors",
+        embed_dim=1024,
+        hybrid_search=True,
         text_search_config="english"
     )

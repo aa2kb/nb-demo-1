@@ -6,7 +6,7 @@ from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.llms.ollama import Ollama
 from llama_index.core import VectorStoreIndex
 from llama_index.core.vector_stores import MetadataFilters, MetadataFilter, FilterOperator
-from common import get_vector_store
+from base.common import get_vector_store_v1
 
 questions = [
     "Appointment of Persons with Disabilities"
@@ -18,7 +18,7 @@ def main():
     
     # --- Step 1: Get vector store ---
     try:
-        vector_store = get_vector_store()
+        vector_store = get_vector_store_v1()
         print("✅ Connected to vector store")
     except Exception as e:
         print(f"❌ Failed to connect to vector store: {e}")

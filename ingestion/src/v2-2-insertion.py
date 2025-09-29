@@ -9,7 +9,7 @@ from llama_index.core.node_parser import SimpleNodeParser
 from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.core.schema import Document
 from llama_index.core import VectorStoreIndex, StorageContext
-from common import get_config, get_vector_store
+from V0_base import get_config, get_vector_store_v1
 
 def get_document_id(file_path):
     """Generate consistent document ID from file path."""
@@ -99,7 +99,7 @@ def main():
     
     # Get vector store
     try:
-        vector_store = get_vector_store()
+        vector_store = get_vector_store_v1()
         print("Connected to vector store")
     except Exception as e:
         print(f"Failed to connect to vector store: {e}")
