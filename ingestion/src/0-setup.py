@@ -1,78 +1,39 @@
-import os
 import sys
 from pathlib import Path
-from dotenv import load_dotenv
 import requests
-from llama_index.vector_stores.postgres import PGVectorStore
 from docling.document_converter import DocumentConverter
+from common import get_config, get_vector_store
 
-def load_config():
-    """Load configuration from .env file."""
-    env_path = Path("../.env")  # Look for .env in parent directory
-    if not env_path.exists():
-        env_path = Path(".env")  # Try current directory
-    
-    if env_path.exists():
-        load_dotenv(env_path)
-        print(f"Using config from {env_path}")
-    else:
-        print("No .env file found, using defaults")
-    
-    config = {
-        'DB_HOST': os.getenv('DB_HOST', 'localhost'),
-        'DB_PORT': int(os.getenv('DB_PORT', 5432)),
-        'DB_USER': os.getenv('DB_USER', 'admin'),
-        'DB_PASSWORD': os.getenv('DB_PASSWORD', 'admin'),
-        'DB_NAME': os.getenv('DB_NAME', 'postgres'),
-        'VECTOR_TABLE_NAME': os.getenv('VECTOR_TABLE_NAME', 'vectors'),
-        'OLLAMA_HOST': os.getenv('OLLAMA_HOST', 'http://localhost:11434'),
-        'EMBEDDING_MODEL': os.getenv('EMBEDDING_MODEL', 'embeddinggemma:300m'),
-        'CHUNK_SIZE': int(os.getenv('CHUNK_SIZE', 1024)),
-        'CHUNK_OVERLAP': int(os.getenv('CHUNK_OVERLAP', 200)),
-        'LOG_LEVEL': os.getenv('LOG_LEVEL', 'DEBUG')
-    }
-    
-    return config
-
-def check_postgres(config):
-    """Check PostgreSQL connection and create LlamaIndex PGVectorStore."""
-    print("\nChecking PostgreSQL...")
+def check_postgres():
+    """Check PostgreSQL connection using common.py."""
+    print("\n🗄️  Checking PostgreSQL...")
     
     try:
-        # Create LlamaIndex PGVectorStore
-        print("Creating LlamaIndex PGVectorStore...")
-        vector_store = PGVectorStore.from_params(
-            database=config['DB_NAME'],
-            host=config['DB_HOST'],
-            password=config['DB_PASSWORD'],
-            port=config['DB_PORT'],
-            user=config['DB_USER'],
-            table_name=config['VECTOR_TABLE_NAME'],  # Creates data_vectors table
-            embed_dim=768,
-            hybrid_search=False,
-            text_search_config="english"
-        )
+        config = get_config()
+        print(f"Config: {config['DB_NAME']}@{config['DB_HOST']}:{config['DB_PORT']}")
         
-        print("✅ LlamaIndex PGVectorStore created successfully")
-        print(f"   Database: {config['DB_NAME']}@{config['DB_HOST']}:{config['DB_PORT']}")
-        print(f"   Table: data_vectors")
-        print(f"   Embedding dimension: 768")
-        print("✅ PostgreSQL connection and vector store setup complete")
-        
+        vector_store = get_vector_store()
+        print("✅ PGVectorStore created successfully")
+        print(f"   Table: data_{config['VECTOR_TABLE_NAME']}")
+        print(f"   Embedding dimension: {config['EMBEDDING_DIM']}")
         return True
         
     except Exception as e:
-        print(f"PostgreSQL ERROR: {e}")
-        print("Make sure PostgreSQL is running and pgvector extension is available")
+        print(f"❌ PostgreSQL ERROR: {e}")
+        print("💡 Make sure PostgreSQL is running with pgvector extension")
         return False
 
-def check_ollama(config):
+def check_ollama():
     """Check Ollama service and embedding model."""
-    print("\nChecking Ollama...")
+    print("\n🤖 Checking Ollama...")
     
     try:
+        config = get_config()
+        ollama_host = config.get('OLLAMA_HOST', 'http://localhost:11434')
+        embedding_model = config.get('EMBEDDING_MODEL', 'bge-m3:latest')
+        
         # Check if Ollama is running
-        response = requests.get(f"{config['OLLAMA_HOST']}/api/tags", timeout=10)
+        response = requests.get(f"{ollama_host}/api/tags", timeout=10)
         if response.status_code != 200:
             print(f"Ollama not responding (status {response.status_code})")
             return False
@@ -91,13 +52,12 @@ def check_ollama(config):
         print(f"Found {len(available_models)} models")
         
         # Check for embedding model
-        embedding_model = config['EMBEDDING_MODEL']
         if embedding_model in available_models:
             print(f"Found embedding model: {embedding_model}")
             
             # Test embedding
             embed_response = requests.post(
-                f"{config['OLLAMA_HOST']}/api/embed",
+                f"{ollama_host}/api/embed",
                 json={"model": embedding_model, "input": "test"},
                 timeout=30
             )
@@ -218,17 +178,21 @@ def check_markdown_folder():
     return True
 
 def main():
-    print("Document Ingestion Setup Check")
+    print("🚀 Document Ingestion Setup Check")
     print("=" * 40)
+    print("Using common.py for configuration")
     
-    # Load configuration
-    config = load_config()
-    if not config:
+    # Show config
+    try:
+        config = get_config()
+        print(f"✅ Config loaded: {len(config)} settings")
+    except Exception as e:
+        print(f"❌ Config failed: {e}")
         return 1
     
     # Run checks
-    postgres_ok = check_postgres(config)
-    ollama_ok = check_ollama(config)
+    postgres_ok = check_postgres()
+    ollama_ok = check_ollama()
     docling_ok = check_docling()
     docs_ok = check_docs_folder()
     markdown_ok = check_markdown_folder()
@@ -243,7 +207,6 @@ def main():
     
     if all([postgres_ok, ollama_ok, docling_ok, docs_ok, markdown_ok]):
         print("\nAll systems ready!")
-        print("Ready to run: python src/1-parse.py")
         return 0
     else:
         print("\nSome checks failed. Fix issues above.")
