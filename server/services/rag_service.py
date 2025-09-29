@@ -31,14 +31,14 @@ class HRRAGTool(BaseTool):
     
     # === RAG CONFIGURATION CONTROLS ===
     # Retrieval settings
-    retriever_top_k: int = 10          # Number of documents to retrieve initially
+    retriever_top_k: int = 15          # Number of documents to retrieve initially
     
     # Reranking settings  
     use_reranking: bool = True          # Enable/disable reranking step (using Gemini Flash)
     reranking_top_n: int = 5            # Number of documents after reranking
 
     # Generation settings
-    max_context_chunks: int = 10        # Maximum chunks to use for response generation
+    max_context_chunks: int = 5        # Maximum chunks to use for response generation
     
     def _run(self, question: str) -> str:
         """Main RAG pipeline execution."""

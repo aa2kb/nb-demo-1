@@ -183,12 +183,13 @@ class ChatHandler:
         )
     
     async def _simulate_streaming_response(self, content: str, model: str, completion_id: str, chunk_delay: float = 0.05):
-        """Simulate streaming response."""
+        """Simulate streaming response while preserving formatting."""
         # Clean the content using streaming controller
         content = self.controller.streaming_controller.prepare_streaming_content(content)
         
-        # Split content into words for chunk-by-chunk streaming
-        words = content.split()
+        # Split content into characters to preserve all formatting including newlines
+        # Use a reasonable chunk size for better streaming experience
+        chunk_size = 15  # Stream 15 characters at a time
         
         # Send the first chunk with role information
         first_chunk = ChatCompletionStreamResponse(
@@ -204,15 +205,9 @@ class ChatHandler:
         )
         yield f"data: {first_chunk.model_dump_json(exclude_none=True)}\n\n"
         
-        # Stream content in chunks (multiple words per chunk for better flow)
-        chunk_size = 3
-        for i in range(0, len(words), chunk_size):
-            chunk_words = words[i:i + chunk_size]
-            chunk_content = " ".join(chunk_words)
-            
-            # Add space before chunk if it's not the first content chunk
-            if i > 0:
-                chunk_content = " " + chunk_content
+        # Stream content in character chunks to preserve all formatting
+        for i in range(0, len(content), chunk_size):
+            chunk_content = content[i:i + chunk_size]
                 
             stream_chunk = ChatCompletionStreamResponse(
                 id=completion_id,
