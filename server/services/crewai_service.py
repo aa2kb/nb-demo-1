@@ -32,15 +32,9 @@ class CrewAIService:
             allow_delegation=False,
             llm=llm,
             tools=[hr_rag_tool],  # Add HR RAG tool to agent
-            max_iter=3,  # Limit iterations to prevent tool hallucination
-            step_callback=self._tool_callback
+            max_iter=1,  # Limit to 1 iteration to prevent multiple tool calls
+            memory=True  # Enable memory to use previous tool results
         )
-    
-    def _tool_callback(self, step):
-        """Callback to monitor tool usage and prevent hallucination."""
-        if hasattr(step, 'tool_input') and step.tool_input:
-            print(f"🔧 Tool being used: {step.tool_input}")
-        return step
     
     def chat(self, messages: Union[str, List[Dict[str, str]]]) -> Dict[str, Any]:
         """Chat with Agent using messages array or single string"""

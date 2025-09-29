@@ -18,11 +18,15 @@ class HRQueryInput(BaseModel):
 
 class HRRAGTool(BaseTool):
     name: str = "hr_rag_search"
-    description: str = """Use this tool to search HR bylaws, policies, and employment regulations. 
-    This is your ONLY source for HR information - do not attempt to use web searches or other tools.
-    The tool contains comprehensive HR documentation including employee policies, procedures, and bylaws.
-    Always use this tool for any HR-related questions."""
+    description: str = """Search HR bylaws, policies, and employment regulations to get complete answers.
+    This tool provides comprehensive information from HR documentation.
+    Use this tool ONCE per question - it returns complete, detailed answers.
+    Do not call this tool multiple times for the same question.
+    The tool searches employee policies, procedures, bylaws, and HR regulations."""
     args_schema: Type[BaseModel] = HRQueryInput
+    
+    # Simple cache to prevent redundant calls
+    _cache: dict = {}
     
     # === RAG CONFIGURATION CONTROLS ===
     # Retrieval settings
