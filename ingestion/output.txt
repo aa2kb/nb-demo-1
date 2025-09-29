@@ -1,57 +1,64 @@
-Question: Priority for Vacant Positions
+Question: Transition from Full Time to Part Time or Vice Versa
 Filter: filename = 'HR Bylaws_2f9c1749.md'
 Response Mode: tree_summarize
 ==================================================
 
 Answer:
- The priority for vacant positions in the Government Authority is as follows:
+ Based on the provided HR Bylaws document, there is no explicit mention of a transition from full-time to part-time employment or vice versa. However, modifications of an employee's status are discussed in Article (55) of the bylaws. This article outlines conditions for an employee who obtains a higher qualification during their service in the Government Authority, including the extent to which the educational qualification matches their work and the needs of the Government Authority, as well as the prior approval of the Government Authority if the employee desires to obtain a higher qualification after joining the job.
 
-1. A citizen employee of the same Government Authority who meets the conditions and requirements of the job.
-2. A citizen candidate from outside the Government Authority who has completed national service or submitted a certificate indicating his relevant status (if the candidate had to enlist in national service or if he has been exempted from it).
-3. Citizen candidate from outside the government authority.
+It's important to note that this article pertains to changes in an employee's educational qualifications, not their employment status. If there are any policies or procedures for transitioning between full-time and part-time work within the organization, they may be found elsewhere in the HR bylaws or other related documents. It is recommended to consult those resources directly for more specific information.
 
 Sources (10 chunks used):
 
 Source 1 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-Exception may be made after the approval of the Authority.
-- c. If  their  service  is  terminated  due  to  their  incapacity  to  carry  out  their  duties  during  the probationary period, or whose...
+2. The overtime work should not be part of the employee's original duties that they perform during the working hours specified for them. 3. The tasks that the employee is assigned to accomplish shall ...
 
-Score: 0.5829104532546169
+Score: 0.43762753346216887
 
 Source 2 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-2. A citizen candidate from outside the Government Authority who has completed national  service or submitted a certificate indicating his relevant status (if the candidate had to enlist in national s...
+If they are a retired military.
 
-Score: 0.5459533929824985
+## Article ( 55 ) Modification of Status
+
+- I. General Provisions:
+
+Modification the status  of an  employee who obtained a  higher  qualification  during  their  serv...
+
+Score: 0.434606977152005
 
 Source 3 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-## 2. Compensation for Recruitment
+## 3. Compensation for Overtime
 
-The head of the government authority may determine the percentage of the compensation for recruitment for the new employee of the third grade and above, according t...
+The employee shall be paid for the overtime work they perform outside the official working hours in a compensation not exceeding (50%) of the employee's basic salary a...
 
-Score: 0.5044521694722414
+Score: 0.43006771802904975
 
 Source 4 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-2. Expiry of the authorization period.
-3. End of the purpose for which the authorization was granted.
-4. Revocation of the authorization decision.
+- c. To fulfil an expense or a debt adjudicated by the court, or to pay what they owe to the government, whether for a reason related to the performance of their job, or to recover what was unjustly s...
 
-5. Revocation of the position occupied by the author...
-
-Score: 0.49516975937253305
+Score: 0.4265035605576585
 
 Source 5 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-Giving priority to employees using external roads.
+The probationary period shall be calculated as part of the employee's continuous service period with the government authority.
 
 ...
 
-Score: 0.49506229162217585
+Score: 0.42538564129516865
 
 Source 6 (from HR Bylaws_2f9c1749.md):
+------------------------------
+The total salary of the employee for this leave may be paid in advance at their request, provided that the request is made (15) days before the start date of their leave.
+
+## Article ( 96 ) Patient Ac...
+
+Score: 0.4252147003368444
+
+Source 7 (from HR Bylaws_2f9c1749.md):
 ------------------------------
 The program to which the employee is subject should be within the relevant approved annual training plan .
 
@@ -63,30 +70,24 @@ The program to which the employee is subject should be within the relevant appro
 
 The employee is promoted acco...
 
-Score: 0.48765878195446655
-
-Source 7 (from HR Bylaws_2f9c1749.md):
-------------------------------
-5. The chairman of the Government Authority may make adjustments to the approved annual job budget by adding, cancelling or transferring financial allocations between said jobs within the limits of th...
-
-Score: 0.48623597129678053
+Score: 0.4189440281772663
 
 Source 8 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-6. They  should  not  have  been  previously  dismissed  from  service  by  virtue  of  a  final  disciplinary judgement or decision unless at least two years have elapsed since its issuance. The peri...
+| Notice      | Written warning | Deduction of salary for one day | Deduction of salary for 3 days | Deduction of salary for 4 days | Deduction of salary for 15 days | Deduction of amounts unduly disb...
 
-Score: 0.4853534084979817
+Score: 0.4150427141556552
 
 Source 9 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-The following table can be used to determine the degrees of kinship:
-7. The  government  authority  shall  commit  to  grant  equal  opportunities  to  train  and  qualify  citizens seeking work in co...
+Exception may be made after the approval of the Authority.
+- c. If  their  service  is  terminated  due  to  their  incapacity  to  carry  out  their  duties  during  the probationary period, or whose...
 
-Score: 0.4806646716198735
+Score: 0.4059779868178428
 
 Source 10 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-4. The  candidate  for  appointment  shall  submit  all  documents  and  supporting  papers  necessary  to complete the appointment procedures, certified and approved by the concerned authorities, and...
+|             |                 |                                 |                                |                                |                                 |                                 ...
 
-Score: 0.47358951602237465
+Score: 0.4023441302122436
 
