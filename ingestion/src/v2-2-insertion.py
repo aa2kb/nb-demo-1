@@ -9,7 +9,7 @@ from llama_index.core.node_parser import SimpleNodeParser
 from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.core.schema import Document
 from llama_index.core import VectorStoreIndex, StorageContext
-from V0_base import get_config, get_vector_store_v1
+from base.common import get_config, get_vector_store_v1
 
 def get_document_id(file_path):
     """Generate consistent document ID from file path."""
