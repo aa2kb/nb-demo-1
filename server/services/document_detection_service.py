@@ -31,7 +31,7 @@ class DocumentDetectionService:
         }
         
         # Phoenix configuration
-        self.phoenix_prompt_id = os.getenv("PHOENIX_DOCUMENT_DETECTION_PROMPT_ID", "UHJvbXB0VmVyc2lvbjoxNw==")
+        self.phoenix_prompt_id = os.getenv("DOCUMENT_DETECTION_VERSION_ID", "UHJvbXB0VmVyc2lvbjoxNw==")
         
         # Always initialize Phoenix client
         try:
