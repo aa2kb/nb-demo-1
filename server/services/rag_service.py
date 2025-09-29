@@ -78,7 +78,7 @@ class GovernmentDocumentTool(BaseTool):
             document_responses = []
             
             for doc_filename in relevant_documents:
-                print(f"\n� Processing: {doc_filename}")
+                print(f"\n Processing: {doc_filename}")
                 doc_response = self.process_single_document(
                     index, question, doc_filename, primary_llm, secondary_llm
                 )
