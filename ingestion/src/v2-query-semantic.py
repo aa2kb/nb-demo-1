@@ -4,9 +4,11 @@ Simple query script for testing vector search.
 
 from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.llms.ollama import Ollama
-from llama_index.core import VectorStoreIndex
+from llama_index.core import VectorStoreIndex, get_response_synthesizer
+from llama_index.core.retrievers import VectorIndexRetriever
+from llama_index.core.query_engine import RetrieverQueryEngine
 from llama_index.core.vector_stores import MetadataFilters, MetadataFilter, FilterOperator
-from base.common import get_vector_store_v2
+from base.common import get_vector_store_v1
 
 questions = [
     "Appointment of Graduate Trainees"
@@ -20,7 +22,7 @@ def main():
     
     # --- Step 1: Get vector store ---
     try:
-        vector_store = get_vector_store_v2()
+        vector_store = get_vector_store_v1()
         print("✅ Connected to vector store")
     except Exception as e:
         print(f"❌ Failed to connect to vector store: {e}")
@@ -43,10 +45,38 @@ def main():
         print(f"❌ Failed to initialize LLM: {e}")
         return 1
     
-    # --- Step 4: Create query engine ---
+    # --- Step 4: Create query engine with retriever and response synthesizer ---
     try:
-        query_engine = index.as_query_engine(llm=llm)
-        print("✅ Created query engine")
+        # Configure retriever with metadata filters
+        metadata_filters = MetadataFilters(
+            filters=[
+                MetadataFilter(
+                    key="filename",
+                    value="HR Bylaws_2f9c1749.md",
+                    operator=FilterOperator.EQ
+                )
+            ]
+        )
+        
+        retriever = VectorIndexRetriever(
+            index=index,
+            similarity_top_k=5,
+            filters=metadata_filters
+        )
+        
+        # Configure response synthesizer
+        response_synthesizer = get_response_synthesizer(
+            response_mode="tree_summarize",
+            llm=llm
+        )
+        
+        # Assemble query engine
+        query_engine = RetrieverQueryEngine(
+            retriever=retriever,
+            response_synthesizer=response_synthesizer,
+        )
+        
+        print("✅ Created query engine with retriever and response synthesizer")
     except Exception as e:
         print(f"❌ Failed to create query engine: {e}")
         return 1
@@ -62,57 +92,35 @@ def main():
         print("-" * 50)
         
         try:
-            # Run as Query Engine
-            # response = query_engine.query(question)
-            # print(f"Answer: {response}")
-            # if hasattr(response, 'source_nodes') and response.source_nodes:
-            #     print(f"\nSources ({len(response.source_nodes)} documents):")
-            #     for j, node in enumerate(response.source_nodes[:2], 1):  # Show top 2 sources
-            #         filename = node.metadata.get('filename', 'Unknown')
-            #         print(f"  {j}. {filename}")
-
-
-
-            # Run as Retriever with metadata filter
-        
-            print("Running as Retriever with HR Bylaws filter...")
-            # Create metadata filter for HR Bylaws file
-            metadata_filters = MetadataFilters(
-                filters=[
-                    MetadataFilter(
-                        key="filename",
-                        value="HR Bylaws_2f9c1749.md",
-                        operator=FilterOperator.EQ
-                    )
-                ]
-            )
-            
-            retriever = index.as_retriever(
-                similarity_top_k=10,
-                filters=metadata_filters
-            ) 
-            response = retriever.retrieve(question)
+            # Run as Query Engine with retriever and response synthesizer
+            print("Running query engine with tree_summarize...")
+            response = query_engine.query(question)
             
             # Clear and write to output.txt
             with open("output.txt", "w") as f:
                 f.write(f"Question: {question}\n")
                 f.write(f"Filter: filename = 'HR Bylaws_2f9c1749.md'\n")
+                f.write(f"Response Mode: tree_summarize\n")
                 f.write("=" * 50 + "\n\n")
                 
-                if response:
-                    f.write(f"Found {len(response)} relevant chunks (HR Bylaws only):\n\n")
-                    for j, node in enumerate(response, 1):
+                # Write the synthesized response
+                f.write(f"Answer:\n{response}\n\n")
+                
+                # Write source information if available
+                if hasattr(response, 'source_nodes') and response.source_nodes:
+                    f.write(f"Sources ({len(response.source_nodes)} chunks used):\n\n")
+                    for j, node in enumerate(response.source_nodes, 1):
                         filename = node.metadata.get('filename', 'Unknown')
-                        f.write(f"Chunk {j} (from {filename}):\n")
+                        f.write(f"Source {j} (from {filename}):\n")
                         f.write("-" * 30 + "\n")
-                        f.write(f"{node.text}\n\n")
+                        f.write(f"{node.text[:200]}...\n\n")  # First 200 chars
                         f.write(f"Score: {node.score}\n\n")
                 else:
-                    f.write("No relevant chunks found in HR Bylaws document.\n")
+                    f.write("No source nodes available.\n")
             
             print(f"Results written to output.txt")
+            print(f"Answer preview: {str(response)[:100]}...")
             
-        
         except Exception as e:
             print(f"❌ Query failed: {e}")
     

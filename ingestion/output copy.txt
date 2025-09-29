@@ -4,11 +4,12 @@ Response Mode: tree_summarize
 ==================================================
 
 Answer:
- The appointment of graduate trainees is governed by Article (15) of the HR Bylaws. Here are some key points regarding this article:
+ The appointment of graduate trainees is addressed in Article (15) of the provided HR Bylaws. Here are some key points regarding this:
 
-1. Fresh graduates may be given special attention during their appointment to work in the government entity for onboarding and functional development purposes.
-2. Graduate trainees in government entities shall receive a stipend according to the duration of the training program, as outlined in the attached schedule.
+1. Fresh graduates who wish to work in the government entity are given special attention during their onboarding and functional development to hold a position in the approved organizational structure of the government entity.
+2. Graduate trainees in government entities shall be granted a stipend according to the duration of the training program, as specified in the regulations.
 3. No candidate shall be appointed in job Grades 4 to 6 except after they successfully pass the training period, except for candidates with previous practical experience.
+4. This article also mentions that the appointment decision is issued by the head of the government authority based on the recommendation of the Human Resources Committee, similar to Article (14) Appointment Procedures mentioned earlier in the context information.
 
 Sources (5 chunks used):
 
