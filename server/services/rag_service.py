@@ -46,10 +46,10 @@ class GovernmentDocumentTool(BaseTool):
     args_schema: Type[BaseModel] = GovernmentQueryInput
     
     # Configuration
-    retriever_top_k: ClassVar[int] = 15          # Number of documents to retrieve initially per document
+    retriever_top_k: ClassVar[int] = 20          # Number of documents to retrieve initially per document
     use_reranking: ClassVar[bool] = True          # Enable/disable reranking step
-    reranking_top_n: ClassVar[int] = 5            # Number of documents after reranking per document
-    max_context_chunks: ClassVar[int] = 5         # Maximum chunks to use for response generation per document
+    reranking_top_n: ClassVar[int] = 20            # Number of documents after reranking per document
+    max_context_chunks: ClassVar[int] = 10         # Maximum chunks to use for response generation per document
     
     def _get_services(self):
         """Get service instances (lazy initialization)."""
