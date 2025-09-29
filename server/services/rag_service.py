@@ -48,7 +48,7 @@ class HRRAGTool(BaseTool):
             
             # Step 0: Debug setup
             print("🔧 Setting up RAG components...")
-            vector_store, embed_model, index, gemini_llm, ollama_llm = self.setup_components()
+            vector_store, embed_model, index, primary_llm, secondary_llm = self.setup_components()
             print("✅ Components setup completed")
             
             # Step 1: Retrieve
@@ -57,17 +57,17 @@ class HRRAGTool(BaseTool):
             if not retrieved_nodes:
                 return "No relevant HR documents found in the database."
             
-            # Step 2: Rerank (optional) - Use Gemini Flash for fast, accurate reranking
+            # Step 2: Rerank (optional) - Use primary LLM for reranking
             if self.use_reranking:
                 print("🔄 Starting document reranking...")
-                final_nodes = self.rerank_documents(retrieved_nodes, query_bundle, gemini_llm, self.reranking_top_n)
+                final_nodes = self.rerank_documents(retrieved_nodes, query_bundle, primary_llm, self.reranking_top_n)
             else:
                 print("🔄 Skipping reranking (disabled)")
                 final_nodes = retrieved_nodes[:self.reranking_top_n]  # Use top N without reranking
             
-            # Step 3: Generate - Use Gemini if available, fallback to Ollama
+            # Step 3: Generate - Use secondary LLM for generation
             print("💭 Starting response generation...")
-            response = self.generate_response(final_nodes, question, gemini_llm, ollama_llm)
+            response = self.generate_response(final_nodes, question, primary_llm, secondary_llm)
             
             print(f"✅ Generated response: {response[:100]}...")
             return response
@@ -139,42 +139,47 @@ class HRRAGTool(BaseTool):
             embed_model=embed_model
         )
         
-        # Setup Gemini Flash for reranking (fastest with large context)
-        gemini_api_key = os.getenv("GEMINI_API_KEY")
-        if not gemini_api_key:
-            print("⚠️ GEMINI_API_KEY not found, using Ollama for reranking instead")
-            # Fallback to Ollama for both reranking and generation
-            gemini_llm = Ollama(
-                model="mistral:7b",
-                base_url="http://localhost:11434",
+        # Get LLM configuration from environment
+        llm_provider = os.getenv("DEFAULT_LLM_PROVIDER", "ollama").lower()
+        llm_model = os.getenv("DEFAULT_LLM_MODEL", "mistral:7b")
+        
+        print(f"🤖 Using LLM Provider: {llm_provider}, Model: {llm_model}")
+        
+        # Setup LLMs based on provider
+        if llm_provider == "gemini":
+            gemini_api_key = os.getenv("GEMINI_API_KEY")
+            if not gemini_api_key:
+                print("❌ GEMINI_API_KEY not found but Gemini provider selected. Falling back to Ollama.")
+                llm_provider = "ollama"
+                llm_model = "mistral:7b"
+            else:
+                print("✅ Configuring Gemini Flash for both reranking and generation")
+                try:
+                    primary_llm = Gemini(
+                        model=llm_model,
+                        api_key=gemini_api_key,
+                        temperature=0.1,
+                        max_tokens=8192
+                    )
+                    secondary_llm = primary_llm  # Use same LLM for both operations
+                    print("✅ Gemini LLMs initialized successfully")
+                except Exception as e:
+                    print(f"⚠️ Gemini initialization failed: {str(e)}")
+                    print("🔄 Falling back to Ollama")
+                    llm_provider = "ollama"
+                    llm_model = "mistral:7b"
+        
+        # Fallback to Ollama or explicit Ollama configuration
+        if llm_provider == "ollama":
+            print("✅ Configuring Ollama for both reranking and generation")
+            primary_llm = Ollama(
+                model=llm_model,
+                base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
                 request_timeout=60.0
             )
-        else:
-            print("✅ GEMINI_API_KEY found, using Gemini for reranking")
-            try:
-                gemini_llm = Gemini(
-                    model="gemini-flash-lite-latest",  # Standard model name
-                    api_key=gemini_api_key,
-                    temperature=0.1,  # Low temperature for consistent reranking
-                    max_tokens=8192   # Reasonable limit for reranking tasks
-                )
-            except Exception as e:
-                print(f"⚠️ Gemini initialization failed: {str(e)}")
-                print("🔄 Falling back to Ollama for reranking")
-                gemini_llm = Ollama(
-                    model="mistral:7b",
-                    base_url="http://localhost:11434",
-                    request_timeout=60.0
-                )
+            secondary_llm = primary_llm  # Use same LLM for both operations
         
-        # Setup Ollama for generation (keep existing for consistency)
-        ollama_llm = Ollama(
-            model="mistral:7b",
-            base_url="http://localhost:11434",
-            request_timeout=60.0  # 60 seconds timeout
-        )
-        
-        return vector_store, embed_model, index, gemini_llm, ollama_llm
+        return vector_store, embed_model, index, primary_llm, secondary_llm
     
     def retrieve_documents(self, index, question: str, top_k: int):
         """Step 1: Retrieve relevant documents from HR Bylaws."""
@@ -231,8 +236,10 @@ class HRRAGTool(BaseTool):
             raise
     
     def rerank_documents(self, retrieved_nodes, query_bundle, llm, top_n: int):
-        """Step 2: Rerank documents using Gemini Flash LLM."""
-        print(f"📄 Reranking {len(retrieved_nodes)} documents to top {top_n} using Gemini Flash (fast & accurate)...")
+        """Step 2: Rerank documents using configured LLM."""
+        llm_provider = os.getenv("DEFAULT_LLM_PROVIDER", "ollama").lower()
+        llm_model = os.getenv("DEFAULT_LLM_MODEL", "mistral:7b")
+        print(f"📄 Reranking {len(retrieved_nodes)} documents to top {top_n} using {llm_provider} ({llm_model})...")
         
         if not retrieved_nodes:
             return []
@@ -263,8 +270,8 @@ class HRRAGTool(BaseTool):
             # Return top documents without reranking if reranking fails
             return retrieved_nodes[:top_n]
     
-    def generate_response(self, nodes, question: str, gemini_llm, ollama_llm):
-        """Step 3: Generate natural language response from context using Gemini if available."""
+    def generate_response(self, nodes, question: str, primary_llm, secondary_llm):
+        """Step 3: Generate natural language response from context using configured LLM."""
         if not nodes:
             return "No relevant information found in HR bylaws."
         
@@ -288,24 +295,34 @@ Question: {question}
 
 Answer: Provide a clear, direct answer based only on the information in the context. If the context doesn't contain enough information to answer the question, say so."""
         
-        # Try Gemini first if it's available and properly configured
-        gemini_api_key = os.getenv("GEMINI_API_KEY")
-        if gemini_api_key and isinstance(gemini_llm, Gemini):
-            try:
-                print(f"💭 Generating response using Gemini Flash with {chunks_to_use} context chunks...")
-                response = gemini_llm.complete(prompt)
-                print("✅ Response generated successfully with Gemini Flash")
-                return str(response).strip()
-            except Exception as e:
-                print(f"⚠️ Gemini generation failed: {str(e)}")
+        # Use secondary LLM for generation (could be same as primary)
+        llm_provider = os.getenv("DEFAULT_LLM_PROVIDER", "ollama").lower()
+        llm_model = os.getenv("DEFAULT_LLM_MODEL", "mistral:7b")
+        
+        try:
+            print(f"💭 Generating response using {llm_provider} ({llm_model}) with {chunks_to_use} context chunks...")
+            response = secondary_llm.complete(prompt)
+            print(f"✅ Response generated successfully with {llm_provider}")
+            return str(response).strip()
+        except Exception as e:
+            print(f"⚠️ Generation failed with {llm_provider}: {str(e)}")
+            # If we're using Gemini and it fails, try Ollama as fallback
+            if llm_provider == "gemini":
                 print("🔄 Falling back to Ollama for generation")
-        
-        # Fallback to Ollama
-        print(f"💭 Generating response using Ollama Mistral with {chunks_to_use} context chunks...")
-        response = ollama_llm.complete(prompt)
-        print("✅ Response generated successfully with Ollama")
-        
-        return str(response).strip()
+                try:
+                    fallback_llm = Ollama(
+                        model="mistral:7b",
+                        base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
+                        request_timeout=60.0
+                    )
+                    response = fallback_llm.complete(prompt)
+                    print("✅ Response generated successfully with Ollama (fallback)")
+                    return str(response).strip()
+                except Exception as fallback_e:
+                    print(f"❌ Fallback also failed: {str(fallback_e)}")
+                    return "Failed to generate response due to LLM issues. Please try again later."
+            else:
+                return "Failed to generate response due to LLM issues. Please try again later."
     
 
 # Create singleton instance

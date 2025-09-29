@@ -15,11 +15,34 @@ agent_role_backstory = phoenix_client.prompts.get(prompt_identifier="agent_backs
 # TODO: RAG using PGSearchTool
 # from crewai_tools import PGSearchTool
 
-# Configure Ollama Mistral 7B LLM
-llm = LLM(
-    model="ollama/mistral:7b",
-    base_url="http://localhost:11434"
-)
+# Configure LLM based on environment settings
+def get_configured_llm():
+    """Get LLM configuration from environment variables."""
+    llm_provider = os.getenv("DEFAULT_LLM_PROVIDER", "ollama").lower()
+    llm_model = os.getenv("DEFAULT_LLM_MODEL", "mistral:7b")
+    
+    print(f"🤖 CrewAI using LLM Provider: {llm_provider}, Model: {llm_model}")
+    
+    if llm_provider == "gemini":
+        gemini_api_key = os.getenv("GEMINI_API_KEY")
+        if not gemini_api_key:
+            print("❌ GEMINI_API_KEY not found but Gemini provider selected. Falling back to Ollama.")
+            llm_provider = "ollama"
+            llm_model = "mistral:7b"
+        else:
+            return LLM(
+                model=f"gemini/{llm_model}",
+                api_key=gemini_api_key
+            )
+    
+    # Fallback to Ollama or explicit Ollama configuration
+    ollama_base_url = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+    return LLM(
+        model=f"ollama/{llm_model}",
+        base_url=ollama_base_url
+    )
+
+llm = get_configured_llm()
 
 
 class CrewAIService:
@@ -54,14 +77,6 @@ class CrewAIService:
                 "messages": messages,
                 "error": str(e)
             }
-    
-    def get_agent_info(self) -> Dict[str, str]:
-        """Get information about the agent"""
-        return {
-            "role": self.chat_agent.role,
-            "goal": self.chat_agent.goal,
-            "backstory": self.chat_agent.backstory
-        }
     
     def get_agent_info(self) -> Dict[str, str]:
         """Get information about the agent"""
