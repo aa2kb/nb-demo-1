@@ -5,10 +5,11 @@ Simple query script for testing vector search.
 from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.llms.ollama import Ollama
 from llama_index.core import VectorStoreIndex
+from llama_index.core.vector_stores import MetadataFilters, MetadataFilter, FilterOperator
 from common import get_vector_store
 
 questions = [
-    "Priority for Vacant Positions"
+    "Appointment of Persons with Disabilities"
 ]
 
 def main():
@@ -59,19 +60,20 @@ def main():
         print("-" * 50)
         
         try:
+            # Run as Query Engine
             # response = query_engine.query(question)
             # print(f"Answer: {response}")
-            # Show source information if available
             # if hasattr(response, 'source_nodes') and response.source_nodes:
             #     print(f"\nSources ({len(response.source_nodes)} documents):")
             #     for j, node in enumerate(response.source_nodes[:2], 1):  # Show top 2 sources
             #         filename = node.metadata.get('filename', 'Unknown')
             #         print(f"  {j}. {filename}")
 
+
+
             # Run as Retriever with metadata filter
+        
             print("Running as Retriever with HR Bylaws filter...")
-            from llama_index.core.vector_stores import MetadataFilters, MetadataFilter, FilterOperator
-            
             # Create metadata filter for HR Bylaws file
             metadata_filters = MetadataFilters(
                 filters=[
