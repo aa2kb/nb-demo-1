@@ -11,7 +11,9 @@ from llama_index.core.vector_stores import MetadataFilters, MetadataFilter, Filt
 from base.common import get_vector_store_v2
 
 questions = [
-    "Transition from Full Time to Part Time or Vice Versa"
+    # "Transition from Full Time to Part Time or Vice Versa"
+    # "Appointment of Graduate Trainees"
+    "Priority for Vacant Positions"
 ]
 
 def main():

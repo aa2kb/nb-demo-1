@@ -1,49 +1,92 @@
-Question: Appointment of Graduate Trainees
+Question: Priority for Vacant Positions
 Filter: filename = 'HR Bylaws_2f9c1749.md'
 Response Mode: tree_summarize
 ==================================================
 
 Answer:
- The appointment of graduate trainees is governed by Article (15) of the HR Bylaws. Here are some key points regarding this article:
+ The priority for vacant positions in the Government Authority is as follows:
 
-1. Fresh graduates may be given special attention during their appointment to work in the government entity for onboarding and functional development purposes.
-2. Graduate trainees in government entities shall receive a stipend according to the duration of the training program, as outlined in the attached schedule.
-3. No candidate shall be appointed in job Grades 4 to 6 except after they successfully pass the training period, except for candidates with previous practical experience.
+1. A citizen employee of the same Government Authority who meets the conditions and requirements of the job.
+2. A citizen candidate from outside the Government Authority who has completed national service or submitted a certificate indicating their relevant status (if they had to enlist in national service or if they have been exempted from it).
+3. Citizen candidate from outside the government authority.
 
-Sources (5 chunks used):
+Sources (10 chunks used):
 
 Source 1 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-## Article ( 20 ) Probationary Period
+Exception may be made after the approval of the Authority.
+- c. If  their  service  is  terminated  due  to  their  incapacity  to  carry  out  their  duties  during  the probationary period, or whose...
 
-1. The employee appointed by the government authority shall be subject to a probationary period of three months starting from the date they take over the work, a...
-
-Score: 0.4761879302191623
+Score: 0.5829104532546169
 
 Source 2 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-- c. The Human Resources Department shall notify the employees in writing at least three months prior to the date specified for their retirement or termination of service.
-- d. The employee's service ...
+2. A citizen candidate from outside the Government Authority who has completed national  service or submitted a certificate indicating his relevant status (if the candidate had to enlist in national s...
 
-Score: 0.3638478029230694
+Score: 0.5459533929824985
 
 Source 3 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-2. A citizen candidate from outside the Government Authority who has completed national  service or submitted a certificate indicating his relevant status (if the candidate had to enlist in national s...
+## 2. Compensation for Recruitment
 
-Score: 0.3607328871625748
+The head of the government authority may determine the percentage of the compensation for recruitment for the new employee of the third grade and above, according t...
+
+Score: 0.5044521694722414
 
 Source 4 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-- d. Notice allowance in accordance with the relevant clause of these regulations, where applicable.
-- e. End of service benefits for non-citizen employees and other benefits specified in these regula...
+2. Expiry of the authorization period.
+3. End of the purpose for which the authorization was granted.
+4. Revocation of the authorization decision.
 
-Score: 0.35676671781957203
+5. Revocation of the position occupied by the author...
+
+Score: 0.49516975937253305
 
 Source 5 (from HR Bylaws_2f9c1749.md):
 ------------------------------
-- b. The amounts owing to the employee for any of the raises, bonuses, allowances, job benefits, end of service benefits are rounded to the nearest monetary unit (25-50-75) fils.
-6. The calculation of...
+Giving priority to employees using external roads.
 
-Score: 0.34722567598273024
+...
+
+Score: 0.49506229162217585
+
+Source 6 (from HR Bylaws_2f9c1749.md):
+------------------------------
+The program to which the employee is subject should be within the relevant approved annual training plan .
+
+## Article ( 51
+
+## Chapter 8
+
+## Promotions ) General Policy
+
+The employee is promoted acco...
+
+Score: 0.48765878195446655
+
+Source 7 (from HR Bylaws_2f9c1749.md):
+------------------------------
+5. The chairman of the Government Authority may make adjustments to the approved annual job budget by adding, cancelling or transferring financial allocations between said jobs within the limits of th...
+
+Score: 0.48623597129678053
+
+Source 8 (from HR Bylaws_2f9c1749.md):
+------------------------------
+6. They  should  not  have  been  previously  dismissed  from  service  by  virtue  of  a  final  disciplinary judgement or decision unless at least two years have elapsed since its issuance. The peri...
+
+Score: 0.4853534084979817
+
+Source 9 (from HR Bylaws_2f9c1749.md):
+------------------------------
+The following table can be used to determine the degrees of kinship:
+7. The  government  authority  shall  commit  to  grant  equal  opportunities  to  train  and  qualify  citizens seeking work in co...
+
+Score: 0.4806646716198735
+
+Source 10 (from HR Bylaws_2f9c1749.md):
+------------------------------
+4. The  candidate  for  appointment  shall  submit  all  documents  and  supporting  papers  necessary  to complete the appointment procedures, certified and approved by the concerned authorities, and...
+
+Score: 0.47358951602237465
 
