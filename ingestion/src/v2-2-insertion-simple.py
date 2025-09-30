@@ -35,18 +35,18 @@ def main():
     # Initialize embedding model
     try:
         embedding_model = OllamaEmbedding(
-            model_name="bge-m3:latest",
+            model_name="nomic-embed-text:v1.5",
             base_url="http://localhost:11434"
         )
-        print("Initialized embedding model: bge-m3:latest")
+        print("Initialized embedding model: nomic-embed-text:v1.5")
     except Exception as e:
         print(f"Failed to initialize embedding model: {e}")
         return 1
     
     # Find markdown files
-    markdown_dir = Path("../markdown")
+    markdown_dir = Path("../markdown-by-mistral")
     if not markdown_dir.exists():
-        markdown_dir = Path("markdown")
+        markdown_dir = Path("markdown-by-mistral")
     
     if not markdown_dir.exists():
         print(f"Markdown folder not found: {markdown_dir}")

@@ -28,8 +28,8 @@ class DatabaseService:
                 password=self.config['DB_PASSWORD'],
                 port=self.config['DB_PORT'],
                 user=self.config['DB_USER'],
-                table_name="vectors_mistral_parsed",
-                embed_dim=1024,
+                table_name="vectors_docling_parsed-nomic-embed",
+                embed_dim=768, # 768 for nomic-embed-text:v1.5, 1024 for bge-m3
                 hybrid_search=True,
                 text_search_config="english"
             )
@@ -42,7 +42,7 @@ class DatabaseService:
     def setup_embedding_model(self) -> OllamaEmbedding:
         """Setup embedding model for vector operations."""
         embed_model = OllamaEmbedding(
-            model_name="bge-m3:latest",
+            model_name="nomic-embed-text:v1.5",
             base_url="http://localhost:11434"
         )
         return embed_model

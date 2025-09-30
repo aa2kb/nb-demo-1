@@ -55,8 +55,8 @@ class CrewAIService:
             verbose=True,
             allow_delegation=False,
             llm=llm,
-            # tools=[rag_document_tool],
-            tools=[full_document_tool],
+            tools=[rag_document_tool],
+            # tools=[full_document_tool],
             max_iter=1,  # Limit to 1 iteration to prevent multiple tool calls
             memory=True  # Enable memory to use previous tool results
         )

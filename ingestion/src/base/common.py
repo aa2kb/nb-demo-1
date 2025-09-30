@@ -38,8 +38,8 @@ def get_vector_store_v1():
         password=config['DB_PASSWORD'],
         port=config['DB_PORT'],
         user=config['DB_USER'],
-        table_name="vectors_docling_parsed",
-        embed_dim=1024,
+        table_name="vectors_mistral_parsed-nomic-embed",
+        embed_dim=768,
         hybrid_search=True,
         text_search_config="english"
     )
