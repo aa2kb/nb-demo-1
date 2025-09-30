@@ -59,3 +59,20 @@ def get_vector_store_v2():
         hybrid_search=True,
         text_search_config="english"
     )
+
+def get_vector_store_v3():
+    """Get PGVectorStore instance. v2"""
+    config = get_config()
+    
+    return PGVectorStore.from_params(
+        database=config['DB_NAME'],
+        host=config['DB_HOST'],
+        password=config['DB_PASSWORD'],
+        port=config['DB_PORT'],
+        user=config['DB_USER'],
+        table_name="vectors_llama_parse",
+        embed_dim=1024,
+        hybrid_search=True,
+        text_search_config="english"
+    )
+

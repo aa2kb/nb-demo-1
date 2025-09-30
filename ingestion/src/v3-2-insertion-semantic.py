@@ -11,80 +11,6 @@ from llama_index.core.schema import Document
 from llama_index.core import VectorStoreIndex, StorageContext
 from base.common import get_config, get_vector_store_v2
 
-def get_document_id(file_path):
-    """Generate consistent document ID from file path."""
-    return f"doc_{file_path.stem}"
-
-def check_document_exists(vector_store, doc_id):
-    """Check if document is already in the vector store."""
-    # For now, always process (can be enhanced with metadata table)
-    # This avoids the embedding model initialization issue
-    return False
-
-def load_markdown_document(file_path):
-    """Load markdown file as Document."""
-    try:
-        content = file_path.read_text(encoding='utf-8')
-        if not content.strip():
-            print(f"Warning: Empty content in {file_path.name}")
-            return None
-        
-        # Create document with metadata
-        doc = Document(
-            text=content,
-            metadata={
-                'filename': file_path.name,
-                'file_path': str(file_path),
-                'doc_id': get_document_id(file_path)
-            }
-        )
-        return doc
-    except Exception as e:
-        print(f"Error loading {file_path.name}: {e}")
-        return None
-
-def process_document(doc, config, embedding_model):
-    """Process document into nodes using SemanticSplitterNodeParser."""
-    try:
-        # Create semantic splitter with the embedding model (following docs pattern)
-        semantic_splitter = SemanticSplitterNodeParser(
-            buffer_size=1,  # Number of sentences to group together
-            breakpoint_percentile_threshold=95,  # 95th percentile for semantic breaks
-            embed_model=embedding_model  # Pass the embedding model as embed_model parameter
-        )
-        
-        # Parse document into semantic nodes
-        nodes = semantic_splitter.get_nodes_from_documents([doc])
-        
-        # Add document metadata to all nodes
-        for node in nodes:
-            node.metadata.update(doc.metadata)
-        
-        print(f"Created {len(nodes)} semantic chunks from {doc.metadata['filename']}")
-        return nodes
-    
-    except Exception as e:
-        print(f"Error processing document: {e}")
-        return []
-
-def insert_nodes(nodes, vector_store, embedding_model):
-    """Insert nodes into vector store using VectorStoreIndex."""
-    if not nodes:
-        return False
-    
-    try:
-        # Create storage context with vector store
-        storage_context = StorageContext.from_defaults(vector_store=vector_store)
-        
-        # Create index - this will automatically generate embeddings and insert
-        index = VectorStoreIndex(nodes, storage_context=storage_context, embed_model=embedding_model)
-        
-        print(f"Inserted {len(nodes)} nodes into vector store")
-        return True
-    
-    except Exception as e:
-        print(f"Error inserting nodes: {e}")
-        return False
 
 def main():
     print("🚀 Semantic Document Insertion Pipeline")
@@ -181,6 +107,82 @@ def main():
     else:
         print(f"\n⚠️  Completed with {error_count} errors")
         return 1
+
+
+def get_document_id(file_path):
+    """Generate consistent document ID from file path."""
+    return f"doc_{file_path.stem}"
+
+def check_document_exists(vector_store, doc_id):
+    """Check if document is already in the vector store."""
+    # For now, always process (can be enhanced with metadata table)
+    # This avoids the embedding model initialization issue
+    return False
+
+def load_markdown_document(file_path):
+    """Load markdown file as Document."""
+    try:
+        content = file_path.read_text(encoding='utf-8')
+        if not content.strip():
+            print(f"Warning: Empty content in {file_path.name}")
+            return None
+        
+        # Create document with metadata
+        doc = Document(
+            text=content,
+            metadata={
+                'filename': file_path.name,
+                'file_path': str(file_path),
+                'doc_id': get_document_id(file_path)
+            }
+        )
+        return doc
+    except Exception as e:
+        print(f"Error loading {file_path.name}: {e}")
+        return None
+
+def process_document(doc, config, embedding_model):
+    """Process document into nodes using SemanticSplitterNodeParser."""
+    try:
+        # Create semantic splitter with the embedding model (following docs pattern)
+        semantic_splitter = SemanticSplitterNodeParser(
+            buffer_size=1,  # Number of sentences to group together
+            breakpoint_percentile_threshold=95,  # 95th percentile for semantic breaks
+            embed_model=embedding_model  # Pass the embedding model as embed_model parameter
+        )
+        
+        # Parse document into semantic nodes
+        nodes = semantic_splitter.get_nodes_from_documents([doc])
+        
+        # Add document metadata to all nodes
+        for node in nodes:
+            node.metadata.update(doc.metadata)
+        
+        print(f"Created {len(nodes)} semantic chunks from {doc.metadata['filename']}")
+        return nodes
+    
+    except Exception as e:
+        print(f"Error processing document: {e}")
+        return []
+
+def insert_nodes(nodes, vector_store, embedding_model):
+    """Insert nodes into vector store using VectorStoreIndex."""
+    if not nodes:
+        return False
+    
+    try:
+        # Create storage context with vector store
+        storage_context = StorageContext.from_defaults(vector_store=vector_store)
+        
+        # Create index - this will automatically generate embeddings and insert
+        index = VectorStoreIndex(nodes, storage_context=storage_context, embed_model=embedding_model)
+        
+        print(f"Inserted {len(nodes)} nodes into vector store")
+        return True
+    
+    except Exception as e:
+        print(f"Error inserting nodes: {e}")
+        return False
 
 if __name__ == "__main__":
     sys.exit(main())
