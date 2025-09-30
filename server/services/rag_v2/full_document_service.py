@@ -14,6 +14,8 @@ from typing import List, Optional, Dict, Any
 from crewai.tools import BaseTool
 from pydantic import BaseModel, Field
 import google.generativeai as genai
+import asyncio
+from concurrent.futures import ThreadPoolExecutor
 
 # Import document detection from v1
 from ..rag_v1.document_detection_service import DocumentDetectionService
@@ -141,9 +143,158 @@ Guidelines:
         
         return "\n".join(prompt_parts)
     
+    def create_single_document_prompt(self, question: str, doc_name: str, content: str) -> str:
+        """
+        Create a prompt for processing a single document.
+        
+        Args:
+            question: User's question
+            doc_name: Name of the document
+            content: Document content
+            
+        Returns:
+            Prompt for processing this single document
+        """
+        base_prompt = """You are an expert assistant for Abu Dhabi government documentation. You have access to one specific government document. Please provide a comprehensive answer based ONLY on the provided document.
+
+Guidelines:
+1. Answer the question thoroughly using information from the provided document
+2. Cite specific sections, articles, or parts of the document when possible
+3. If the question cannot be answered from this document, state this clearly
+4. Maintain the authoritative tone appropriate for government documentation
+5. Include relevant details like article numbers, section references, and specific requirements
+6. Always end your response with the source citation in this format: **Source: [document_name]**"""
+        
+        prompt_parts = [
+            base_prompt,
+            f"\n\n=== DOCUMENT: {doc_name} ===\n",
+            content,
+            f"\n=== END OF {doc_name} ===\n",
+            f"\n=== QUESTION ===\n{question}",
+            f"\n\n=== RESPONSE ===\nBased on the above document, here is my answer:"
+        ]
+        
+        return "\n".join(prompt_parts)
+    
+    def query_single_document(self, question: str, doc_name: str, content: str) -> str:
+        """
+        Query a single document with the question.
+        
+        Args:
+            question: User's question
+            doc_name: Document name
+            content: Document content
+            
+        Returns:
+            Response from processing this single document
+        """
+        try:
+            print(f"🔍 Processing document: {doc_name}")
+            
+            # Create single document prompt
+            prompt = self.create_single_document_prompt(question, doc_name, content)
+            
+            # Check token count
+            estimated_tokens = len(prompt) // 4
+            print(f"📊 Document {doc_name}: ~{estimated_tokens:,} tokens")
+            
+            if estimated_tokens > 900000:
+                return f"Document {doc_name} is too large to process (>{estimated_tokens:,} tokens). **Source: {doc_name}**"
+            
+            # Query Gemini
+            response = self.model.generate_content(prompt)
+            
+            if not response or not response.text:
+                return f"No response received for document {doc_name}. **Source: {doc_name}**"
+            
+            print(f"✅ Processed document: {doc_name}")
+            return response.text
+            
+        except Exception as e:
+            print(f"❌ Error processing {doc_name}: {str(e)}")
+            return f"Error processing document {doc_name}: {str(e)}. **Source: {doc_name}**"
+    
+    def join_multiple_responses(self, question: str, document_responses: Dict[str, str]) -> str:
+        """
+        Join multiple document responses into a comprehensive answer.
+        
+        Args:
+            question: Original question
+            document_responses: Dictionary mapping document names to their responses
+            
+        Returns:
+            Combined response with preserved citations
+        """
+        try:
+            print("🔗 Joining multiple document responses...")
+            
+            join_prompt = """You are an expert assistant for Abu Dhabi government documentation. You have received answers to the same question from multiple government documents. Your task is to synthesize these answers into one comprehensive, well-structured response.
+
+Guidelines:
+1. Combine information from all documents into a coherent, comprehensive answer
+2. Preserve ALL citations and source attributions from the individual responses
+3. If documents provide different perspectives, present them clearly
+4. If documents contradict each other, note the discrepancies
+5. Organize the information logically with clear sections
+6. Use markdown formatting for better readability
+7. At the end, list all sources that contributed to the answer
+
+Individual Document Responses:
+"""
+            
+            # Add individual responses
+            for doc_name, response in document_responses.items():
+                join_prompt += f"\n--- RESPONSE FROM {doc_name} ---\n{response}\n"
+            
+            join_prompt += f"\n--- END OF INDIVIDUAL RESPONSES ---\n\n"
+            join_prompt += f"Original Question: {question}\n\n"
+            join_prompt += "Please synthesize the above responses into one comprehensive answer, preserving all citations and organizing the information logically:"
+            
+            # Query Gemini to join responses
+            response = self.model.generate_content(join_prompt)
+            
+            if not response or not response.text:
+                # Fallback: manually join responses
+                return self.manual_join_responses(question, document_responses)
+            
+            print("✅ Successfully joined multiple responses")
+            return response.text
+            
+        except Exception as e:
+            print(f"⚠️ Error joining responses: {str(e)}, using manual join")
+            return self.manual_join_responses(question, document_responses)
+    
+    def manual_join_responses(self, question: str, document_responses: Dict[str, str]) -> str:
+        """
+        Manually join responses as a fallback method.
+        
+        Args:
+            question: Original question
+            document_responses: Dictionary mapping document names to their responses
+            
+        Returns:
+            Manually combined response
+        """
+        combined_parts = [
+            f"# Response to: {question}\n",
+            "Based on multiple Abu Dhabi government documents, here is the comprehensive information:\n"
+        ]
+        
+        for i, (doc_name, response) in enumerate(document_responses.items(), 1):
+            combined_parts.append(f"## Information from {doc_name}\n")
+            combined_parts.append(response)
+            combined_parts.append("\n")
+        
+        # Extract all sources
+        all_sources = list(document_responses.keys())
+        combined_parts.append(f"\n**Sources:** {', '.join(all_sources)}")
+        
+        return "\n".join(combined_parts)
+    
     def query_with_full_documents(self, question: str) -> str:
         """
         Process a query by loading full documents and asking Gemini.
+        For multiple documents, processes them in parallel and joins results.
         
         Args:
             question: User's question
@@ -170,30 +321,44 @@ Guidelines:
             if not document_contents:
                 return "I found relevant documents but couldn't load their content. Please try again or contact support."
             
-            # Step 3: Create comprehensive prompt
-            print("🔨 Creating comprehensive prompt...")
-            full_prompt = self.create_full_context_prompt(question, document_contents)
+            # Step 3: Process documents - single vs multiple approach
+            if len(document_contents) == 1:
+                # Single document - process directly
+                doc_name, content = list(document_contents.items())[0]
+                print(f"� Processing single document: {doc_name}")
+                return self.query_single_document(question, doc_name, content)
             
-            # Check token count (rough estimate)
-            estimated_tokens = len(full_prompt) // 4  # Rough estimate: 4 chars per token
-            print(f"📊 Estimated prompt size: ~{estimated_tokens:,} tokens")
-            
-            if estimated_tokens > 900000:  # Conservative limit for Gemini Flash
-                print("⚠️  Large prompt detected, may need chunking in production")
-            
-            # Step 4: Query Gemini Flash Lite
-            print("🤖 Querying Gemini Flash Lite...")
-            response = self.model.generate_content(full_prompt)
-            
-            if not response or not response.text:
-                return "I received an empty response from the AI model. Please try rephrasing your question."
-            
-            # Step 5: Add source attribution
-            source_info = f"\n\n**Sources:** {', '.join(document_contents.keys())}"
-            final_response = response.text + source_info
-            
-            print("✅ Response generated successfully")
-            return final_response
+            else:
+                # Multiple documents - process in parallel and join
+                print(f"🔄 Processing {len(document_contents)} documents in parallel...")
+                
+                # Process documents in parallel using ThreadPoolExecutor
+                document_responses = {}
+                with ThreadPoolExecutor(max_workers=min(len(document_contents), 3)) as executor:
+                    # Submit all document processing tasks
+                    future_to_doc = {
+                        executor.submit(self.query_single_document, question, doc_name, content): doc_name
+                        for doc_name, content in document_contents.items()
+                    }
+                    
+                    # Collect results as they complete
+                    for future in future_to_doc:
+                        doc_name = future_to_doc[future]
+                        try:
+                            response = future.result()
+                            document_responses[doc_name] = response
+                        except Exception as e:
+                            print(f"❌ Error processing {doc_name}: {str(e)}")
+                            document_responses[doc_name] = f"Error processing {doc_name}: {str(e)}. **Source: {doc_name}**"
+                
+                # Step 4: Join responses from multiple documents
+                if len(document_responses) > 1:
+                    return self.join_multiple_responses(question, document_responses)
+                elif len(document_responses) == 1:
+                    # Only one document processed successfully
+                    return list(document_responses.values())[0]
+                else:
+                    return "All document processing failed. Please try again or contact support."
             
         except Exception as e:
             error_msg = str(e)
