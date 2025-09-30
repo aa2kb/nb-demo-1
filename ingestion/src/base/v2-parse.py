@@ -33,6 +33,48 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+def main():
+    """Main function to process all PDFs in the docs folder."""
+    # Check for Mistral API key
+    if not MISTRAL_API_KEY:
+        logger.error("MISTRAL_API_KEY environment variable not set")
+        sys.exit(1)
+    
+    # Setup paths
+    script_dir = Path(__file__).parent
+    docs_dir = script_dir / DOCS_FOLDER
+    output_dir = script_dir / OUTPUT_FOLDER
+    
+    # Validate docs directory
+    if not docs_dir.exists():
+        logger.error(f"Docs directory not found: {docs_dir}")
+        sys.exit(1)
+    
+    # Create output directory
+    output_dir.mkdir(exist_ok=True)
+    logger.info(f"Output directory: {output_dir}")
+    
+    # Find PDF files
+    pdf_files = list(docs_dir.glob("*.pdf")) + list(docs_dir.glob("*.PDF"))
+    
+    if not pdf_files:
+        logger.warning(f"No PDF files found in {docs_dir}")
+        return
+    
+    logger.info(f"Found {len(pdf_files)} PDF files to process")
+    
+    # Process each PDF
+    success_count = 0
+    for pdf_file in pdf_files:
+        try:
+            if process_pdf(str(pdf_file), str(output_dir)):
+                success_count += 1
+        except Exception as e:
+            logger.error(f"Unexpected error processing {pdf_file.name}: {e}")
+    
+    logger.info(f"Processing complete: {success_count}/{len(pdf_files)} files successful")
+
+
 def upload_file_to_mistral(file_path: str) -> Optional[str]:
     """
     Upload a file to Mistral Files API for OCR processing.
@@ -230,48 +272,6 @@ def process_pdf(pdf_path: str, output_dir: str) -> bool:
         # Step 4: Clean up - delete uploaded file
         logger.info(f"Cleaning up uploaded file {file_id}...")
         delete_uploaded_file(file_id)
-
-
-def main():
-    """Main function to process all PDFs in the docs folder."""
-    # Check for Mistral API key
-    if not MISTRAL_API_KEY:
-        logger.error("MISTRAL_API_KEY environment variable not set")
-        sys.exit(1)
-    
-    # Setup paths
-    script_dir = Path(__file__).parent
-    docs_dir = script_dir / DOCS_FOLDER
-    output_dir = script_dir / OUTPUT_FOLDER
-    
-    # Validate docs directory
-    if not docs_dir.exists():
-        logger.error(f"Docs directory not found: {docs_dir}")
-        sys.exit(1)
-    
-    # Create output directory
-    output_dir.mkdir(exist_ok=True)
-    logger.info(f"Output directory: {output_dir}")
-    
-    # Find PDF files
-    pdf_files = list(docs_dir.glob("*.pdf")) + list(docs_dir.glob("*.PDF"))
-    
-    if not pdf_files:
-        logger.warning(f"No PDF files found in {docs_dir}")
-        return
-    
-    logger.info(f"Found {len(pdf_files)} PDF files to process")
-    
-    # Process each PDF
-    success_count = 0
-    for pdf_file in pdf_files:
-        try:
-            if process_pdf(str(pdf_file), str(output_dir)):
-                success_count += 1
-        except Exception as e:
-            logger.error(f"Unexpected error processing {pdf_file.name}: {e}")
-    
-    logger.info(f"Processing complete: {success_count}/{len(pdf_files)} files successful")
 
 
 if __name__ == "__main__":
