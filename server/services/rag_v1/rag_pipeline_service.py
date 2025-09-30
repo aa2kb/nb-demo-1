@@ -1,8 +1,3 @@
-"""
-RAG Pipeline Service for Government Document Search.
-Handles retrieval, reranking, and response generation operations.
-"""
-
 import os
 from typing import List, Optional, Tuple
 from llama_index.core import VectorStoreIndex

@@ -1,8 +1,3 @@
-"""
-Database Service for Government Document Search.
-Handles vector store and database connection management.
-"""
-
 import os
 from llama_index.core import VectorStoreIndex
 from llama_index.vector_stores.postgres import PGVectorStore

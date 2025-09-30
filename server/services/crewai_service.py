@@ -6,7 +6,7 @@ import os
 from crewai import Agent, LLM
 from typing import Dict, Any, List, Union
 from phoenix.client import Client
-from .rag_service import government_document_tool
+from .rag_v1.rag_service import government_document_tool
 
 phoenix_client = Client()
 agent_role_prompt = phoenix_client.prompts.get(prompt_identifier="agent_role")

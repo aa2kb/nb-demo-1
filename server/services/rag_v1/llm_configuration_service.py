@@ -1,8 +1,3 @@
-"""
-LLM Configuration Service for Government Document Search.
-Handles setup and configuration of LLMs (Gemini and Ollama).
-"""
-
 import os
 from typing import Tuple
 from llama_index.llms.ollama import Ollama

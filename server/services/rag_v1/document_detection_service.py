@@ -1,8 +1,3 @@
-"""
-Document Detection Service for Government Document Search.
-Handles intelligent detection of relevant documents based on user queries.
-"""
-
 from typing import List, Dict
 import ast
 import os

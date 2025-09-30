@@ -4,7 +4,7 @@ Test script for Phoenix integration with Document Detection Service.
 """
 
 import os
-from services.document_detection_service import DocumentDetectionService
+from services.rag_v1.document_detection_service import DocumentDetectionService
 
 def test_phoenix_integration():
     """Test Phoenix integration modes."""

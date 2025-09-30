@@ -1,12 +1,3 @@
-"""
-Refactored Government Document Search Tool using modular services.
-Main interface for the RAG-based go            # Step 3: Combine responses with citations
-            print("📝 Combining responses and adding citations...")
-            final_response = rag_pipeline.combine_responses_with_citations(
-                question, document_responses, primary_llm
-            )ent document search system.
-"""
-
 from crewai.tools import BaseTool
 from typing import Type, ClassVar
 from pydantic import BaseModel, Field

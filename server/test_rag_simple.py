@@ -3,7 +3,7 @@
 Simple test to debug the NotFound error.
 """
 
-from services.rag_service import government_document_tool
+from services.rag_v1.rag_service import government_document_tool
 
 def test_government_document_tool_simple():
     """Test government document tool directly."""

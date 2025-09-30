@@ -3,7 +3,7 @@
 Test multi-document RAG with procurement question.
 """
 
-from services.rag_service import government_document_tool
+from services.rag_v1.rag_service import government_document_tool
 
 def test_procurement_question():
     """Test with a procurement-related question that should use multiple docs."""
