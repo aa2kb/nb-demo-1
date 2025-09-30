@@ -33,7 +33,7 @@ class DatabaseService:
                 password=self.config['DB_PASSWORD'],
                 port=self.config['DB_PORT'],
                 user=self.config['DB_USER'],
-                table_name="vectors",
+                table_name="vectors_mistral_parsed",
                 embed_dim=1024,
                 hybrid_search=True,
                 text_search_config="english"
