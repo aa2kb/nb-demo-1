@@ -1,6 +1,9 @@
 # Document processing
 docling==2.54.0
 
+# HTTP requests
+requests==2.31.0
+
 # LlamaIndex and vector storage
 llama-index==0.14.3
 llama-index-vector-stores-postgres==0.7.0
