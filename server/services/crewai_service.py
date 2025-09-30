@@ -7,6 +7,7 @@ from crewai import Agent, LLM
 from typing import Dict, Any, List, Union
 from phoenix.client import Client
 from .rag_v1.rag_service import government_document_tool
+from .rag_v2 import full_document_tool
 
 phoenix_client = Client()
 agent_role_prompt = phoenix_client.prompts.get(prompt_identifier="agent_role")
@@ -54,7 +55,7 @@ class CrewAIService:
             verbose=True,
             allow_delegation=False,
             llm=llm,
-            tools=[government_document_tool],  # Add government document search tool to agent
+            tools=[full_document_tool],  # Add both RAG v1 and v2 tools to agent
             max_iter=1,  # Limit to 1 iteration to prevent multiple tool calls
             memory=True  # Enable memory to use previous tool results
         )
