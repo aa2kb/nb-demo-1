@@ -9,7 +9,7 @@ from llama_index.core.node_parser import SimpleNodeParser
 from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.core.schema import Document
 from llama_index.core import VectorStoreIndex, StorageContext
-from base.common import get_config, get_vector_store_v3
+from base.common import get_config, get_vector_store_v1
 
 
 def main():
@@ -26,7 +26,7 @@ def main():
     
     # Get vector store
     try:
-        vector_store = get_vector_store_v3()
+        vector_store = get_vector_store_v1()
         print("Connected to vector store")
     except Exception as e:
         print(f"Failed to connect to vector store: {e}")
@@ -44,9 +44,9 @@ def main():
         return 1
     
     # Find markdown files
-    markdown_dir = Path("../markdown-by-mistral")
+    markdown_dir = Path("../markdown")
     if not markdown_dir.exists():
-        markdown_dir = Path("markdown-by-mistral")
+        markdown_dir = Path("markdown")
     
     if not markdown_dir.exists():
         print(f"Markdown folder not found: {markdown_dir}")
