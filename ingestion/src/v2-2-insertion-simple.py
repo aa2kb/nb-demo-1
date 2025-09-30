@@ -46,7 +46,7 @@ def main():
     # Find markdown files
     markdown_dir = Path("../markdown-by-mistral")
     if not markdown_dir.exists():
-        markdown_dir = Path("markdown")
+        markdown_dir = Path("markdown-by-mistral")
     
     if not markdown_dir.exists():
         print(f"Markdown folder not found: {markdown_dir}")
