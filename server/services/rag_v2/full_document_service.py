@@ -14,7 +14,6 @@ from typing import List, Optional, Dict, Any
 from crewai.tools import BaseTool
 from pydantic import BaseModel, Field
 import google.generativeai as genai
-from phoenix.client import Client
 
 # Import document detection from v1
 from ..rag_v1.document_detection_service import DocumentDetectionService
@@ -48,9 +47,6 @@ class FullDocumentRAGService:
         
         genai.configure(api_key=self.gemini_api_key)
         self.model = genai.GenerativeModel('gemini-flash-lite-latest')
-        
-        # Phoenix client for prompts
-        self.phoenix_client = Client()
         
         # Document paths - using Mistral OCR processed files for best efficiency
         self.markdown_dir = Path(__file__).parent.parent.parent.parent / "ingestion" / "markdown-by-mistral"
@@ -117,15 +113,8 @@ class FullDocumentRAGService:
         Returns:
             Complete prompt for the LLM
         """
-        # Get Phoenix prompt for context
-        try:
-            context_prompt = self.phoenix_client.prompts.get(prompt_identifier="rag_context_prompt")
-            base_prompt = context_prompt.content if context_prompt else ""
-        except:
-            base_prompt = ""
-        
-        if not base_prompt:
-            base_prompt = """You are an expert assistant for Abu Dhabi government documentation. You have access to the complete text of relevant government documents. Please provide comprehensive, accurate answers based on the provided documents.
+        # Use static base prompt for RAG v2
+        base_prompt = """You are an expert assistant for Abu Dhabi government documentation. You have access to the complete text of relevant government documents. Please provide comprehensive, accurate answers based on the provided documents.
 
 Guidelines:
 1. Answer the question thoroughly using information from the provided documents
