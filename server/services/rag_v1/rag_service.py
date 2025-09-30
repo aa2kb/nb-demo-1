@@ -130,4 +130,4 @@ class GovernmentDocumentTool(BaseTool):
 
 
 # Create singleton instance
-government_document_tool = GovernmentDocumentTool()
+rag_document_tool = GovernmentDocumentTool()
