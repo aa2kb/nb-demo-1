@@ -1,9 +1,3 @@
-#!/usr/bin/env python3
-"""
-PDF Document Parser using pure Mistral OCR API
-Uploads PDFs to Mistral Files API and processes them with OCR API.
-"""
-
 import os
 import sys
 import logging
