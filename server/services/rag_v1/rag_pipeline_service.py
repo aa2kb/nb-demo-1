@@ -82,10 +82,14 @@ class RAGPipelineService:
             )
             
             print(f"🔍 Searching in: {filename}")
+            print(f"📊 Using top_k: {top_k} (type: {type(top_k)})")
+            
+            # Ensure top_k is definitely an integer
+            top_k_int = int(top_k)
             
             retriever = VectorIndexRetriever(
                 index=index,
-                similarity_top_k=top_k,
+                similarity_top_k=top_k_int,  # Force integer type
                 filters=metadata_filters
             )
             
@@ -97,6 +101,7 @@ class RAGPipelineService:
             
         except Exception as e:
             print(f"❌ Retrieval failed for {filename}: {str(e)}")
+            print(f"🔍 Error details: {type(e).__name__}")
             return [], None
     
     def rerank_documents(self, retrieved_nodes: List[NodeWithScore], query_bundle: QueryBundle, 

@@ -1,4 +1,5 @@
 import os
+import psycopg2
 from llama_index.core import VectorStoreIndex
 from llama_index.vector_stores.postgres import PGVectorStore
 from llama_index.embeddings.ollama import OllamaEmbedding
@@ -16,28 +17,47 @@ class DatabaseService:
             'DB_PASSWORD': os.getenv('DB_PASSWORD', 'admin'),
             'DB_NAME': os.getenv('DB_NAME', 'postgres'),
             'EMBEDDING_MODEL': os.getenv('EMBEDDING_MODEL', 'nomic-embed-text:v1.5'),
-            'EMBEDDING_DIM': os.getenv('EMBEDDING_DIM', 768),
-            'EMBEDDING_TABLE_NAME': os.getenv('EMBEDDING_TABLE_NAME', 'vectors_docling_nomic_embed'),
+            'EMBEDDING_DIM': int(os.getenv('EMBEDDING_DIM', 768)),  # Ensure this is int
+            'EMBEDDING_TABLE_NAME': os.getenv('EMBEDDING_TABLE_NAME', 'vectors_docling_nomic_embed'),  # Match actual table name
         }
+        self.vector_store = None
+        self.connection = None
+    
+    def _connect(self):
+        """Create direct database connection for diagnostics."""
+        import psycopg2
+        try:
+            self.connection = psycopg2.connect(
+                host=self.config['DB_HOST'],
+                port=self.config['DB_PORT'],
+                database=self.config['DB_NAME'],
+                user=self.config['DB_USER'],
+                password=self.config['DB_PASSWORD']
+            )
+            return self.connection
+        except Exception as e:
+            print(f"❌ Direct connection failed: {e}")
+            raise
     
     def get_vector_store(self) -> PGVectorStore:
         """Get PGVectorStore instance with configuration."""
         print(f"🗄️ Connecting to database: {self.config['DB_HOST']}:{self.config['DB_PORT']}/{self.config['DB_NAME']}")
+        print(f"📊 Table: {self.config['EMBEDDING_TABLE_NAME']}, Dimensions: {self.config['EMBEDDING_DIM']}")
         
         try:
-            vector_store = PGVectorStore.from_params(
+            self.vector_store = PGVectorStore.from_params(
                 database=self.config['DB_NAME'],
                 host=self.config['DB_HOST'],
                 password=self.config['DB_PASSWORD'],
                 port=self.config['DB_PORT'],
                 user=self.config['DB_USER'],
                 table_name=self.config['EMBEDDING_TABLE_NAME'],
-                embed_dim=self.config['EMBEDDING_DIM'],
+                embed_dim=int(self.config['EMBEDDING_DIM']),  # Force int conversion
                 hybrid_search=True,
                 text_search_config="english"
             )
             print("✅ Database connection successful")
-            return vector_store
+            return self.vector_store
         except Exception as e:
             print(f"❌ Database connection failed: {type(e).__name__}: {str(e)}")
             raise
