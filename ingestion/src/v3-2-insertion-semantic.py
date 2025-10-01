@@ -9,7 +9,8 @@ from llama_index.core.node_parser import SemanticSplitterNodeParser
 from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.core.schema import Document
 from llama_index.core import VectorStoreIndex, StorageContext
-from base.common import get_config, get_vector_store_v2
+from llama_index.vector_stores.postgres import PGVectorStore
+from base.common import get_config
 
 
 def main():
@@ -19,15 +20,25 @@ def main():
     # Load config
     try:
         config = get_config()
-        print(f"Loaded config for semantic chunking")
+        print(f"Loaded config: chunk_size={config['CHUNK_SIZE']}, overlap={config['CHUNK_OVERLAP']}")
     except Exception as e:
         print(f"Failed to load config: {e}")
         return 1
     
     # Get vector store
     try:
-        vector_store = get_vector_store_v2()
-        print("Connected to vector store v2")
+        vector_store = PGVectorStore.from_params(
+        database=config['DB_NAME'],
+        host=config['DB_HOST'],
+        password=config['DB_PASSWORD'],
+        port=config['DB_PORT'],
+        user=config['DB_USER'],
+        table_name=config['EMBEDDING_TABLE_NAME'],
+        embed_dim=config['EMBEDDING_DIM'],
+        hybrid_search=True,
+        text_search_config="english"
+    )
+        print("Connected to vector store")
     except Exception as e:
         print(f"Failed to connect to vector store: {e}")
         return 1
@@ -35,19 +46,23 @@ def main():
     # Initialize embedding model
     try:
         embedding_model = OllamaEmbedding(
-            model_name="bge-m3:latest",
+            model_name=config['EMBEDDING_MODEL'],
             base_url="http://localhost:11434"
         )
-        print("Initialized embedding model: bge-m3:latest for semantic chunking")
+        print(f"Initialized embedding model: {config['EMBEDDING_MODEL']}")
+        print(f"Using embedding dimension: {config['EMBEDDING_DIM']}")
+        print(f"Using embedding table: {config['EMBEDDING_TABLE_NAME']}")
+        print(f"Using markdown path: {config['MARKDOWN_PATH_FOR_EMBEDDING']}")
+
     except Exception as e:
         print(f"Failed to initialize embedding model: {e}")
         return 1
     
     # Find markdown files
-    markdown_dir = Path("../markdown")
+    markdown_dir = Path(f"../{config['MARKDOWN_PATH_FOR_EMBEDDING']}")
     if not markdown_dir.exists():
-        markdown_dir = Path("markdown")
-    
+        markdown_dir = Path(config['MARKDOWN_PATH_FOR_EMBEDDING'])
+
     if not markdown_dir.exists():
         print(f"Markdown folder not found: {markdown_dir}")
         return 1
