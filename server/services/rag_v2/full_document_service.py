@@ -382,10 +382,13 @@ class FullDocumentTool(BaseTool):
     """
     
     name: str = "full_document_search"
-    description: str = """Search Abu Dhabi government documents using full document loading approach. 
+    description: str = """FALLBACK TOOL: Use this ONLY if government_document_search fails to get data, as this is compute heavy and takes time.
+    This tool should only be used if the primary government_document_search tool returns "No relevant information found".
+    Search Abu Dhabi government documents using full document loading approach which is more comprehensive but slower.
     This tool identifies relevant documents (HR bylaws, procurement standards, information security policies) 
-    and loads their complete content to provide comprehensive answers.
-    Use this tool for detailed questions that require access to complete document context.
+    and loads their complete content to provide comprehensive answers when vector search fails.
+    WARNING: This tool processes entire documents (50k-150k tokens) and takes significantly more time and compute resources.
+    Only use this tool as a last resort when the faster government_document_search tool cannot find relevant information.
     The tool automatically selects and loads the most relevant documents for your question."""
     args_schema: type[BaseModel] = FullDocumentQueryInput
     

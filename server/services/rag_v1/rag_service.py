@@ -24,8 +24,9 @@ class GovernmentDocumentTool(BaseTool):
     """
     
     name: str = "government_document_search"
-    description: str = """Search Abu Dhabi government documents including HR bylaws, procurement standards, information security policies, and related regulations to get complete answers.
-    This tool provides comprehensive information from multiple government documentation sources.
+    description: str = """PRIMARY TOOL: Use this FIRST for retrieving documents - this is the fastest way and takes less compute.
+    Search Abu Dhabi government documents including HR bylaws, procurement standards, information security policies, and related regulations to get complete answers.
+    This tool provides comprehensive information from multiple government documentation sources using efficient vector search.
     Use this tool ONCE per question - it returns complete, detailed answers with proper citations.
     Do not call this tool multiple times for the same question.
     The tool intelligently selects and searches relevant documents including:
@@ -33,7 +34,8 @@ class GovernmentDocumentTool(BaseTool):
     - Abu Dhabi procurement standards and guidelines
     - Procurement manuals and business processes
     - Information security policies and data protection guidelines
-    Responses include citations showing which documents provided the information."""
+    Responses include citations showing which documents provided the information.
+    If this tool returns "No relevant information found", then and only then use the full_document_search tool."""
     args_schema: Type[BaseModel] = GovernmentQueryInput
     
     # Configuration
