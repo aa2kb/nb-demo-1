@@ -15,6 +15,9 @@ class DatabaseService:
             'DB_USER': os.getenv('DB_USER', 'admin'),
             'DB_PASSWORD': os.getenv('DB_PASSWORD', 'admin'),
             'DB_NAME': os.getenv('DB_NAME', 'postgres'),
+            'EMBEDDING_MODEL': os.getenv('EMBEDDING_MODEL', 'nomic-embed-text:v1.5'),
+            'EMBEDDING_DIM': os.getenv('EMBEDDING_DIM', 768),
+            'EMBEDDING_TABLE_NAME': os.getenv('EMBEDDING_TABLE_NAME', 'vectors_docling_nomic_embed'),
         }
     
     def get_vector_store(self) -> PGVectorStore:
@@ -28,8 +31,8 @@ class DatabaseService:
                 password=self.config['DB_PASSWORD'],
                 port=self.config['DB_PORT'],
                 user=self.config['DB_USER'],
-                table_name="vectors_docling_parsed-nomic-embed",
-                embed_dim=768, # 768 for nomic-embed-text:v1.5, 1024 for bge-m3
+                table_name=self.config['EMBEDDING_TABLE_NAME'],
+                embed_dim=self.config['EMBEDDING_DIM'],
                 hybrid_search=True,
                 text_search_config="english"
             )
@@ -42,7 +45,7 @@ class DatabaseService:
     def setup_embedding_model(self) -> OllamaEmbedding:
         """Setup embedding model for vector operations."""
         embed_model = OllamaEmbedding(
-            model_name="nomic-embed-text:v1.5",
+            model_name=self.config['EMBEDDING_MODEL'],
             base_url="http://localhost:11434"
         )
         return embed_model
