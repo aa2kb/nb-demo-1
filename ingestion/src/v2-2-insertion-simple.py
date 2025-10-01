@@ -9,7 +9,8 @@ from llama_index.core.node_parser import SimpleNodeParser
 from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.core.schema import Document
 from llama_index.core import VectorStoreIndex, StorageContext
-from base.common import get_config, get_vector_store_v1
+from llama_index.vector_stores.postgres import PGVectorStore
+from base.common import get_config
 
 
 def main():
@@ -26,7 +27,17 @@ def main():
     
     # Get vector store
     try:
-        vector_store = get_vector_store_v1()
+        vector_store = PGVectorStore.from_params(
+        database=config['DB_NAME'],
+        host=config['DB_HOST'],
+        password=config['DB_PASSWORD'],
+        port=config['DB_PORT'],
+        user=config['DB_USER'],
+        table_name="vectors_mistral_parsed-nomic-embed",
+        embed_dim=config['EMBEDDING_DIM'],
+        hybrid_search=True,
+        text_search_config="english"
+    )
         print("Connected to vector store")
     except Exception as e:
         print(f"Failed to connect to vector store: {e}")
@@ -39,6 +50,10 @@ def main():
             base_url="http://localhost:11434"
         )
         print(f"Initialized embedding model: {config['EMBEDDING_MODEL']}")
+        print(f"Using embedding dimension: {config['EMBEDDING_DIM']}")
+        print(f"Using embedding table: {config['EMBEDDING_TABLE_NAME']}")
+        print(f"Using markdown path: {config['MARKDOWN_PATH_FOR_EMBEDDING']}")
+        
     except Exception as e:
         print(f"Failed to initialize embedding model: {e}")
         return 1

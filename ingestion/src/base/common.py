@@ -27,6 +27,8 @@ def get_config():
         'CHUNK_OVERLAP': int(os.getenv('CHUNK_OVERLAP', 200)),
         'EMBEDDING_DIM': int(os.getenv('EMBEDDING_DIM', 768)),
         'EMBEDDING_MODEL': os.getenv('EMBEDDING_MODEL', 'nomic-embed-text:v1.5'),
+        'EMBEDDING_TABLE_NAME': os.getenv('EMBEDDING_TABLE_NAME', 'vectors'),
+        'MARKDOWN_PATH_FOR_EMBEDDING': os.getenv('MARKDOWN_PATH_FOR_EMBEDDING', 'markdown'),
     }
 
 def get_vector_store_v1():
