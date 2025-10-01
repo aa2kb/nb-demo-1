@@ -64,7 +64,7 @@ class DocumentDetectionService:
         return {
             "question": question,
             "documents_list": documents_list,
-            "example_responses": '["HR Bylaws_2f9c1749.md"]\n["Abu Dhabi Procurement Standards_0ef9c4a0.md", "Procurement Manual (Business Process)_66d86f21.md"]'
+            "example_responses": '["HR Bylaws.md"]\n["Abu Dhabi Procurement Standards.md", "Procurement Manual (Business Process).md"]'
         }
     
     def detect_relevant_documents(self, question: str, llm) -> List[str]:
@@ -135,14 +135,14 @@ class DocumentDetectionService:
         question_lower = question.lower()
         
         if any(keyword in question_lower for keyword in ['hr', 'human', 'employee', 'work', 'job', 'staff']):
-            return ["HR Bylaws_2f9c1749.md"]
+            return ["HR Bylaws.md"]
         elif any(keyword in question_lower for keyword in ['procurement', 'purchase', 'buy', 'vendor', 'supplier']):
             return ["Abu Dhabi Procurement Standards_0ef9c4a0.md", "Procurement Manual (Business Process)_66d86f21.md"]
         elif any(keyword in question_lower for keyword in ['security', 'data', 'information', 'cyber']):
-            return ["Inforamation Security_8ac2fee2.md"]
+            return ["Inforamation Security.md"]
         else:
             # Default to HR if unclear
-            return ["HR Bylaws_2f9c1749.md"]
+            return ["HR Bylaws.md"]
     
     def format_citation(self, filename: str) -> str:
         """Format document filename into readable citation."""

@@ -7,6 +7,9 @@ from llama_index.llms.ollama import Ollama
 from llama_index.core import VectorStoreIndex
 from llama_index.core.vector_stores import MetadataFilters, MetadataFilter, FilterOperator
 from base.common import get_vector_store_v1
+from llama_index.vector_stores.postgres import PGVectorStore
+from base.common import get_config
+
 
 questions = [
     # "Appointment of Graduate Trainees"
@@ -17,10 +20,27 @@ questions = [
 def main():
     print("🔍 Simple Query Test")
     print("=" * 40)
+
+    try:
+        config = get_config()
+        print(f"Loaded config: chunk_size={config['CHUNK_SIZE']}, overlap={config['CHUNK_OVERLAP']}")
+    except Exception as e:
+        print(f"Failed to load config: {e}")
+        return 1
     
     # --- Step 1: Get vector store ---
     try:
-        vector_store = get_vector_store_v1()
+        vector_store = PGVectorStore.from_params(
+                database=config['DB_NAME'],
+                host=config['DB_HOST'],
+                password=config['DB_PASSWORD'],
+                port=config['DB_PORT'],
+                user=config['DB_USER'],
+                table_name=config['EMBEDDING_TABLE_NAME'],
+                embed_dim=config['EMBEDDING_DIM'],
+                hybrid_search=True,
+                text_search_config="english"
+            )
         print("✅ Connected to vector store")
     except Exception as e:
         print(f"❌ Failed to connect to vector store: {e}")
@@ -28,7 +48,7 @@ def main():
     
     # --- Step 2: Setup embedding model and index ---
     try:
-        embed_model = OllamaEmbedding(model_name="bge-m3:latest")
+        embed_model = OllamaEmbedding(model_name=config['EMBEDDING_MODEL'])
         index = VectorStoreIndex.from_vector_store(vector_store, embed_model=embed_model)
         print("✅ Created index with BGE-M3 embeddings")
     except Exception as e:
@@ -81,7 +101,7 @@ def main():
                 filters=[
                     MetadataFilter(
                         key="filename",
-                        value="HR Bylaws_2f9c1749.md",
+                        value="HR Bylaws.md",
                         operator=FilterOperator.EQ
                     )
                 ]
