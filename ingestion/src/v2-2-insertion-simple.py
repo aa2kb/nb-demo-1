@@ -35,10 +35,10 @@ def main():
     # Initialize embedding model
     try:
         embedding_model = OllamaEmbedding(
-            model_name="nomic-embed-text:v1.5",
+            model_name=config['EMBEDDING_MODEL'],
             base_url="http://localhost:11434"
         )
-        print("Initialized embedding model: nomic-embed-text:v1.5")
+        print(f"Initialized embedding model: {config['EMBEDDING_MODEL']}")
     except Exception as e:
         print(f"Failed to initialize embedding model: {e}")
         return 1

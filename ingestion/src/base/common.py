@@ -25,7 +25,8 @@ def get_config():
         'VECTOR_TABLE_NAME': os.getenv('VECTOR_TABLE_NAME', 'vectors'),
         'CHUNK_SIZE': int(os.getenv('CHUNK_SIZE', 1024)),
         'CHUNK_OVERLAP': int(os.getenv('CHUNK_OVERLAP', 200)),
-        'EMBEDDING_DIM': int(os.getenv('EMBEDDING_DIM', 1024)),
+        'EMBEDDING_DIM': int(os.getenv('EMBEDDING_DIM', 768)),
+        'EMBEDDING_MODEL': os.getenv('EMBEDDING_MODEL', 'nomic-embed-text:v1.5'),
     }
 
 def get_vector_store_v1():
@@ -39,7 +40,7 @@ def get_vector_store_v1():
         port=config['DB_PORT'],
         user=config['DB_USER'],
         table_name="vectors_mistral_parsed-nomic-embed",
-        embed_dim=768,
+        embed_dim=config['EMBEDDING_DIM'],
         hybrid_search=True,
         text_search_config="english"
     )
