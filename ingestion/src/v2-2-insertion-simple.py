@@ -33,7 +33,7 @@ def main():
         password=config['DB_PASSWORD'],
         port=config['DB_PORT'],
         user=config['DB_USER'],
-        table_name="vectors_mistral_parsed-nomic-embed",
+        table_name=config['EMBEDDING_TABLE_NAME'],
         embed_dim=config['EMBEDDING_DIM'],
         hybrid_search=True,
         text_search_config="english"
@@ -53,16 +53,16 @@ def main():
         print(f"Using embedding dimension: {config['EMBEDDING_DIM']}")
         print(f"Using embedding table: {config['EMBEDDING_TABLE_NAME']}")
         print(f"Using markdown path: {config['MARKDOWN_PATH_FOR_EMBEDDING']}")
-        
+
     except Exception as e:
         print(f"Failed to initialize embedding model: {e}")
         return 1
     
     # Find markdown files
-    markdown_dir = Path("../markdown-by-mistral")
+    markdown_dir = Path(f"../{config['MARKDOWN_PATH_FOR_EMBEDDING']}")
     if not markdown_dir.exists():
-        markdown_dir = Path("markdown-by-mistral")
-    
+        markdown_dir = Path(config['MARKDOWN_PATH_FOR_EMBEDDING'])
+
     if not markdown_dir.exists():
         print(f"Markdown folder not found: {markdown_dir}")
         return 1
