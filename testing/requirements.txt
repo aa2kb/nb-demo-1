@@ -1,0 +1,7 @@
+# Ragas evaluation dependencies
+ragas>=0.1.0
+datasets>=2.0.0
+langchain>=0.1.0
+langchain-google-genai>=1.0.0
+langchain-community>=0.0.20
+python-dotenv>=1.0.0
