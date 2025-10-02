@@ -1,0 +1,185 @@
+version: "3.8"
+
+services:
+  # Database Service - PostgreSQL with pgvector
+  database:
+    build:
+      context: ./database
+      dockerfile: Dockerfile
+    container_name: nb2-database
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: nb2
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/init:/docker-entrypoint-initdb.d
+    networks:
+      - nb2-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d nb2"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Backend API Service
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    container_name: nb2-server
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://admin:admin@database:5432/nb2
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://ollama:11434}
+    volumes:
+      - ./server:/app
+      - server_cache:/app/cache
+    networks:
+      - nb2-network
+    depends_on:
+      database:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Frontend Service - Open WebUI
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: nb2-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - OPENAI_API_BASE_URL=http://server:8000/v1
+      - WEBUI_SECRET_KEY=${WEBUI_SECRET_KEY:-secret-key-change-in-production}
+      - DATA_DIR=/app/data
+    volumes:
+      - webui_data:/app/data
+    networks:
+      - nb2-network
+    depends_on:
+      - server
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Telemetry Service - Arize Phoenix
+  telemetry:
+    build:
+      context: ./telemetry
+      dockerfile: Dockerfile
+    container_name: nb2-telemetry
+    restart: unless-stopped
+    ports:
+      - "6006:6006"
+    environment:
+      - PHOENIX_HOST=0.0.0.0
+      - PHOENIX_PORT=6006
+      - PHOENIX_WORKING_DIR=/app/phoenix_data
+    volumes:
+      - phoenix_data:/app/phoenix_data
+    networks:
+      - nb2-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6006"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Testing Service - Ragas Evaluation
+  testing:
+    build:
+      context: ./testing
+      dockerfile: Dockerfile
+    container_name: nb2-testing
+    restart: "no" # Manual run service
+    environment:
+      - SERVER_URL=http://server:8000
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - OLLAMA_BASE_URL=http://ollama:11434
+    volumes:
+      - ./testing:/app
+      - testing_results:/app/results
+    networks:
+      - nb2-network
+    depends_on:
+      - server
+    profiles:
+      - testing # Only start when explicitly requested
+
+  # Ollama Service (Optional - for local LLM inference)
+  ollama:
+    image: ollama/ollama:latest
+    container_name: nb2-ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    networks:
+      - nb2-network
+    profiles:
+      - ollama # Only start when explicitly requested
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  # Ingestion Service (for document processing)
+  ingestion:
+    build:
+      context: ./ingestion
+      dockerfile: Dockerfile
+    container_name: nb2-ingestion
+    restart: "no" # Manual run service
+    environment:
+      - DATABASE_URL=postgresql://admin:admin@database:5432/nb2
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+    volumes:
+      - ./ingestion:/app
+      - ingestion_data:/app/data
+    networks:
+      - nb2-network
+    depends_on:
+      database:
+        condition: service_healthy
+    profiles:
+      - ingestion # Only start when explicitly requested
+
+networks:
+  nb2-network:
+    driver: bridge
+    name: nb2-network
+
+volumes:
+  postgres_data:
+    name: nb2-postgres-data
+  server_cache:
+    name: nb2-server-cache
+  webui_data:
+    name: nb2-webui-data
+  phoenix_data:
+    name: nb2-phoenix-data
+  testing_results:
+    name: nb2-testing-results
+  ollama_data:
+    name: nb2-ollama-data
+  ingestion_data:
+    name: nb2-ingestion-data
