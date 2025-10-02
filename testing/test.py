@@ -109,7 +109,7 @@ async def evaluate_single_sample(sample, evaluator_llm):
     
     # Initialize metrics
     faithfulness_scorer = Faithfulness(llm=evaluator_llm)
-    factual_correctness_scorer = FactualCorrectness(llm=evaluator_llm, mode="precision")
+    factual_correctness_scorer = FactualCorrectness(llm=evaluator_llm, mode="precision", coverage="low", atomicity="low")
     simple_criteria_scorer = SimpleCriteriaScore(
         name="response_quality", 
         definition="Score the response quality from 0-1 based on clarity, completeness, and accuracy",
