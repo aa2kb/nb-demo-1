@@ -2,7 +2,7 @@
 Document insertion script for pre-made chunks from JSON files.
 Processes JSON files containing pre-chunked documents and inserts into PostgreSQL vector store.
 """
-
+import os
 import sys
 import json
 from pathlib import Path
@@ -10,7 +10,30 @@ from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.core.schema import TextNode
 from llama_index.core import VectorStoreIndex, StorageContext
 from llama_index.vector_stores.postgres import PGVectorStore
-from base.common import get_config
+from dotenv import load_dotenv
+
+def get_config():
+    """Load configuration from .env file."""
+    # Load .env
+    env_paths = [Path("../.env"), Path(".env")]
+    for env_path in env_paths:
+        if env_path.exists():
+            load_dotenv(env_path)
+            break
+    
+    return {
+        'DB_HOST': os.getenv('DB_HOST', 'localhost'),
+        'DB_PORT': int(os.getenv('DB_PORT', 5432)),
+        'DB_USER': os.getenv('DB_USER', 'admin'),
+        'DB_PASSWORD': os.getenv('DB_PASSWORD', 'admin'),
+        'DB_NAME': os.getenv('DB_NAME', 'postgres'),
+        'VECTOR_TABLE_NAME': os.getenv('VECTOR_TABLE_NAME', 'vectors'),
+        'CHUNK_SIZE': int(os.getenv('CHUNK_SIZE', 1024)),
+        'CHUNK_OVERLAP': int(os.getenv('CHUNK_OVERLAP', 200)),
+        'EMBEDDING_DIM': int(os.getenv('EMBEDDING_DIM', 768)),
+        'EMBEDDING_MODEL': os.getenv('EMBEDDING_MODEL', 'nomic-embed-text:v1.5'),
+        'MARKDOWN_PATH_FOR_EMBEDDING': os.getenv('MARKDOWN_PATH_FOR_EMBEDDING', 'markdown'),
+    }
 
 
 def main():
@@ -22,7 +45,6 @@ def main():
         config = get_config()
         print(f"Loaded config: embedding_model={config['EMBEDDING_MODEL']}")
         print(f"Using embedding dimension: {config['EMBEDDING_DIM']}")
-        print(f"Using embedding table: {config['EMBEDDING_TABLE_NAME']}")
     except Exception as e:
         print(f"Failed to load config: {e}")
         return 1
@@ -35,7 +57,7 @@ def main():
             password=config['DB_PASSWORD'],
             port=config['DB_PORT'],
             user=config['DB_USER'],
-            table_name=config['EMBEDDING_TABLE_NAME'],
+            table_name='vectors_hybrid_chunks',
             embed_dim=config['EMBEDDING_DIM'],
             hybrid_search=True,
             text_search_config="english"

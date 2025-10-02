@@ -50,8 +50,8 @@ class FullDocumentRAGService:
         genai.configure(api_key=self.gemini_api_key)
         self.model = genai.GenerativeModel('gemini-flash-lite-latest')
         
-        # Document paths - using Mistral OCR processed files for best efficiency
-        self.markdown_dir = Path(__file__).parent.parent.parent.parent / "ingestion" / "markdown-by-mistral"
+        # Document paths - using local markdown folder
+        self.markdown_dir = Path(__file__).parent / "markdown"
         
         print(f"🔍 RAG v2 initialized with markdown directory: {self.markdown_dir}")
         print(f"🤖 Using Gemini model: gemini-flash-lite-latest")

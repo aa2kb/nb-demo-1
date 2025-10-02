@@ -1,7 +1,6 @@
 import os
 import sys
 import json
-import hashlib
 from pathlib import Path
 from dotenv import load_dotenv
 from docling_core.types.doc import DoclingDocument
@@ -23,18 +22,10 @@ def load_config():
         'LOG_LEVEL': os.getenv('LOG_LEVEL', 'INFO')
     }
 
-def get_markdown_hash(markdown_path):
-    """Generate a hash for the markdown file based on name and modification time."""
-    stat = markdown_path.stat()
-    # Use file size and modification time for consistent hash
-    hash_input = f"{markdown_path.name}_{stat.st_size}_{stat.st_mtime}"
-    return hashlib.md5(hash_input.encode()).hexdigest()[:8]
-
 def get_chunks_path(markdown_path, chunks_dir):
     """Get the chunks file path for a markdown file."""
-    md_hash = get_markdown_hash(markdown_path)
     stem = markdown_path.stem
-    chunks_name = f"{stem}_{md_hash}_chunks.json"
+    chunks_name = f"{stem}_chunks.json"
     return chunks_dir / chunks_name
 
 def should_process_markdown(markdown_path, chunks_path):

@@ -1,7 +1,6 @@
 ---
 source_file: Procurement Manual (Business Process).PDF
 file_size: 2635031
-file_hash: 66d86f21
 processed_at: 1759056839.5511978
 content_length: 269316
 ---

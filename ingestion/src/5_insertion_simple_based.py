@@ -3,6 +3,7 @@ Document insertion script with idempotency.
 Processes markdown files and inserts into PostgreSQL vector store.
 """
 
+import os
 import sys
 from pathlib import Path
 from llama_index.core.node_parser import SimpleNodeParser
@@ -10,7 +11,31 @@ from llama_index.embeddings.ollama import OllamaEmbedding
 from llama_index.core.schema import Document
 from llama_index.core import VectorStoreIndex, StorageContext
 from llama_index.vector_stores.postgres import PGVectorStore
-from base.common import get_config
+from dotenv import load_dotenv
+
+def get_config():
+    """Load configuration from .env file."""
+    # Load .env
+    env_paths = [Path("../.env"), Path(".env")]
+    for env_path in env_paths:
+        if env_path.exists():
+            load_dotenv(env_path)
+            break
+    
+    return {
+        'DB_HOST': os.getenv('DB_HOST', 'localhost'),
+        'DB_PORT': int(os.getenv('DB_PORT', 5432)),
+        'DB_USER': os.getenv('DB_USER', 'admin'),
+        'DB_PASSWORD': os.getenv('DB_PASSWORD', 'admin'),
+        'DB_NAME': os.getenv('DB_NAME', 'postgres'),
+        'VECTOR_TABLE_NAME': os.getenv('VECTOR_TABLE_NAME', 'vectors'),
+        'CHUNK_SIZE': int(os.getenv('CHUNK_SIZE', 1024)),
+        'CHUNK_OVERLAP': int(os.getenv('CHUNK_OVERLAP', 200)),
+        'EMBEDDING_DIM': int(os.getenv('EMBEDDING_DIM', 768)),
+        'EMBEDDING_MODEL': os.getenv('EMBEDDING_MODEL', 'nomic-embed-text:v1.5'),
+        'MARKDOWN_PATH_FOR_EMBEDDING': os.getenv('MARKDOWN_PATH_FOR_EMBEDDING', 'markdown'),
+    }
+
 
 
 def main():
@@ -33,7 +58,7 @@ def main():
         password=config['DB_PASSWORD'],
         port=config['DB_PORT'],
         user=config['DB_USER'],
-        table_name=config['EMBEDDING_TABLE_NAME'],
+        table_name='vectors_simple_chunks',
         embed_dim=config['EMBEDDING_DIM'],
         hybrid_search=True,
         text_search_config="english"
@@ -51,7 +76,6 @@ def main():
         )
         print(f"Initialized embedding model: {config['EMBEDDING_MODEL']}")
         print(f"Using embedding dimension: {config['EMBEDDING_DIM']}")
-        print(f"Using embedding table: {config['EMBEDDING_TABLE_NAME']}")
         print(f"Using markdown path: {config['MARKDOWN_PATH_FOR_EMBEDDING']}")
 
     except Exception as e:

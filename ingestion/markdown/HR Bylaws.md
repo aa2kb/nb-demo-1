@@ -1,7 +1,6 @@
 ---
 source_file: HR Bylaws.pdf
 file_size: 1175153
-file_hash: 2f9c1749
 processed_at: 1759056839.5161161
 content_length: 269790
 ---

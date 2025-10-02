@@ -1,7 +1,6 @@
 ---
 source_file: Inforamation Security.pdf
 file_size: 6375955
-file_hash: 8ac2fee2
 processed_at: 1759056839.5237064
 content_length: 2266169
 ---

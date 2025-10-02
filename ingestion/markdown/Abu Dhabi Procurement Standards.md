@@ -1,7 +1,6 @@
 ---
 source_file: Abu Dhabi Procurement Standards.PDF
 file_size: 1450487
-file_hash: 0ef9c4a0
 processed_at: 1759056839.5084734
 content_length: 136620
 ---

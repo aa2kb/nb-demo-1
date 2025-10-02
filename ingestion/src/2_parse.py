@@ -1,6 +1,5 @@
 import os
 import sys
-import hashlib
 from pathlib import Path
 from dotenv import load_dotenv
 from docling.document_converter import DocumentConverter
@@ -19,17 +18,10 @@ def load_config():
         'LOG_LEVEL': os.getenv('LOG_LEVEL', 'INFO')
     }
 
-def get_pdf_hash(pdf_path):
-    """Generate a hash for the PDF file based on name and size."""
-    stat = pdf_path.stat()
-    hash_string = f"{pdf_path.name}_{stat.st_size}_{stat.st_mtime}"
-    return hashlib.md5(hash_string.encode()).hexdigest()[:8]
-
 def get_markdown_path(pdf_path, markdown_dir):
     """Get the markdown file path for a PDF."""
-    pdf_hash = get_pdf_hash(pdf_path)
     stem = pdf_path.stem
-    markdown_name = f"{stem}_{pdf_hash}.md"
+    markdown_name = f"{stem}.md"
     return markdown_dir / markdown_name
 
 def should_process_pdf(pdf_path, markdown_path):
@@ -74,12 +66,10 @@ def parse_pdf_with_docling(pdf_path):
 def create_markdown_metadata(pdf_path, content_length):
     """Create metadata section for markdown file."""
     stat = pdf_path.stat()
-    pdf_hash = get_pdf_hash(pdf_path)
     
     metadata = f"""---
 source_file: {pdf_path.name}
 file_size: {stat.st_size}
-file_hash: {pdf_hash}
 processed_at: {stat.st_mtime}
 content_length: {content_length}
 ---

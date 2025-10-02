@@ -1,7 +1,6 @@
 ---
 source_file: Procurement Manual (Ariba Aligned).PDF
 file_size: 7460059
-file_hash: f679b7db
 processed_at: 1759056839.537925
 content_length: 503765
 ---
