@@ -33,8 +33,8 @@ The server implements a sophisticated **agent-driven RAG system** designed speci
 │  │ (Tool Resource) │    │ (Tool Resource) │   │
 │  └─────────────────┘    └─────────────────┘   │
 │       │                           │           │
-│       └────────────┬──────────────┘           │
-│                    ▼                          │
+│       └─────────────┬──────────────┘          │
+│                     ▼                         │
 │            ┌─────────────────┐                │
 │            │     Minimal     │                │
 │            │  Reply Response │                │
