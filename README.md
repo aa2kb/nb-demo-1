@@ -6,21 +6,21 @@ A comprehensive, containerized AI application stack featuring RAG (Retrieval-Aug
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    NB-2 Project Stack                      │
+│                    NB-2 Project Stack                       │
 ├─────────────────────────────────────────────────────────────┤
-│  Frontend (Port 3000)     │  Telemetry (Port 6006)        │
+│  Frontend (Port 3000)     │  Telemetry (Port 6006)          │
 │  ┌─────────────────┐      │  ┌─────────────────────────┐    │
 │  │   Open WebUI    │      │  │    Arize Phoenix        │    │
 │  │   Chat Interface│◄─────┤  │    Observability        │    │
 │  └─────────────────┘      │  └─────────────────────────┘    │
 ├─────────────────────────────────────────────────────────────┤
-│  Backend API (Port 8000)  │  Testing (On-demand)           │
+│  Backend API (Port 8000)  │  Testing (On-demand)            │
 │  ┌─────────────────┐      │  ┌─────────────────────────┐    │
 │  │   FastAPI       │      │  │    Ragas Framework      │    │
-│  │   FastAPI        │      │  │    Evaluation Suite     │    │
+│  │   FastAPI       │      │  │    Evaluation Suite     │    │
 │  └─────────────────┘      │  └─────────────────────────┘    │
 ├─────────────────────────────────────────────────────────────┤
-│  Database (Port 5432)     │  Ollama (Port 11434)           │
+│  Database (Port 5432)     │  Ollama (Port 11434)            │
 │  ┌─────────────────┐      │  ┌─────────────────────────┐    │
 │  │  PostgreSQL     │      │  │   Local LLM Server      │    │
 │  │  + pgvector     │      │  │   Optional              │    │
