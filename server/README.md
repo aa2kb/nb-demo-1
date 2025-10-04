@@ -394,3 +394,9 @@ This server service integrates with:
 ---
 
 **Intelligent backend service for Abu Dhabi government AI assistance** 🤖
+
+## 👨‍💻 Author
+
+**Amin Ahmed Khan**
+- 🔗 LinkedIn: [aa2kb](https://www.linkedin.com/in/aa2kb/)
+- 💻 GitHub: [aa2kb](https://github.com/aa2kb)

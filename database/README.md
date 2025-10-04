@@ -299,3 +299,9 @@ This database service integrates with:
 ---
 
 **Built for efficient vector storage and retrieval in RAG applications** 🚀
+
+## 👨‍💻 Author
+
+**Amin Ahmed Khan**
+- 🔗 LinkedIn: [aa2kb](https://www.linkedin.com/in/aa2kb/)
+- 💻 GitHub: [aa2kb](https://github.com/aa2kb)

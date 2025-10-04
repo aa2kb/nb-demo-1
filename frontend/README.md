@@ -432,3 +432,9 @@ This frontend service integrates with:
 ---
 
 **Modern AI chat interface for Abu Dhabi government services** 💬
+
+## 👨‍💻 Author
+
+**Amin Ahmed Khan**
+- 🔗 LinkedIn: [aa2kb](https://www.linkedin.com/in/aa2kb/)
+- 💻 GitHub: [aa2kb](https://github.com/aa2kb)
