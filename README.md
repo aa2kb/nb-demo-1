@@ -1,4 +1,4 @@
-# NB-2 Project - Complete AI Stack
+# Abu Dhabi Gov Agent - Complete AI Stack
 
 A comprehensive, containerized AI application stack featuring RAG (Retrieval-Augmented Generation), LLM evaluation, and observability. Built with modern tools including FastAPI, Open WebUI, Ragas evaluation framework, and Arize Phoenix telemetry.
 
@@ -6,7 +6,7 @@ A comprehensive, containerized AI application stack featuring RAG (Retrieval-Aug
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                    NB-2 Project Stack                       │
+│                Abu Dhabi Gov Agent Stack                    │
 ├─────────────────────────────────────────────────────────────┤
 │  Frontend (Port 3000)     │  Telemetry (Port 6006)          │
 │  ┌─────────────────┐      │  ┌─────────────────────────┐    │
@@ -46,7 +46,7 @@ A comprehensive, containerized AI application stack featuring RAG (Retrieval-Aug
 ```bash
 # Clone the repository
 git clone <your-repo-url>
-cd nb-2
+cd abu-dhabi-gov-agent
 
 # Copy environment template
 cp .env.template .env
@@ -78,7 +78,7 @@ docker-compose --profile ollama up -d
 ## 📁 Project Structure
 
 ```
-nb-2/
+abu-dhabi-gov-agent/
 ├── 🐳 docker-compose.yml              # Main orchestration file
 ├── 🔧 .env.template                   # Environment variables template
 ├── 🚀 start.sh                        # Interactive startup script
@@ -128,7 +128,7 @@ GEMINI_API_KEY=your-gemini-key
 # Database Configuration
 POSTGRES_USER=admin
 POSTGRES_PASSWORD=admin
-POSTGRES_DB=nb2
+POSTGRES_DB=abu_dhabi_gov_agent
 
 # Security
 WEBUI_SECRET_KEY=your-secret-key
@@ -321,7 +321,7 @@ docker-compose logs
 docker-compose exec server curl http://localhost:8000/health
 
 # Access database
-docker-compose exec database psql -U admin -d nb2
+docker-compose exec database psql -U admin -d abu_dhabi_gov_agent
 
 # Restart specific service
 docker-compose restart server
@@ -360,10 +360,10 @@ docker-compose restart server
 
 ```bash
 # Database backup
-docker-compose exec database pg_dump -U admin nb2 > backup.sql
+docker-compose exec database pg_dump -U admin abu_dhabi_gov_agent > backup.sql
 
 # Volume backup
-docker run --rm -v nb2-postgres-data:/data -v $(pwd):/backup ubuntu tar czf /backup/postgres-data.tar.gz /data
+docker run --rm -v abu-dhabi-gov-agent-postgres-data:/data -v $(pwd):/backup ubuntu tar czf /backup/postgres-data.tar.gz /data
 ```
 
 ## 🚀 Deployment
