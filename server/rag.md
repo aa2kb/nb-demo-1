@@ -32,7 +32,7 @@ The server implements a sophisticated **agent-driven RAG system** designed speci
 │  │ + pgvector      │    │ Files           │   │
 │  │ (Tool Resource) │    │ (Tool Resource) │   │
 │  └─────────────────┘    └─────────────────┘   │
-│       │                            │           │
+│       │                            │          │
 │       └─────────────┬──────────────┘          │
 │                     ▼                         │
 │            ┌─────────────────┐                │
