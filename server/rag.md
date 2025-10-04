@@ -25,23 +25,23 @@ The server implements a sophisticated **agent-driven RAG system** designed speci
 │  │   Vector Tool   │    │   Document      │   │
 │  │ (Fast Search)   │    │   Tool (Deep)   │   │
 │  └─────────────────┘    └─────────────────┘   │
-│       │                           │           │
-│       ▼                           ▼           │
+│          │                       │            │
+│          ▼                       ▼            │
 │  ┌─────────────────┐    ┌─────────────────┐   │
 │  │ PostgreSQL      │    │   Markdown      │   │
 │  │ + pgvector      │    │   Files         │   │
 │  │ (Tool Resource) │    │ (Tool Resource) │   │
 │  └─────────────────┘    └─────────────────┘   │
 │       │                           │           │
-│       └───────────┬───────────────┘           │
-│                   ▼                           │
+│       └────────────┬──────────────┘           │
+│                    ▼                          │
 │            ┌─────────────────┐                │
 │            │    Minimal      │                │
 │            │ Context Response│                │
 │            │ (No Bloating)   │                │
 │            └─────────────────┘                │
-│                   │                           │
-│                   ▼                           │
+│                     │                         │
+│                     ▼                         │
 │            ┌─────────────────┐                │
 │            │ Phoenix Tracing │                │
 │            │ & Agent Monitor │                │
