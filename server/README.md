@@ -6,20 +6,6 @@ This directory contains the backend server for the NB-2 project, providing an ad
 
 The server implements a comprehensive AI backend featuring:
 
-### Resource Optimization
-
-| Metric | Traditional RAG | Agentic RAG | Improvement |
-|--------|-----------------|-------------|-------------|
-| **Avg Tokens/Query** | 15K-50K | 5K-25K | 50-70% reduction |
-| **Response Time** | 5-20s | 2-15s | 20-40% faster |
-| **Cost per Query** | $0.015 | $0.008 | 47% cheaper |
-| **Context Bloating** | High | Minimal | 85% reduction |PI**: Endpoints for chat completions and model management
-- **Abu Dhabi Government AI Agent**: Specialized CrewAI agent with intelligent tool selection
-- **Agentic RAG System**: Tool-based decision making for information retrieval
-- **Context Control**: Prevents conversation bloating through selective retrieval
-- **Observability**: Phoenix tracing and monitoring integration
-- **Hybrid LLM Support**: Gemini and Ollama model integration
-
 ### Key Features
 
 - 🤖 **Agentic Government Assistant**: AI agent with tool-based decision making
