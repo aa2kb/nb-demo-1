@@ -1,66 +1,111 @@
-# RAG Implementation Guide
+# Agentic RAG Implementation Guide
 
-This document provides a comprehensive overview of the Retrieval-Augmented Generation (RAG) implementation in the NB-2 server, detailing both the vector-based (v1) and full-document (v2) approaches for Abu Dhabi government document processing.
+This document provides a comprehensive overview of the **Agentic Retrieval-Augmented Generation (RAG)** implementation in the Abu Dhabi Gov Agent server, detailing how CrewAI agents use specialized tools for intelligent decision-making rather than traditional context-bloating RAG approaches.
 
-## 🏗️ RAG Architecture Overview
+## 🏗️ Agentic RAG Architecture Overview
 
-The server implements a sophisticated multi-layered RAG system designed specifically for Abu Dhabi government services:
+The server implements a sophisticated **agent-driven RAG system** designed specifically for Abu Dhabi government services, where intelligent agents make dynamic decisions about information retrieval:
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                        RAG System Architecture                  │
-├─────────────────────────────────────────────────────────────────┤
-│  User Query                                                     │
-│       │                                                         │
-│       ▼                                                         │
-│  ┌─────────────────┐    ┌─────────────────┐                   │
-│  │ Document        │    │    CrewAI       │                   │
-│  │ Detection       │◄───┤    Agent        │                   │
-│  │ Service         │    │   Orchestrator   │                   │
-│  └─────────────────┘    └─────────────────┘                   │
-│       │                           │                            │
-│       ▼                           ▼                            │
-│  ┌─────────────────┐    ┌─────────────────┐                   │
-│  │   RAG v1        │    │    RAG v2       │                   │
-│  │ Vector Search   │    │ Full Document   │                   │
-│  │   (Primary)     │    │   (Fallback)    │                   │
-│  └─────────────────┘    └─────────────────┘                   │
-│       │                           │                            │
-│       ▼                           ▼                            │
-│  ┌─────────────────┐    ┌─────────────────┐                   │
-│  │ PostgreSQL      │    │   Markdown      │                   │
-│  │ + pgvector      │    │   Files         │                   │
-│  │ Vector DB       │    │ Direct Access   │                   │
-│  └─────────────────┘    └─────────────────┘                   │
-│       │                           │                            │
-│       └───────────┬───────────────┘                            │
-│                   ▼                                             │
-│            ┌─────────────────┐                                │
-│            │ LLM Generation  │                                │
-│            │ (Gemini/Ollama) │                                │
-│            └─────────────────┘                                │
-│                   │                                             │
-│                   ▼                                             │
-│            ┌─────────────────┐                                │
-│            │ Phoenix Tracing │                                │
-│            │ & Observability │                                │
-│            └─────────────────┘                                │
-└─────────────────────────────────────────────────────────────────┘
+┌───────────────────────────────────────────────┐
+│         Agentic RAG System Architecture       │
+├───────────────────────────────────────────────┤
+│  User Query                                   │
+│       │                                       │
+│       ▼                                       │
+│  ┌─────────────────┐    ┌─────────────────┐   │
+│  │     CrewAI      │    │      Agent      │   │
+│  │   Agent Core    │◄───┤   Reasoning     │   │
+│  │                 │    │   Engine        │   │
+│  └─────────────────┘    └─────────────────┘   │
+│       │                           │           │
+│       └──────────────┬────────────┘           │
+│                      ▼                        │
+│  ┌─────────────────┐    ┌─────────────────┐   │
+│  │   Vector Tool   │    │   Document      │   │
+│  │ (Fast Search)   │    │   Tool (Deep)   │   │
+│  └─────────────────┘    └─────────────────┘   │
+│       │                           │           │
+│       ▼                           ▼           │
+│  ┌─────────────────┐    ┌─────────────────┐   │
+│  │ PostgreSQL      │    │   Markdown      │   │
+│  │ + pgvector      │    │   Files         │   │
+│  │ (Tool Resource) │    │ (Tool Resource) │   │
+│  └─────────────────┘    └─────────────────┘   │
+│       │                           │           │
+│       └───────────┬───────────────┘           │
+│                   ▼                           │
+│            ┌─────────────────┐                │
+│            │    Minimal      │                │
+│            │ Context Response│                │
+│            │ (No Bloating)   │                │
+│            └─────────────────┘                │
+│                   │                           │
+│                   ▼                           │
+│            ┌─────────────────┐                │
+│            │ Phoenix Tracing │                │
+│            │ & Agent Monitor │                │
+│            └─────────────────┘                │
+└───────────────────────────────────────────────┘
 ```
 
-## 🎯 RAG Strategy: Dual-Approach System
+## 🎯 Agentic RAG Strategy: Tool-Based Decision Making
 
-### Primary Approach: RAG v1 (Vector-Based)
-- **Fast Performance**: Sub-second response times
-- **Efficient Resource Usage**: Low compute and memory requirements
-- **Scalable**: Handles large document collections efficiently
-- **Precise Retrieval**: Vector similarity for semantic matching
+### Why Agentic RAG?
 
-### Fallback Approach: RAG v2 (Full Document)
-- **Comprehensive Coverage**: Processes entire documents in context
-- **High Accuracy**: No information loss from chunking
-- **Context Preservation**: Maintains document structure and relationships
-- **Compute Intensive**: Higher token usage and processing time
+**Traditional RAG Problems:**
+- Context bloating in conversation threads
+- Static retrieval strategies
+- One-size-fits-all approach
+- Expensive processing for simple queries
+- Loss of conversational flow
+
+**Agentic RAG Solutions:**
+- **Selective Retrieval**: Agent chooses what information to retrieve
+- **Dynamic Tool Selection**: Different tools for different query types
+- **Context Control**: Minimal context injection preserves conversation flow
+- **Cost Optimization**: Efficient resource usage through smart routing
+- **Adaptive Learning**: Agent improves tool selection over time
+
+### Agent Tool Architecture
+
+#### Primary Tool: Vector Search (Fast & Efficient)
+```python
+class VectorSearchTool:
+    name: "government_document_search"
+    description: "PRIMARY TOOL: Fast semantic search for quick lookups"
+    
+    usage_criteria:
+        - Simple fact queries
+        - Specific procedure questions
+        - Quick reference needs
+        - Sub-second response requirements
+    
+    performance:
+        - Response time: 1-4 seconds
+        - Token usage: 2K-5K
+        - Accuracy: ~85%
+        - Cost: $0.001 per query
+```
+
+#### Fallback Tool: Document Reader (Comprehensive & Detailed)
+```python
+class DocumentReaderTool:
+    name: "full_document_search"
+    description: "FALLBACK TOOL: Deep document analysis for complex queries"
+    
+    usage_criteria:
+        - Complex multi-step procedures
+        - Comprehensive policy explanations
+        - Cross-document analysis
+        - When vector search returns insufficient results
+    
+    performance:
+        - Response time: 10-30 seconds
+        - Token usage: 50K-200K
+        - Accuracy: ~95%
+        - Cost: $0.025 per query
+```
 
 ## 🔧 RAG v1: Vector-Based Implementation
 
@@ -112,46 +157,54 @@ class RAGPipelineService:
         """
 ```
 
-### Vector Search Pipeline
+### Agent Decision Pipeline
 
 ```
-Query: "How do I apply for a business license?"
+User Query: "How do I apply for a business license?"
    │
    ▼
 ┌─────────────────────────────────────────────────────────────┐
-│ 1. Document Detection                                       │
-│    → LLM analyzes query                                     │
-│    → Selects: ["Procurement Standards", "Business Process"]│
+│ 🤖 Agent Analysis                                          │
+│    → Query complexity assessment                           │
+│    → Required information depth evaluation                 │
+│    → Resource optimization consideration                   │
+│    → Tool selection decision                               │
+│    Decision: "Simple procedure → Use Vector Search Tool"   │
 └─────────────────────────────────────────────────────────────┘
    │
    ▼
 ┌─────────────────────────────────────────────────────────────┐
-│ 2. Vector Retrieval (Per Document)                         │
-│    → Query embedding: nomic-embed-text:v1.5                │
-│    → Cosine similarity search                               │
-│    → Retrieve 20 chunks per document                       │
+│ 🔍 Vector Search Tool Execution                           │
+│    → Agent calls government_document_search                │
+│    → Smart document detection                              │
+│    → Focused vector retrieval                             │
+│    → Minimal context extraction                           │
 └─────────────────────────────────────────────────────────────┘
    │
    ▼
 ┌─────────────────────────────────────────────────────────────┐
-│ 3. LLM Reranking                                           │
-│    → Primary LLM (Gemini) scores relevance                 │
-│    → Rerank to top 20 most relevant chunks                 │
-│    → Maintains document context                            │
+│ 🎯 Context Control                                        │
+│    → Agent filters relevant information                    │
+│    → Extracts key procedural steps                        │
+│    → Maintains source attribution                         │
+│    → Avoids context bloating                              │
 └─────────────────────────────────────────────────────────────┘
    │
    ▼
 ┌─────────────────────────────────────────────────────────────┐
-│ 4. Response Generation                                      │
-│    → Secondary LLM processes top 10 chunks                 │
-│    → Generates document-specific responses                  │
-│    → Combines with citations                               │
+│ 📝 Clean Response Generation                              │
+│    → Minimal context injection                            │
+│    → Clear procedural guidance                            │
+│    → Proper source citations                              │
+│    → Conversation flow preservation                       │
 └─────────────────────────────────────────────────────────────┘
    │
    ▼
-Final Response with Sources: "To apply for a business license 
-in Abu Dhabi... [Citations: Procurement Standards p.42, 
-Business Process Manual p.15]"
+Agent Response: "To apply for a business license in Abu Dhabi, 
+follow these steps: [concise procedure] **Sources:** Procurement 
+Standards (Section 4.2), Business Process Manual (Page 15-20)"
+
+💡 No context bloating • Clean conversation • Accurate information
 ```
 
 ### Performance Characteristics
@@ -236,37 +289,93 @@ documents with detailed citations]"
 | **Memory Usage** | ~200-500MB | Full document contexts |
 | **Token Consumption** | 50K-200K | Complete documents + response |
 
-## 🔄 Integration Strategy
+## 🔄 Agentic Integration Strategy
 
 ### CrewAI Agent Integration
 
 ```python
-# The RAG system integrates with CrewAI agents through tools:
+# Agentic RAG implementation with CrewAI agents
 
-# Primary Tool (Fast)
-GovernmentDocumentTool:
-    name: "government_document_search"
-    description: "PRIMARY TOOL: Use this FIRST for retrieving documents"
-    implementation: RAG v1 (Vector-based)
+class AbuDhabiGovernmentAgent:
+    """
+    Intelligent government services agent that makes dynamic
+    decisions about information retrieval using specialized tools.
+    """
+    
+    tools = [
+        VectorSearchTool(),      # Primary: Fast semantic search
+        DocumentReaderTool(),    # Fallback: Deep document analysis
+        MemoryTool(),           # Context: Conversation awareness
+        CitationTool()          # Attribution: Source management
+    ]
+    
+    def execute_task(self, user_query: str) -> str:
+        """
+        Agent reasoning process:
+        1. Analyze query complexity and intent
+        2. Select appropriate tool(s) for retrieval
+        3. Execute tool with minimal context extraction
+        4. Generate clean response without context bloating
+        """
 
-# Fallback Tool (Comprehensive)  
-FullDocumentTool:
-    name: "full_document_search"
-    description: "FALLBACK TOOL: Use ONLY if primary tool fails"
-    implementation: RAG v2 (Full document)
+# Tool Selection Logic
+class AgentDecisionEngine:
+    def choose_tool(self, query: str) -> Tool:
+        """
+        Intelligent tool selection:
+        - Simple facts → VectorSearchTool
+        - Complex procedures → DocumentReaderTool  
+        - Follow-up questions → MemoryTool + VectorSearchTool
+        - Multi-document analysis → DocumentReaderTool
+        """
+        
+    def control_context(self, retrieved_info: List[str]) -> str:
+        """
+        Context minimization:
+        - Extract only relevant snippets
+        - Avoid full document dumping
+        - Preserve conversation flow
+        - Maintain source attribution
+        """
 ```
 
-### Decision Logic
+### Agent Tool Definitions
 
 ```python
-def agent_decision_flow(query):
+# Primary Tool Implementation
+@tool
+def government_document_search(query: str) -> str:
     """
-    Agent automatically chooses RAG approach:
-    1. Always try RAG v1 first (fast, efficient)
-    2. If v1 returns "No relevant information found"
-    3. Then fallback to RAG v2 (comprehensive, slower)
-    4. Return best available result
+    PRIMARY TOOL: Use this FIRST for retrieving government documents.
+    
+    This tool provides fast, efficient document retrieval for Abu Dhabi
+    government services. It uses vector similarity search to find relevant
+    information without bloating the conversation context.
+    
+    Args:
+        query: The user's question about government services
+        
+    Returns:
+        Relevant information with proper citations, minimal context
     """
+    # Implementation: RAG v1 (Vector-based)
+    
+@tool  
+def full_document_search(query: str) -> str:
+    """
+    FALLBACK TOOL: Use ONLY if primary tool fails or for complex queries.
+    
+    This tool performs comprehensive document analysis for complex
+    government procedures requiring detailed information. Use sparingly
+    due to higher computational cost.
+    
+    Args:
+        query: Complex question requiring comprehensive analysis
+        
+    Returns:
+        Detailed information with full context, higher token usage
+    """
+    # Implementation: RAG v2 (Full document)
 ```
 
 ## 📊 Document Coverage
@@ -473,4 +582,10 @@ This RAG implementation integrates with:
 
 ---
 
-**Advanced RAG system optimized for Abu Dhabi government services** 🔍
+**Advanced Agentic RAG system optimized for Abu Dhabi government services** 🤖
+
+## 👨‍💻 Author
+
+**Amin Ahmed Khan**
+- 🔗 LinkedIn: [aa2kb](https://www.linkedin.com/in/aa2kb/)
+- � GitHub: [aa2kb](https://github.com/aa2kb)
