@@ -14,16 +14,16 @@ The server implements a sophisticated **agent-driven RAG system** designed speci
 │       │                                       │
 │       ▼                                       │
 │  ┌─────────────────┐    ┌─────────────────┐   │
-│  │     CrewAI      │    │      Agent      │   │
-│  │   Agent Core    │◄───┤   Reasoning     │   │
-│  │                 │    │   Engine        │   │
+│  │      CrewAI     │    │   Agent Tool    │   │
+│  │    Agent Core   │◄───┤    Reasoning    │   │
+│  │                 │    │     Engine      │   │
 │  └─────────────────┘    └─────────────────┘   │
-│       │                           │           │
-│       └──────────────┬────────────┘           │
-│                      ▼                        │
+│                                   │           │
+│                       ┬───────────┘           │
+│                       ▼                       │
 │  ┌─────────────────┐    ┌─────────────────┐   │
-│  │   Vector Tool   │    │   Document      │   │
-│  │ (Fast Search)   │    │   Tool (Deep)   │   │
+│  │   Vector Tool   │    │     Document    │   │
+│  │  (Fast Search)  │    │   Tool (Deep)   │   │
 │  └─────────────────┘    └─────────────────┘   │
 │          │                       │            │
 │          ▼                       ▼            │
@@ -36,9 +36,9 @@ The server implements a sophisticated **agent-driven RAG system** designed speci
 │       └────────────┬──────────────┘           │
 │                    ▼                          │
 │            ┌─────────────────┐                │
-│            │    Minimal      │                │
-│            │ Context Response│                │
-│            │ (No Bloating)   │                │
+│            │     Minimal     │                │
+│            │  Reply Response │                │
+│            │  (No Bloating)  │                │
 │            └─────────────────┘                │
 │                     │                         │
 │                     ▼                         │
