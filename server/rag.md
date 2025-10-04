@@ -28,11 +28,11 @@ The server implements a sophisticated **agent-driven RAG system** designed speci
 │          │                       │            │
 │          ▼                       ▼            │
 │  ┌─────────────────┐    ┌─────────────────┐   │
-│  │ PostgreSQL      │    │   Markdown      │   │
-│  │ + pgvector      │    │   Files         │   │
+│  │ PostgreSQL      │    │ Markdown        │   │
+│  │ + pgvector      │    │ Files           │   │
 │  │ (Tool Resource) │    │ (Tool Resource) │   │
 │  └─────────────────┘    └─────────────────┘   │
-│       │                           │           │
+│       │                            │           │
 │       └─────────────┬──────────────┘          │
 │                     ▼                         │
 │            ┌─────────────────┐                │
