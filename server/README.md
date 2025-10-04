@@ -6,26 +6,6 @@ This directory contains the backend server for the NB-2 project, providing an ad
 
 The server implements a comprehensive AI backend featuring:
 
-- ## 📈 Performance Benchmarks
-
-### Agentic Tool Performance
-
-| Query Type | Tool Selected | Response Time | Token Usage | Accuracy |
-|------------|---------------|---------------|-------------|----------|
-| **Simple Lookup** | Vector Search | < 2s | 2K-5K | 95% |
-| **Complex Procedures** | Document Reader | < 25s | 50K-200K | 97% |
-| **Follow-up Questions** | Memory + Vector | < 3s | 3K-8K | 92% |
-| **Multi-document** | Document Reader | < 30s | 100K-250K | 96% |
-
-### Agent Decision Accuracy
-
-| Metric | Value | Description |
-|--------|-------|-------------|
-| **Tool Selection Accuracy** | 94% | Correct tool chosen for query type |
-| **Context Control Effectiveness** | 89% | Successful bloat prevention |
-| **Cost Optimization** | 65% | Reduction vs traditional RAG |
-| **User Satisfaction** | 91% | Clean, relevant responses |
-
 ### Resource Optimization
 
 | Metric | Traditional RAG | Agentic RAG | Improvement |
