@@ -17,7 +17,7 @@ A comprehensive, containerized AI application stack featuring RAG (Retrieval-Aug
 │  Backend API (Port 8000)  │  Testing (On-demand)           │
 │  ┌─────────────────┐      │  ┌─────────────────────────┐    │
 │  │   FastAPI       │      │  │    Ragas Framework      │    │
-│  │   OpenAI Compatible ◄───┤  │    Evaluation Suite     │    │
+│  │   FastAPI        │      │  │    Evaluation Suite     │    │
 │  └─────────────────┘      │  └─────────────────────────┘    │
 ├─────────────────────────────────────────────────────────────┤
 │  Database (Port 5432)     │  Ollama (Port 11434)           │
@@ -33,7 +33,7 @@ A comprehensive, containerized AI application stack featuring RAG (Retrieval-Aug
 ### Prerequisites
 
 - Docker and Docker Compose installed
-- (Optional) API keys for OpenAI and/or Google Gemini
+- (Optional) API key for Google Gemini
 
 ### 1. Clone and Setup
 
@@ -117,7 +117,6 @@ Key settings in `.env` file:
 
 ```bash
 # API Keys (optional but recommended)
-OPENAI_API_KEY=your-openai-key
 GEMINI_API_KEY=your-gemini-key
 
 # Database Configuration
@@ -196,13 +195,13 @@ Access Phoenix at: http://localhost:6006
 
 ### 1. Chat Interface (Open WebUI)
 - Clean, responsive web interface
-- Multi-model support (OpenAI, Ollama)
+- Multi-model support (Gemini, Ollama)
 - Chat history and conversation management
 - Mobile-friendly design
 - Plugin and theme support
 
 ### 2. API Backend (FastAPI)
-- OpenAI-compatible endpoints
+- Standard chat completion endpoints
 - Async request processing
 - Comprehensive error handling
 - Interactive API documentation
@@ -293,8 +292,8 @@ async def custom_function():
    # Verify API keys in .env file
    cat .env | grep API_KEY
    
-   # Test API connectivity
-   curl -H "Authorization: Bearer $OPENAI_API_KEY" https://api.openai.com/v1/models
+   # Test Gemini API connectivity
+   curl -H "Authorization: Bearer $GEMINI_API_KEY" https://generativelanguage.googleapis.com/v1/models
    ```
 
 3. **Service Health**

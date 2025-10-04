@@ -1,8 +1,8 @@
-# Using Your Local OpenAI-Compatible API with Open WebUI
+# Using Your Local Chat API with Open WebUI
 
 ## Quick Setup Guide
 
-Your local server is running an OpenAI-compatible API at `http://localhost:8000/v1` with the `abu-dhabi-gov` model available. Here's how to connect it to Open WebUI:
+Your local server is running a standard chat API at `http://localhost:8000/v1` with the `abu-dhabi-gov` model available. Here's how to connect it to Open WebUI:
 
 ## Method 1: Configure Through Open WebUI Interface (Recommended)
 
@@ -42,8 +42,8 @@ cd frontend
 source .venv/bin/activate
 
 # Set environment variables
-export OPENAI_API_BASE_URL="http://localhost:8000/v1"
-export OPENAI_API_KEY="local-api"
+export API_BASE_URL="http://localhost:8000/v1"
+export API_KEY="local-api"
 
 # Start Open WebUI
 open-webui serve --host 0.0.0.0 --port 8080
@@ -53,7 +53,7 @@ open-webui serve --host 0.0.0.0 --port 8080
 
 Your local API provides:
 - **Model**: `abu-dhabi-gov` - Specialized AI agent for Abu Dhabi government services
-- **Endpoint**: `/v1/chat/completions` (OpenAI-compatible)
+- **Endpoint**: `/v1/chat/completions` (Standard chat API)
 - **Models List**: `/v1/models`
 - **Health Check**: `/v1/health`
 
@@ -110,7 +110,7 @@ curl -X POST http://localhost:8000/v1/chat/completions \
 ## Architecture
 
 ```
-┌─────────────────┐    HTTP/OpenAI API    ┌──────────────────┐
+┌─────────────────┐    HTTP/Chat API    ┌──────────────────┐
 │   Open WebUI    │ ─────────────────────► │   Your Server    │
 │  (Frontend)     │                        │  (Backend API)   │
 │ localhost:8080  │                        │ localhost:8000   │

@@ -87,7 +87,7 @@ class DocumentDetectionService:
             
             # Extract the actual prompt text from Phoenix format
             if isinstance(formatted_result, dict) and 'messages' in formatted_result:
-                # Phoenix returns OpenAI format, extract the user message content
+                # Phoenix returns standard format, extract the user message content
                 prompt_text = formatted_result['messages'][-1]['content']
             else:
                 # Fallback if format is different

@@ -36,7 +36,7 @@ services:
       - "8000:8000"
     environment:
       - DATABASE_URL=postgresql://admin:admin@database:5432/nb2
-      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
       - OLLAMA_BASE_URL=${OLLAMA_BASE_URL:-http://ollama:11434}
     volumes:
       - ./server:/app
@@ -62,7 +62,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - OPENAI_API_BASE_URL=http://server:8000/v1
+      - API_BASE_URL=http://server:8000/v1
       - WEBUI_SECRET_KEY=${WEBUI_SECRET_KEY:-secret-key-change-in-production}
       - DATA_DIR=/app/data
     volumes:
@@ -151,7 +151,7 @@ services:
     restart: "no" # Manual run service
     environment:
       - DATABASE_URL=postgresql://admin:admin@database:5432/nb2
-      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
     volumes:
       - ./ingestion:/app
       - ingestion_data:/app/data

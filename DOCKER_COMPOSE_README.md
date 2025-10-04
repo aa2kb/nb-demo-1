@@ -8,7 +8,7 @@ The Docker Compose setup includes the following services:
 
 ### Core Services (Always Running)
 - **Database** (`database`): PostgreSQL 16 with pgvector extension
-- **Server** (`server`): FastAPI backend with OpenAI-compatible API
+- **Server** (`server`): FastAPI backend with standard chat API
 - **Frontend** (`frontend`): Open WebUI for chat interface
 - **Telemetry** (`telemetry`): Arize Phoenix for observability
 
@@ -92,7 +92,7 @@ Key environment variables in `.env`:
 
 ```bash
 # Required API Keys
-OPENAI_API_KEY=your-openai-key
+GEMINI_API_KEY=your-gemini-key
 GEMINI_API_KEY=your-gemini-key
 
 # Database Configuration
@@ -295,7 +295,7 @@ ollama:
 
 ### Server Service
 - **Build**: Custom FastAPI application
-- **Purpose**: API backend with OpenAI compatibility
+- **Purpose**: API backend with standard chat endpoints
 - **Health Check**: HTTP GET to `/health`
 
 ### Frontend Service

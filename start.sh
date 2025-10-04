@@ -56,7 +56,7 @@ setup_env() {
         print_warning ".env file not found. Creating from template..."
         cp .env.template .env
         print_warning "Please edit .env file with your API keys before proceeding"
-        print_warning "Required: OPENAI_API_KEY and/or GEMINI_API_KEY"
+        print_warning "Recommended: GEMINI_API_KEY for optimal performance"
         read -p "Press Enter to continue after editing .env file, or Ctrl+C to exit..."
     else
         print_success "Found existing .env file"
