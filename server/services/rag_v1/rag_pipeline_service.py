@@ -28,8 +28,8 @@ class RAGPipelineService:
         self.max_context_chunks = max_context_chunks
         
         # Phoenix configuration for response generation
-        self.document_processing_prompt_version_id = os.getenv("DOCUMENT_PROCESSING_PROMPT_VERSION_ID", "UHJvbXB0VmVyc2lvbjoxOA==")
-        self.document_processing_answer_version_id = os.getenv("DOCUMENT_ANSWER_PROMPT_VERSION_ID", "UHJvbXB0VmVyc2lvbjoxOQ==")
+        self.document_processing_prompt_id = os.getenv("DOCUMENT_PROCESSING_PROMPT_ID", "document_processing")
+        self.document_answer_prompt_id = os.getenv("DOCUMENT_ANSWER_PROMPT_ID", "document_answer")
         
         # Always initialize Phoenix client
         try:
@@ -161,7 +161,7 @@ class RAGPipelineService:
         """Generate response using Phoenix-managed prompts."""
         try:
             # Get the prompt from Phoenix
-            prompt = self.phoenix_client.prompts.get(prompt_version_id=self.document_processing_prompt_version_id)
+            prompt = self.phoenix_client.prompts.get(prompt_identifier=self.document_processing_prompt_id)
             
             # Format the prompt template with variables
             formatted_result = prompt.format(variables={
@@ -206,8 +206,8 @@ class RAGPipelineService:
         try:
             print("🔗 Combining responses from multiple documents using Phoenix...")
             
-            # Get the prompt from Phoenix - use same prompt ID for now, could be separate
-            prompt = self.phoenix_client.prompts.get(prompt_version_id=self.document_processing_answer_version_id)
+            # Get the prompt from Phoenix - use separate prompt ID for combining responses
+            prompt = self.phoenix_client.prompts.get(prompt_identifier=self.document_answer_prompt_id)
             
             # Format the prompt template with variables
             formatted_result = prompt.format(variables={

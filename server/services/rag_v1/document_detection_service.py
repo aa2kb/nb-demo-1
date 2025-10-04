@@ -44,7 +44,7 @@ class DocumentDetectionService:
         }
         
         # Phoenix configuration
-        self.phoenix_prompt_id = os.getenv("DOCUMENT_DETECTION_VERSION_ID", "UHJvbXB0VmVyc2lvbjoxNw==")
+        self.phoenix_prompt_id = os.getenv("DOCUMENT_DETECTION_ID", "document_detection")
         
         # Always initialize Phoenix client
         try:
@@ -80,7 +80,7 @@ class DocumentDetectionService:
             variables = self._get_prompt_variables(question)
             
             # Get the prompt from Phoenix
-            prompt = self.phoenix_client.prompts.get(prompt_version_id=self.phoenix_prompt_id)
+            prompt = self.phoenix_client.prompts.get(prompt_identifier=self.phoenix_prompt_id)
             
             # Format the prompt template with variables
             formatted_result = prompt.format(variables=variables)

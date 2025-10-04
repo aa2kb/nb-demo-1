@@ -10,9 +10,9 @@ from .rag_v1.rag_service import rag_document_tool
 from .rag_v2 import full_document_tool
 
 phoenix_client = Client()
-agent_role_prompt = phoenix_client.prompts.get(prompt_identifier="agent_role")
-agent_role_goal = phoenix_client.prompts.get(prompt_identifier="agent_goal")
-agent_role_backstory = phoenix_client.prompts.get(prompt_identifier="agent_backstory")
+agent_role_prompt = phoenix_client.prompts.get(prompt_identifier=os.getenv("AGENT_ROLE_PROMPT_ID", "agent_role"))
+agent_role_goal = phoenix_client.prompts.get(prompt_identifier=os.getenv("AGENT_GOAL_PROMPT_ID", "agent_goal"))
+agent_role_backstory = phoenix_client.prompts.get(prompt_identifier=os.getenv("AGENT_BACKSTORY_PROMPT_ID", "agent_backstory"))
 # TODO: RAG using PGSearchTool
 # from crewai_tools import PGSearchTool
 
