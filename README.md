@@ -17,14 +17,20 @@ A comprehensive, containerized AI application stack featuring RAG (Retrieval-Aug
 │  Backend API (Port 8000)  │  Testing (On-demand)            │
 │  ┌─────────────────┐      │  ┌─────────────────────────┐    │
 │  │   FastAPI       │      │  │    Ragas Framework      │    │
-│  │   FastAPI       │      │  │    Evaluation Suite     │    │
+│  │   RAG Endpoints │      │  │    Evaluation Suite     │    │
 │  └─────────────────┘      │  └─────────────────────────┘    │
 ├─────────────────────────────────────────────────────────────┤
-│  Database (Port 5432)     │  Ollama (Port 11434)            │
+│  Database (Port 5432)     │  Ingestion Pipeline             │
 │  ┌─────────────────┐      │  ┌─────────────────────────┐    │
-│  │  PostgreSQL     │      │  │   Local LLM Server      │    │
-│  │  + pgvector     │      │  │   Optional              │    │
+│  │  PostgreSQL     │      │  │  Document Processing    │    │
+│  │  + pgvector     │◄─────┤  │  PDF → Chunks → Vectors │    │
 │  └─────────────────┘      │  └─────────────────────────┘    │
+├─────────────────────────────────────────────────────────────┤
+│  Ollama (Port 11434)                                        │
+│  ┌───────────────────────────────────────────────────────┐  │
+│  │              Local LLM Server (Optional)              │  │
+│  │         Provides local inference capabilities         │  │
+│  └───────────────────────────────────────────────────────┘  │
 └─────────────────────────────────────────────────────────────┘
 ```
 
