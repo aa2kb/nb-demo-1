@@ -82,7 +82,7 @@ class RAGPipelineService:
             )
             
             print(f"🔍 Searching in: {filename}")
-            print(f"📊 Using top_k: {top_k} (type: {type(top_k)})")
+            print(f"📊 Using top_k: {top_k}")
             
             # Ensure top_k is definitely an integer
             top_k_int = int(top_k)
