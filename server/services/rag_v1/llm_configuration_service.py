@@ -3,6 +3,7 @@ from typing import Tuple
 from llama_index.llms.ollama import Ollama
 from llama_index.llms.gemini import Gemini
 from llama_index.llms.openrouter import OpenRouter
+from llama_index.llms.groq import Groq
 
 
 class LLMConfigurationService:
@@ -27,6 +28,8 @@ class LLMConfigurationService:
             return self._setup_gemini_llms()
         elif self.llm_provider == "openrouter":
             return self._setup_openrouter_llms()
+        elif self.llm_provider == "groq":
+            return self._setup_groq_llms()
         else:
             return self._setup_ollama_llms()
     
@@ -74,6 +77,30 @@ class LLMConfigurationService:
             return primary_llm, secondary_llm
         except Exception as e:
             print(f"⚠️ OpenRouter initialization failed: {str(e)}")
+            print("🔄 Falling back to Ollama")
+            return self._setup_ollama_llms()
+    
+    def _setup_groq_llms(self) -> Tuple[object, object]:
+        """Setup Groq LLMs."""
+        groq_api_key = os.getenv("GROQ_API_KEY")
+        
+        if not groq_api_key:
+            print("❌ GROQ_API_KEY not found but Groq provider selected. Falling back to Ollama.")
+            return self._setup_ollama_llms()
+        
+        print("✅ Configuring Groq for both reranking and generation")
+        try:
+            primary_llm = Groq(
+                model=self.llm_model,
+                api_key=groq_api_key,
+                temperature=0.1,
+                max_tokens=8192
+            )
+            secondary_llm = primary_llm  # Use same LLM for both operations
+            print("✅ Groq LLMs initialized successfully")
+            return primary_llm, secondary_llm
+        except Exception as e:
+            print(f"⚠️ Groq initialization failed: {str(e)}")
             print("🔄 Falling back to Ollama")
             return self._setup_ollama_llms()
     

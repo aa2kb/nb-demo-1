@@ -5,14 +5,15 @@ CrewAI service for handling agent-based conversations.
 import os
 from crewai import Agent, LLM
 from typing import Dict, Any, List, Union
-from phoenix.client import Client
 from .rag_v1.rag_service import rag_document_tool
 from .rag_v2 import full_document_tool
+from phoenix.client import Client
 
 phoenix_client = Client()
 agent_role_prompt = phoenix_client.prompts.get(prompt_identifier=os.getenv("AGENT_ROLE_PROMPT_ID", "agent_role"))
 agent_role_goal = phoenix_client.prompts.get(prompt_identifier=os.getenv("AGENT_GOAL_PROMPT_ID", "agent_goal"))
 agent_role_backstory = phoenix_client.prompts.get(prompt_identifier=os.getenv("AGENT_BACKSTORY_PROMPT_ID", "agent_backstory"))
+    
 # TODO: RAG using PGSearchTool
 # from crewai_tools import PGSearchTool
 
@@ -50,6 +51,19 @@ def get_configured_llm():
                 api_key=openrouter_api_key
             )
     
+    elif llm_provider == "groq":
+        groq_api_key = os.getenv("GROQ_API_KEY")
+        if not groq_api_key:
+            print("❌ GROQ_API_KEY not found but Groq provider selected. Falling back to Ollama.")
+            llm_provider = "ollama"
+            llm_model = "mistral:7b"
+        else:
+            return LLM(
+                model=f"groq/{llm_model}",
+                api_key=groq_api_key,
+                temperature=0.7
+            )
+    
     # Fallback to Ollama or explicit Ollama configuration
     ollama_base_url = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
     return LLM(
@@ -62,18 +76,42 @@ llm = get_configured_llm()
 
 class CrewAIService:
     def __init__(self):
-        self.chat_agent = Agent(
-            role=agent_role_prompt.format().messages[0].get("content").strip(),
-            goal=agent_role_goal.format().messages[0].get("content").strip(),
-            backstory=agent_role_backstory.format().messages[0].get("content").strip(),
-            verbose=True,
-            allow_delegation=False,
-            llm=llm,
-            tools=[rag_document_tool, full_document_tool],
-            # tools=[full_document_tool],
-            max_iter=2,  # Limit to 1 iteration to prevent multiple tool calls
-            memory=True  # Enable memory to use previous tool results
-        )
+        try:
+            # Get role, goal, and backstory with proper error handling
+            role = agent_role_prompt.format().messages[0].get("content", "Abu Dhabi Government AI Assistant").strip()
+            goal = agent_role_goal.format().messages[0].get("content", "Provide accurate government information").strip()
+            backstory = agent_role_backstory.format().messages[0].get("content", "Expert Abu Dhabi government assistant").strip()
+            
+            print(f"🤖 Creating agent with role: {role[:50]}...")
+            
+            self.chat_agent = Agent(
+                role=role,
+                goal=goal,
+                backstory=backstory,
+                verbose=True,
+                allow_delegation=False,
+                llm=llm,
+                tools=[rag_document_tool, full_document_tool],
+                max_iter=2,
+                memory=True
+            )
+            print("✅ CrewAI Agent initialized successfully")
+            
+        except Exception as e:
+            print(f"❌ Error initializing CrewAI Agent: {e}")
+            # Create minimal agent as fallback
+            self.chat_agent = Agent(
+                role="Abu Dhabi Government AI Assistant",
+                goal="Provide accurate government information",
+                backstory="Expert Abu Dhabi government assistant",
+                verbose=True,
+                allow_delegation=False,
+                llm=llm,
+                tools=[rag_document_tool, full_document_tool],
+                max_iter=2,
+                memory=True
+            )
+            print("✅ Fallback CrewAI Agent created")
     
     def chat(self, messages: Union[str, List[Dict[str, str]]]) -> Dict[str, Any]:
         """Chat with Agent using messages array or single string"""

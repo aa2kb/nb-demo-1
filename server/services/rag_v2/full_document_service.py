@@ -17,6 +17,7 @@ import google.generativeai as genai
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
 import openai
+from groq import Groq
 
 # Import document detection from v1
 from ..rag_v1.document_detection_service import DocumentDetectionService
@@ -52,6 +53,8 @@ class FullDocumentRAGService:
         # Initialize LLM based on provider
         if self.llm_provider == "openrouter":
             self._setup_openrouter()
+        elif self.llm_provider == "groq":
+            self._setup_groq()
         elif self.llm_provider == "gemini":
             self._setup_gemini()
         else:
@@ -63,6 +66,22 @@ class FullDocumentRAGService:
         self.markdown_dir = Path(__file__).parent / "markdown"
         
         print(f"🔍 RAG v2 initialized with markdown directory: {self.markdown_dir}")
+    
+    def _setup_groq(self):
+        """Setup Groq LLM."""
+        self.groq_api_key = os.getenv("GROQ_API_KEY")
+        
+        if not self.groq_api_key:
+            print("❌ GROQ_API_KEY not found but Groq provider selected. Falling back to Gemini.")
+            self._setup_gemini()
+            return
+        
+        # Initialize Groq client
+        self.groq_client = Groq(api_key=self.groq_api_key)
+        self.model_name = self.llm_model
+        self.use_openrouter = False
+        self.use_groq = True
+        print(f"🤖 Using Groq model: {self.model_name}")
     
     def _setup_openrouter(self):
         """Setup OpenRouter LLM."""
@@ -81,6 +100,7 @@ class FullDocumentRAGService:
         )
         self.model_name = self.llm_model
         self.use_openrouter = True
+        self.use_groq = False
         print(f"🤖 Using OpenRouter model: {self.model_name}")
     
     def _setup_gemini(self):
@@ -92,6 +112,7 @@ class FullDocumentRAGService:
         genai.configure(api_key=self.gemini_api_key)
         self.model = genai.GenerativeModel(self.llm_model)
         self.use_openrouter = False
+        self.use_groq = False
         print(f"🤖 Using Gemini model: {self.llm_model}")
     
     def detect_relevant_documents_v2(self, question: str) -> List[str]:
@@ -245,6 +266,21 @@ Guidelines:
                     return f"No response received for document {doc_name}. **Source: {doc_name}**"
                 
                 response_text = response.choices[0].message.content
+            elif self.use_groq:
+                # Use Groq
+                response = self.groq_client.chat.completions.create(
+                    model=self.model_name,
+                    messages=[
+                        {"role": "user", "content": prompt}
+                    ],
+                    max_tokens=8192,
+                    temperature=0.1
+                )
+                
+                if not response or not response.choices or not response.choices[0].message.content:
+                    return f"No response received for document {doc_name}. **Source: {doc_name}**"
+                
+                response_text = response.choices[0].message.content
             else:
                 # Use Gemini
                 response = self.model.generate_content(prompt)
@@ -292,6 +328,21 @@ Individual Document Responses:
             if self.use_openrouter:
                 # Use OpenRouter via OpenAI client
                 response = self.openai_client.chat.completions.create(
+                    model=self.model_name,
+                    messages=[
+                        {"role": "user", "content": join_prompt}
+                    ],
+                    max_tokens=8192,
+                    temperature=0.1
+                )
+                
+                if not response or not response.choices or not response.choices[0].message.content:
+                    return self.manual_join_responses(question, document_responses)
+                
+                response_text = response.choices[0].message.content
+            elif self.use_groq:
+                # Use Groq
+                response = self.groq_client.chat.completions.create(
                     model=self.model_name,
                     messages=[
                         {"role": "user", "content": join_prompt}
