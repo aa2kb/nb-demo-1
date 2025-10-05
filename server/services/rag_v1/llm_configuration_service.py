@@ -2,6 +2,7 @@ import os
 from typing import Tuple
 from llama_index.llms.ollama import Ollama
 from llama_index.llms.gemini import Gemini
+from llama_index.llms.openrouter import OpenRouter
 
 
 class LLMConfigurationService:
@@ -24,6 +25,8 @@ class LLMConfigurationService:
         # Setup LLMs based on provider
         if self.llm_provider == "gemini":
             return self._setup_gemini_llms()
+        elif self.llm_provider == "openrouter":
+            return self._setup_openrouter_llms()
         else:
             return self._setup_ollama_llms()
     
@@ -47,6 +50,30 @@ class LLMConfigurationService:
             return primary_llm, secondary_llm
         except Exception as e:
             print(f"⚠️ Gemini initialization failed: {str(e)}")
+            print("🔄 Falling back to Ollama")
+            return self._setup_ollama_llms()
+    
+    def _setup_openrouter_llms(self) -> Tuple[object, object]:
+        """Setup OpenRouter LLMs."""
+        openrouter_api_key = os.getenv("OPENROUTER_API_KEY")
+        
+        if not openrouter_api_key:
+            print("❌ OPENROUTER_API_KEY not found but OpenRouter provider selected. Falling back to Ollama.")
+            return self._setup_ollama_llms()
+        
+        print("✅ Configuring OpenRouter for both reranking and generation")
+        try:
+            primary_llm = OpenRouter(
+                model=self.llm_model,
+                api_key=openrouter_api_key,
+                temperature=0.1,
+                max_tokens=8192
+            )
+            secondary_llm = primary_llm  # Use same LLM for both operations
+            print("✅ OpenRouter LLMs initialized successfully")
+            return primary_llm, secondary_llm
+        except Exception as e:
+            print(f"⚠️ OpenRouter initialization failed: {str(e)}")
             print("🔄 Falling back to Ollama")
             return self._setup_ollama_llms()
     

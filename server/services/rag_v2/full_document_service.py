@@ -5,7 +5,7 @@ This service detects relevant documents using the same logic as RAG v1,
 but instead of vector search, it loads the entire markdown file(s) into 
 the LLM context and asks the question directly.
 
-Uses gemini-flash-lite-latest for processing.
+Supports multiple LLM providers: Gemini, OpenRouter, and others.
 """
 
 import os
@@ -16,6 +16,7 @@ from pydantic import BaseModel, Field
 import google.generativeai as genai
 import asyncio
 from concurrent.futures import ThreadPoolExecutor
+import openai
 
 # Import document detection from v1
 from ..rag_v1.document_detection_service import DocumentDetectionService
@@ -42,19 +43,56 @@ class FullDocumentRAGService:
         # Initialize document detection (reuse from v1)
         self.document_detector = DocumentDetectionService()
         
-        # Initialize Gemini
-        self.gemini_api_key = os.getenv("GEMINI_API_KEY")
-        if not self.gemini_api_key:
-            raise ValueError("GEMINI_API_KEY not found in environment variables")
+        # Get LLM provider configuration
+        self.llm_provider = os.getenv("DEFAULT_LLM_PROVIDER", "gemini").lower()
+        self.llm_model = os.getenv("DEFAULT_LLM_MODEL", "gemini-flash-lite-latest")
         
-        genai.configure(api_key=self.gemini_api_key)
-        self.model = genai.GenerativeModel('gemini-flash-lite-latest')
+        print(f"🔍 RAG v2 using LLM Provider: {self.llm_provider}, Model: {self.llm_model}")
+        
+        # Initialize LLM based on provider
+        if self.llm_provider == "openrouter":
+            self._setup_openrouter()
+        elif self.llm_provider == "gemini":
+            self._setup_gemini()
+        else:
+            # Fallback to Gemini
+            print(f"⚠️ Unsupported LLM provider '{self.llm_provider}' for RAG v2. Falling back to Gemini.")
+            self._setup_gemini()
         
         # Document paths - using local markdown folder
         self.markdown_dir = Path(__file__).parent / "markdown"
         
         print(f"🔍 RAG v2 initialized with markdown directory: {self.markdown_dir}")
-        print(f"🤖 Using Gemini model: gemini-flash-lite-latest")
+    
+    def _setup_openrouter(self):
+        """Setup OpenRouter LLM."""
+        self.openrouter_api_key = os.getenv("OPENROUTER_API_KEY")
+        self.openrouter_base_url = os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
+        
+        if not self.openrouter_api_key:
+            print("❌ OPENROUTER_API_KEY not found but OpenRouter provider selected. Falling back to Gemini.")
+            self._setup_gemini()
+            return
+        
+        # Initialize OpenAI client for OpenRouter
+        self.openai_client = openai.OpenAI(
+            api_key=self.openrouter_api_key,
+            base_url=self.openrouter_base_url
+        )
+        self.model_name = self.llm_model
+        self.use_openrouter = True
+        print(f"🤖 Using OpenRouter model: {self.model_name}")
+    
+    def _setup_gemini(self):
+        """Setup Gemini LLM."""
+        self.gemini_api_key = os.getenv("GEMINI_API_KEY")
+        if not self.gemini_api_key:
+            raise ValueError("GEMINI_API_KEY not found in environment variables")
+        
+        genai.configure(api_key=self.gemini_api_key)
+        self.model = genai.GenerativeModel(self.llm_model)
+        self.use_openrouter = False
+        print(f"🤖 Using Gemini model: {self.llm_model}")
     
     def detect_relevant_documents_v2(self, question: str) -> List[str]:
         """
@@ -177,17 +215,7 @@ Guidelines:
         return "\n".join(prompt_parts)
     
     def query_single_document(self, question: str, doc_name: str, content: str) -> str:
-        """
-        Query a single document with the question.
-        
-        Args:
-            question: User's question
-            doc_name: Document name
-            content: Document content
-            
-        Returns:
-            Response from processing this single document
-        """
+        """Query a single document with the question."""
         try:
             print(f"🔍 Processing document: {doc_name}")
             
@@ -201,30 +229,40 @@ Guidelines:
             if estimated_tokens > 900000:
                 return f"Document {doc_name} is too large to process (>{estimated_tokens:,} tokens). **Source: {doc_name}**"
             
-            # Query Gemini
-            response = self.model.generate_content(prompt)
-            
-            if not response or not response.text:
-                return f"No response received for document {doc_name}. **Source: {doc_name}**"
+            # Query LLM based on provider
+            if self.use_openrouter:
+                # Use OpenRouter via OpenAI client
+                response = self.openai_client.chat.completions.create(
+                    model=self.model_name,
+                    messages=[
+                        {"role": "user", "content": prompt}
+                    ],
+                    max_tokens=8192,
+                    temperature=0.1
+                )
+                
+                if not response or not response.choices or not response.choices[0].message.content:
+                    return f"No response received for document {doc_name}. **Source: {doc_name}**"
+                
+                response_text = response.choices[0].message.content
+            else:
+                # Use Gemini
+                response = self.model.generate_content(prompt)
+                
+                if not response or not response.text:
+                    return f"No response received for document {doc_name}. **Source: {doc_name}**"
+                
+                response_text = response.text
             
             print(f"✅ Processed document: {doc_name}")
-            return response.text
+            return response_text
             
         except Exception as e:
             print(f"❌ Error processing {doc_name}: {str(e)}")
             return f"Error processing document {doc_name}: {str(e)}. **Source: {doc_name}**"
     
     def join_multiple_responses(self, question: str, document_responses: Dict[str, str]) -> str:
-        """
-        Join multiple document responses into a comprehensive answer.
-        
-        Args:
-            question: Original question
-            document_responses: Dictionary mapping document names to their responses
-            
-        Returns:
-            Combined response with preserved citations
-        """
+        """Join multiple document responses into a comprehensive answer."""
         try:
             print("🔗 Joining multiple document responses...")
             
@@ -250,15 +288,33 @@ Individual Document Responses:
             join_prompt += f"Original Question: {question}\n\n"
             join_prompt += "Please synthesize the above responses into one comprehensive answer, preserving all citations and organizing the information logically:"
             
-            # Query Gemini to join responses
-            response = self.model.generate_content(join_prompt)
-            
-            if not response or not response.text:
-                # Fallback: manually join responses
-                return self.manual_join_responses(question, document_responses)
+            # Query LLM based on provider
+            if self.use_openrouter:
+                # Use OpenRouter via OpenAI client
+                response = self.openai_client.chat.completions.create(
+                    model=self.model_name,
+                    messages=[
+                        {"role": "user", "content": join_prompt}
+                    ],
+                    max_tokens=8192,
+                    temperature=0.1
+                )
+                
+                if not response or not response.choices or not response.choices[0].message.content:
+                    return self.manual_join_responses(question, document_responses)
+                
+                response_text = response.choices[0].message.content
+            else:
+                # Use Gemini
+                response = self.model.generate_content(join_prompt)
+                
+                if not response or not response.text:
+                    return self.manual_join_responses(question, document_responses)
+                
+                response_text = response.text
             
             print("✅ Successfully joined multiple responses")
-            return response.text
+            return response_text
             
         except Exception as e:
             print(f"⚠️ Error joining responses: {str(e)}, using manual join")

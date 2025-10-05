@@ -36,6 +36,20 @@ def get_configured_llm():
                 api_key=gemini_api_key
             )
     
+    elif llm_provider == "openrouter":
+        openrouter_api_key = os.getenv("OPENROUTER_API_KEY")
+        openrouter_base_url = os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
+        if not openrouter_api_key:
+            print("❌ OPENROUTER_API_KEY not found but OpenRouter provider selected. Falling back to Ollama.")
+            llm_provider = "ollama"
+            llm_model = "mistral:7b"
+        else:
+            return LLM(
+                model=f"openrouter/{llm_model}",
+                base_url=openrouter_base_url,
+                api_key=openrouter_api_key
+            )
+    
     # Fallback to Ollama or explicit Ollama configuration
     ollama_base_url = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
     return LLM(
