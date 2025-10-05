@@ -74,7 +74,7 @@ class DocumentDetectionService:
     def _detect_with_phoenix(self, question: str, llm) -> List[str]:
         """Use Phoenix-managed prompts for document detection."""
         try:
-            print("🤖 Analyzing question to detect relevant documents using Phoenix...")
+            print("🤖 Analyzing question to detect relevant documents...")
             
             # Get standardized variables
             variables = self._get_prompt_variables(question)
