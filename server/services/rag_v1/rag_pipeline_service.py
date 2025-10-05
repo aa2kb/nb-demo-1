@@ -109,7 +109,7 @@ class RAGPipelineService:
         """Rerank documents using configured LLM."""
         llm_provider = os.getenv("DEFAULT_LLM_PROVIDER", "ollama").lower()
         llm_model = os.getenv("DEFAULT_LLM_MODEL", "mistral:7b")
-        print(f"📄 Reranking {len(retrieved_nodes)} documents to top {top_n} using {llm_provider} ({llm_model})...")
+        print(f"📄 Reranking {len(retrieved_nodes)} documents to top {top_n}...")
         
         if not retrieved_nodes:
             return []
