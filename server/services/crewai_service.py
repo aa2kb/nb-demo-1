@@ -77,42 +77,26 @@ llm = get_configured_llm()
 
 class CrewAIService:
     def __init__(self):
-        try:
-            # Get role, goal, and backstory with proper error handling
-            role = agent_role_prompt.format().messages[0].get("content", "Abu Dhabi Government AI Assistant").strip()
-            goal = agent_role_goal.format().messages[0].get("content", "Provide accurate government information").strip()
-            backstory = agent_role_backstory.format().messages[0].get("content", "Expert Abu Dhabi government assistant").strip()
+        # Get role, goal, and backstory with proper error handling
+        role = agent_role_prompt.format().messages[0].get("content", "Abu Dhabi Government AI Assistant").strip()
+        goal = agent_role_goal.format().messages[0].get("content", "Provide accurate government information").strip()
+        backstory = agent_role_backstory.format().messages[0].get("content", "Expert Abu Dhabi government assistant").strip()
+        
+        print(f"🤖 Creating agent with role: {role[:50]}...")
+        
+        self.chat_agent = Agent(
+            role=role,
+            goal=goal,
+            backstory=backstory,
+            verbose=True,
+            allow_delegation=False,
+            llm=llm,
+            tools=[rag_document_tool, full_document_tool],
+            max_iter=2,
+            memory=True
+        )
+        print("✅ CrewAI Agent initialized successfully")
             
-            print(f"🤖 Creating agent with role: {role[:50]}...")
-            
-            self.chat_agent = Agent(
-                role=role,
-                goal=goal,
-                backstory=backstory,
-                verbose=True,
-                allow_delegation=False,
-                llm=llm,
-                tools=[rag_document_tool, full_document_tool],
-                max_iter=2,
-                memory=True
-            )
-            print("✅ CrewAI Agent initialized successfully")
-            
-        except Exception as e:
-            print(f"❌ Error initializing CrewAI Agent: {e}")
-            # Create minimal agent as fallback
-            self.chat_agent = Agent(
-                role="Abu Dhabi Government AI Assistant",
-                goal="Provide accurate government information",
-                backstory="Expert Abu Dhabi government assistant",
-                verbose=True,
-                allow_delegation=False,
-                llm=llm,
-                tools=[rag_document_tool, full_document_tool],
-                max_iter=2,
-                memory=True
-            )
-            print("✅ Fallback CrewAI Agent created")
     
     def chat(self, messages: Union[str, List[Dict[str, str]]]) -> Dict[str, Any]:
         """Chat with Agent using messages array or single string"""

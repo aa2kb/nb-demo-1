@@ -113,7 +113,7 @@ class FullDocumentRAGService:
         self.model = genai.GenerativeModel(self.llm_model)
         self.use_openrouter = False
         self.use_groq = False
-        print(f"🤖 Using Gemini model: {self.llm_model}")
+        
     
     def detect_relevant_documents_v2(self, question: str) -> List[str]:
         """
