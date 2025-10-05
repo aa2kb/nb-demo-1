@@ -14,8 +14,8 @@ echo "Activating virtual environment..."
 source .venv/bin/activate
 
 # Export environment variables for Open WebUI
-export API_BASE_URL="http://localhost:8000/v1"
-export API_KEY="local-api"
+export OPENAI_API_BASE_URL="http://localhost:8000/v1"
+export OPENAI_API_KEY="local-api"
 export HOST="0.0.0.0"
 export PORT="8080"
 export ENABLE_FOLLOW_UP_GENERATION=false
