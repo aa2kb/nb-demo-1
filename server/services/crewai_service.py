@@ -61,7 +61,8 @@ def get_configured_llm():
             return LLM(
                 model=f"groq/{llm_model}",
                 api_key=groq_api_key,
-                temperature=0.7
+                temperature=0.1,  # Lower temperature for more consistent responses
+                max_tokens=131072   # Ensure adequate token limit
             )
     
     # Fallback to Ollama or explicit Ollama configuration
