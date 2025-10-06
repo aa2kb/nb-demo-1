@@ -13,7 +13,7 @@ class LLMConfigurationService:
     def __init__(self):
         """Initialize LLM configuration service."""
         self.llm_provider = os.getenv("DEFAULT_LLM_PROVIDER", "ollama").lower()
-        self.llm_model = os.getenv("DEFAULT_LLM_MODEL", "mistral:7b")
+        self.llm_model = os.getenv("DEFAULT_LLM_MODEL", "qwen2.5:3b")
     
     def setup_llms(self) -> Tuple[object, object]:
         """
@@ -138,9 +138,9 @@ class LLMConfigurationService:
         """Setup Ollama LLMs."""
         print("✅ Configuring Ollama for both reranking and generation")
         primary_llm = Ollama(
-            model=self.llm_model if self.llm_provider == "ollama" else "mistral:7b",
+            model=self.llm_model if self.llm_provider == "ollama" else "qwen2.5:3b",
             base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
-            request_timeout=120.0
+            request_timeout=180
         )
         secondary_llm = primary_llm  # Use same LLM for both operations
         return primary_llm, secondary_llm
@@ -149,9 +149,9 @@ class LLMConfigurationService:
         """Get fallback Ollama LLM for error scenarios."""
         try:
             fallback_llm = Ollama(
-                model="mistral:7b",
+                model="qwen2.5:3b",
                 base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
-                request_timeout=120.0
+                request_timeout=180
             )
             return fallback_llm
         except Exception as e:

@@ -15,16 +15,16 @@ def test_ollama_connection():
         if response.status_code == 200:
             models = response.json()
             print("✅ Ollama is running and accessible")
-            
-            # Check if mistral:7b is available
+
+            # Check if qwen2.5:3b is available
             model_names = [model['name'] for model in models.get('models', [])]
-            if 'mistral:7b' in model_names:
-                print("✅ Mistral 7B model is available")
+            if 'qwen2.5:3b' in model_names:
+                print("✅ qwen2.5:3b model is available")
                 return True
             else:
-                print("❌ Mistral 7B model not found")
+                print("❌ qwen2.5:3b model not found")
                 print("Available models:", model_names)
-                print("Run: ollama pull mistral:7b")
+                print("Run: ollama pull qwen2.5:3b")
                 return False
         else:
             print(f"❌ Ollama responded with status {response.status_code}")
@@ -43,7 +43,7 @@ def test_mistral_generation():
     """Test Mistral model generation."""
     try:
         payload = {
-            "model": "mistral:7b",
+            "model": "qwen2.5:3b",
             "prompt": "What is artificial intelligence?",
             "stream": False
         }

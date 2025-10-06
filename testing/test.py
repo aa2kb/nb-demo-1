@@ -53,7 +53,8 @@ def setup_evaluator_llm():
         evaluator_llm = Ollama(
             model=llm_model,
             base_url=ollama_base_url,
-            temperature=0
+            temperature=0,
+            request_timeout=180
         )
     
     return evaluator_llm
