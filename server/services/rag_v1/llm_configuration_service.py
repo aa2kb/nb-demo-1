@@ -140,7 +140,7 @@ class LLMConfigurationService:
         primary_llm = Ollama(
             model=self.llm_model if self.llm_provider == "ollama" else "mistral:7b",
             base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
-            request_timeout=60.0
+            request_timeout=120.0
         )
         secondary_llm = primary_llm  # Use same LLM for both operations
         return primary_llm, secondary_llm
@@ -151,7 +151,7 @@ class LLMConfigurationService:
             fallback_llm = Ollama(
                 model="mistral:7b",
                 base_url=os.getenv("OLLAMA_BASE_URL", "http://localhost:11434"),
-                request_timeout=60.0
+                request_timeout=120.0
             )
             return fallback_llm
         except Exception as e:
