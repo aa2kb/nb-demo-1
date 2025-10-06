@@ -2,7 +2,6 @@ import os
 from typing import List, Optional, Tuple
 from llama_index.core import VectorStoreIndex
 from llama_index.core.retrievers import VectorIndexRetriever
-from llama_index.core.postprocessor import LLMRerank
 from llama_index.core.schema import QueryBundle, NodeWithScore
 from llama_index.core.vector_stores import MetadataFilters, MetadataFilter, FilterOperator
 from phoenix.client import Client
@@ -11,20 +10,15 @@ from phoenix.client import Client
 class RAGPipelineService:
     """Service for RAG pipeline operations including retrieval, reranking, and generation."""
     
-    def __init__(self, retriever_top_k: int = 10, reranking_top_n: int = 3, 
-                 use_reranking: bool = True, max_context_chunks: int = 3):
+    def __init__(self, retriever_top_k: int = 10, max_context_chunks: int = 3):
         """
         Initialize RAG pipeline service.
         
         Args:
             retriever_top_k: Number of documents to retrieve initially per document
-            reranking_top_n: Number of documents after reranking per document
-            use_reranking: Enable/disable reranking step
             max_context_chunks: Maximum chunks to use for response generation per document
         """
         self.retriever_top_k = retriever_top_k
-        self.reranking_top_n = reranking_top_n
-        self.use_reranking = use_reranking
         self.max_context_chunks = max_context_chunks
         
         # Phoenix configuration for response generation
@@ -52,11 +46,8 @@ class RAGPipelineService:
                 print(f"⚠️ No relevant content found in {doc_filename}")
                 return None
             
-            # Step 2: Rerank if enabled
-            if self.use_reranking:
-                final_nodes = self.rerank_documents(retrieved_nodes, query_bundle, primary_llm, self.reranking_top_n)
-            else:
-                final_nodes = retrieved_nodes[:self.reranking_top_n]
+            # Step 2: Sort by similarity score (highest first)
+            final_nodes = self.rank_by_similarity(retrieved_nodes)
             
             # Step 3: Generate response
             response = self.generate_response_for_document(final_nodes, question, doc_filename, secondary_llm)
@@ -104,41 +95,23 @@ class RAGPipelineService:
             print(f"🔍 Error details: {type(e).__name__}")
             return [], None
     
-    def rerank_documents(self, retrieved_nodes: List[NodeWithScore], query_bundle: QueryBundle, 
-                        llm, top_n: int) -> List[NodeWithScore]:
-        """Rerank documents using configured LLM."""
-        llm_provider = os.getenv("DEFAULT_LLM_PROVIDER", "ollama").lower()
-        llm_model = os.getenv("DEFAULT_LLM_MODEL", "mistral:7b")
-        print(f"📄 Reranking {len(retrieved_nodes)} documents to top {top_n}...")
-        
+    def rank_by_similarity(self, retrieved_nodes: List[NodeWithScore]) -> List[NodeWithScore]:
+        """Rank documents by similarity score (highest first)."""
         if not retrieved_nodes:
             return []
         
-        try:
-            # Configure reranker
-            reranker = LLMRerank(
-                top_n=min(top_n, len(retrieved_nodes)),
-                llm=llm
-            )
-            
-            # Rerank documents
-            reranked_nodes = reranker.postprocess_nodes(retrieved_nodes, query_bundle)
-            
-            # Print reranking order
-            print("✅ Reranking completed:")
-            for new_idx, node in enumerate(reranked_nodes):
-                # Find original position
-                for orig_idx, orig_node in enumerate(retrieved_nodes):
-                    if orig_node.node_id == node.node_id:
-                        print(f"   {orig_idx} -> {new_idx}")
-                        break
-            
-            return reranked_nodes
-            
-        except Exception as e:
-            print(f"⚠️ Reranking failed, using original order: {str(e)}")
-            # Return top documents without reranking if reranking fails
-            return retrieved_nodes[:top_n]
+        print(f"📄 Ranking {len(retrieved_nodes)} documents by similarity score...")
+        
+        # Sort by similarity score in descending order (highest similarity first)
+        ranked_nodes = sorted(retrieved_nodes, key=lambda node: node.score if node.score is not None else 0.0, reverse=True)
+        
+        # Print ranking results
+        print("✅ Similarity-based ranking completed:")
+        for idx, node in enumerate(ranked_nodes[:10]):  # Show top 10
+            score = node.score if node.score is not None else 0.0
+            print(f"   Rank {idx + 1}: Score {score:.4f}")
+        
+        return ranked_nodes
     
     def generate_response_for_document(self, nodes: List[NodeWithScore], question: str, 
                                      doc_filename: str, llm=None) -> Optional[str]:

@@ -40,8 +40,6 @@ class GovernmentDocumentTool(BaseTool):
     
     # Configuration
     retriever_top_k: ClassVar[int] = 10          # Number of documents to retrieve initially per document
-    use_reranking: ClassVar[bool] = False          # Enable/disable reranking step
-    reranking_top_n: ClassVar[int] = 10            # Number of documents after reranking per document
     max_context_chunks: ClassVar[int] = 5         # Maximum chunks to use for response generation per document
     
     def _get_services(self):
@@ -50,8 +48,6 @@ class GovernmentDocumentTool(BaseTool):
             self._document_detection = DocumentDetectionService()
             self._rag_pipeline = RAGPipelineService(
                 retriever_top_k=self.retriever_top_k,
-                reranking_top_n=self.reranking_top_n,
-                use_reranking=self.use_reranking,
                 max_context_chunks=self.max_context_chunks
             )
             self._llm_config = LLMConfigurationService()

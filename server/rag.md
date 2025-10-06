@@ -1,6 +1,12 @@
 # Agentic RAG Implementation Guide
 
-This document provides a comprehensive overview of the **Agentic Retrieval-Augmented Generation (RAG)** implementation in the Abu Dhabi Gov Agent server, detailing how CrewAI agents use specialized tools for intelligent decision-making rather than traditional context-bloating RAG approaches.
+This document provides a comprehensive overview of the **Agentic Retrieval-Augmented Generation (RAG)** implementation in the Abu Dhabi Gov Agent server, detailing how CrewAI | Metric | Value | Description |
+|--------|-------|-----------|
+| **Retrieval Time** | 100-300ms | Vector similarity search |
+| **Ranking Time** | 10-50ms | Similarity score sorting |
+| **Generation Time** | 1-3 seconds | Final response creation |
+| **Memory Usage** | ~30MB | Per query processing |
+| **Token Consumption** | 1K-3K | For generation only |use specialized tools for intelligent decision-making rather than traditional context-bloating RAG approaches.
 
 ## 🏗️ Agentic RAG Architecture Overview
 
@@ -150,9 +156,9 @@ class RAGPipelineService:
     
     def process_single_document(self, index, question, doc_filename, primary_llm, secondary_llm):
         """
-        Three-stage pipeline:
+        Two-stage pipeline:
         1. Vector Retrieval (top_k=20 chunks per document)
-        2. LLM Reranking (top_n=20 most relevant)
+        2. Similarity-Based Ranking (highest similarity scores first)
         3. Response Generation (using top 10 chunks)
         """
 ```
@@ -450,10 +456,10 @@ class RAGPipelineService:
    - Optimal for vector retrieval
    - Balanced information density
 
-3. **Reranking**: LLM-based relevance scoring
-   - Improves precision over pure vector similarity
-   - Considers query-specific context
-   - Reduces false positives
+3. **Ranking**: Similarity-based relevance scoring
+   - Uses vector similarity scores directly for ranking
+   - Faster and more deterministic than LLM reranking
+   - Reduced computational overhead and token usage
 
 ### Full Document Optimization
 
@@ -481,7 +487,6 @@ class RAGPipelineService:
 EMBEDDING_MODEL=nomic-embed-text:v1.5
 EMBEDDING_DIM=768
 RETRIEVER_TOP_K=20
-RERANKING_TOP_N=20
 MAX_CONTEXT_CHUNKS=10
 
 # RAG v2 Configuration  
@@ -501,9 +506,8 @@ DOCUMENT_ANSWER_PROMPT_ID=document_answer
 # RAG v1 Tuning
 rag_v1_config = {
     "retriever_top_k": 20,      # Initial retrieval per doc
-    "reranking_top_n": 20,      # After LLM reranking
     "max_context_chunks": 10,   # For final generation
-    "use_reranking": True,      # Enable LLM reranking
+    "ranking_method": "similarity",  # Use vector similarity scores for ranking
 }
 
 # RAG v2 Tuning
