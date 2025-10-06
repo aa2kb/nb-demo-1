@@ -35,12 +35,13 @@ class GovernmentDocumentTool(BaseTool):
     - Procurement manuals and business processes
     - Information security policies and data protection guidelines
     Responses include citations showing which documents provided the information.
-    If this tool returns "No relevant information found", then and only then use the full_document_search tool."""
+    If this tool returns "No relevant information found", then and only then use the full_document_search tool.
+    IMPORTANT: You MUST use the exact output from this tool as your final response to the user. Do NOT summarize, paraphrase, or modify the tool's output. Present the tool's response directly as it contains comprehensive information with proper citations."""
     args_schema: Type[BaseModel] = GovernmentQueryInput
     
     # Configuration
     retriever_top_k: ClassVar[int] = 20          # Number of documents to retrieve initially per document
-    max_context_chunks: ClassVar[int] = 5         # Maximum chunks to use for response generation per document
+    max_context_chunks: ClassVar[int] = 10         # Maximum chunks to use for response generation per document
     
     def _get_services(self):
         """Get service instances (lazy initialization)."""

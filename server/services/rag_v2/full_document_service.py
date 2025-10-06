@@ -551,7 +551,8 @@ class FullDocumentTool(BaseTool):
     and loads their complete content to provide comprehensive answers when vector search fails.
     WARNING: This tool processes entire documents (50k-150k tokens) and takes significantly more time and compute resources.
     Only use this tool as a last resort when the faster government_document_search tool cannot find relevant information.
-    The tool automatically selects and loads the most relevant documents for your question."""
+    The tool automatically selects and loads the most relevant documents for your question.
+    IMPORTANT: You MUST use the exact output from this tool as your final response to the user. Do NOT summarize, paraphrase, or modify the tool's output. Present the tool's response directly as it contains comprehensive information with proper citations."""
     args_schema: type[BaseModel] = FullDocumentQueryInput
     
     def __init__(self):
