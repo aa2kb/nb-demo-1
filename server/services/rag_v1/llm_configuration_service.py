@@ -4,7 +4,7 @@ from llama_index.llms.ollama import Ollama
 from llama_index.llms.gemini import Gemini
 from llama_index.llms.openrouter import OpenRouter
 from llama_index.llms.groq import Groq
-from llama_index.llms.fireworks import Fireworks
+from llama_index.llms.openai_like import OpenAILike
 
 
 class LLMConfigurationService:
@@ -108,7 +108,7 @@ class LLMConfigurationService:
             return self._setup_ollama_llms()
     
     def _setup_fireworks_llms(self) -> Tuple[object, object]:
-        """Setup Fireworks LLMs."""
+        """Setup Fireworks LLMs using OpenAILike client to bypass model validation."""
         fireworks_api_key = os.getenv("FIREWORKS_API_KEY")
         
         if not fireworks_api_key:
@@ -117,11 +117,14 @@ class LLMConfigurationService:
         
         print("✅ Configuring Fireworks for both reranking and generation")
         try:
-            primary_llm = Fireworks(
+            # Use OpenAILike client for Fireworks to bypass model validation
+            primary_llm = OpenAILike(
                 model=self.llm_model,
                 api_key=fireworks_api_key,
+                api_base="https://api.fireworks.ai/inference/v1",
                 temperature=0.1,
-                max_tokens=8192
+                max_tokens=8192,
+                is_chat_model=True
             )
             secondary_llm = primary_llm  # Use same LLM for both operations
             print("✅ Fireworks LLMs initialized successfully")
