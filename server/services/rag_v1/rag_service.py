@@ -41,7 +41,7 @@ class GovernmentDocumentTool(BaseTool):
     
     # Configuration
     retriever_top_k: ClassVar[int] = 20          # Number of documents to retrieve initially per document
-    max_context_chunks: ClassVar[int] = 10         # Maximum chunks to use for response generation per document
+    max_context_chunks: ClassVar[int] = 5         # Maximum chunks to use for response generation per document
     
     def _get_services(self):
         """Get service instances (lazy initialization)."""
