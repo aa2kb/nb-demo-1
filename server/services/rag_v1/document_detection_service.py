@@ -9,14 +9,6 @@ class DocumentDetectionService:
     
     def __init__(self):
         """Initialize document detection service with document descriptions."""
-        
-        # self.available_documents = [
-        #     "Abu Dhabi Procurement Standards_0ef9c4a0.md",
-        #     "HR Bylaws_2f9c1749.md", 
-        #     "Inforamation Security_8ac2fee2.md",
-        #     "Procurement Manual (Ariba Aligned)_f679b7db.md",
-        #     "Procurement Manual (Business Process)_66d86f21.md"
-        # ]
 
 
         self.available_documents = [
@@ -27,13 +19,6 @@ class DocumentDetectionService:
             "Procurement Manual (Business Process).md"
         ]
         
-        # self.document_descriptions = {
-        #     "Abu Dhabi Procurement Standards_0ef9c4a0.md": "Abu Dhabi procurement standards, guidelines, and regulations",
-        #     "HR Bylaws_2f9c1749.md": "Human resources bylaws, employment regulations, and HR policies", 
-        #     "Inforamation Security_8ac2fee2.md": "Information security policies, data protection, and cybersecurity guidelines",
-        #     "Procurement Manual (Ariba Aligned)_f679b7db.md": "Ariba-aligned procurement processes and manual",
-        #     "Procurement Manual (Business Process)_66d86f21.md": "Business process procurement manual and procedures"
-        # }
 
         self.document_descriptions = {
             "Abu Dhabi Procurement Standards.md": "Defines the core procurement standards and governance principles for Abu Dhabi entities — outlining delivery and payment terms, intellectual property ownership, and exception code usage in purchase orders.",
