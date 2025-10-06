@@ -55,6 +55,8 @@ class FullDocumentRAGService:
             self._setup_openrouter()
         elif self.llm_provider == "groq":
             self._setup_groq()
+        elif self.llm_provider == "fireworks":
+            self._setup_fireworks()
         elif self.llm_provider == "gemini":
             self._setup_gemini()
         else:
@@ -81,6 +83,7 @@ class FullDocumentRAGService:
         self.model_name = self.llm_model
         self.use_openrouter = False
         self.use_groq = True
+        self.use_fireworks = False
         print(f"🤖 Using Groq model: {self.model_name}")
     
     def _setup_openrouter(self):
@@ -101,7 +104,28 @@ class FullDocumentRAGService:
         self.model_name = self.llm_model
         self.use_openrouter = True
         self.use_groq = False
+        self.use_fireworks = False
         print(f"🤖 Using OpenRouter model: {self.model_name}")
+    
+    def _setup_fireworks(self):
+        """Setup Fireworks LLM."""
+        self.fireworks_api_key = os.getenv("FIREWORKS_API_KEY")
+        
+        if not self.fireworks_api_key:
+            print("❌ FIREWORKS_API_KEY not found but Fireworks provider selected. Falling back to Gemini.")
+            self._setup_gemini()
+            return
+        
+        # Initialize OpenAI client for Fireworks (uses OpenAI-compatible API)
+        self.openai_client = openai.OpenAI(
+            api_key=self.fireworks_api_key,
+            base_url="https://api.fireworks.ai/inference/v1"
+        )
+        self.model_name = self.llm_model
+        self.use_openrouter = False
+        self.use_groq = False
+        self.use_fireworks = True
+        print(f"🤖 Using Fireworks model: {self.model_name}")
     
     def _setup_gemini(self):
         """Setup Gemini LLM."""
@@ -113,6 +137,7 @@ class FullDocumentRAGService:
         self.model = genai.GenerativeModel(self.llm_model)
         self.use_openrouter = False
         self.use_groq = False
+        self.use_fireworks = False
         
     
     def detect_relevant_documents_v2(self, question: str) -> List[str]:
@@ -281,6 +306,21 @@ Guidelines:
                     return f"No response received for document {doc_name}. **Source: {doc_name}**"
                 
                 response_text = response.choices[0].message.content
+            elif self.use_fireworks:
+                # Use Fireworks via OpenAI-compatible client
+                response = self.openai_client.chat.completions.create(
+                    model=self.model_name,
+                    messages=[
+                        {"role": "user", "content": prompt}
+                    ],
+                    max_tokens=8192,
+                    temperature=0.7
+                )
+                
+                if not response or not response.choices or not response.choices[0].message.content:
+                    return f"No response received for document {doc_name}. **Source: {doc_name}**"
+                
+                response_text = response.choices[0].message.content
             else:
                 # Use Gemini
                 response = self.model.generate_content(prompt)
@@ -349,6 +389,21 @@ Individual Document Responses:
                     ],
                     max_tokens=8192,
                     temperature=0.1
+                )
+                
+                if not response or not response.choices or not response.choices[0].message.content:
+                    return self.manual_join_responses(question, document_responses)
+                
+                response_text = response.choices[0].message.content
+            elif self.use_fireworks:
+                # Use Fireworks via OpenAI-compatible client
+                response = self.openai_client.chat.completions.create(
+                    model=self.model_name,
+                    messages=[
+                        {"role": "user", "content": join_prompt}
+                    ],
+                    max_tokens=8192,
+                    temperature=0.7
                 )
                 
                 if not response or not response.choices or not response.choices[0].message.content:

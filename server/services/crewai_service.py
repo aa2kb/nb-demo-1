@@ -65,6 +65,19 @@ def get_configured_llm():
                 max_tokens=131072   # Ensure adequate token limit
             )
     
+    elif llm_provider == "fireworks":
+        fireworks_api_key = os.getenv("FIREWORKS_API_KEY")
+        if not fireworks_api_key:
+            print("❌ FIREWORKS_API_KEY not found but Fireworks provider selected. Falling back to Ollama.")
+            llm_provider = "ollama"
+            llm_model = "mistral:7b"
+        else:
+            return LLM(
+                model=f"{llm_model}",
+                api_key=fireworks_api_key,
+                temperature=0.7
+            )
+    
     # Fallback to Ollama or explicit Ollama configuration
     ollama_base_url = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
     return LLM(

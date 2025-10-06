@@ -4,6 +4,7 @@ from llama_index.llms.ollama import Ollama
 from llama_index.llms.gemini import Gemini
 from llama_index.llms.openrouter import OpenRouter
 from llama_index.llms.groq import Groq
+from llama_index.llms.fireworks import Fireworks
 
 
 class LLMConfigurationService:
@@ -30,6 +31,8 @@ class LLMConfigurationService:
             return self._setup_openrouter_llms()
         elif self.llm_provider == "groq":
             return self._setup_groq_llms()
+        elif self.llm_provider == "fireworks":
+            return self._setup_fireworks_llms()
         else:
             return self._setup_ollama_llms()
     
@@ -101,6 +104,30 @@ class LLMConfigurationService:
             return primary_llm, secondary_llm
         except Exception as e:
             print(f"⚠️ Groq initialization failed: {str(e)}")
+            print("🔄 Falling back to Ollama")
+            return self._setup_ollama_llms()
+    
+    def _setup_fireworks_llms(self) -> Tuple[object, object]:
+        """Setup Fireworks LLMs."""
+        fireworks_api_key = os.getenv("FIREWORKS_API_KEY")
+        
+        if not fireworks_api_key:
+            print("❌ FIREWORKS_API_KEY not found but Fireworks provider selected. Falling back to Ollama.")
+            return self._setup_ollama_llms()
+        
+        print("✅ Configuring Fireworks for both reranking and generation")
+        try:
+            primary_llm = Fireworks(
+                model=self.llm_model,
+                api_key=fireworks_api_key,
+                temperature=0.1,
+                max_tokens=8192
+            )
+            secondary_llm = primary_llm  # Use same LLM for both operations
+            print("✅ Fireworks LLMs initialized successfully")
+            return primary_llm, secondary_llm
+        except Exception as e:
+            print(f"⚠️ Fireworks initialization failed: {str(e)}")
             print("🔄 Falling back to Ollama")
             return self._setup_ollama_llms()
     
