@@ -73,7 +73,7 @@ def get_configured_llm():
             llm_model = "mistral:7b"
         else:
             return LLM(
-                model=f"{llm_model}",
+                model=f"fireworks_ai/{llm_model}",
                 api_key=fireworks_api_key,
                 temperature=0.7
             )
