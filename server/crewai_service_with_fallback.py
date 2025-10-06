@@ -17,7 +17,7 @@ DEFAULT_BACKSTORY = "You are an expert Abu Dhabi government assistant with compr
 def get_configured_llm():
     """Get LLM configuration from environment variables."""
     llm_provider = os.getenv("DEFAULT_LLM_PROVIDER", "ollama").lower()
-    llm_model = os.getenv("DEFAULT_LLM_MODEL", "qwen2.5:3b")
+    llm_model = os.getenv("DEFAULT_LLM_MODEL", "mistral:7b")
     
     print(f"🤖 CrewAI using LLM Provider: {llm_provider}, Model: {llm_model}")
     
@@ -26,7 +26,7 @@ def get_configured_llm():
         if not gemini_api_key:
             print("❌ GEMINI_API_KEY not found but Gemini provider selected. Falling back to Ollama.")
             llm_provider = "ollama"
-            llm_model = "qwen2.5:3b"
+            llm_model = "mistral:7b"
         else:
             return LLM(
                 model=f"gemini/{llm_model}",
@@ -39,7 +39,7 @@ def get_configured_llm():
         if not openrouter_api_key:
             print("❌ OPENROUTER_API_KEY not found but OpenRouter provider selected. Falling back to Ollama.")
             llm_provider = "ollama"
-            llm_model = "qwen2.5:3b"
+            llm_model = "mistral:7b"
         else:
             return LLM(
                 model=f"openrouter/{llm_model}",
@@ -52,7 +52,7 @@ def get_configured_llm():
         if not groq_api_key:
             print("❌ GROQ_API_KEY not found but Groq provider selected. Falling back to Ollama.")
             llm_provider = "ollama"
-            llm_model = "qwen2.5:3b"
+            llm_model = "mistral:7b"
         else:
             return LLM(
                 model=f"groq/{llm_model}",
@@ -66,7 +66,7 @@ def get_configured_llm():
         if not fireworks_api_key:
             print("❌ FIREWORKS_API_KEY not found but Fireworks provider selected. Falling back to Ollama.")
             llm_provider = "ollama"
-            llm_model = "qwen2.5:3b"
+            llm_model = "mistral:7b"
         else:
             return LLM(
                 model=f"fireworks_ai/{llm_model}",
