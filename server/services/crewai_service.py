@@ -102,7 +102,6 @@ class CrewAIService:
             goal=goal,
             backstory=backstory,
             verbose=True,
-            allow_delegation=False,
             llm=llm,
             tools=[rag_document_tool, full_document_tool],
             max_iter=2,

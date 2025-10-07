@@ -127,7 +127,7 @@ class RAGPipelineService:
         
         context = "\n\n".join(context_parts)
         doc_name = self._format_citation(doc_filename)
-        
+        print(f"📝 Generating response using chunks from {doc_filename}...")
         return self._generate_with_phoenix(context, question, doc_name, doc_filename, llm)
     
     def _generate_with_phoenix(self, context: str, question: str, doc_name: str, doc_filename: str, llm) -> Optional[str]:
