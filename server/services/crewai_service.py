@@ -8,6 +8,11 @@ from typing import Dict, Any, List, Union
 from .rag_v1.rag_service import rag_document_tool
 from .rag_v2 import full_document_tool
 from phoenix.client import Client
+from phoenix.otel import register
+from openinference.instrumentation.crewai import CrewAIInstrumentor
+
+tracer_provider = register(endpoint="http://localhost:6006/v1/traces")
+CrewAIInstrumentor().instrument(skip_dep_check=True, tracer_provider=tracer_provider)
 
 phoenix_client = Client()
 agent_role_prompt = phoenix_client.prompts.get(prompt_identifier=os.getenv("AGENT_ROLE_PROMPT_ID", "agent_role"))
