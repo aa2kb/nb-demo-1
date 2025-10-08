@@ -180,7 +180,7 @@ def main():
     
     if not models_data.get('data'):
         print("\n⚠️  No models found. Make sure:")
-        print("   - Ollama has models installed (e.g., ollama pull mistral:7b)")
+        print("   - Ollama has models installed (e.g., ollama pull gemma3:27b)")
         return
     
     # Use the first available model for further testing
