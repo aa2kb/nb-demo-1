@@ -1,6 +1,8 @@
 from crewai.tools import BaseTool
 from typing import Type, ClassVar
 from pydantic import BaseModel, Field
+import concurrent.futures
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from .document_detection_service import DocumentDetectionService
 from .rag_pipeline_service import RAGPipelineService
@@ -80,20 +82,36 @@ class GovernmentDocumentTool(BaseTool):
             if not relevant_documents:
                 return "No relevant documents found for your query. Please try rephrasing your question."
             
-            # Step 2: Process each document in parallel (simulated)
+            # Step 2: Process each document in parallel
             print("🔄 Processing documents in parallel...")
             document_responses = []
             
-            for doc_filename in relevant_documents:
-                print(f"\n Processing: {doc_filename}")
-                doc_response = rag_pipeline.process_single_document(
-                    index, question, doc_filename, primary_llm, secondary_llm
-                )
-                if doc_response:
-                    document_responses.append({
-                        "document": doc_filename,
-                        "response": doc_response
-                    })
+            # Use ThreadPoolExecutor for parallel processing
+            with ThreadPoolExecutor(max_workers=min(len(relevant_documents), 5)) as executor:
+                # Submit all document processing tasks
+                future_to_doc = {
+                    executor.submit(
+                        rag_pipeline.process_single_document,
+                        index, question, doc_filename, primary_llm, secondary_llm
+                    ): doc_filename 
+                    for doc_filename in relevant_documents
+                }
+                
+                # Wait for all tasks to complete and collect results
+                for future in as_completed(future_to_doc):
+                    doc_filename = future_to_doc[future]
+                    try:
+                        print(f"✅ Completed processing: {doc_filename}")
+                        doc_response = future.result(timeout=30)  # 30 second timeout per document
+                        if doc_response:
+                            document_responses.append({
+                                "document": doc_filename,
+                                "response": doc_response
+                            })
+                    except concurrent.futures.TimeoutError:
+                        print(f"⏰ Timeout processing document: {doc_filename}")
+                    except Exception as e:
+                        print(f"❌ Error processing document {doc_filename}: {str(e)}")
             
             if not document_responses:
                 return "No relevant information found in the selected documents."

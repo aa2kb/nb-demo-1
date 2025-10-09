@@ -15,9 +15,10 @@ from crewai.tools import BaseTool
 from pydantic import BaseModel, Field
 import google.generativeai as genai
 import asyncio
-from concurrent.futures import ThreadPoolExecutor
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import openai
 from groq import Groq
+import math
 
 # Import document detection from v1
 from ..rag_v1.document_detection_service import DocumentDetectionService
@@ -188,6 +189,68 @@ class FullDocumentRAGService:
         
         return document_contents
     
+    def split_document_into_chunks(self, content: str, doc_name: str, max_chars: int = 400000) -> List[Dict[str, str]]:
+        """
+        Split a document into chunks that fit within the context limit.
+        Using 400K characters (~100K tokens) as the limit for gemma3:27b's 128K context.
+        
+        Args:
+            content: Document content to split
+            doc_name: Name of the document
+            max_chars: Maximum characters per chunk (default: 400K chars ≈ 100K tokens)
+            
+        Returns:
+            List of dictionaries with chunk info: {'content': str, 'chunk_id': str, 'doc_name': str}
+        """
+        if len(content) <= max_chars:
+            # Document fits in one chunk
+            return [{
+                'content': content,
+                'chunk_id': f"{doc_name}_chunk_1",
+                'doc_name': doc_name,
+                'chunk_number': 1,
+                'total_chunks': 1
+            }]
+        
+        # Calculate number of chunks needed
+        total_chunks = math.ceil(len(content) / max_chars)
+        chunks = []
+        
+        print(f"📊 Splitting {doc_name} into {total_chunks} chunks ({len(content):,} chars total)")
+        
+        for i in range(total_chunks):
+            start_idx = i * max_chars
+            end_idx = min((i + 1) * max_chars, len(content))
+            
+            # Try to split at paragraph or sentence boundaries to maintain context
+            chunk_content = content[start_idx:end_idx]
+            
+            # If not the last chunk, try to find a good breaking point
+            if end_idx < len(content):
+                # Look for paragraph breaks within the last 5% of the chunk
+                search_start = len(chunk_content) - min(20000, len(chunk_content) // 20)
+                
+                # Try to find paragraph break first
+                para_break = chunk_content.rfind('\n\n', search_start)
+                if para_break > search_start:
+                    chunk_content = chunk_content[:para_break + 2]
+                else:
+                    # If no paragraph break, try sentence break
+                    sentence_break = chunk_content.rfind('. ', search_start)
+                    if sentence_break > search_start:
+                        chunk_content = chunk_content[:sentence_break + 2]
+                    # Otherwise keep the hard break
+            
+            chunks.append({
+                'content': chunk_content,
+                'chunk_id': f"{doc_name}_chunk_{i+1}",
+                'doc_name': doc_name,
+                'chunk_number': i + 1,
+                'total_chunks': total_chunks
+            })
+        
+        return chunks
+    
     def create_full_context_prompt(self, question: str, document_contents: Dict[str, str]) -> str:
         """
         Create a comprehensive prompt with the question and full document content(s).
@@ -260,65 +323,99 @@ Guidelines:
         
         return "\n".join(prompt_parts)
     
-    def query_single_document(self, question: str, doc_name: str, content: str) -> str:
-        """Query a single document with the question."""
-        try:
-            print(f"🔍 Processing document: {doc_name}")
+    def create_chunk_prompt(self, question: str, chunk_info: Dict[str, str]) -> str:
+        """
+        Create a prompt for processing a document chunk.
+        
+        Args:
+            question: User's question
+            chunk_info: Dictionary with chunk details
             
-            # Create single document prompt
-            prompt = self.create_single_document_prompt(question, doc_name, content)
+        Returns:
+            Prompt for processing this chunk
+        """
+        base_prompt = """You are an expert assistant for Abu Dhabi government documentation. You are analyzing a CHUNK of a larger government document. Please provide answers based ONLY on the content in this chunk.
+
+Guidelines:
+1. Answer the question using information from this chunk
+2. Cite specific sections, articles, or parts when possible
+3. If the question cannot be answered from this chunk, state "No relevant information in this chunk"
+4. Maintain the authoritative tone appropriate for government documentation
+5. Include relevant details like article numbers, section references, and specific requirements
+6. Always end your response with the source citation: **Source: [document_name] (Chunk [X] of [Y])**"""
+        
+        chunk_id = chunk_info['chunk_id']
+        doc_name = chunk_info['doc_name']
+        chunk_number = chunk_info['chunk_number']
+        total_chunks = chunk_info['total_chunks']
+        content = chunk_info['content']
+        
+        prompt_parts = [
+            base_prompt,
+            f"\n\n=== DOCUMENT CHUNK: {doc_name} (Chunk {chunk_number} of {total_chunks}) ===\n",
+            content,
+            f"\n=== END OF CHUNK {chunk_number} ===\n",
+            f"\n=== QUESTION ===\n{question}",
+            f"\n\n=== RESPONSE ===\nBased on this chunk, here is my answer:"
+        ]
+        
+        return "\n".join(prompt_parts)
+    
+    def query_document_chunk(self, question: str, chunk_info: Dict[str, str]) -> str:
+        """Query a single document chunk with the question."""
+        try:
+            chunk_id = chunk_info['chunk_id']
+            doc_name = chunk_info['doc_name']
+            chunk_number = chunk_info['chunk_number']
+            total_chunks = chunk_info['total_chunks']
+            
+            print(f"🔍 Processing {chunk_id} ({chunk_number}/{total_chunks})")
+            
+            # Create chunk prompt
+            prompt = self.create_chunk_prompt(question, chunk_info)
             
             # Check token count
             estimated_tokens = len(prompt) // 4
-            print(f"📊 Document {doc_name}: ~{estimated_tokens:,} tokens")
+            print(f"📊 {chunk_id}: ~{estimated_tokens:,} tokens")
             
-            if estimated_tokens > 900000:
-                return f"Document {doc_name} is too large to process (>{estimated_tokens:,} tokens). **Source: {doc_name}**"
+            if estimated_tokens > 120000:  # Safety margin for 128K context
+                return f"Chunk {chunk_id} is too large to process (>{estimated_tokens:,} tokens). **Source: {doc_name} (Chunk {chunk_number} of {total_chunks})**"
             
             # Query LLM based on provider
             if self.use_openrouter:
-                # Use OpenRouter via OpenAI client
                 response = self.openai_client.chat.completions.create(
                     model=self.model_name,
-                    messages=[
-                        {"role": "user", "content": prompt}
-                    ],
+                    messages=[{"role": "user", "content": prompt}],
                     max_tokens=8192,
                     temperature=0.1
                 )
                 
                 if not response or not response.choices or not response.choices[0].message.content:
-                    return f"No response received for document {doc_name}. **Source: {doc_name}**"
+                    return f"No response received for {chunk_id}. **Source: {doc_name} (Chunk {chunk_number} of {total_chunks})**"
                 
                 response_text = response.choices[0].message.content
             elif self.use_groq:
-                # Use Groq
                 response = self.groq_client.chat.completions.create(
                     model=self.model_name,
-                    messages=[
-                        {"role": "user", "content": prompt}
-                    ],
+                    messages=[{"role": "user", "content": prompt}],
                     max_tokens=8192,
                     temperature=0.1
                 )
                 
                 if not response or not response.choices or not response.choices[0].message.content:
-                    return f"No response received for document {doc_name}. **Source: {doc_name}**"
+                    return f"No response received for {chunk_id}. **Source: {doc_name} (Chunk {chunk_number} of {total_chunks})**"
                 
                 response_text = response.choices[0].message.content
             elif self.use_fireworks:
-                # Use Fireworks via OpenAI-compatible client
                 response = self.openai_client.chat.completions.create(
                     model=self.model_name,
-                    messages=[
-                        {"role": "user", "content": prompt}
-                    ],
+                    messages=[{"role": "user", "content": prompt}],
                     max_tokens=8192,
                     temperature=0.7
                 )
                 
                 if not response or not response.choices or not response.choices[0].message.content:
-                    return f"No response received for document {doc_name}. **Source: {doc_name}**"
+                    return f"No response received for {chunk_id}. **Source: {doc_name} (Chunk {chunk_number} of {total_chunks})**"
                 
                 response_text = response.choices[0].message.content
             else:
@@ -326,16 +423,219 @@ Guidelines:
                 response = self.model.generate_content(prompt)
                 
                 if not response or not response.text:
-                    return f"No response received for document {doc_name}. **Source: {doc_name}**"
+                    return f"No response received for {chunk_id}. **Source: {doc_name} (Chunk {chunk_number} of {total_chunks})**"
                 
                 response_text = response.text
             
-            print(f"✅ Processed document: {doc_name}")
+            print(f"✅ Processed {chunk_id}")
             return response_text
+            
+        except Exception as e:
+            chunk_id = chunk_info['chunk_id']
+            doc_name = chunk_info['doc_name']
+            chunk_number = chunk_info['chunk_number']
+            total_chunks = chunk_info['total_chunks']
+            print(f"❌ Error processing {chunk_id}: {str(e)}")
+            return f"Error processing {chunk_id}: {str(e)}. **Source: {doc_name} (Chunk {chunk_number} of {total_chunks})**"
+    def query_single_document(self, question: str, doc_name: str, content: str) -> str:
+        """
+        Query a single document with the question, handling large documents by chunking.
+        
+        Args:
+            question: User's question
+            doc_name: Name of the document
+            content: Document content
+            
+        Returns:
+            Combined response from all chunks or single response if no chunking needed
+        """
+        try:
+            print(f"🔍 Processing document: {doc_name} ({len(content):,} characters)")
+            
+            # Split document into chunks if needed
+            chunks = self.split_document_into_chunks(content, doc_name)
+            
+            if len(chunks) == 1:
+                # Single chunk - process directly using the original logic
+                chunk_info = chunks[0]
+                return self.query_document_chunk(question, chunk_info)
+            else:
+                # Multiple chunks - process in parallel and combine
+                print(f"🔄 Processing {len(chunks)} chunks in parallel...")
+                
+                chunk_responses = {}
+                with ThreadPoolExecutor(max_workers=min(len(chunks), 4)) as executor:
+                    # Submit all chunk processing tasks
+                    future_to_chunk = {
+                        executor.submit(self.query_document_chunk, question, chunk_info): chunk_info['chunk_id']
+                        for chunk_info in chunks
+                    }
+                    
+                    # Collect results as they complete
+                    for future in as_completed(future_to_chunk):
+                        chunk_id = future_to_chunk[future]
+                        try:
+                            response = future.result(timeout=60)  # 60 second timeout per chunk
+                            chunk_responses[chunk_id] = response
+                            print(f"✅ Completed {chunk_id}")
+                        except Exception as e:
+                            print(f"❌ Error processing {chunk_id}: {str(e)}")
+                            chunk_responses[chunk_id] = f"Error processing {chunk_id}: {str(e)}"
+                
+                # Combine chunk responses
+                if len(chunk_responses) > 1:
+                    return self.combine_chunk_responses(question, doc_name, chunk_responses, len(chunks))
+                elif len(chunk_responses) == 1:
+                    return list(chunk_responses.values())[0]
+                else:
+                    return f"All chunk processing failed for {doc_name}. **Source: {doc_name}**"
             
         except Exception as e:
             print(f"❌ Error processing {doc_name}: {str(e)}")
             return f"Error processing document {doc_name}: {str(e)}. **Source: {doc_name}**"
+    
+    def combine_chunk_responses(self, question: str, doc_name: str, chunk_responses: Dict[str, str], total_chunks: int) -> str:
+        """
+        Combine responses from multiple chunks of the same document.
+        
+        Args:
+            question: Original question
+            doc_name: Document name
+            chunk_responses: Dictionary mapping chunk_id to response
+            total_chunks: Total number of chunks
+            
+        Returns:
+            Combined response
+        """
+        try:
+            print(f"🔗 Combining {len(chunk_responses)} chunk responses for {doc_name}...")
+            
+            # Filter out chunks with no relevant information
+            relevant_responses = {}
+            for chunk_id, response in chunk_responses.items():
+                if "no relevant information" not in response.lower() and "error processing" not in response.lower():
+                    relevant_responses[chunk_id] = response
+            
+            if not relevant_responses:
+                return f"No relevant information found in any chunks of {doc_name}. **Source: {doc_name}**"
+            
+            if len(relevant_responses) == 1:
+                # Only one chunk had relevant information
+                return list(relevant_responses.values())[0]
+            
+            # Multiple chunks have relevant information - combine using LLM
+            combine_prompt = f"""You are an expert assistant for Abu Dhabi government documentation. You have received answers to the same question from multiple chunks of the same government document. Your task is to synthesize these chunk responses into one comprehensive, well-structured answer.
+
+Guidelines:
+1. Combine information from all chunks into a coherent, comprehensive answer for the document "{doc_name}"
+2. Preserve important citations and section references from the chunks
+3. Remove redundant information but keep all unique insights
+4. If chunks provide complementary information, merge them logically
+5. Use markdown formatting for better readability
+6. End with source citation: **Source: {doc_name}**
+
+Original Question: {question}
+
+Chunk Responses from {doc_name}:
+"""
+            
+            # Add chunk responses in order
+            for i in range(1, total_chunks + 1):
+                chunk_id = f"{doc_name}_chunk_{i}"
+                if chunk_id in relevant_responses:
+                    combine_prompt += f"\n--- CHUNK {i} RESPONSE ---\n{relevant_responses[chunk_id]}\n"
+            
+            combine_prompt += f"\n--- END OF CHUNK RESPONSES ---\n\nPlease synthesize the above chunk responses into one comprehensive answer for {doc_name}:"
+            
+            # Query LLM to combine responses
+            if self.use_openrouter:
+                response = self.openai_client.chat.completions.create(
+                    model=self.model_name,
+                    messages=[{"role": "user", "content": combine_prompt}],
+                    max_tokens=8192,
+                    temperature=0.1
+                )
+                
+                if response and response.choices and response.choices[0].message.content:
+                    combined_text = response.choices[0].message.content
+                else:
+                    return self.manual_combine_chunks(question, doc_name, relevant_responses)
+                    
+            elif self.use_groq:
+                response = self.groq_client.chat.completions.create(
+                    model=self.model_name,
+                    messages=[{"role": "user", "content": combine_prompt}],
+                    max_tokens=8192,
+                    temperature=0.1
+                )
+                
+                if response and response.choices and response.choices[0].message.content:
+                    combined_text = response.choices[0].message.content
+                else:
+                    return self.manual_combine_chunks(question, doc_name, relevant_responses)
+                    
+            elif self.use_fireworks:
+                response = self.openai_client.chat.completions.create(
+                    model=self.model_name,
+                    messages=[{"role": "user", "content": combine_prompt}],
+                    max_tokens=8192,
+                    temperature=0.7
+                )
+                
+                if response and response.choices and response.choices[0].message.content:
+                    combined_text = response.choices[0].message.content
+                else:
+                    return self.manual_combine_chunks(question, doc_name, relevant_responses)
+            else:
+                # Use Gemini
+                response = self.model.generate_content(combine_prompt)
+                
+                if response and response.text:
+                    combined_text = response.text
+                else:
+                    return self.manual_combine_chunks(question, doc_name, relevant_responses)
+            
+            print(f"✅ Successfully combined {len(relevant_responses)} chunk responses for {doc_name}")
+            return combined_text
+            
+        except Exception as e:
+            print(f"⚠️ Error combining chunk responses for {doc_name}: {str(e)}, using manual combine")
+            return self.manual_combine_chunks(question, doc_name, chunk_responses)
+    
+    def manual_combine_chunks(self, question: str, doc_name: str, chunk_responses: Dict[str, str]) -> str:
+        """
+        Manually combine chunk responses as a fallback.
+        
+        Args:
+            question: Original question
+            doc_name: Document name  
+            chunk_responses: Dictionary mapping chunk_id to response
+            
+        Returns:
+            Manually combined response
+        """
+        combined_parts = [
+            f"# Response from {doc_name}\n",
+            f"**Question:** {question}\n",
+            f"Based on analysis of multiple sections of {doc_name}:\n"
+        ]
+        
+        # Add responses from chunks that have relevant information
+        relevant_count = 0
+        for chunk_id, response in sorted(chunk_responses.items()):
+            if "no relevant information" not in response.lower() and "error processing" not in response.lower():
+                relevant_count += 1
+                chunk_num = chunk_id.split('_chunk_')[-1]
+                combined_parts.append(f"## Section {chunk_num}\n")
+                combined_parts.append(response)
+                combined_parts.append("\n")
+        
+        if relevant_count == 0:
+            return f"No relevant information found in {doc_name}. **Source: {doc_name}**"
+        
+        combined_parts.append(f"\n**Source: {doc_name}**")
+        
+        return "\n".join(combined_parts)
     
     def join_multiple_responses(self, question: str, document_responses: Dict[str, str]) -> str:
         """Join multiple document responses into a comprehensive answer."""
@@ -503,12 +803,13 @@ Individual Document Responses:
                         for doc_name, content in document_contents.items()
                     }
                     
-                    # Collect results as they complete
-                    for future in future_to_doc:
+                    # Collect results as they complete with timeout handling
+                    for future in as_completed(future_to_doc, timeout=300):  # 5 minute total timeout
                         doc_name = future_to_doc[future]
                         try:
-                            response = future.result()
+                            response = future.result(timeout=180)  # 3 minute timeout per document
                             document_responses[doc_name] = response
+                            print(f"✅ Completed processing: {doc_name}")
                         except Exception as e:
                             print(f"❌ Error processing {doc_name}: {str(e)}")
                             document_responses[doc_name] = f"Error processing {doc_name}: {str(e)}. **Source: {doc_name}**"
