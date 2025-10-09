@@ -19,6 +19,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import openai
 from groq import Groq
 import math
+from llama_index.llms.ollama import Ollama
 
 # Import document detection from v1
 from ..rag_v1.document_detection_service import DocumentDetectionService
@@ -52,7 +53,9 @@ class FullDocumentRAGService:
         print(f"🔍 RAG v2 using LLM Provider: {self.llm_provider}, Model: {self.llm_model}")
         
         # Initialize LLM based on provider
-        if self.llm_provider == "openrouter":
+        if self.llm_provider == "ollama":
+            self._setup_ollama()
+        elif self.llm_provider == "openrouter":
             self._setup_openrouter()
         elif self.llm_provider == "groq":
             self._setup_groq()
@@ -61,14 +64,35 @@ class FullDocumentRAGService:
         elif self.llm_provider == "gemini":
             self._setup_gemini()
         else:
-            # Fallback to Gemini
-            print(f"⚠️ Unsupported LLM provider '{self.llm_provider}' for RAG v2. Falling back to Gemini.")
-            self._setup_gemini()
+            # Fallback to Ollama (since it's the default in this project)
+            print(f"⚠️ Unsupported LLM provider '{self.llm_provider}' for RAG v2. Falling back to Ollama.")
+            self._setup_ollama()
         
         # Document paths - using local markdown folder
         self.markdown_dir = Path(__file__).parent / "markdown"
         
         print(f"🔍 RAG v2 initialized with markdown directory: {self.markdown_dir}")
+    
+    def _setup_ollama(self):
+        """Setup Ollama LLM."""
+        ollama_base_url = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
+        
+        try:
+            # Initialize Ollama client using LlamaIndex
+            self.ollama_llm = Ollama(
+                model=self.llm_model,
+                base_url=ollama_base_url,
+                request_timeout=180
+            )
+            self.use_openrouter = False
+            self.use_groq = False
+            self.use_fireworks = False
+            self.use_ollama = True
+            print(f"🤖 Using Ollama model: {self.llm_model}")
+        except Exception as e:
+            print(f"❌ Failed to initialize Ollama: {str(e)}")
+            print("🔄 Falling back to Gemini...")
+            self._setup_gemini()
     
     def _setup_groq(self):
         """Setup Groq LLM."""
@@ -85,6 +109,7 @@ class FullDocumentRAGService:
         self.use_openrouter = False
         self.use_groq = True
         self.use_fireworks = False
+        self.use_ollama = False
         print(f"🤖 Using Groq model: {self.model_name}")
     
     def _setup_openrouter(self):
@@ -106,6 +131,7 @@ class FullDocumentRAGService:
         self.use_openrouter = True
         self.use_groq = False
         self.use_fireworks = False
+        self.use_ollama = False
         print(f"🤖 Using OpenRouter model: {self.model_name}")
     
     def _setup_fireworks(self):
@@ -126,6 +152,7 @@ class FullDocumentRAGService:
         self.use_openrouter = False
         self.use_groq = False
         self.use_fireworks = True
+        self.use_ollama = False
         print(f"🤖 Using Fireworks model: {self.model_name}")
     
     def _setup_gemini(self):
@@ -139,6 +166,7 @@ class FullDocumentRAGService:
         self.use_openrouter = False
         self.use_groq = False
         self.use_fireworks = False
+        self.use_ollama = False
         
     
     def detect_relevant_documents_v2(self, question: str) -> List[str]:
@@ -418,6 +446,14 @@ Guidelines:
                     return f"No response received for {chunk_id}. **Source: {doc_name} (Chunk {chunk_number} of {total_chunks})**"
                 
                 response_text = response.choices[0].message.content
+            elif self.use_ollama:
+                # Use Ollama via LlamaIndex
+                response = self.ollama_llm.complete(prompt)
+                
+                if not response or not response.text:
+                    return f"No response received for {chunk_id}. **Source: {doc_name} (Chunk {chunk_number} of {total_chunks})**"
+                
+                response_text = response.text
             else:
                 # Use Gemini
                 response = self.model.generate_content(prompt)
@@ -586,6 +622,14 @@ Chunk Responses from {doc_name}:
                     combined_text = response.choices[0].message.content
                 else:
                     return self.manual_combine_chunks(question, doc_name, relevant_responses)
+            elif self.use_ollama:
+                # Use Ollama via LlamaIndex
+                response = self.ollama_llm.complete(combine_prompt)
+                
+                if response and response.text:
+                    combined_text = response.text
+                else:
+                    return self.manual_combine_chunks(question, doc_name, relevant_responses)
             else:
                 # Use Gemini
                 response = self.model.generate_content(combine_prompt)
@@ -710,6 +754,14 @@ Individual Document Responses:
                     return self.manual_join_responses(question, document_responses)
                 
                 response_text = response.choices[0].message.content
+            elif self.use_ollama:
+                # Use Ollama via LlamaIndex
+                response = self.ollama_llm.complete(join_prompt)
+                
+                if not response or not response.text:
+                    return self.manual_join_responses(question, document_responses)
+                
+                response_text = response.text
             else:
                 # Use Gemini
                 response = self.model.generate_content(join_prompt)
