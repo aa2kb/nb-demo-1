@@ -19,7 +19,6 @@ agent_role_prompt = phoenix_client.prompts.get(prompt_identifier=os.getenv("AGEN
 agent_role_goal = phoenix_client.prompts.get(prompt_identifier=os.getenv("AGENT_GOAL_PROMPT_ID", "agent_goal"))
 agent_role_backstory = phoenix_client.prompts.get(prompt_identifier=os.getenv("AGENT_BACKSTORY_PROMPT_ID", "agent_backstory"))
     
-# TODO: RAG using PGSearchTool
 # from crewai_tools import PGSearchTool
 
 # Configure LLM based on environment settings
