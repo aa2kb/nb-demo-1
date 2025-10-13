@@ -17,7 +17,10 @@ from ragas.dataset_schema import SingleTurnSample
 from ragas.metrics import Faithfulness, SimpleCriteriaScore
 from ragas.metrics._factual_correctness import FactualCorrectness
 
-# Import dataset
+# Import generated dataset with high-quality agent responses
+# from generated_dataset_20251014_002128 import dataset
+
+# Import original dataset for comparison
 from dataset import dataset
 
 # Environment setup
