@@ -106,12 +106,13 @@ def main():
     
     questions = dataset["question"]
     references = dataset["reference_answers"]
+    contexts = dataset["contexts"]
     
     print(f"\n📋 Processing {len(questions)} questions...")
     
     results = []
     
-    for i, (question, reference) in enumerate(zip(questions, references), 1):
+    for i, (question, reference, context) in enumerate(zip(questions, references, contexts), 1):
         print(f"\n📝 {i}/{len(questions)}")
         
         # Get agent response
@@ -128,6 +129,10 @@ def main():
             print(f"   Criteria:   {crit_score:.3f}")
             
             results.append({
+                "question": question,
+                "context": context,
+                "reference_answer": reference,
+                "agent_response": response,
                 "similarity_score": sim_score,
                 "relevance_score": rel_score, 
                 "criteria_score": crit_score
@@ -135,6 +140,10 @@ def main():
         else:
             print("   ❌ Failed")
             results.append({
+                "question": question,
+                "context": context,
+                "reference_answer": reference,
+                "agent_response": "Failed to get response",
                 "similarity_score": 0.0,
                 "relevance_score": 0.0,
                 "criteria_score": 0.0
