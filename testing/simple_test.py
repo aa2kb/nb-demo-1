@@ -12,6 +12,9 @@ from datetime import datetime
 from pathlib import Path
 import pandas as pd
 
+# RAGAS imports for SimpleCriteriaScore
+from ragas.metrics import SimpleCriteriaScore
+
 # Import the generated dataset
 try:
     from generated_dataset_20251014_002128 import dataset
