@@ -166,8 +166,7 @@ class FullDocumentRAGService:
         self.use_openrouter = False
         self.use_groq = False
         self.use_fireworks = False
-        self.use_ollama = False
-        
+        self.use_ollama = False        
     
     def detect_relevant_documents_v2(self, question: str) -> List[str]:
         """
@@ -473,6 +472,7 @@ Guidelines:
             total_chunks = chunk_info['total_chunks']
             print(f"❌ Error processing {chunk_id}: {str(e)}")
             return f"Error processing {chunk_id}: {str(e)}. **Source: {doc_name} (Chunk {chunk_number} of {total_chunks})**"
+    
     def query_single_document(self, question: str, doc_name: str, content: str) -> str:
         """
         Query a single document with the question, handling large documents by chunking.
