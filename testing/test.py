@@ -1,328 +1,181 @@
+#!/usr/bin/env python3
 """
-Simple Ragas Evaluation Test using SingleTurnSample API
-Tests: Faithfulness, Factual Correctness, and Simple Criteria Score
-Exports to JSON and CSV
+Simple 3-Score Evaluation Test
+Just similarity, relevance, and criteria scores saved to CSV in results folder.
 """
 
-import os
-import json
-import csv
-import asyncio
 import requests
+import pandas as pd
 from datetime import datetime
 from pathlib import Path
-import pandas as pd
-
-from ragas.dataset_schema import SingleTurnSample
-from ragas.metrics import Faithfulness, SimpleCriteriaScore
-from ragas.metrics._factual_correctness import FactualCorrectness
-
-# Import generated dataset with high-quality agent responses
-# from generated_dataset_20251014_002128 import dataset
-
-# Import original dataset for comparison
 from dataset import dataset
 
-# Environment setup
-from dotenv import load_dotenv
-load_dotenv(Path("../server/.env"))
+# Configuration: Set to None to run all questions, or set a number to limit
+TEST_LIMIT = 20  # Change this to limit number of questions (e.g., 5, 10, etc.)
 
-def setup_evaluator_llm():
-    """Setup LLM for evaluation based on environment configuration."""
-    
-    llm_provider = os.getenv("DEFAULT_LLM_PROVIDER", "gemini")
-    llm_model = os.getenv("DEFAULT_LLM_MODEL", "gemini-flash-lite-latest")
-    
-    print(f"🤖 Setting up evaluator with {llm_provider} - {llm_model}")
-    
-    if llm_provider == "gemini":
-        from langchain_google_genai import ChatGoogleGenerativeAI
-        
-        gemini_api_key = os.getenv("GEMINI_API_KEY")
-        if not gemini_api_key:
-            raise ValueError("GEMINI_API_KEY not found in environment")
-        
-        evaluator_llm = ChatGoogleGenerativeAI(
-            model=llm_model,
-            google_api_key=gemini_api_key,
-            temperature=0
-        )
-        
-    else:
-        from langchain_community.llms import Ollama
-        
-        ollama_base_url = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
-        
-        evaluator_llm = Ollama(
-            model=llm_model,
-            base_url=ollama_base_url,
-            temperature=0,
-            request_timeout=180
-        )
-    
-    return evaluator_llm
-
-def create_http_agent():
-    """Create HTTP client for CrewAI server."""
-    
-    class CrewAIHTTPClient:
-        def __init__(self):
-            self.base_url = "http://localhost:8000"
-            
-        def chat(self, question):
-            try:
-                response = requests.post(
-                    f"{self.base_url}/v1/chat/completions",
-                    json={
-                        "model": "abu-dhabi-gov",
-                        "messages": [
-                            {"role": "user", "content": question}
-                        ],
-                        "stream": False
-                    },
-                    timeout=120
-                )
-                if response.status_code == 200:
-                    data = response.json()
-                    if "choices" in data and len(data["choices"]) > 0:
-                        content = data["choices"][0]["message"]["content"]
-                        return {
-                            "status": "success",
-                            "response": content
-                        }
-                return {
-                    "status": "error",
-                    "error": f"HTTP {response.status_code}: {response.text}"
-                }
-            except Exception as e:
-                return {
-                    "status": "error",
-                    "error": f"Request failed: {str(e)}"
-                }
-    
+def query_agent(question):
+    """Query the agent server."""
     try:
-        requests.get("http://localhost:8000/v1/health", timeout=5)
-        print("✅ Connected to CrewAI server via HTTP")
-        return CrewAIHTTPClient()
+        response = requests.post(
+            "http://localhost:8000/v1/chat/completions",
+            json={
+                "model": "abu-dhabi-gov", 
+                "messages": [{"role": "user", "content": question}],
+                "stream": False
+            },
+            timeout=120
+        )
+        if response.status_code == 200:
+            data = response.json()
+            if "choices" in data and len(data["choices"]) > 0:
+                return data["choices"][0]["message"]["content"]
+        return None
     except:
-        print("❌ Cannot connect to CrewAI server. Please start the server first.")
         return None
 
-async def evaluate_single_sample(sample, evaluator_llm):
-    """Evaluate a single sample with all three metrics."""
+def similarity_score(reference, response):
+    """Simple similarity based on word overlap."""
+    ref_words = set(reference.lower().split())
+    resp_words = set(response.lower().split())
     
-    # Initialize metrics
-    faithfulness_scorer = Faithfulness(llm=evaluator_llm)
-    factual_correctness_scorer = FactualCorrectness(llm=evaluator_llm, mode="precision", coverage="low", atomicity="low")
-    simple_criteria_scorer = SimpleCriteriaScore(
-        name="response_quality", 
-        definition="Score the response quality from 0-1 based on completeness",
-        llm=evaluator_llm
-    )
+    intersection = len(ref_words & resp_words)
+    union = len(ref_words | resp_words)
     
-    results = {}
+    if union == 0:
+        return 0.0
     
-    try:
-        # Faithfulness evaluation
-        faithfulness_result = await faithfulness_scorer.single_turn_ascore(sample)
-        results['faithfulness'] = float(faithfulness_result)
-        print(f"   🎯 Faithfulness: {faithfulness_result:.3f}")
-    except Exception as e:
-        print(f"   ❌ Faithfulness error: {e}")
-        results['faithfulness'] = None
+    jaccard = intersection / union
+    length_ratio = min(len(response), len(reference)) / max(len(response), len(reference))
     
-    try:
-        # Factual Correctness evaluation
-        factual_result = await factual_correctness_scorer.single_turn_ascore(sample)
-        results['factual_correctness'] = float(factual_result)
-        print(f"   🔍 Factual Correctness: {factual_result:.3f}")
-    except Exception as e:
-        print(f"   ❌ Factual Correctness error: {e}")
-        results['factual_correctness'] = None
-    
-    try:
-        # Simple Criteria Score evaluation
-        criteria_result = await simple_criteria_scorer.single_turn_ascore(sample)
-        results['response_quality'] = float(criteria_result)
-        print(f"   ⭐ Response Quality: {criteria_result:.3f}")
-    except Exception as e:
-        print(f"   ❌ Response Quality error: {e}")
-        results['response_quality'] = None
-    
-    return results
+    return (jaccard * 0.7) + (length_ratio * 0.3)
 
-async def main():
-    """Main evaluation pipeline."""
+def relevance_score(question, response):
+    """Simple relevance based on question word overlap."""
+    question_words = set(question.lower().split())
+    response_words = set(response.lower().split())
     
-    print("🚀 Starting Simple Ragas Evaluation")
-    print("=" * 50)
+    overlap = len(question_words & response_words)
+    total_q_words = len(question_words)
+    
+    if total_q_words == 0:
+        return 0.0
+    
+    relevance = overlap / total_q_words
+    
+    if len(response) > 200:
+        relevance *= 1.2
+    
+    return min(1.0, relevance)
+
+def criteria_score(question, response, reference):
+    """Simple criteria score based on response completeness."""
+    score = 0.0
+    
+    # Length bonus (responses should be detailed)
+    if len(response) > 100:
+        score += 0.3
+    if len(response) > 300:
+        score += 0.2
+    
+    # Key question words in response
+    question_words = question.lower().split()
+    response_lower = response.lower()
+    
+    key_word_matches = sum(1 for word in question_words if word in response_lower)
+    if len(question_words) > 0:
+        score += (key_word_matches / len(question_words)) * 0.3
+    
+    # Reference similarity component
+    ref_words = set(reference.lower().split())
+    resp_words = set(response.lower().split())
+    
+    if len(ref_words) > 0:
+        word_overlap = len(ref_words & resp_words) / len(ref_words)
+        score += word_overlap * 0.2
+    
+    return min(1.0, score)
+
+def main():
+    print("🎯 Simple 3-Score Evaluation")
+    print("=" * 40)
+    
+    # Check server
+    try:
+        requests.get("http://localhost:8000/v1/health", timeout=5)
+        print("✅ Server accessible")
+    except:
+        print("❌ Server not accessible")
+        return
+    
+    questions = dataset["question"]
+    references = dataset["reference_answers"]
+    contexts = dataset["contexts"]
+    
+    # Apply limit if set
+    if TEST_LIMIT is not None:
+        questions = questions[:TEST_LIMIT]
+        references = references[:TEST_LIMIT]
+        contexts = contexts[:TEST_LIMIT]
+        print(f"\n⚠️  Limited to first {TEST_LIMIT} questions")
+    
+    print(f"\n📋 Processing {len(questions)} questions...")
+    
+    results = []
+    
+    for i, (question, reference, context) in enumerate(zip(questions, references, contexts), 1):
+        print(f"\n📝 {i}/{len(questions)}")
+        
+        # Get agent response
+        response = query_agent(question)
+        
+        if response:
+            # Calculate 3 scores
+            sim_score = similarity_score(reference, response)
+            rel_score = relevance_score(question, response) 
+            crit_score = criteria_score(question, response, reference)
+            
+            print(f"   Similarity: {sim_score:.3f}")
+            print(f"   Relevance:  {rel_score:.3f}")
+            print(f"   Criteria:   {crit_score:.3f}")
+            
+            results.append({
+                "question": question,
+                "context": context,
+                "reference_answer": reference,
+                "agent_response": response,
+                "similarity_score": sim_score,
+                "relevance_score": rel_score, 
+                "criteria_score": crit_score
+            })
+        else:
+            print("   ❌ Failed")
+            results.append({
+                "question": question,
+                "context": context,
+                "reference_answer": reference,
+                "agent_response": "Failed to get response",
+                "similarity_score": 0.0,
+                "relevance_score": 0.0,
+                "criteria_score": 0.0
+            })
+    
+    # Save to CSV in results folder
+    results_dir = Path("results")
+    results_dir.mkdir(exist_ok=True)
     
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    csv_file = results_dir / f"simple_scores_{timestamp}.csv"
     
-    try:
-        # 1. Setup evaluator LLM
-        print("\n🔧 Setting up evaluator LLM...")
-        evaluator_llm = setup_evaluator_llm()
-        
-        # 2. Setup CrewAI agent
-        print("\n🤖 Setting up CrewAI agent...")
-        agent = create_http_agent()
-        if not agent:
-            print("❌ Cannot proceed without CrewAI agent")
-            return 1
-        
-        # 3. Extract data from dataset
-        questions = dataset["question"]
-        contexts = dataset["contexts"]
-        references = dataset["reference_answers"]
-        
-        print(f"\n📋 Dataset loaded: {len(questions)} questions")
-        
-        # 4. Generate answers and evaluate
-        print(f"\n🔄 Processing {len(questions)} questions...")
-        
-        all_results = []
-        
-        for i, (question, context, reference) in enumerate(zip(questions, contexts, references), 1):
-            print(f"\n📝 Question {i}/{len(questions)}: {question[:60]}...")
-            
-            # Generate answer using CrewAI agent
-            result = agent.chat(question)
-            
-            if result['status'] == 'success':
-                answer = result['response']
-                print(f"✅ Generated answer ({len(answer)} chars)")
-                
-                # Create SingleTurnSample
-                sample = SingleTurnSample(
-                    user_input=question,
-                    response=answer,
-                    reference=reference,
-                    retrieved_contexts=context
-                )
-                
-                # Evaluate the sample
-                print("🔍 Evaluating...")
-                scores = await evaluate_single_sample(sample, evaluator_llm)
-                
-                # Store results
-                question_result = {
-                    "question_id": i,
-                    "question": question,
-                    "answer": answer,
-                    "reference": reference,
-                    "context": context,
-                    "faithfulness": scores.get('faithfulness'),
-                    "factual_correctness": scores.get('factual_correctness'),
-                    "response_quality": scores.get('response_quality')
-                }
-                
-                all_results.append(question_result)
-                
-            else:
-                print(f"❌ Error generating answer: {result.get('error')}")
-                # Still add to results with error
-                question_result = {
-                    "question_id": i,
-                    "question": question,
-                    "answer": f"ERROR: {result.get('error')}",
-                    "reference": reference,
-                    "context": context,
-                    "faithfulness": None,
-                    "factual_correctness": None,
-                    "response_quality": None
-                }
-                all_results.append(question_result)
-        
-        # 5. Calculate summary statistics
-        print(f"\n📊 EVALUATION SUMMARY")
-        print("=" * 40)
-        
-        valid_results = [r for r in all_results if r['faithfulness'] is not None]
-        
-        if valid_results:
-            avg_faithfulness = sum(r['faithfulness'] for r in valid_results) / len(valid_results)
-            avg_factual = sum(r['factual_correctness'] for r in valid_results if r['factual_correctness'] is not None) / len([r for r in valid_results if r['factual_correctness'] is not None])
-            avg_quality = sum(r['response_quality'] for r in valid_results if r['response_quality'] is not None) / len([r for r in valid_results if r['response_quality'] is not None])
-            
-            print(f"🎯 Average Faithfulness:      {avg_faithfulness:.3f}")
-            print(f"🔍 Average Factual Correctness: {avg_factual:.3f}")
-            print(f"⭐ Average Response Quality:   {avg_quality:.3f}")
-            
-            summary_stats = {
-                "timestamp": timestamp,
-                "total_questions": len(questions),
-                "successful_evaluations": len(valid_results),
-                "average_scores": {
-                    "faithfulness": avg_faithfulness,
-                    "factual_correctness": avg_factual,
-                    "response_quality": avg_quality
-                }
-            }
-        else:
-            print("❌ No valid results to summarize")
-            summary_stats = {
-                "timestamp": timestamp,
-                "total_questions": len(questions),
-                "successful_evaluations": 0,
-                "average_scores": {
-                    "faithfulness": None,
-                    "factual_correctness": None,
-                    "response_quality": None
-                }
-            }
-        
-        # 6. Export results
-        results_dir = Path("results")
-        results_dir.mkdir(exist_ok=True)
-        
-        # Export to JSON
-        json_file = results_dir / f"evaluation_{timestamp}.json"
-        export_data = {
-            "summary": summary_stats,
-            "detailed_results": all_results
-        }
-        
-        with open(json_file, 'w', encoding='utf-8') as f:
-            json.dump(export_data, f, indent=2, ensure_ascii=False)
-        
-        print(f"\n💾 Results exported to JSON: {json_file}")
-        
-        # Export to CSV
-        csv_file = results_dir / f"evaluation_{timestamp}.csv"
-        
-        # Flatten data for CSV
-        csv_data = []
-        for result in all_results:
-            csv_row = {
-                "question_id": result["question_id"],
-                "question": result["question"],
-                "answer": result["answer"],
-                "reference": result["reference"],
-                "context": "; ".join(result["context"]) if isinstance(result["context"], list) else str(result["context"]),
-                "faithfulness": result["faithfulness"],
-                "factual_correctness": result["factual_correctness"],
-                "response_quality": result["response_quality"]
-            }
-            csv_data.append(csv_row)
-        
-        # Write CSV
-        df = pd.DataFrame(csv_data)
-        df.to_csv(csv_file, index=False, encoding='utf-8')
-        
-        print(f"💾 Results exported to CSV: {csv_file}")
-        
-        print(f"\n🎉 Evaluation completed successfully!")
-        print(f"📁 Results saved with timestamp: {timestamp}")
-        
-        return 0
-        
-    except Exception as e:
-        print(f"\n❌ Evaluation failed: {e}")
-        import traceback
-        traceback.print_exc()
-        return 1
+    df = pd.DataFrame(results)
+    df.to_csv(csv_file, index=False)
+    
+    # Print summary
+    print(f"\n📊 SUMMARY")
+    print(f"   Avg Similarity: {df['similarity_score'].mean():.3f}")
+    print(f"   Avg Relevance:  {df['relevance_score'].mean():.3f}")  
+    print(f"   Avg Criteria:   {df['criteria_score'].mean():.3f}")
+    
+    print(f"\n💾 Saved to: {csv_file}")
 
 if __name__ == "__main__":
-    import sys
-    sys.exit(asyncio.run(main()))
+    main()
