@@ -107,7 +107,7 @@ class RAGPipelineService:
         
         # Print ranking results
         print("✅ Similarity-based ranking completed:")
-        for idx, node in enumerate(ranked_nodes[:20]):  # Show top 10
+        for idx, node in enumerate(ranked_nodes[:20]):  # Show top 20
             score = node.score if node.score is not None else 0.0
             print(f"   Rank {idx + 1}: Score {score:.4f}")
         
