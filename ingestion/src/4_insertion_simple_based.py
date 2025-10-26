@@ -55,7 +55,7 @@ def main():
             password=config['DB_PASSWORD'],
             port=config['DB_PORT'],
             user=config['DB_USER'],
-            table_name='vectors_from_chunks',
+            table_name='vectors_simple_chunks',
             embed_dim=config['EMBEDDING_DIM'],
             hybrid_search=True,
             text_search_config="english"
@@ -239,21 +239,35 @@ def insert_nodes(nodes, vector_store, embedding_model):
         for i, node in enumerate(nodes, 1):
             print(f"   Processing node {i}/{total_nodes}")
             
-            try:
-                # Create index with single node
-                index = VectorStoreIndex([node], storage_context=storage_context, embed_model=embedding_model)
-                successful_inserts += 1
-                
-                # Small delay to avoid overwhelming the service
-                time.sleep(0.01)
-                
-                if i % 10 == 0:  # Progress update every 10 nodes
-                    print(f"   ✅ Successfully inserted {successful_inserts}/{i} nodes")
-                
-            except Exception as node_error:
-                print(f"   ❌ Error inserting node {i}: {node_error}")
-                # Continue with next node instead of failing completely
-                continue
+            # Retry logic for node insertion (only 1 retry)
+            max_retries = 1
+            retry_delay = 0.1  # 0.1 second delay before retry
+            
+            for attempt in range(max_retries + 1):
+                try:
+                    # Create index with single node
+                    index = VectorStoreIndex([node], storage_context=storage_context, embed_model=embedding_model)
+                    successful_inserts += 1
+                    
+                    # Small delay to avoid overwhelming the service
+                    time.sleep(0.01)
+                    
+                    if i % 10 == 0:  # Progress update every 10 nodes
+                        print(f"   ✅ Successfully inserted {successful_inserts}/{i} nodes")
+                    
+                    break  # Success, exit retry loop
+                    
+                except Exception as node_error:
+                    if attempt < max_retries:
+                        print(f"   ⚠️  Error inserting node {i} (attempt {attempt + 1}/{max_retries + 1}): {node_error}")
+                        print(f"   📄 Node text causing error: {node.text[:200]}...")
+                        print(f"   ⏳ Retrying in {retry_delay} seconds...")
+                        time.sleep(retry_delay)
+                    else:
+                        print(f"   ❌ Failed to insert node {i} after {max_retries + 1} attempts: {node_error}")
+                        print(f"   📄 Failed node text: {node.text[:200]}...")
+                        # Continue with next node instead of failing completely
+                        continue
         
         if successful_inserts == 0:
             return False
