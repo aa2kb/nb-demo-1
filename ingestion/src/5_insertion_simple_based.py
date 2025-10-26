@@ -53,16 +53,16 @@ def main():
     # Get vector store
     try:
         vector_store = PGVectorStore.from_params(
-        database=config['DB_NAME'],
-        host=config['DB_HOST'],
-        password=config['DB_PASSWORD'],
-        port=config['DB_PORT'],
-        user=config['DB_USER'],
-        table_name='vectors_simple_chunks',
-        embed_dim=config['EMBEDDING_DIM'],
-        hybrid_search=True,
-        text_search_config="english"
-    )
+            database=config['DB_NAME'],
+            host=config['DB_HOST'],
+            password=config['DB_PASSWORD'],
+            port=config['DB_PORT'],
+            user=config['DB_USER'],
+            table_name='vectors_simple_chunks',
+            embed_dim=config['EMBEDDING_DIM'],
+            hybrid_search=True,
+            text_search_config="english"
+        )
         print("Connected to vector store")
     except Exception as e:
         print(f"Failed to connect to vector store: {e}")
