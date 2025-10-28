@@ -12,7 +12,7 @@ from .database_service import DatabaseService
 
 class GovernmentQueryInput(BaseModel):
     """Input schema for government document search tool."""
-    question: str = Field(..., description="Question about government policies, procedures, HR, procurement, or security regulations")
+    question: str = Field(..., description="Question about government policies, procedures, HR, procurement, or security regulations, Please include the full context in the question.")
 
 
 class GovernmentDocumentTool(BaseTool):
@@ -31,6 +31,7 @@ class GovernmentDocumentTool(BaseTool):
     This tool provides comprehensive information from multiple government documentation sources using efficient vector search.
     Use this tool ONCE per question - it returns complete, detailed answers with proper citations.
     Do not call this tool multiple times for the same question.
+    Please provide full query context in the question input.
     The tool intelligently selects and searches relevant documents including:
     - HR bylaws, employment regulations, and human resources policies
     - Abu Dhabi procurement standards and guidelines
